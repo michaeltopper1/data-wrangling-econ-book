@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 4 Selected Solutions | Data Wrangling for Economists</title>
+  <title>Chapter 12 Selected Solutions | Data Wrangling for Economists</title>
   <meta name="description" content="Enter description." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 4 Selected Solutions | Data Wrangling for Economists" />
+  <meta property="og:title" content="Chapter 12 Selected Solutions | Data Wrangling for Economists" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="openscapes/series" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 4 Selected Solutions | Data Wrangling for Economists" />
+  <meta name="twitter:title" content="Chapter 12 Selected Solutions | Data Wrangling for Economists" />
   
   <meta name="twitter:description" content="Enter description." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="intro-to-r.html"/>
-<link rel="next" href="cleaning-data-i.html"/>
+<link rel="prev" href="programming.html"/>
+<link rel="next" href="relational-data.html"/>
 <script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -288,11 +288,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="selected-solutions" class="section level1" number="4">
-<h1><span class="header-section-number">Chapter 4</span> Selected Solutions</h1>
-<ul>
-<li>(Exercise 1.1.1) Standard deviation: 14.5264973 Variance: 211.0191247</li>
-</ul>
+<div id="selected-solutions-3" class="section level1" number="12">
+<h1><span class="header-section-number">Chapter 12</span> Selected Solutions</h1>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="selected-solutions-3.html#cb211-1" aria-hidden="true" tabindex="-1"></a><span class="do">## a solution to Exercise 1.1.1</span></span>
+<span id="cb211-2"><a href="selected-solutions-3.html#cb211-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb211-3"><a href="selected-solutions-3.html#cb211-3" aria-hidden="true" tabindex="-1"></a><span class="do">## this function converts miles to kilometers and feet to meters</span></span>
+<span id="cb211-4"><a href="selected-solutions-3.html#cb211-4" aria-hidden="true" tabindex="-1"></a><span class="do">## it takes two input paramters: miles and feet</span></span>
+<span id="cb211-5"><a href="selected-solutions-3.html#cb211-5" aria-hidden="true" tabindex="-1"></a><span class="do">## it returns two values: the kilometers and the meters</span></span>
+<span id="cb211-6"><a href="selected-solutions-3.html#cb211-6" aria-hidden="true" tabindex="-1"></a>miles2kilo_feet2meter <span class="ot">&lt;-</span> <span class="cf">function</span>(miles, feet){</span>
+<span id="cb211-7"><a href="selected-solutions-3.html#cb211-7" aria-hidden="true" tabindex="-1"></a>  kilometers <span class="ot">&lt;-</span> miles <span class="sc">*</span> <span class="fl">1.6</span></span>
+<span id="cb211-8"><a href="selected-solutions-3.html#cb211-8" aria-hidden="true" tabindex="-1"></a>  meters <span class="ot">&lt;-</span> feet <span class="sc">*</span> <span class="fl">0.3</span></span>
+<span id="cb211-9"><a href="selected-solutions-3.html#cb211-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Kilometers: &quot;</span>, kilometers, <span class="st">&quot;Meters: &quot;</span>, meters)))</span>
+<span id="cb211-10"><a href="selected-solutions-3.html#cb211-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="selected-solutions-3.html#cb212-1" aria-hidden="true" tabindex="-1"></a><span class="do">## a solution to Exercise 1.2.1</span></span>
+<span id="cb212-2"><a href="selected-solutions-3.html#cb212-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb212-3"><a href="selected-solutions-3.html#cb212-3" aria-hidden="true" tabindex="-1"></a><span class="do">## This function calculates the sum of all numbers within a specified range</span></span>
+<span id="cb212-4"><a href="selected-solutions-3.html#cb212-4" aria-hidden="true" tabindex="-1"></a><span class="do">## two parameters: minval and maxvalue</span></span>
+<span id="cb212-5"><a href="selected-solutions-3.html#cb212-5" aria-hidden="true" tabindex="-1"></a><span class="do">## minval: the minimum value of the range</span></span>
+<span id="cb212-6"><a href="selected-solutions-3.html#cb212-6" aria-hidden="true" tabindex="-1"></a><span class="do">## maxval: the maximum value of the range</span></span>
+<span id="cb212-7"><a href="selected-solutions-3.html#cb212-7" aria-hidden="true" tabindex="-1"></a>sum_func <span class="ot">&lt;-</span> <span class="cf">function</span>(minval, maxval) {</span>
+<span id="cb212-8"><a href="selected-solutions-3.html#cb212-8" aria-hidden="true" tabindex="-1"></a>  total <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb212-9"><a href="selected-solutions-3.html#cb212-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> minval<span class="sc">:</span>maxval) {</span>
+<span id="cb212-10"><a href="selected-solutions-3.html#cb212-10" aria-hidden="true" tabindex="-1"></a>    total <span class="ot">=</span> total <span class="sc">+</span> i</span>
+<span id="cb212-11"><a href="selected-solutions-3.html#cb212-11" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb212-12"><a href="selected-solutions-3.html#cb212-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;The sum of all numbers is &quot;</span>, total)))</span>
+<span id="cb212-13"><a href="selected-solutions-3.html#cb212-13" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 
 </div>
             </section>
@@ -300,8 +320,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="intro-to-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="cleaning-data-i.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="programming.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="relational-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -333,7 +353,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/jules32/bookdown-tutorial/edit/master/intro_r.Rmd",
+"link": "https://github.com/jules32/bookdown-tutorial/edit/master/programming.Rmd",
 "text": "Edit"
 },
 "history": {

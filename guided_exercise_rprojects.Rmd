@@ -1,25 +1,3 @@
----
-title: 'Guided Exercises: R Projects'
-subtitle: Econ 245
-output:
-  html_document:
-    df_print: paged
-header-includes:
-- \usepackage{fancyhdr}
-- \pagestyle{fancy}
-- \fancypagestyle{plain}{\pagestyle{fancy}}
-- \fancyhead[LE, LO]{Staying Organized}
-- \fancyfoot[LE,LO]{Copyright UCSB 2021}
-- \newcommand{\magenta}[1]{\textcolor{magenta}{#1}}
-- \usepackage{xcolor}
-- \usepackage[fontsize=11pt]{scrextend}
-- \usepackage{float}
-- \floatplacement{figure}{H}
-- \usepackage{indentfirst}
-editor_options:
-  chunk_output_type: console
-linkcolor: magenta
----
 
 ```{r, include=FALSE}
 
@@ -32,9 +10,10 @@ pacman::p_load(
 
 ```
 
-This document provides an introduction to the `R Project` - an organizational tool which we highly recommend you adopt ASAP. This tool will be invaluable for reproducible research, collaboration, and integrates seamlessly with Git/Github. 
 
 # The `Rproject`
+
+This document provides an introduction to the `R Project` - an organizational tool which we highly recommend you adopt ASAP. This tool will be invaluable for reproducible research, collaboration, and integrates seamlessly with Git/Github. 
 
 When working with coauthors, each writer will need to source scripts between local machines. A common problem is that these scripts will no longer work since the file paths are "hard-coded". For example, if your Homework 1 was part of a research project, the naive start may be something like this:
 
