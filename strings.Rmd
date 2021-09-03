@@ -1,7 +1,7 @@
 
 # Strings
 
-For this Guided Exercise, we will once again be importing the horror movies data set from the TidyTuesday Github. This data set contains information from IMDB on various horror movies. Some important columns we will be focusing on this week:
+For this chapter, we will once again be importing the horror movies data set from the TidyTuesday Github. This data set contains information from IMDB on various horror movies. Some important columns we will be focusing on this week:
 
 * `title`- the title of the movie
 * `release_date`- movie release date in day-month-year format

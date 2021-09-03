@@ -1,7 +1,7 @@
 
 # Data Cleaning II
 
-For this Guided Exercise,  we will be importing  a dataset from TidyTuesday Github. Tidy Tuesday is a weekly social data project in R where users explore a new dataset each week and share their findings on Twitter with #TidyTuesday. In particular, we will be focusing on a horror movies data set from IMDB. IMDB is the world's most popular and authoritative source for movie, TV and celebrity content, designed to help fans explore the world of movies and shows and decide what to watch. This data set shows us information on horror movies that are on IMDB's website. Here are some important variables we will be working with:
+For this chapter,  we will be importing  a dataset from TidyTuesday Github. Tidy Tuesday is a weekly social data project in R where users explore a new dataset each week and share their findings on Twitter with #TidyTuesday. In particular, we will be focusing on a horror movies data set from IMDB. IMDB is the world's most popular and authoritative source for movie, TV and celebrity content, designed to help fans explore the world of movies and shows and decide what to watch. This data set shows us information on horror movies that are on IMDB's website. Here are some important variables we will be working with:
 
 * `review_rating`- the IMDB users average rating of the movie.
 * `release_country` - the country the movie was released in.

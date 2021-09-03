@@ -13,7 +13,7 @@ pacman::p_load(
 
 # The `Rproject`
 
-This document provides an introduction to the `R Project` - an organizational tool which we highly recommend you adopt ASAP. This tool will be invaluable for reproducible research, collaboration, and integrates seamlessly with Git/Github. 
+This chapter provides an introduction to the `R Project` - an organizational tool which we highly recommend you adopt ASAP. This tool will be invaluable for reproducible research, collaboration, and integrates seamlessly with Git/Github. 
 
 When working with coauthors, each writer will need to source scripts between local machines. A common problem is that these scripts will no longer work since the file paths are "hard-coded". For example, if your Homework 1 was part of a research project, the naive start may be something like this:
 

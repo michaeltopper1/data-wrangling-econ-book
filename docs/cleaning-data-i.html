@@ -53,9 +53,6 @@
 
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
-<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
-<link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
-<script src="libs/str_view-binding-1.4.0/str_view.js"></script>
 
 
 <style type="text/css">
@@ -141,10 +138,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Data Wrangling for Economists</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome</a>
-<ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#learn-all-about-bookdown"><i class="fa fa-check"></i><b>1.1</b> Learn all about Bookdown</a></li>
-</ul></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome</a></li>
 <li class="chapter" data-level="2" data-path="intro-to-r.html"><a href="intro-to-r.html"><i class="fa fa-check"></i><b>2</b> Intro to R</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="intro-to-r.html"><a href="intro-to-r.html#basic-summary-statistics"><i class="fa fa-check"></i><b>2.1</b> Basic summary statistics</a>
@@ -288,7 +282,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="cleaning-data-i" class="section level1" number="4">
 <h1><span class="header-section-number">Chapter 4</span> Cleaning Data I</h1>
-<p>For this Guided Exercise, we will once again be working with the <code>titanic_train</code> data set from the <code>titanic</code> package. This data set provides information on the fate of passengers on the fatal maiden voyage of the ocean liner “Titanic” summarized according to economic status (class), sex, age, and survival. As a reminder, here are some of the important columns:</p>
+<p>For this chapter, we will once again be working with the <code>titanic_train</code> data set from the <code>titanic</code> package. This data set provides information on the fate of passengers on the fatal maiden voyage of the ocean liner “Titanic” summarized according to economic status (class), sex, age, and survival. As a reminder, here are some of the important columns:</p>
 <ul>
 <li><code>Survived</code>: binary variable equal to 1 if the passenger survived</li>
 <li><code>Pclass</code>: the passenger’s class</li>
@@ -297,14 +291,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>Age</code>: the age of the passenger</li>
 </ul>
 <p>Now let’s load in the data and necessary packages.</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="cleaning-data-i.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="do">## install the package if you do not have it</span></span>
-<span id="cb44-2"><a href="cleaning-data-i.html#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;titanic&quot;)</span></span>
-<span id="cb44-3"><a href="cleaning-data-i.html#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(titanic)</span>
-<span id="cb44-4"><a href="cleaning-data-i.html#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb44-5"><a href="cleaning-data-i.html#cb44-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
-<span id="cb44-6"><a href="cleaning-data-i.html#cb44-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb44-7"><a href="cleaning-data-i.html#cb44-7" aria-hidden="true" tabindex="-1"></a><span class="do">## saving our data to the name titanic as a tibble</span></span>
-<span id="cb44-8"><a href="cleaning-data-i.html#cb44-8" aria-hidden="true" tabindex="-1"></a>titanic <span class="ot">&lt;-</span> <span class="fu">tibble</span>(titanic_train)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="cleaning-data-i.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## install the package if you do not have it</span></span>
+<span id="cb1-2"><a href="cleaning-data-i.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;titanic&quot;)</span></span>
+<span id="cb1-3"><a href="cleaning-data-i.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(titanic)</span>
+<span id="cb1-4"><a href="cleaning-data-i.html#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-5"><a href="cleaning-data-i.html#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb1-6"><a href="cleaning-data-i.html#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="cleaning-data-i.html#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="do">## saving our data to the name titanic as a tibble</span></span>
+<span id="cb1-8"><a href="cleaning-data-i.html#cb1-8" aria-hidden="true" tabindex="-1"></a>titanic <span class="ot">&lt;-</span> <span class="fu">tibble</span>(titanic_train)</span></code></pre></div>
 <p>We will be focusing on getting comfortable with the following functions in the <code>tidyverse</code> package:</p>
 <ul>
 <li><code>select</code></li>
@@ -321,21 +315,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="the-pipe" class="section level2" number="4.1">
 <h2><span class="header-section-number">4.1</span> The Pipe</h2>
 <p>A pipe (typed as <code>%&gt;%</code>) is a specific operator that comes from the <code>magrittr</code> package, but is automatically loaded in with the <code>tidyverse</code>. Essentially, it makes reading code easier, typing code faster, and finding complicated results very easy. A pipe essentially is saying “and now, do this” to a tibble. Piping is best used to chain together multiple functions to subset your data set into smaller pieces that you find more interesting. We will see this pipe in action in the following sections. Mastering the pipe is essential to quick and efficient cleaning, and you can find some incredible results with using pipes and a few simple functions. To demonstrate how a pipe works, I’ll use a rather bland motivating example: suppose we want to glance at our <code>titanic</code> data using the <code>head</code> function. Before the pipe existed, we would need to type the following:</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="cleaning-data-i.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="do">## without a pipe</span></span>
-<span id="cb45-2"><a href="cleaning-data-i.html#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(titanic)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="cleaning-data-i.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="do">## without a pipe</span></span>
+<span id="cb2-2"><a href="cleaning-data-i.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(titanic)</span></code></pre></div>
 <p>However, with a pipe, we can type the following:</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="cleaning-data-i.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="do">## using a pipe</span></span>
-<span id="cb46-2"><a href="cleaning-data-i.html#cb46-2" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span> </span>
-<span id="cb46-3"><a href="cleaning-data-i.html#cb46-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="cleaning-data-i.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="do">## using a pipe</span></span>
+<span id="cb3-2"><a href="cleaning-data-i.html#cb3-2" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span> </span>
+<span id="cb3-3"><a href="cleaning-data-i.html#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
 <p>Each of these give us the same result. The way the pipe works, is that it automatically fills the “data” argument of a function with the tibble you are piping from (in this case, the <code>titanic</code> tibble). While this seems extraneous in this example, the benefit of the pipe is that you can combine multiple functions together in a readable way. We will see a demonstration of this as we get further into this Guided Exercise.</p>
 </div>
 <div id="the-clean_names-function" class="section level2" number="4.2">
 <h2><span class="header-section-number">4.2</span> The <code>clean_names</code> function</h2>
 <p>The <code>clean_names</code> function allows us to put all of our column names in our tibble in a standardized format. In particular, the function makes certain that the column names are all lowercase and blank spaces are replaced with an underscore. Keeping your variable names standardized is an important practice that will make data wrangling much easier as your data sets get bigger and you begin collaborating with others.</p>
 <p>Let’s take a look at our data set without cleaning the names.</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="cleaning-data-i.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="do">## viewing a snapshot of our data set</span></span>
-<span id="cb47-2"><a href="cleaning-data-i.html#cb47-2" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span> </span>
-<span id="cb47-3"><a href="cleaning-data-i.html#cb47-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="cleaning-data-i.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="do">## viewing a snapshot of our data set</span></span>
+<span id="cb4-2"><a href="cleaning-data-i.html#cb4-2" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span> </span>
+<span id="cb4-3"><a href="cleaning-data-i.html#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 12
 ##   PassengerId Survived Pclass Name      Sex     Age SibSp Parch Ticket  Fare
 ##         &lt;int&gt;    &lt;int&gt;  &lt;int&gt; &lt;chr&gt;     &lt;chr&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;  &lt;dbl&gt;
@@ -352,13 +346,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>And now take the <code>head</code> of the titanic data set</li>
 </ul>
 <p>Another important aspect of this output to notice is that our columns begin with capital letters (e.g. <code>Class</code>). As stated, we can use the <code>clean_names</code> function from the janitor package to standardize the column name format to all lower case and underscores. Observe:</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="cleaning-data-i.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Using the clean_names function on the titanic data</span></span>
-<span id="cb49-2"><a href="cleaning-data-i.html#cb49-2" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span> </span>
-<span id="cb49-3"><a href="cleaning-data-i.html#cb49-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="cleaning-data-i.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Using the clean_names function on the titanic data</span></span>
+<span id="cb6-2"><a href="cleaning-data-i.html#cb6-2" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span> </span>
+<span id="cb6-3"><a href="cleaning-data-i.html#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>()</span></code></pre></div>
 <p>The column names now all have our desired standardized format. Now let’s try to use our previous <code>head</code> function:</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="cleaning-data-i.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Using the head function again</span></span>
-<span id="cb50-2"><a href="cleaning-data-i.html#cb50-2" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span> </span>
-<span id="cb50-3"><a href="cleaning-data-i.html#cb50-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="cleaning-data-i.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Using the head function again</span></span>
+<span id="cb7-2"><a href="cleaning-data-i.html#cb7-2" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span> </span>
+<span id="cb7-3"><a href="cleaning-data-i.html#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 12
 ##   PassengerId Survived Pclass Name      Sex     Age SibSp Parch Ticket  Fare
 ##         &lt;int&gt;    &lt;int&gt;  &lt;int&gt; &lt;chr&gt;     &lt;chr&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;  &lt;dbl&gt;
@@ -371,12 +365,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## # … with 2 more variables: Cabin &lt;chr&gt;, Embarked &lt;chr&gt;</code></pre>
 <p>The columns have gone back to their normal messy ways! This is because <strong>we failed to save the changes we made</strong> to our titanic data set. The pipe operator will perform functions on your tibble, but it will <strong>not</strong> save the changes unless you explicitly tell R to do so.</p>
 <p>Let’s use the <code>clean_names</code> function, and save the tibble with the cleaned column names.</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="cleaning-data-i.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="do">## saving the titanic tibble with cleaned names</span></span>
-<span id="cb52-2"><a href="cleaning-data-i.html#cb52-2" aria-hidden="true" tabindex="-1"></a>titanic <span class="ot">&lt;-</span> titanic <span class="sc">%&gt;%</span> </span>
-<span id="cb52-3"><a href="cleaning-data-i.html#cb52-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>()</span>
-<span id="cb52-4"><a href="cleaning-data-i.html#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="do">## viewing the cleaned names data set as it has now been saved</span></span>
-<span id="cb52-5"><a href="cleaning-data-i.html#cb52-5" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span> </span>
-<span id="cb52-6"><a href="cleaning-data-i.html#cb52-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="cleaning-data-i.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="do">## saving the titanic tibble with cleaned names</span></span>
+<span id="cb9-2"><a href="cleaning-data-i.html#cb9-2" aria-hidden="true" tabindex="-1"></a>titanic <span class="ot">&lt;-</span> titanic <span class="sc">%&gt;%</span> </span>
+<span id="cb9-3"><a href="cleaning-data-i.html#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>()</span>
+<span id="cb9-4"><a href="cleaning-data-i.html#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="do">## viewing the cleaned names data set as it has now been saved</span></span>
+<span id="cb9-5"><a href="cleaning-data-i.html#cb9-5" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span> </span>
+<span id="cb9-6"><a href="cleaning-data-i.html#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 12
 ##   passenger_id survived pclass name    sex     age sib_sp parch ticket  fare
 ##          &lt;int&gt;    &lt;int&gt;  &lt;int&gt; &lt;chr&gt;   &lt;chr&gt; &lt;dbl&gt;  &lt;int&gt; &lt;int&gt; &lt;chr&gt;  &lt;dbl&gt;
@@ -392,10 +386,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="the-select-function" class="section level2" number="4.3">
 <h2><span class="header-section-number">4.3</span> The <code>select</code> function</h2>
 <p>The <code>select</code> function is a way to subset your data. It selects whichever variables you are particularly concerned with. For instance, suppose we were only interested in the <code>age</code> and <code>survived</code> columns of the <code>titanic</code> tibble. We could use the <code>select</code> function to observe only these columns.</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="cleaning-data-i.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="do">## selecting only the age and survived columns and then previewing with head</span></span>
-<span id="cb54-2"><a href="cleaning-data-i.html#cb54-2" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span> </span>
-<span id="cb54-3"><a href="cleaning-data-i.html#cb54-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(age, survived) <span class="sc">%&gt;%</span> </span>
-<span id="cb54-4"><a href="cleaning-data-i.html#cb54-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="cleaning-data-i.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="do">## selecting only the age and survived columns and then previewing with head</span></span>
+<span id="cb11-2"><a href="cleaning-data-i.html#cb11-2" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span> </span>
+<span id="cb11-3"><a href="cleaning-data-i.html#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(age, survived) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-4"><a href="cleaning-data-i.html#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 2
 ##     age survived
 ##   &lt;dbl&gt;    &lt;int&gt;
@@ -412,19 +406,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>And then use the <code>head</code> function to view</li>
 </ul>
 <p>Of course, if we wanted to save our sub-selection, we could easily do this by assigning it to a new tibble.</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="cleaning-data-i.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="do">## assigning the subselection to a new tibble</span></span>
-<span id="cb56-2"><a href="cleaning-data-i.html#cb56-2" aria-hidden="true" tabindex="-1"></a>titanic_age_survived <span class="ot">&lt;-</span> titanic <span class="sc">%&gt;%</span> </span>
-<span id="cb56-3"><a href="cleaning-data-i.html#cb56-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(age, survived)</span>
-<span id="cb56-4"><a href="cleaning-data-i.html#cb56-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-5"><a href="cleaning-data-i.html#cb56-5" aria-hidden="true" tabindex="-1"></a><span class="do">## did not use head here because do not want only the first 5 rows to be saved</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="cleaning-data-i.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="do">## assigning the subselection to a new tibble</span></span>
+<span id="cb13-2"><a href="cleaning-data-i.html#cb13-2" aria-hidden="true" tabindex="-1"></a>titanic_age_survived <span class="ot">&lt;-</span> titanic <span class="sc">%&gt;%</span> </span>
+<span id="cb13-3"><a href="cleaning-data-i.html#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(age, survived)</span>
+<span id="cb13-4"><a href="cleaning-data-i.html#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="cleaning-data-i.html#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="do">## did not use head here because do not want only the first 5 rows to be saved</span></span></code></pre></div>
 <p>Generally, the <code>select</code> function is a great way to subset your data to focus on only the columns you are particularly concerned with.</p>
 </div>
 <div id="the-filter-function" class="section level2" number="4.4">
 <h2><span class="header-section-number">4.4</span> The <code>filter</code> function</h2>
 <p>The <code>filter</code> function is one of the most powerful and frequently used functions when combined with a pipe. The filter function filters your data set based on some criteria you choose. For example, suppose we want to only look at children in this data set. We can filter out all of the passengers in the data set that have an age less than 18. Observe:</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="cleaning-data-i.html#cb57-1" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span> </span>
-<span id="cb57-2"><a href="cleaning-data-i.html#cb57-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(age <span class="sc">&lt;</span> <span class="dv">18</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb57-3"><a href="cleaning-data-i.html#cb57-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="cleaning-data-i.html#cb14-1" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span> </span>
+<span id="cb14-2"><a href="cleaning-data-i.html#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(age <span class="sc">&lt;</span> <span class="dv">18</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-3"><a href="cleaning-data-i.html#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 12
 ##   passenger_id survived pclass name    sex     age sib_sp parch ticket  fare
 ##          &lt;int&gt;    &lt;int&gt;  &lt;int&gt; &lt;chr&gt;   &lt;chr&gt; &lt;dbl&gt;  &lt;int&gt; &lt;int&gt; &lt;chr&gt;  &lt;dbl&gt;
@@ -451,9 +445,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="the-distinct-function" class="section level2" number="4.5">
 <h2><span class="header-section-number">4.5</span> The <code>distinct</code> function</h2>
 <p>The <code>distinct</code> function allows you to see the unique values within a specified column. For instance, suppose we wanted to know all of the unique values that are within the <code>pclass</code> column of the <code>titanic</code> tibble. We could use the <code>distinct</code> function to do this.</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="cleaning-data-i.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="do">## using distinct to find unique values in a column</span></span>
-<span id="cb59-2"><a href="cleaning-data-i.html#cb59-2" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span> </span>
-<span id="cb59-3"><a href="cleaning-data-i.html#cb59-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(pclass)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="cleaning-data-i.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="do">## using distinct to find unique values in a column</span></span>
+<span id="cb16-2"><a href="cleaning-data-i.html#cb16-2" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span> </span>
+<span id="cb16-3"><a href="cleaning-data-i.html#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(pclass)</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 1
 ##   pclass
 ##    &lt;int&gt;
@@ -471,13 +465,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="the-mutate-function." class="section level2" number="4.6">
 <h2><span class="header-section-number">4.6</span> The <code>mutate</code> function.</h2>
 <p>The <code>mutate</code> function creates a new column in your tibble based on some computation statement. To motivate this, suppose we wanted to create a column in the <code>titanic</code> tibble that is named <code>adjusted_fare</code> which takes the <code>fare</code> column and multiplies it by the rate of inflation to get the ticket fare in today’s prices. Using the <code>mutate</code> function, we could accomplish this:</p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="cleaning-data-i.html#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="do">## assigning a variable the inflation rate</span></span>
-<span id="cb61-2"><a href="cleaning-data-i.html#cb61-2" aria-hidden="true" tabindex="-1"></a>inflation_rate <span class="ot">&lt;-</span> <span class="fl">27.14</span></span>
-<span id="cb61-3"><a href="cleaning-data-i.html#cb61-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb61-4"><a href="cleaning-data-i.html#cb61-4" aria-hidden="true" tabindex="-1"></a><span class="do">## creating a new variable called adjusted_fare which will be the fare in today&#39;s dollars</span></span>
-<span id="cb61-5"><a href="cleaning-data-i.html#cb61-5" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span> </span>
-<span id="cb61-6"><a href="cleaning-data-i.html#cb61-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">adjusted_fare =</span> fare <span class="sc">*</span> inflation_rate) <span class="sc">%&gt;%</span> </span>
-<span id="cb61-7"><a href="cleaning-data-i.html#cb61-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="cleaning-data-i.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="do">## assigning a variable the inflation rate</span></span>
+<span id="cb18-2"><a href="cleaning-data-i.html#cb18-2" aria-hidden="true" tabindex="-1"></a>inflation_rate <span class="ot">&lt;-</span> <span class="fl">27.14</span></span>
+<span id="cb18-3"><a href="cleaning-data-i.html#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="cleaning-data-i.html#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="do">## creating a new variable called adjusted_fare which will be the fare in today&#39;s dollars</span></span>
+<span id="cb18-5"><a href="cleaning-data-i.html#cb18-5" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span> </span>
+<span id="cb18-6"><a href="cleaning-data-i.html#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">adjusted_fare =</span> fare <span class="sc">*</span> inflation_rate) <span class="sc">%&gt;%</span> </span>
+<span id="cb18-7"><a href="cleaning-data-i.html#cb18-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 13
 ##   passenger_id survived pclass name    sex     age sib_sp parch ticket  fare
 ##          &lt;int&gt;    &lt;int&gt;  &lt;int&gt; &lt;chr&gt;   &lt;chr&gt; &lt;dbl&gt;  &lt;int&gt; &lt;int&gt; &lt;chr&gt;  &lt;dbl&gt;
@@ -489,17 +483,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 6            6        0      3 Moran,… male     NA      0     0 330877  8.46
 ## # … with 3 more variables: cabin &lt;chr&gt;, embarked &lt;chr&gt;, adjusted_fare &lt;dbl&gt;</code></pre>
 <p>There is actually quite a bit going on here, so it’s worth noting the syntax of the <code>mutate</code> function.</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="cleaning-data-i.html#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="do">## mutate function syntax</span></span>
-<span id="cb63-2"><a href="cleaning-data-i.html#cb63-2" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span> </span>
-<span id="cb63-3"><a href="cleaning-data-i.html#cb63-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">your_variable_name =</span> some expression)</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="cleaning-data-i.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="do">## mutate function syntax</span></span>
+<span id="cb20-2"><a href="cleaning-data-i.html#cb20-2" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span> </span>
+<span id="cb20-3"><a href="cleaning-data-i.html#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">your_variable_name =</span> some expression)</span></code></pre></div>
 <p>Recall that the tibble <strong>will not</strong> save with this new variable that you created unless you tell it to do so.</p>
 <p>Where <code>mutate</code> becomes very powerful is using in conjunction with the <code>ifelse</code> function. The <code>ifelse</code> function is a function that takes a conditional statement, and if it is TRUE, assigns a value, and if it is FALSE, assigns a different value. For instance, suppose we want to create a binary variable equal to 1 if a person is under the age of 18 and 0 if are not. Hence, we can use the <code>ifelse</code> function to create our desired binary variable. The syntax for the <code>ifelse</code> function is as follows:</p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="cleaning-data-i.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ifelse syntax</span></span>
-<span id="cb64-2"><a href="cleaning-data-i.html#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ifelse</span>(a condition, value <span class="cf">if</span> condition is <span class="cn">TRUE</span>, value <span class="cf">if</span> condition is <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="cleaning-data-i.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ifelse syntax</span></span>
+<span id="cb21-2"><a href="cleaning-data-i.html#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ifelse</span>(a condition, value <span class="cf">if</span> condition is <span class="cn">TRUE</span>, value <span class="cf">if</span> condition is <span class="cn">FALSE</span>)</span></code></pre></div>
 <p>This will be more clear once you see it in action. Let’s actually create the desired binary variable:</p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="cleaning-data-i.html#cb65-1" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span> </span>
-<span id="cb65-2"><a href="cleaning-data-i.html#cb65-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">child =</span> <span class="fu">ifelse</span>(age <span class="sc">&lt;</span> <span class="dv">18</span>, <span class="dv">1</span>, <span class="dv">0</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb65-3"><a href="cleaning-data-i.html#cb65-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="cleaning-data-i.html#cb22-1" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span> </span>
+<span id="cb22-2"><a href="cleaning-data-i.html#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">child =</span> <span class="fu">ifelse</span>(age <span class="sc">&lt;</span> <span class="dv">18</span>, <span class="dv">1</span>, <span class="dv">0</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb22-3"><a href="cleaning-data-i.html#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 13
 ##   passenger_id survived pclass name    sex     age sib_sp parch ticket  fare
 ##          &lt;int&gt;    &lt;int&gt;  &lt;int&gt; &lt;chr&gt;   &lt;chr&gt; &lt;dbl&gt;  &lt;int&gt; &lt;int&gt; &lt;chr&gt;  &lt;dbl&gt;
@@ -511,9 +505,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 6            6        0      3 Moran,… male     NA      0     0 330877  8.46
 ## # … with 3 more variables: cabin &lt;chr&gt;, embarked &lt;chr&gt;, child &lt;dbl&gt;</code></pre>
 <p>Since we cannot see from the preview that we actually created a binary variable, let’s use the <code>distinct</code> function as a check.</p>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="cleaning-data-i.html#cb67-1" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span> </span>
-<span id="cb67-2"><a href="cleaning-data-i.html#cb67-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">child =</span> <span class="fu">ifelse</span>(age <span class="sc">&lt;</span> <span class="dv">18</span>, <span class="dv">1</span>, <span class="dv">0</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb67-3"><a href="cleaning-data-i.html#cb67-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(child)</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="cleaning-data-i.html#cb24-1" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span> </span>
+<span id="cb24-2"><a href="cleaning-data-i.html#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">child =</span> <span class="fu">ifelse</span>(age <span class="sc">&lt;</span> <span class="dv">18</span>, <span class="dv">1</span>, <span class="dv">0</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb24-3"><a href="cleaning-data-i.html#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(child)</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 1
 ##   child
 ##   &lt;dbl&gt;
@@ -521,13 +515,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 2    NA
 ## 3     1</code></pre>
 <p><strong>REMEMBER</strong> the <code>child</code> variable <strong>DID NOT</strong> save unless you specifically tell R to do so. We will save this variable as we will use it later.</p>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="cleaning-data-i.html#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="do">## saving the new variable</span></span>
-<span id="cb69-2"><a href="cleaning-data-i.html#cb69-2" aria-hidden="true" tabindex="-1"></a>titanic <span class="ot">&lt;-</span> titanic <span class="sc">%&gt;%</span> </span>
-<span id="cb69-3"><a href="cleaning-data-i.html#cb69-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">child =</span> <span class="fu">ifelse</span>(age <span class="sc">&lt;</span> <span class="dv">18</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span>
-<span id="cb69-4"><a href="cleaning-data-i.html#cb69-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-5"><a href="cleaning-data-i.html#cb69-5" aria-hidden="true" tabindex="-1"></a><span class="do">## observing the first 5 rows</span></span>
-<span id="cb69-6"><a href="cleaning-data-i.html#cb69-6" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span></span>
-<span id="cb69-7"><a href="cleaning-data-i.html#cb69-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="cleaning-data-i.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="do">## saving the new variable</span></span>
+<span id="cb26-2"><a href="cleaning-data-i.html#cb26-2" aria-hidden="true" tabindex="-1"></a>titanic <span class="ot">&lt;-</span> titanic <span class="sc">%&gt;%</span> </span>
+<span id="cb26-3"><a href="cleaning-data-i.html#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">child =</span> <span class="fu">ifelse</span>(age <span class="sc">&lt;</span> <span class="dv">18</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span>
+<span id="cb26-4"><a href="cleaning-data-i.html#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-5"><a href="cleaning-data-i.html#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="do">## observing the first 5 rows</span></span>
+<span id="cb26-6"><a href="cleaning-data-i.html#cb26-6" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span></span>
+<span id="cb26-7"><a href="cleaning-data-i.html#cb26-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 13
 ##   passenger_id survived pclass name    sex     age sib_sp parch ticket  fare
 ##          &lt;int&gt;    &lt;int&gt;  &lt;int&gt; &lt;chr&gt;   &lt;chr&gt; &lt;dbl&gt;  &lt;int&gt; &lt;int&gt; &lt;chr&gt;  &lt;dbl&gt;
@@ -543,19 +537,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">4.7</span> The <code>summarize</code> function</h2>
 <p>The <code>summarize</code> function allows us to create statistics over columns quickly and efficiently. As a demonstration, we will be focusing on our <code>survived</code> column. Let’s suppose that we wanted to know the average of <code>survived</code>. Since this is a binary variable, this would be equivalent to the proportion of people who survived the titanic.</p>
 <p>Now let’s make a new column called <code>proportion_survived</code> which is equal to the mean of <code>survived</code>.</p>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="cleaning-data-i.html#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="do">## finding the average of the survived column</span></span>
-<span id="cb71-2"><a href="cleaning-data-i.html#cb71-2" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span> </span>
-<span id="cb71-3"><a href="cleaning-data-i.html#cb71-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">proportion_survived =</span> <span class="fu">mean</span>(survived, <span class="at">na.rm =</span> T))</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="cleaning-data-i.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="do">## finding the average of the survived column</span></span>
+<span id="cb28-2"><a href="cleaning-data-i.html#cb28-2" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span> </span>
+<span id="cb28-3"><a href="cleaning-data-i.html#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">proportion_survived =</span> <span class="fu">mean</span>(survived, <span class="at">na.rm =</span> T))</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 1
 ##   proportion_survived
 ##                 &lt;dbl&gt;
 ## 1               0.384</code></pre>
 <p>Take a closer look at the <code>summarize</code> function. You can think of the <code>summarize</code> function as similar to the <code>mutate</code> function as it creates a new variable equal to some summary statistic that you tell it to do. The basic syntax for the <code>summarize</code> function is as follows:</p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="cleaning-data-i.html#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarize</span>(<span class="at">your_variable_name =</span> somefunction)</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="cleaning-data-i.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarize</span>(<span class="at">your_variable_name =</span> somefunction)</span></code></pre></div>
 <p>As another example, we could find the standard deviation of the <code>survived</code> column using the summarize function.</p>
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="cleaning-data-i.html#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="do">##finding the standard deviation of the survived column</span></span>
-<span id="cb74-2"><a href="cleaning-data-i.html#cb74-2" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span> </span>
-<span id="cb74-3"><a href="cleaning-data-i.html#cb74-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">sd_survived =</span> <span class="fu">sd</span>(survived, <span class="at">na.rm =</span> T))</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="cleaning-data-i.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="do">##finding the standard deviation of the survived column</span></span>
+<span id="cb31-2"><a href="cleaning-data-i.html#cb31-2" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span> </span>
+<span id="cb31-3"><a href="cleaning-data-i.html#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">sd_survived =</span> <span class="fu">sd</span>(survived, <span class="at">na.rm =</span> T))</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 1
 ##   sd_survived
 ##         &lt;dbl&gt;
@@ -570,10 +564,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="the-group_by-and-summarize-functions" class="section level2" number="4.8">
 <h2><span class="header-section-number">4.8</span> The <code>group_by</code> and <code>summarize</code> functions</h2>
 <p>The <code>group_by</code> and <code>summarize</code> functions work together to make computing statistics within-groups easy. Suppose you wanted to know the average rate of survival by class type on the titanic. In other words, you suspect that the survival rate differs by people of different class To do this, you want to take the average of each group. The <code>group_by</code> function will group classes together and then the <code>summarize</code> function will be able to do summary statistics on each group individually.</p>
-<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="cleaning-data-i.html#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="do">## finding the survival rate among classes</span></span>
-<span id="cb76-2"><a href="cleaning-data-i.html#cb76-2" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span> </span>
-<span id="cb76-3"><a href="cleaning-data-i.html#cb76-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(pclass) <span class="sc">%&gt;%</span> </span>
-<span id="cb76-4"><a href="cleaning-data-i.html#cb76-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">survival_rate =</span> <span class="fu">mean</span>(survived, <span class="at">na.rm =</span> T))</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="cleaning-data-i.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="do">## finding the survival rate among classes</span></span>
+<span id="cb33-2"><a href="cleaning-data-i.html#cb33-2" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span> </span>
+<span id="cb33-3"><a href="cleaning-data-i.html#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(pclass) <span class="sc">%&gt;%</span> </span>
+<span id="cb33-4"><a href="cleaning-data-i.html#cb33-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">survival_rate =</span> <span class="fu">mean</span>(survived, <span class="at">na.rm =</span> T))</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 2
 ##   pclass survival_rate
 ##    &lt;int&gt;         &lt;dbl&gt;
@@ -587,9 +581,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>And now summarize the survival rate by creating a column equal to the mean of the <code>survived</code> column within each class.</li>
 </ul>
 <p>You may be curious what happens when you do a <code>group_by</code> without a <code>summarize</code>. The truth is, nothing happens! R will create a grouping, but it means nothing unless you actually perform some sort of meaningful statistic on each group.</p>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="cleaning-data-i.html#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="do">## using a group_by without a summarize or following function does nothing</span></span>
-<span id="cb78-2"><a href="cleaning-data-i.html#cb78-2" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span> </span>
-<span id="cb78-3"><a href="cleaning-data-i.html#cb78-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sex)</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="cleaning-data-i.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="do">## using a group_by without a summarize or following function does nothing</span></span>
+<span id="cb35-2"><a href="cleaning-data-i.html#cb35-2" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span> </span>
+<span id="cb35-3"><a href="cleaning-data-i.html#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sex)</span></code></pre></div>
 <pre><code>## # A tibble: 891 × 13
 ## # Groups:   sex [2]
 ##    passenger_id survived pclass name   sex     age sib_sp parch ticket  fare
@@ -688,20 +682,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

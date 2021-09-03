@@ -53,9 +53,6 @@
 
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
-<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
-<link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
-<script src="libs/str_view-binding-1.4.0/str_view.js"></script>
 
 
 <style type="text/css">
@@ -141,10 +138,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Data Wrangling for Economists</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome</a>
-<ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#learn-all-about-bookdown"><i class="fa fa-check"></i><b>1.1</b> Learn all about Bookdown</a></li>
-</ul></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome</a></li>
 <li class="chapter" data-level="2" data-path="intro-to-r.html"><a href="intro-to-r.html"><i class="fa fa-check"></i><b>2</b> Intro to R</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="intro-to-r.html"><a href="intro-to-r.html#basic-summary-statistics"><i class="fa fa-check"></i><b>2.1</b> Basic summary statistics</a>
@@ -288,15 +282,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="intro-to-r" class="section level1" number="2">
 <h1><span class="header-section-number">Chapter 2</span> Intro to R</h1>
-<p>Welcome to Econ 245 Guided Exercises! In these weekly documents, you will practice data wrangling with some hand-holding as well as some simple exercises to check your understanding. The purpose of these documents is the following:</p>
-<ol style="list-style-type: decimal">
-<li>Make your homework easier.</li>
-<li>Make you a better coder by observing good code.</li>
-<li>Get hands-on practice with functions you will need to complete your assignments.</li>
-<li>Provide a reference document for each topic in the course.</li>
-</ol>
-<p>We <em>strongly</em> suggest that you code along with the examples that we go through, although there will be times when copying and pasting can be useful (e.g., loading in a data set).</p>
-<p>This week we will be focusing on a couple topics. The first will be doing common statistics in R, while the other will be an introduction to vectors, tibbles, and logical operators.</p>
+<p>In this chapter, we will be focusing on two topics. The first will be doing common statistics in R, while the other will be an introduction to vectors, tibbles, and logical operators.</p>
 <p>To begin, we will first load in the data sets that we want to use. We will be using the <code>titanic_train</code> data set from the <code>titanic</code> package. The <code>titanic_train</code> data set provides information on the fate of passengers on the fatal maiden voyage of the ocean liner “Titanic,” summarized according to economic status (class), sex, age and survival. Some import columns:</p>
 <ul>
 <li><code>Survived</code>: binary variable equal to 1 if the passenger survived</li>
@@ -575,20 +561,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

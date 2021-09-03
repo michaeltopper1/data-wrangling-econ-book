@@ -71,3 +71,4 @@ exercise-18
 exercise-19
 exercise-20
 selected-solutions-4
+fig:unnamed-chunk-6

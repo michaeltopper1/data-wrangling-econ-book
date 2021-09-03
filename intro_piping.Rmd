@@ -1,7 +1,7 @@
 
 # Cleaning Data I
 
-For this Guided Exercise, we will once again be working with the `titanic_train` data set from the `titanic` package. This data set provides information on the fate of passengers on the fatal maiden voyage of the ocean liner "Titanic" summarized according to economic status (class), sex, age, and survival. As a reminder, here are some of the important columns: 
+For this chapter, we will once again be working with the `titanic_train` data set from the `titanic` package. This data set provides information on the fate of passengers on the fatal maiden voyage of the ocean liner "Titanic" summarized according to economic status (class), sex, age, and survival. As a reminder, here are some of the important columns: 
 
 * `Survived`: binary variable equal to 1 if the passenger survived
 * `Pclass`: the passenger's class

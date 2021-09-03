@@ -1,17 +1,7 @@
 
 # Intro to R
 
-Welcome to Econ 245 Guided Exercises! In these weekly documents, you will practice data wrangling with some hand-holding as well as some simple exercises to check your understanding. The purpose of these documents is the following:
-
-1. Make your homework easier.
-2. Make you a better coder by observing good code.
-3. Get hands-on practice with functions you will need to complete your assignments.
-4. Provide a reference document for each topic in the course.
-
-
-We *strongly* suggest that you code along with the examples that we go through, although there will be times when copying and pasting can be useful (e.g., loading in a data set). 
-
-This week we will be focusing on a couple topics. The first will be doing common statistics in R, while the other will be an introduction to vectors, tibbles, and logical operators. 
+In this chapter, we will be focusing on two topics. The first will be doing common statistics in R, while the other will be an introduction to vectors, tibbles, and logical operators. 
 
 To begin, we will first load in the data sets that we want to use. We will be using the `titanic_train` data set from the `titanic` package. The `titanic_train` data set provides information on the fate of passengers on the fatal maiden voyage of the ocean liner "Titanic", summarized according to economic status (class), sex, age and survival. Some import columns:
 

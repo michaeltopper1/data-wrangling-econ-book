@@ -1,7 +1,7 @@
 
 # Programming
 
-For this Guided Exercise, you will not be working with a particular data set. Instead, we will be focusing on basic programming practices using vectors and functions that we create ourselves.  
+For this chapter, you will not be working with a particular data set. Instead, we will be focusing on basic programming practices using vectors and functions that we create ourselves.  
 
 ## Functions
 

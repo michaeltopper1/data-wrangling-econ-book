@@ -53,9 +53,6 @@
 
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
-<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
-<link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
-<script src="libs/str_view-binding-1.4.0/str_view.js"></script>
 
 
 <style type="text/css">
@@ -141,10 +138,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Data Wrangling for Economists</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome</a>
-<ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#learn-all-about-bookdown"><i class="fa fa-check"></i><b>1.1</b> Learn all about Bookdown</a></li>
-</ul></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome</a></li>
 <li class="chapter" data-level="2" data-path="intro-to-r.html"><a href="intro-to-r.html"><i class="fa fa-check"></i><b>2</b> Intro to R</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="intro-to-r.html"><a href="intro-to-r.html#basic-summary-statistics"><i class="fa fa-check"></i><b>2.1</b> Basic summary statistics</a>
@@ -288,7 +282,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="data-cleaning-ii" class="section level1" number="5">
 <h1><span class="header-section-number">Chapter 5</span> Data Cleaning II</h1>
-<p>For this Guided Exercise, we will be importing a dataset from TidyTuesday Github. Tidy Tuesday is a weekly social data project in R where users explore a new dataset each week and share their findings on Twitter with #TidyTuesday. In particular, we will be focusing on a horror movies data set from IMDB. IMDB is the world’s most popular and authoritative source for movie, TV and celebrity content, designed to help fans explore the world of movies and shows and decide what to watch. This data set shows us information on horror movies that are on IMDB’s website. Here are some important variables we will be working with:</p>
+<p>For this chapter, we will be importing a dataset from TidyTuesday Github. Tidy Tuesday is a weekly social data project in R where users explore a new dataset each week and share their findings on Twitter with #TidyTuesday. In particular, we will be focusing on a horror movies data set from IMDB. IMDB is the world’s most popular and authoritative source for movie, TV and celebrity content, designed to help fans explore the world of movies and shows and decide what to watch. This data set shows us information on horror movies that are on IMDB’s website. Here are some important variables we will be working with:</p>
 <ul>
 <li><code>review_rating</code>- the IMDB users average rating of the movie.</li>
 <li><code>release_country</code> - the country the movie was released in.</li>
@@ -303,11 +297,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>Let’s begin by importing in the data. To do this, we will be importing it using the <code>read_csv</code> function. Copy and paste the following link: <a href="https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-10-22/horror_movies.csv" class="uri">https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-10-22/horror_movies.csv</a>
 and put it into a tibble called <code>horror_movies</code> using the <code>read_csv</code> function as shown below.</p>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="data-cleaning-ii.html#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="do">## install the package if you do not have it</span></span>
-<span id="cb81-2"><a href="data-cleaning-ii.html#cb81-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb81-3"><a href="data-cleaning-ii.html#cb81-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb81-4"><a href="data-cleaning-ii.html#cb81-4" aria-hidden="true" tabindex="-1"></a><span class="do">## loading in the data</span></span>
-<span id="cb81-5"><a href="data-cleaning-ii.html#cb81-5" aria-hidden="true" tabindex="-1"></a>horror_movies <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-10-22/horror_movies.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="data-cleaning-ii.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## install the package if you do not have it</span></span>
+<span id="cb1-2"><a href="data-cleaning-ii.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="data-cleaning-ii.html#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="data-cleaning-ii.html#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="do">## loading in the data</span></span>
+<span id="cb1-5"><a href="data-cleaning-ii.html#cb1-5" aria-hidden="true" tabindex="-1"></a>horror_movies <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-10-22/horror_movies.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Rows: 3328 Columns: 12</code></pre>
 <pre><code>## ── Column specification ────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
@@ -320,9 +314,9 @@ and put it into a tibble called <code>horror_movies</code> using the <code>read_
 <div id="the-count-function" class="section level2" number="5.1">
 <h2><span class="header-section-number">5.1</span> The <code>count</code> function</h2>
 <p>The <code>count</code> function takes all of the unique elements in a column, and counts how many times each element occurs. For instance, say we want to find the amount of times each movie rating occurs in our data set. We can do this using the <code>count</code> function.</p>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="data-cleaning-ii.html#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="do">## finding out how many of each rating of horror movie there are</span></span>
-<span id="cb85-2"><a href="data-cleaning-ii.html#cb85-2" aria-hidden="true" tabindex="-1"></a>horror_movies <span class="sc">%&gt;%</span> </span>
-<span id="cb85-3"><a href="data-cleaning-ii.html#cb85-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(movie_rating)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="data-cleaning-ii.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="do">## finding out how many of each rating of horror movie there are</span></span>
+<span id="cb5-2"><a href="data-cleaning-ii.html#cb5-2" aria-hidden="true" tabindex="-1"></a>horror_movies <span class="sc">%&gt;%</span> </span>
+<span id="cb5-3"><a href="data-cleaning-ii.html#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(movie_rating)</span></code></pre></div>
 <pre><code>## # A tibble: 12 × 2
 ##    movie_rating     n
 ##    &lt;chr&gt;        &lt;int&gt;
@@ -339,9 +333,9 @@ and put it into a tibble called <code>horror_movies</code> using the <code>read_
 ## 11 X                1
 ## 12 &lt;NA&gt;          1877</code></pre>
 <p>The <code>count</code> function also has a helpful argument called <code>sort</code>. By default, <code>sort</code> is set to <code>FALSE</code>. This means that the <code>count</code> function will not order your results in descending order by the number of times they occur. If you want to view your elements in descending order, you can set the <code>sort</code> argument to <code>TRUE</code>.</p>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="data-cleaning-ii.html#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="do">## counting in descending order by setting sort = T</span></span>
-<span id="cb87-2"><a href="data-cleaning-ii.html#cb87-2" aria-hidden="true" tabindex="-1"></a>horror_movies <span class="sc">%&gt;%</span> </span>
-<span id="cb87-3"><a href="data-cleaning-ii.html#cb87-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(movie_rating, <span class="at">sort =</span> T)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="data-cleaning-ii.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="do">## counting in descending order by setting sort = T</span></span>
+<span id="cb7-2"><a href="data-cleaning-ii.html#cb7-2" aria-hidden="true" tabindex="-1"></a>horror_movies <span class="sc">%&gt;%</span> </span>
+<span id="cb7-3"><a href="data-cleaning-ii.html#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(movie_rating, <span class="at">sort =</span> T)</span></code></pre></div>
 <pre><code>## # A tibble: 12 × 2
 ##    movie_rating     n
 ##    &lt;chr&gt;        &lt;int&gt;
@@ -368,19 +362,19 @@ and put it into a tibble called <code>horror_movies</code> using the <code>read_
 <div id="using-the-is.na-function" class="section level2" number="5.2">
 <h2><span class="header-section-number">5.2</span> Using the <code>is.na</code> function</h2>
 <p>The <code>is.na</code> function used to find the NAs withing a particular column. It takes one argument: the column you specify . The <code>is.na</code> function works particularly well with the <code>filter</code> function. Suppose we want to see how many NAs are in the <code>movie_rating</code> column. We can do this by <code>count</code>, and a <code>filter</code> in conjunction with the <code>is.na</code> function.</p>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="data-cleaning-ii.html#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Looking at only the NAs</span></span>
-<span id="cb89-2"><a href="data-cleaning-ii.html#cb89-2" aria-hidden="true" tabindex="-1"></a>horror_movies <span class="sc">%&gt;%</span> </span>
-<span id="cb89-3"><a href="data-cleaning-ii.html#cb89-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(movie_rating, <span class="at">sort =</span> T) <span class="sc">%&gt;%</span> </span>
-<span id="cb89-4"><a href="data-cleaning-ii.html#cb89-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">is.na</span>(movie_rating))</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="data-cleaning-ii.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Looking at only the NAs</span></span>
+<span id="cb9-2"><a href="data-cleaning-ii.html#cb9-2" aria-hidden="true" tabindex="-1"></a>horror_movies <span class="sc">%&gt;%</span> </span>
+<span id="cb9-3"><a href="data-cleaning-ii.html#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(movie_rating, <span class="at">sort =</span> T) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-4"><a href="data-cleaning-ii.html#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">is.na</span>(movie_rating))</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 2
 ##   movie_rating     n
 ##   &lt;chr&gt;        &lt;int&gt;
 ## 1 &lt;NA&gt;          1877</code></pre>
 <p>While this is useful, it might be even <em>more</em> useful if we filter out the NAs. Observe:</p>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="data-cleaning-ii.html#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Filtering out the NAs</span></span>
-<span id="cb91-2"><a href="data-cleaning-ii.html#cb91-2" aria-hidden="true" tabindex="-1"></a>horror_movies <span class="sc">%&gt;%</span> </span>
-<span id="cb91-3"><a href="data-cleaning-ii.html#cb91-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(review_rating, <span class="at">sort =</span> T) <span class="sc">%&gt;%</span> </span>
-<span id="cb91-4"><a href="data-cleaning-ii.html#cb91-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(review_rating))</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="data-cleaning-ii.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Filtering out the NAs</span></span>
+<span id="cb11-2"><a href="data-cleaning-ii.html#cb11-2" aria-hidden="true" tabindex="-1"></a>horror_movies <span class="sc">%&gt;%</span> </span>
+<span id="cb11-3"><a href="data-cleaning-ii.html#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(review_rating, <span class="at">sort =</span> T) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-4"><a href="data-cleaning-ii.html#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(review_rating))</span></code></pre></div>
 <pre><code>## # A tibble: 87 × 2
 ##    review_rating     n
 ##            &lt;dbl&gt; &lt;int&gt;
@@ -406,10 +400,10 @@ and put it into a tibble called <code>horror_movies</code> using the <code>read_
 <div id="the-arrange-function" class="section level2" number="5.3">
 <h2><span class="header-section-number">5.3</span> The <code>arrange</code> function</h2>
 <p>The arrange function is a simple function that simply sorts columns into ascending or descending order. For instance, suppose we sort our entire data set by which movies had the highest <code>review_rating</code>. We could do this by using the <code>arrange</code> function:</p>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="data-cleaning-ii.html#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="do">## using the arrange function to sort the review rating from lowest to highest</span></span>
-<span id="cb93-2"><a href="data-cleaning-ii.html#cb93-2" aria-hidden="true" tabindex="-1"></a>horror_movies <span class="sc">%&gt;%</span> </span>
-<span id="cb93-3"><a href="data-cleaning-ii.html#cb93-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(review_rating) <span class="sc">%&gt;%</span> </span>
-<span id="cb93-4"><a href="data-cleaning-ii.html#cb93-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="data-cleaning-ii.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="do">## using the arrange function to sort the review rating from lowest to highest</span></span>
+<span id="cb13-2"><a href="data-cleaning-ii.html#cb13-2" aria-hidden="true" tabindex="-1"></a>horror_movies <span class="sc">%&gt;%</span> </span>
+<span id="cb13-3"><a href="data-cleaning-ii.html#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(review_rating) <span class="sc">%&gt;%</span> </span>
+<span id="cb13-4"><a href="data-cleaning-ii.html#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 10 × 12
 ##    title     genres  release_date release_country movie_rating review_rating
 ##    &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt;        &lt;chr&gt;           &lt;chr&gt;                &lt;dbl&gt;
@@ -426,10 +420,10 @@ and put it into a tibble called <code>horror_movies</code> using the <code>read_
 ## # … with 6 more variables: movie_run_time &lt;chr&gt;, plot &lt;chr&gt;, cast &lt;chr&gt;,
 ## #   language &lt;chr&gt;, filming_locations &lt;chr&gt;, budget &lt;chr&gt;</code></pre>
 <p>By default, the <code>arrange</code> function sorts in ascending rather than descending order. If we want to change this, we can use the <code>arrange</code> function in conjunction with the <code>desc</code> function.</p>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="data-cleaning-ii.html#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="do">## using the arrange and desc functions to sort the review rating from highest to lowest</span></span>
-<span id="cb95-2"><a href="data-cleaning-ii.html#cb95-2" aria-hidden="true" tabindex="-1"></a>horror_movies <span class="sc">%&gt;%</span> </span>
-<span id="cb95-3"><a href="data-cleaning-ii.html#cb95-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(review_rating)) <span class="sc">%&gt;%</span> </span>
-<span id="cb95-4"><a href="data-cleaning-ii.html#cb95-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="data-cleaning-ii.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="do">## using the arrange and desc functions to sort the review rating from highest to lowest</span></span>
+<span id="cb15-2"><a href="data-cleaning-ii.html#cb15-2" aria-hidden="true" tabindex="-1"></a>horror_movies <span class="sc">%&gt;%</span> </span>
+<span id="cb15-3"><a href="data-cleaning-ii.html#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(review_rating)) <span class="sc">%&gt;%</span> </span>
+<span id="cb15-4"><a href="data-cleaning-ii.html#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 10 × 12
 ##    title    genres   release_date release_country movie_rating review_rating
 ##    &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt;        &lt;chr&gt;           &lt;chr&gt;                &lt;dbl&gt;
@@ -455,10 +449,10 @@ and put it into a tibble called <code>horror_movies</code> using the <code>read_
 <li><code>|</code> - the “or” logical operator</li>
 </ul>
 <p>We already briefly specified the <code>!</code> logical operator in the previous section, so let’s focus on the <code>&amp;</code> and <code>|</code>. The <code>&amp;</code> operator becomes useful when we want to <code>filter</code> based on more than one true criteria. For example, suppose we want to filter out the movies that received a 9.0 review rating or higher AND was released in Canada. We would need to evaluate whether two criteria are satisfied: the statement “movies that received a 9.0 movie rating or higher”and the statement “released only in Canada.” If <strong>both</strong> of these statements are TRUE, then they get displayed. If not, they are filtered out.</p>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="data-cleaning-ii.html#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="do">## filtering for only movies receiving a movie rating of 9.0 or higher </span></span>
-<span id="cb97-2"><a href="data-cleaning-ii.html#cb97-2" aria-hidden="true" tabindex="-1"></a><span class="do">## and in the country Canada</span></span>
-<span id="cb97-3"><a href="data-cleaning-ii.html#cb97-3" aria-hidden="true" tabindex="-1"></a>horror_movies <span class="sc">%&gt;%</span> </span>
-<span id="cb97-4"><a href="data-cleaning-ii.html#cb97-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(review_rating <span class="sc">&gt;=</span> <span class="fl">9.0</span> <span class="sc">&amp;</span> release_country <span class="sc">==</span> <span class="st">&quot;Canada&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="data-cleaning-ii.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="do">## filtering for only movies receiving a movie rating of 9.0 or higher </span></span>
+<span id="cb17-2"><a href="data-cleaning-ii.html#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="do">## and in the country Canada</span></span>
+<span id="cb17-3"><a href="data-cleaning-ii.html#cb17-3" aria-hidden="true" tabindex="-1"></a>horror_movies <span class="sc">%&gt;%</span> </span>
+<span id="cb17-4"><a href="data-cleaning-ii.html#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(review_rating <span class="sc">&gt;=</span> <span class="fl">9.0</span> <span class="sc">&amp;</span> release_country <span class="sc">==</span> <span class="st">&quot;Canada&quot;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 2 × 12
 ##   title     genres   release_date release_country movie_rating review_rating
 ##   &lt;chr&gt;     &lt;chr&gt;    &lt;chr&gt;        &lt;chr&gt;           &lt;chr&gt;                &lt;dbl&gt;
@@ -468,9 +462,9 @@ and put it into a tibble called <code>horror_movies</code> using the <code>read_
 ## #   language &lt;chr&gt;, filming_locations &lt;chr&gt;, budget &lt;chr&gt;</code></pre>
 <p>Notice that now we are looking at movies that have a 9.0 or higher movie rating, and were released in Canada. We can see that there are only 2 movies that match these criteria.</p>
 <p>On the other hand, suppose we used the <code>|</code> logical operator instead. The <code>|</code> operator will evaluate whether “review rating is great than 9.0” is TRUE, or “release country is Canada” is TRUE. If <strong>either</strong> of these statements are TRUE or <strong>both</strong> of these are TRUE, then the data is displayed. If <strong>both</strong> of these are false, then they are filtered out. Observe:</p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="data-cleaning-ii.html#cb99-1" aria-hidden="true" tabindex="-1"></a>horror_movies <span class="sc">%&gt;%</span> </span>
-<span id="cb99-2"><a href="data-cleaning-ii.html#cb99-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(review_rating <span class="sc">&gt;=</span> <span class="fl">9.0</span> <span class="sc">|</span> release_country <span class="sc">==</span> <span class="st">&quot;Canada&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb99-3"><a href="data-cleaning-ii.html#cb99-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(review_rating, release_country,  <span class="at">sort =</span> T)</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="data-cleaning-ii.html#cb19-1" aria-hidden="true" tabindex="-1"></a>horror_movies <span class="sc">%&gt;%</span> </span>
+<span id="cb19-2"><a href="data-cleaning-ii.html#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(review_rating <span class="sc">&gt;=</span> <span class="fl">9.0</span> <span class="sc">|</span> release_country <span class="sc">==</span> <span class="st">&quot;Canada&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb19-3"><a href="data-cleaning-ii.html#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(review_rating, release_country,  <span class="at">sort =</span> T)</span></code></pre></div>
 <pre><code>## # A tibble: 52 × 3
 ##    review_rating release_country     n
 ##            &lt;dbl&gt; &lt;chr&gt;           &lt;int&gt;

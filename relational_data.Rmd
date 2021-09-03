@@ -1,7 +1,7 @@
 
 # Relational Data
 
-For this Guided Exercise, we will be focusing on how to find *primary keys*. A primary key is a compact way of saying "how to uniquely identify observations in your data set". To practice finding primary keys, we will be using a variety of data sets that are already preloaded in R packages. The purpose of identifying primary keys is to make merging multiple data sets together easier. Merging data works best when you can merge on keys that uniquely identify your observations. This ensures that each observation is connected to their true data in the foreign data set (i.e. the data set that it will be merged to). A failure to merge your data correctly will result in inaccurate data that will not produce any meaningful result. This is what we want to avoid. 
+For this chapter, we will be focusing on how to find *primary keys*. A primary key is a compact way of saying "how to uniquely identify observations in your data set". To practice finding primary keys, we will be using a variety of data sets that are already preloaded in R packages. The purpose of identifying primary keys is to make merging multiple data sets together easier. Merging data works best when you can merge on keys that uniquely identify your observations. This ensures that each observation is connected to their true data in the foreign data set (i.e. the data set that it will be merged to). A failure to merge your data correctly will result in inaccurate data that will not produce any meaningful result. This is what we want to avoid. 
 
 ## Finding Primary Keys 
 
