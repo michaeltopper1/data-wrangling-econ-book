@@ -6,10 +6,12 @@ rmd_files: [
   "index.Rmd",
   "intro_r.Rmd",
   "guided_exercise_rprojects.Rmd",
+  "git.Rmd",
   "intro_piping.Rmd",
   "piping_2.Rmd",
   "ggplot2.Rmd",
   "strings.Rmd",
+  "organization.Rmd",
   "programming.Rmd",
   "relational_data.Rmd"]
 delete_merged_file: true 

@@ -58,14 +58,14 @@ This is a much less error-prone way to work collaboratively, and sets you up for
 
 Creating an `R Project` is simple. Just click `File->New Project` in the RStudio user interface (see Figure \ref{makeproject}):
 
-```{r, fig.cap="\\label{makeproject}Creating a Project", out.width="75%", fig.align="center"}
+```{r, echo = F, fig.cap="\\label{makeproject}Creating a Project", out.width="75%", fig.align="center"}
 # here::here() is generating the filepath such that it'll work regardless of changes in earlier folder structure or the computer it's on!
 knitr::include_graphics(here::here("images","rproject","pic_1.png"))
 ```
 
 RStudio also allows you to quickly switch between your projects. Figure \ref{switching} points out the `R Project` in the top right hand corner of the ``R` session. If you click on the name, the drop down appears with all of the previously accessed projects to quickly hop between projects.
 
-```{r switching, fig.cap="\\label{switching} Easily Switching Projects", out.width="75%",fig.align="center"}
+```{r switching, echo = F, fig.cap="\\label{switching} Easily Switching Projects", out.width="75%",fig.align="center"}
 knitr::include_graphics(here::here("images","rproject","switching.png"))
 ```
 
