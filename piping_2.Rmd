@@ -1,0 +1,183 @@
+---
+title: 'Guided Exercises: Piping and Other Common Functions'
+output:
+  html_document:
+    df_print: paged
+header-includes:
+- \usepackage{fancyhdr}
+- \pagestyle{fancy}
+- \fancypagestyle{plain}{\pagestyle{fancy}}
+- \fancyhead[LE, LO]{Econ 245 - Fall 2021}
+- \fancyfoot[LE,LO]{Copyright UCSB 2021}
+- \newcommand{\magenta}[1]{\textcolor{magenta}{#1}}
+- \usepackage{xcolor}
+editor_options:
+  chunk_output_type: console
+---
+
+# Data Cleaning II
+
+For this Guided Exercise,  we will be importing  a dataset from TidyTuesday Github. Tidy Tuesday is a weekly social data project in R where users explore a new dataset each week and share their findings on Twitter with #TidyTuesday. In particular, we will be focusing on a horror movies data set from IMDB. IMDB is the world's most popular and authoritative source for movie, TV and celebrity content, designed to help fans explore the world of movies and shows and decide what to watch. This data set shows us information on horror movies that are on IMDB's website. Here are some important variables we will be working with:
+
+* `review_rating`- the IMDB users average rating of the movie.
+* `release_country` - the country the movie was released in.
+* `movie_rating` - the movie's Motion Picture Association film rating system score (e.g. G, PG, PG-13)
+
+We will be focusing on getting comfortable with the following functions:
+
+* `count`
+* `is.na`
+* `arrange`
+* `filter` in conjunction with logicals
+
+Let's begin by importing in the data. To do this, we will be importing it using the `read_csv` function. Copy and paste the following link: https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-10-22/horror_movies.csv
+and put it into a tibble called `horror_movies` using the `read_csv` function as shown below.
+
+```{r, message = "hide"}
+## install the package if you do not have it
+library(tidyverse)
+
+## loading in the data
+horror_movies <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-10-22/horror_movies.csv")
+
+```
+
+Notice how easy it was to read data off of a website and into R using the `read_csv` function: all it took was copying a pasting a link. 
+
+## The `count` function
+
+The `count` function takes all of the unique elements in a column, and counts how many times each element occurs. For instance, say we want to find the amount of times each movie rating occurs in our data set. We can do this using the `count` function.
+
+```{r}
+## finding out how many of each rating of horror movie there are
+horror_movies %>% 
+  count(movie_rating)
+```
+
+The `count` function also has a helpful argument called `sort`. By default, `sort` is set to `FALSE`. This means that the `count` function will not order your results in descending order by the number of times they occur. If you want to view your elements in descending order, you can set the `sort` argument to `TRUE`. 
+
+```{r}
+## counting in descending order by setting sort = T
+horror_movies %>% 
+  count(movie_rating, sort = T)
+```
+
+The `sort` argument is particularly useful for spotting things like a large amount of NAs, or getting an idea of how a column is distributed.
+
+### Exercise
+
+* What is the most frequent review rating?
+
+
+## Using the `is.na` function
+
+The `is.na` function used to find the NAs withing a particular column. It takes one argument: the column you specify . The `is.na` function works particularly well with the `filter` function. Suppose we want to see how many NAs are in the `movie_rating` column. We can do this by `count`, and a `filter` in conjunction with the `is.na` function.
+
+```{r}
+## Looking at only the NAs
+horror_movies %>% 
+  count(movie_rating, sort = T) %>% 
+  filter(is.na(movie_rating))
+```
+
+While this is useful, it might be even *more* useful if we filter out the NAs. Observe:
+
+```{r}
+## Filtering out the NAs
+horror_movies %>% 
+  count(review_rating, sort = T) %>% 
+  filter(!is.na(review_rating))
+```
+
+What exactly happened here? The `!` logical is the "not" or "negating" logical. If we were to type `filter(is.na(review_rating))` we are telling R to filter all the elements inside of `review_rating` that are NA. However, if we type `filter(!is.na(review_rating))` we are telling R to NOT filter all the elements inside of `review_rating` taht are NA. Hence, we are actually filtering out the NAs in this line of code.
+
+### Exercise
+
+*  Make a new tibble called $\color{magenta}{\text{horrror\_movies\_NA}}$ that filters out all the NAs in the entire data set. 
+
+## The `arrange` function
+
+The arrange function is a simple function that simply sorts columns into ascending or descending order. For instance, suppose we sort our entire data set by which movies had the highest `review_rating`. We could do this by using the `arrange` function:
+```{r}
+## using the arrange function to sort the review rating from lowest to highest
+horror_movies %>% 
+  arrange(review_rating) %>% 
+  head(10)
+```
+
+By default, the `arrange` function sorts in ascending rather than descending order. If we want to change this, we can use the `arrange` function in conjunction with the `desc` function.
+
+```{r}
+## using the arrange and desc functions to sort the review rating from highest to lowest
+horror_movies %>% 
+  arrange(desc(review_rating)) %>% 
+  head(10)
+```
+
+
+## The `filter` function with logicals
+
+As you saw last week, the `filter` function is great for subsetting your data based on a certain criteria. However, the `filter` function becomes much more powerful when used with logical operators. The three most common logical operators we use are the following:
+
+* `!` - the "not" logical operator
+* `&` - the "and" logical operator
+* `|` - the "or" logical operator
+
+We already briefly specified the `!` logical operator in the previous section, so let's focus on the `&` and `|`. The `&` operator becomes useful when we want to `filter` based on more than one true criteria. For example, suppose we want to filter out the movies that received a 9.0 review rating or higher AND was released in Canada. We would need to evaluate whether two criteria are satisfied: the statement "movies that received a 9.0 movie rating or higher"and the statement "released only in Canada". If **both** of these statements are TRUE, then they get displayed. If not, they are filtered out.
+
+```{r}
+## filtering for only movies receiving a movie rating of 9.0 or higher 
+## and in the country Canada
+horror_movies %>% 
+  filter(review_rating >= 9.0 & release_country == "Canada")
+```
+
+Notice that now we are looking at movies that have a 9.0 or higher movie rating, and were released in Canada. We can see that there are only 2 movies that match these criteria.
+
+On the other hand, suppose we used the `|` logical operator instead. The `|` operator will evaluate whether "review rating is great than 9.0" is TRUE, or "release country is Canada" is TRUE. If **either** of these statements are TRUE or **both** of these are TRUE, then the data is displayed. If **both** of these are false, then they are filtered out. Observe:
+
+```{r}
+horror_movies %>% 
+  filter(review_rating >= 9.0 | release_country == "Canada") %>% 
+  count(review_rating, release_country,  sort = T)
+```
+
+Notice that we we have review ratings that are less than 9.0, and also countries that are not Canada. This is because only **one** of our statements need to be TRUE (although, as stated, **both** can be TRUE as well).
+
+### Exercise
+
+* Use the `filter` function to filter the horror movies that were released only in the USA or were  "NOT RATED". Find which of these movies had the highest review rating. 
+
+### Exercise
+
+* Count the number of PG-13 movies that are only in Japan and USA. 
+
+
+# Selected Solutions
+
+```{r, echo = F}
+## exercise 1.1.1
+top_review_ratings = horror_movies %>% 
+  count(review_rating, sort = T) 
+```
+
+* (Exercise 1.1.1) The most common review rating is `r top_review_ratings$n[1]` for NA, and `r top_review_ratings$n[2]` if we consider NA to not be a review rating. 
+
+```{r, echo = F}
+## Exercise 1.4.1
+only_usa = horror_movies %>% 
+  filter(release_country == "USA" | movie_rating == "NOT RATED") %>% 
+  arrange(desc(review_rating))
+```
+
+ * (Exercise 1.4.1) Of the movies that were released in USA or had a rating of "NOT RATED" the highest review rating was a 9.8 by the movie `r only_usa$title[1]`.
+ 
+```{r, echo = F}
+## Exercise 1.4.2
+only_usa_japan = horror_movies %>% 
+  filter(release_country == "USA" | release_country == "Japan") %>% 
+  count(movie_rating, sort = T) %>% 
+  filter(movie_rating == "PG-13")
+```
+ 
+ * (Exercise 1.4.2) Of the movies that were released in USA or Japan, there were `r only_usa_japan$n` movies that were rated "PG-13". 

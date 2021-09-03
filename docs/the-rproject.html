@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Making free books with RStudio’s RMarkdown &amp; Bookdown</title>
+  <title>Chapter 2 The Rproject | Guided Exercises: R Projects</title>
   <meta name="description" content="A mini bookdown tutorial book on how to make bookdown books." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Making free books with RStudio’s RMarkdown &amp; Bookdown" />
+  <meta property="og:title" content="Chapter 2 The Rproject | Guided Exercises: R Projects" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="openscapes/series" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Making free books with RStudio’s RMarkdown &amp; Bookdown" />
+  <meta name="twitter:title" content="Chapter 2 The Rproject | Guided Exercises: R Projects" />
   
   <meta name="twitter:description" content="A mini bookdown tutorial book on how to make bookdown books." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="the-rproject.html"/>
+<link rel="prev" href="index.html"/>
+<link rel="next" href="getting-started.html"/>
 <script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -55,6 +55,69 @@
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 
 <link rel="stylesheet" href="lib/css/bootstrap.min.css" type="text/css" />
@@ -75,7 +138,7 @@
 <li><a href="./">Mini Bookdown Tutorial</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> output: bookdown::gitbook</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#learn-all-about-bookdown"><i class="fa fa-check"></i><b>1.1</b> Learn all about Bookdown</a></li>
 </ul></li>
@@ -166,7 +229,7 @@
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Making free books with RStudio’s RMarkdown &amp; Bookdown</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Guided Exercises: R Projects</a>
           </h1>
         </div>
 
@@ -174,45 +237,56 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Making free books with RStudio’s RMarkdown &amp; Bookdown</h1>
-<p class="author"><em>Julie Lowndes</em></p>
-<p class="date" style="margin-top: 1.5em;"><em>2021-09-02</em></p>
+<div id="the-rproject" class="section level1" number="2">
+<h1><span class="header-section-number">Chapter 2</span> The <code>Rproject</code></h1>
+<p>When working with coauthors, each writer will need to source scripts between local machines. A common problem is that these scripts will no longer work since the file paths are “hard-coded.” For example, if your Homework 1 was part of a research project, the naive start may be something like this:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="the-rproject.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="the-rproject.html#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="the-rproject.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="do">## sets the working directory</span></span>
+<span id="cb1-4"><a href="the-rproject.html#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="do">## never use this command ever again!!!!</span></span>
+<span id="cb1-5"><a href="the-rproject.html#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;user/Desktop/econ_145/homework_1/&quot;</span>)</span></code></pre></div>
+<p>If you were to send your script to your coauthor, it would not necessarily run on their local machine. It may be the case that you each have different files within different directories. This is a common problem, but there is one great solution: <code>R Projects</code>.</p>
+<p>An <code>R Project</code> is a way to locally source all files regardless of computer you are operating on. An <code>R Project</code> automatically detects the file-path leading up to the project meaning you only have to locally source. For instance, say you created a research project folder named “research_project” on your Desktop where you keep all your files. To run a file named “regressions.R” <em>without</em> an <code>Rproject</code>, you would need to call the following using the <code>source</code> function:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="the-rproject.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="do">## The source function simply runs the file that is passed to it</span></span>
+<span id="cb2-2"><a href="the-rproject.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="do">## note that this file path is &quot;hard-coded&quot; and will not work on any other machine than the one it was created on</span></span>
+<span id="cb2-3"><a href="the-rproject.html#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;user/Desktop/research_project/regressions.R&quot;</span>)</span></code></pre></div>
+<p>However, with an <code>Rproject</code> you could simply do the following:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="the-rproject.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="do">## this code would be able to run on any machine that has the R project</span></span>
+<span id="cb3-2"><a href="the-rproject.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;regressions.R&quot;</span>)</span></code></pre></div>
+<p>Hence, as specified earlier, an <code>R Project</code> detects the file-path leading to the project folder. So in this case, every file we source will be relative to the <code>user/Desktop/research_project/</code>. This is terrific because <code>R Projects</code> will automatically detect the file-path leading to the folder, so you can send the <code>R Project</code> folder to any coauthor and they will be able to run the files on their local machine <em>without making any changes</em>.</p>
+<p>As a secondary example, suppose you want to load in the data which is nested in the following path: “user/Desktop/research_project/data/my_data.csv.” If an <code>Rproject</code> was made in the “research_project” folder, then you would call in the data using the following:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="the-rproject.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="do">## reading in the data </span></span>
+<span id="cb4-2"><a href="the-rproject.html#cb4-2" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/my_data.csv&quot;</span>)</span></code></pre></div>
+<p>This is a much less error-prone way to work collaboratively, and sets you up for success for reproducibility.</p>
+<p><em>Aside: If you’re less comfortable writing file-paths, you can use the <code>here</code> package to make the job a bit easier. <code>here</code> finds the file-path leading to the <code>Rproject</code>, then allows you to enter each folder separating the lines with a comma.</em></p>
+<p>Creating an <code>R Project</code> is simple. Just click <code>File-&gt;New Project</code> in the RStudio user interface (see Figure ):</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="the-rproject.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># here::here() is generating the filepath such that it&#39;ll work regardless of changes in earlier folder structure or the computer it&#39;s on!</span></span>
+<span id="cb5-2"><a href="the-rproject.html#cb5-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;images&quot;</span>,<span class="st">&quot;rproject&quot;</span>,<span class="st">&quot;pic_1.png&quot;</span>))</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-6"></span>
+<img src="images/rproject/pic_1.png" alt="\label{makeproject}Creating a Project" width="75%" />
+<p class="caption">
+Figure 2.1: Creating a Project
+</p>
 </div>
-<div id="welcome" class="section level1" number="1">
-<h1><span class="header-section-number">Chapter 1</span> Welcome</h1>
-<p>hi</p>
-<p>It’s possible to create beautiful books for free using <a href="http://rmarkdown.rstudio.com/">RStudio’s R Markdown</a> and Yihui Xie’s <a href="https://bookdown.org/yihui/bookdown/">bookdown</a> and hosting them on <a href="http://github.com">Github</a>. This is pretty new and incredibly cool. It is a really powerful way to communicate science using the same reproducible workflow you use for your analyses and collaborations.</p>
-<p>This tutorial borrows heavily from a lot of great tutorials and resources you should check out too – there are links throughout. It also parallels a previous tutorial <a href="https://jules32.github.io/rmarkdown-website-tutorial/">Making free websites with RStudio’s R Markdown</a>.</p>
-<p>The best way to learn is to follow along with your own laptop, but all are welcome. We’ll spend half the time with the tutorial and half the time for you to work on your own website and get help. If you bring your laptop please do this beforehand:</p>
-<ol style="list-style-type: decimal">
-<li>install <a href="https://www.rstudio.com/products/rstudio/download/">RStudio</a></li>
-<li>create a <a href="(http://github.com)">GitHub</a> account (<a href="http://happygitwithr.com/github-acct.html">advice</a>)</li>
-<li>set up your computer to talk to GitHub
-<ul>
-<li>have RStudio linked directly (highly recommended) (<a href="http://happygitwithr.com/hello-git.html">instructions sections 8-14</a>)</li>
-<li>or install the <a href="https://desktop.github.com/">Desktop App</a></li>
-<li>or be familiar with git commands for the command line (<a href="https://try.github.io/levels/1/challenges/1">tutorial</a>)</li>
-</ul></li>
-</ol>
-<hr />
-<p><strong>Examples:</strong></p>
-<p>We have been using bookdown for the Ocean Health Index: <a href="http://ohi-science.org/data-science-training"><strong>ohi-science.org/data-science-training</strong></a> and Openscapes: <a href="https://openscapes.org/series"><strong>openscapes.org/series</strong></a>.<br />
-And R Markdown is much more than books and websites – here’s a <a href="http://rmarkdown.rstudio.com/lesson-1.html"><strong>one-minute video about R Markdown</strong></a> to get you excited.</p>
-<hr />
-<div id="learn-all-about-bookdown" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> Learn all about Bookdown</h2>
-<p>The best way to learn more about bookdown is from Yihui Xie himself. You can read his book <a href="https://bookdown.org/yihui/bookdown/">bookdown: Authoring Books and Technical Documents with R Markdown</a> or watch his webinar <a href="https://www.rstudio.com/resources/webinars/introducing-bookdown/">introducing bookdown</a>.</p>
+<p>RStudio also allows you to quickly switch between your projects. Figure  points out the <code>R Project</code> in the top right hand corner of the `<code>R</code> session. If you click on the name, the drop down appears with all of the previously accessed projects to quickly hop between projects.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="the-rproject.html#cb6-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;images&quot;</span>,<span class="st">&quot;rproject&quot;</span>,<span class="st">&quot;switching.png&quot;</span>))</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:switching"></span>
+<img src="images/rproject/switching.png" alt="\label{switching} Easily Switching Projects" width="75%" />
+<p class="caption">
+Figure 2.2:  Easily Switching Projects
+</p>
+</div>
+<p>The other benefit of <code>R Projects</code> is the seamless synchronization and integration with Github, which will be covered soon.</p>
+<p>This is a brief introduction to <code>Rprojects</code>. Additional reading on the matter can be found <a href="https://www.r-bloggers.com/2020/01/rstudio-projects-and-working-directories-a-beginners-guide/">here</a>. We highly recommend you adopt <code>R Projects</code> from the very beginning of this course - it will save you a ton of time later on!</p>
 
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="the-rproject.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="getting-started.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -244,7 +318,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/jules32/bookdown-tutorial/edit/master/index.Rmd",
+"link": "https://github.com/jules32/bookdown-tutorial/edit/master/guided_exercise_rprojects.Rmd",
 "text": "Edit"
 },
 "history": {

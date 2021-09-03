@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 6 Graphics with ggplot2 | Guided Exercises: Graphics with ggplot2</title>
+  <meta name="description" content="A mini bookdown tutorial book on how to make bookdown books." />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 6 Graphics with ggplot2 | Guided Exercises: Graphics with ggplot2" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="A mini bookdown tutorial book on how to make bookdown books." />
+  <meta name="github-repo" content="openscapes/series" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 6 Graphics with ggplot2 | Guided Exercises: Graphics with ggplot2" />
+  
+  <meta name="twitter:description" content="A mini bookdown tutorial book on how to make bookdown books." />
+  
+
+<meta name="author" content="Julie Lowndes" />
+
+
+<meta name="date" content="2021-09-02" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="data-cleaning-ii.html"/>
+
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="lib/css/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" href="lib/css/style.css" type="text/css" />
+<link rel="stylesheet" href="lib/css/lesson.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Mini Bookdown Tutorial</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> output: bookdown::gitbook</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#learn-all-about-bookdown"><i class="fa fa-check"></i><b>1.1</b> Learn all about Bookdown</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="the-rproject.html"><a href="the-rproject.html"><i class="fa fa-check"></i><b>2</b> The <code>Rproject</code></a></li>
+<li class="chapter" data-level="3" data-path="intro-to-r.html"><a href="intro-to-r.html"><i class="fa fa-check"></i><b>3</b> Intro to R</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="intro-to-r.html"><a href="intro-to-r.html#basic-summary-statistics"><i class="fa fa-check"></i><b>3.1</b> Basic summary statistics</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="intro-to-r.html"><a href="intro-to-r.html#exercise"><i class="fa fa-check"></i><b>3.1.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="intro-to-r.html"><a href="intro-to-r.html#basic-histogram"><i class="fa fa-check"></i><b>3.2</b> Basic histogram</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="intro-to-r.html"><a href="intro-to-r.html#exercise-1"><i class="fa fa-check"></i><b>3.2.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="intro-to-r.html"><a href="intro-to-r.html#creating-vectors"><i class="fa fa-check"></i><b>3.3</b> Creating Vectors</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="intro-to-r.html"><a href="intro-to-r.html#exercise-2"><i class="fa fa-check"></i><b>3.3.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="intro-to-r.html"><a href="intro-to-r.html#comparing-vectors"><i class="fa fa-check"></i><b>3.4</b> Comparing Vectors</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="intro-to-r.html"><a href="intro-to-r.html#exercise-3"><i class="fa fa-check"></i><b>3.4.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="intro-to-r.html"><a href="intro-to-r.html#creating-a-tibble"><i class="fa fa-check"></i><b>3.5</b> Creating a tibble</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="intro-to-r.html"><a href="intro-to-r.html#exercise-4"><i class="fa fa-check"></i><b>3.5.1</b> Exercise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html"><i class="fa fa-check"></i><b>4</b> Cleaning Data I</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#the-pipe"><i class="fa fa-check"></i><b>4.1</b> The Pipe</a></li>
+<li class="chapter" data-level="4.2" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#the-clean_names-function"><i class="fa fa-check"></i><b>4.2</b> The <code>clean_names</code> function</a></li>
+<li class="chapter" data-level="4.3" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#the-select-function"><i class="fa fa-check"></i><b>4.3</b> The <code>select</code> function</a></li>
+<li class="chapter" data-level="4.4" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#the-filter-function"><i class="fa fa-check"></i><b>4.4</b> The <code>filter</code> function</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#exercise-5"><i class="fa fa-check"></i><b>4.4.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#the-distinct-function"><i class="fa fa-check"></i><b>4.5</b> The <code>distinct</code> function</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#exercise-6"><i class="fa fa-check"></i><b>4.5.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#the-mutate-function."><i class="fa fa-check"></i><b>4.6</b> The <code>mutate</code> function.</a></li>
+<li class="chapter" data-level="4.7" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#the-summarize-function"><i class="fa fa-check"></i><b>4.7</b> The <code>summarize</code> function</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#exercise-7"><i class="fa fa-check"></i><b>4.7.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#the-group_by-and-summarize-functions"><i class="fa fa-check"></i><b>4.8</b> The <code>group_by</code> and <code>summarize</code> functions</a>
+<ul>
+<li class="chapter" data-level="4.8.1" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#exercise-8"><i class="fa fa-check"></i><b>4.8.1</b> Exercise</a></li>
+<li class="chapter" data-level="4.8.2" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#exercise-9"><i class="fa fa-check"></i><b>4.8.2</b> Exercise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-cleaning-ii.html"><a href="data-cleaning-ii.html"><i class="fa fa-check"></i><b>5</b> Data Cleaning II</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="data-cleaning-ii.html"><a href="data-cleaning-ii.html#the-count-function"><i class="fa fa-check"></i><b>5.1</b> The <code>count</code> function</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="data-cleaning-ii.html"><a href="data-cleaning-ii.html#exercise-10"><i class="fa fa-check"></i><b>5.1.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="data-cleaning-ii.html"><a href="data-cleaning-ii.html#using-the-is.na-function"><i class="fa fa-check"></i><b>5.2</b> Using the <code>is.na</code> function</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="data-cleaning-ii.html"><a href="data-cleaning-ii.html#exercise-11"><i class="fa fa-check"></i><b>5.2.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="data-cleaning-ii.html"><a href="data-cleaning-ii.html#the-arrange-function"><i class="fa fa-check"></i><b>5.3</b> The <code>arrange</code> function</a></li>
+<li class="chapter" data-level="5.4" data-path="data-cleaning-ii.html"><a href="data-cleaning-ii.html#the-filter-function-with-logicals"><i class="fa fa-check"></i><b>5.4</b> The <code>filter</code> function with logicals</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="data-cleaning-ii.html"><a href="data-cleaning-ii.html#exercise-12"><i class="fa fa-check"></i><b>5.4.1</b> Exercise</a></li>
+<li class="chapter" data-level="5.4.2" data-path="data-cleaning-ii.html"><a href="data-cleaning-ii.html#exercise-13"><i class="fa fa-check"></i><b>5.4.2</b> Exercise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html"><i class="fa fa-check"></i><b>6</b> Graphics with ggplot2</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html#the-grammar-of-graphics"><i class="fa fa-check"></i><b>6.1</b> The grammar of graphics</a></li>
+<li class="chapter" data-level="6.2" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html#adding-options"><i class="fa fa-check"></i><b>6.2</b> Adding options</a></li>
+<li class="chapter" data-level="6.3" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html#adding-multiple-plots-together"><i class="fa fa-check"></i><b>6.3</b> Adding multiple plots together</a></li>
+<li class="chapter" data-level="6.4" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html#creating-legends"><i class="fa fa-check"></i><b>6.4</b> Creating legends</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html#exercise-14"><i class="fa fa-check"></i><b>6.4.1</b> Exercise</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://bookdown.org" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Guided Exercises: Graphics with ggplot2</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="graphics-with-ggplot2" class="section level1" number="6">
+<h1><span class="header-section-number">Chapter 6</span> Graphics with ggplot2</h1>
+<p>In this Guided Exercise, we will be focusing on visualization with an emphasis on using <code>ggplot2</code>. While the basic R plots have lower fixed costs to begin using, they are generally less customizable, less initially pretty, and do not work as well in the <em>flow</em> of the <code>tidyverse</code> package. On the other hand, <code>ggplot2</code> has a logical flow to the graphics system. There is always a specific grammar that must be followed to make graphs, and once you understand it, making graphs becomes fun and (more or less) easy. In practice, you will learn that the essence of making graphs is Googling your questions. There is almost certainly an individual who has needed to make a graph similar to yours, and the R community has probably responded using <code>ggplot2</code>.</p>
+<p>For this week, we will once again be working with the <code>titanic_train</code> data from the <code>titanic</code> package. As a reminder, this data set provides information on the fate of passengers on the fatal maiden voyage of the ocean liner “Titanic,” summarized according to economic status (class), sex, age, and survival. Here are some of the important columns:</p>
+<ul>
+<li><code>Survived</code>: binary variable equal to 1 if the passenger survived</li>
+<li><code>Pclass</code>: the passenger’s class</li>
+<li><code>name</code>: the passenger’s name</li>
+<li><code>Sex</code>: the sex of the passenger</li>
+<li><code>Age</code>: the age of the passenger</li>
+<li><code>Fare</code>: the price of the ticket the passenger paid</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="graphics-with-ggplot2.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## loading in the data and packages</span></span>
+<span id="cb1-2"><a href="graphics-with-ggplot2.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="graphics-with-ggplot2.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(titanic)</span>
+<span id="cb1-4"><a href="graphics-with-ggplot2.html#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="graphics-with-ggplot2.html#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="do">##loading in the data set and cleaning the names</span></span>
+<span id="cb1-6"><a href="graphics-with-ggplot2.html#cb1-6" aria-hidden="true" tabindex="-1"></a>titanic <span class="ot">&lt;-</span> janitor<span class="sc">::</span><span class="fu">clean_names</span>(titanic_train)</span></code></pre></div>
+<div id="the-grammar-of-graphics" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> The grammar of graphics</h2>
+<p>The most important aspect to understand in <code>ggplot2</code> is the “grammar of graphics.” The <code>ggplot2</code> package has its own syntax for making graphs. This syntax, while confusing at first, is extremely elegant when your graphics become more complicated. Let’s start off with the basic template for making graphics:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="graphics-with-ggplot2.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="do">##The basic template</span></span>
+<span id="cb2-2"><a href="graphics-with-ggplot2.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="do">## This uses the titanic data set</span></span>
+<span id="cb2-3"><a href="graphics-with-ggplot2.html#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="do">## creates a histogram with the variable being the age column</span></span>
+<span id="cb2-4"><a href="graphics-with-ggplot2.html#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> titanic, <span class="fu">aes</span>(<span class="at">x =</span> age)) <span class="sc">+</span></span>
+<span id="cb2-5"><a href="graphics-with-ggplot2.html#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() </span></code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<pre><code>## Warning: Removed 177 rows containing non-finite values (stat_bin).</code></pre>
+<p><img src="series_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>There is a LOT to unpack here, so we will go through each component thoroughly:</p>
+<ul>
+<li>The <code>ggplot</code> function tells R that we want to make a <code>ggplot2</code> graphic. The <code>ggplot</code> function <em>generally</em> takes two arguments: the tibble you want to use in the <code>data</code> argument, and the <code>aes</code> function. The <code>aes</code> function stands for the “aesthetic mapping.” The purpose of this function is to tell <code>ggplot2</code> what you want on your x and y axis. It will then take these inputs and “aesthetically map” them to the desired type of graph.</li>
+<li>You should notice that there are addition signs (<code>+</code>) between these two lines of code. These addition signs can be thought of as a pipe, but for graphics. Specifically, they tell the graph “and now add on this.”</li>
+<li>The <code>geom_histogram</code> function is a function that specifies we want to make a histogram. All graphs in the <code>ggplot2</code> package begin with “geom” so that we can easily recognize that we are calling a specific type of graph. Other examples are a scatter plot (<code>geom_point</code>), density plot (<code>geom_density</code>), box-and-whisker plot (<code>geom_boxplot</code>), or a bar graph (<code>geom_bar</code>).</li>
+</ul>
+</div>
+<div id="adding-options" class="section level2" number="6.2">
+<h2><span class="header-section-number">6.2</span> Adding options</h2>
+<p>As stated above, the <code>+</code> is essentially a <code>%&gt;%</code>, but for graphics. It can be thought of verbally as “and now add this to the graph.” To demonstrate this, let’s use our histogram of the <code>age</code> column that we saw in the last section. Suppose we wanted to do the following:</p>
+<ul>
+<li>Edit the x axis with our own custom label</li>
+<li>Edit the y axis with our own custom label</li>
+<li>Add a title</li>
+<li>Make the default colors look better</li>
+</ul>
+<p>This becomes rather simple to do in <code>ggplot2</code> thanks to the grammar of graphics.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="graphics-with-ggplot2.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="do">## creating the same plot as above except with a title, and edited axis</span></span>
+<span id="cb5-2"><a href="graphics-with-ggplot2.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> titanic, <span class="fu">aes</span>(<span class="at">x =</span> age)) <span class="sc">+</span> <span class="do">## use the titanic tibble, map the age column to the graph</span></span>
+<span id="cb5-3"><a href="graphics-with-ggplot2.html#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span> <span class="do">## and now make a histogram of age</span></span>
+<span id="cb5-4"><a href="graphics-with-ggplot2.html#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;My x-axis label which is age&quot;</span>) <span class="sc">+</span> <span class="do">## and now label the x axis</span></span>
+<span id="cb5-5"><a href="graphics-with-ggplot2.html#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;My y axis label which is Count&quot;</span>) <span class="sc">+</span> <span class="do">## and now label the y axis</span></span>
+<span id="cb5-6"><a href="graphics-with-ggplot2.html#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;My title&quot;</span>) <span class="sc">+</span><span class="do">## and now label. the label I want is the title</span></span>
+<span id="cb5-7"><a href="graphics-with-ggplot2.html#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>() <span class="do">## and now use this graphing theme to make it pretty</span></span></code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<pre><code>## Warning: Removed 177 rows containing non-finite values (stat_bin).</code></pre>
+<p><img src="series_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>As specified in the comments, the way we would read this code is</p>
+<ul>
+<li>Make a ggplot object using the <code>titanic</code> tibble and map <code>age</code> to the x-axis</li>
+<li>And now add on a histogram</li>
+<li>And now add on a label the x axis with <code>xlab</code></li>
+<li>And now add on a label the y axis with <code>ylabs</code></li>
+<li>And now add on the graph a title with <code>labs</code> and the title argument</li>
+<li>And now use a color scheme that is more appealing with <code>theme_light</code></li>
+</ul>
+<p>Let’s try to make a few other types of graphs. As mentioned earlier, graph types usually begin with the <code>geom_</code> followed by the type of graph that it is. For instance, let’s make a box-and-whisker graph (also known as a box-plot) using the <code>sex</code> and <code>age</code> columns.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="graphics-with-ggplot2.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="do">## making a box-and-whisker plot</span></span>
+<span id="cb8-2"><a href="graphics-with-ggplot2.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> titanic, <span class="fu">aes</span>(<span class="at">x =</span> sex, <span class="at">y =</span> age)) <span class="sc">+</span> <span class="do">## make a ggplot plot using the titanic data and map age and sex to x and y</span></span>
+<span id="cb8-3"><a href="graphics-with-ggplot2.html#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span> <span class="do">## and now make a box plot with x axis sex and y axis age</span></span>
+<span id="cb8-4"><a href="graphics-with-ggplot2.html#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Sex of the passenger&quot;</span>) <span class="sc">+</span> <span class="do">## and now label the x axis </span></span>
+<span id="cb8-5"><a href="graphics-with-ggplot2.html#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Age of the passenger&quot;</span>) <span class="sc">+</span> <span class="do">## and now label the y axis</span></span>
+<span id="cb8-6"><a href="graphics-with-ggplot2.html#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Distribution of ages by sex&quot;</span>) <span class="sc">+</span> <span class="do">## and now title the graph</span></span>
+<span id="cb8-7"><a href="graphics-with-ggplot2.html#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>() <span class="do">## and now make the graph look prettier</span></span></code></pre></div>
+<pre><code>## Warning: Removed 177 rows containing non-finite values (stat_boxplot).</code></pre>
+<p><img src="series_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>Now let’s make a scatter plot using the <code>age</code> and <code>fare</code> columns:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="graphics-with-ggplot2.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="do">## making a scatter plot </span></span>
+<span id="cb10-2"><a href="graphics-with-ggplot2.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> titanic, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> fare)) <span class="sc">+</span> <span class="do">## make a ggplot plot using the titanic dat</span></span>
+<span id="cb10-3"><a href="graphics-with-ggplot2.html#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="do">## using age as x axis and fare as y axis</span></span>
+<span id="cb10-4"><a href="graphics-with-ggplot2.html#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Age of passenger&quot;</span>) <span class="sc">+</span> <span class="do">## and now label the x axis</span></span>
+<span id="cb10-5"><a href="graphics-with-ggplot2.html#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Ticket price paid&quot;</span>) <span class="sc">+</span> <span class="do">## and now label the y axis</span></span>
+<span id="cb10-6"><a href="graphics-with-ggplot2.html#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Relationship between age and ticket price&quot;</span>) <span class="sc">+</span> <span class="do">## and now title the graph</span></span>
+<span id="cb10-7"><a href="graphics-with-ggplot2.html#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>() <span class="do">## and now make the graph look prettier</span></span></code></pre></div>
+<pre><code>## Warning: Removed 177 rows containing missing values (geom_point).</code></pre>
+<p><img src="series_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>As shown, it is incredibly simple to switch between different types of graphs. In fact, once you have a template of the certain options you like to add to your graph, you can simply change the <code>geom_</code> to your desired graph type.</p>
+</div>
+<div id="adding-multiple-plots-together" class="section level2" number="6.3">
+<h2><span class="header-section-number">6.3</span> Adding multiple plots together</h2>
+<p>One of the main draws of <code>ggplot2</code> is how simple it is to overlay graphs. For instance, suppose we want a plot that has two histograms, one for male age, and one for female age. We can easily do this by simply adding on a <code>geom_histogram</code> argument.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="graphics-with-ggplot2.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="do">## making two histograms on one graph</span></span>
+<span id="cb12-2"><a href="graphics-with-ggplot2.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> titanic, <span class="fu">aes</span>(<span class="at">x =</span> age)) <span class="sc">+</span></span>
+<span id="cb12-3"><a href="graphics-with-ggplot2.html#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">data =</span> titanic <span class="sc">%&gt;%</span> <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">&quot;male&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb12-4"><a href="graphics-with-ggplot2.html#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">data =</span> titanic <span class="sc">%&gt;%</span> <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">&quot;female&quot;</span>))</span></code></pre></div>
+<pre><code>## Warning: Removed 124 rows containing non-finite values (stat_density).</code></pre>
+<pre><code>## Warning: Removed 53 rows containing non-finite values (stat_density).</code></pre>
+<p><img src="series_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>Notice that the <code>geom_density</code> told ggplot to create a density graph. Also notice something new: we added in a <code>data</code> argument to <code>geom_density</code>. This can be extremely useful when making multiple plots on the same graph. In our example, we told our first density graph to use the <code>titanic</code> data, but <code>filter</code> only the males. This shows how simple it is to add in <code>tidyverse</code> to ggplot!</p>
+<p>Let’s make this graph a little “prettier.” Suppose we wanted to fill these density graphs with some color so we could tell the difference between them. To do this, we will use the <code>fill</code> argument that comes standard in each <code>geom</code> graph.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="graphics-with-ggplot2.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="do">## making two histograms on one graph and adding color using the fill argument</span></span>
+<span id="cb15-2"><a href="graphics-with-ggplot2.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> titanic, <span class="fu">aes</span>(<span class="at">x =</span> age)) <span class="sc">+</span></span>
+<span id="cb15-3"><a href="graphics-with-ggplot2.html#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">data =</span> titanic <span class="sc">%&gt;%</span> <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">&quot;male&quot;</span>), <span class="at">fill =</span> <span class="st">&#39;blue&#39;</span>) <span class="sc">+</span></span>
+<span id="cb15-4"><a href="graphics-with-ggplot2.html#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">data =</span> titanic <span class="sc">%&gt;%</span> <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">&quot;female&quot;</span>), <span class="at">fill =</span> <span class="st">&#39;red&#39;</span>)</span></code></pre></div>
+<pre><code>## Warning: Removed 124 rows containing non-finite values (stat_density).</code></pre>
+<pre><code>## Warning: Removed 53 rows containing non-finite values (stat_density).</code></pre>
+<p><img src="series_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>Of course, this isn’t so pretty since one of the densities is clearly over-powering the other. This is where another new argument <code>alpha</code> can help us. The <code>alpha</code> argument is simply a number between 0 and 1 which tells <code>ggplot</code> how transparent the color should be. Observe:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="graphics-with-ggplot2.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="do">## making two histograms on one graph and adding color using the fill argument, and alpha argument</span></span>
+<span id="cb18-2"><a href="graphics-with-ggplot2.html#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> titanic, <span class="fu">aes</span>(<span class="at">x =</span> age)) <span class="sc">+</span></span>
+<span id="cb18-3"><a href="graphics-with-ggplot2.html#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">data =</span> titanic <span class="sc">%&gt;%</span> <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">&quot;male&quot;</span>), <span class="at">fill =</span> <span class="st">&#39;blue&#39;</span>, <span class="at">alpha =</span> <span class="fl">0.4</span>) <span class="sc">+</span></span>
+<span id="cb18-4"><a href="graphics-with-ggplot2.html#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">data =</span> titanic <span class="sc">%&gt;%</span> <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">&quot;female&quot;</span>), <span class="at">fill =</span> <span class="st">&#39;red&#39;</span>, <span class="at">alpha =</span> <span class="fl">0.4</span>) <span class="sc">+</span></span>
+<span id="cb18-5"><a href="graphics-with-ggplot2.html#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>()</span></code></pre></div>
+<pre><code>## Warning: Removed 124 rows containing non-finite values (stat_density).</code></pre>
+<pre><code>## Warning: Removed 53 rows containing non-finite values (stat_density).</code></pre>
+<p><img src="series_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+</div>
+<div id="creating-legends" class="section level2" number="6.4">
+<h2><span class="header-section-number">6.4</span> Creating legends</h2>
+<p>Legends are automatically created for you using the <code>fill</code> argument <strong>within the aesthetic mapping</strong>. For instance, suppose we wanted to create a graph similar to above with two densities of <code>age</code>: one for males and one for females. We can actually accomplish this in a more compact way by adding the <code>fill</code> argument to our aesthetic mapping. The <code>fill</code> argument within <code>aes</code> specifically tells <code>ggplot</code> that you want to separate this graph by a categorical variable.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="graphics-with-ggplot2.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="do">## making two histograms on one graph and adding a legend using the fill argument</span></span>
+<span id="cb21-2"><a href="graphics-with-ggplot2.html#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> titanic, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">fill =</span> sex)) <span class="sc">+</span></span>
+<span id="cb21-3"><a href="graphics-with-ggplot2.html#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.4</span>) <span class="sc">+</span></span>
+<span id="cb21-4"><a href="graphics-with-ggplot2.html#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Age&quot;</span>) <span class="sc">+</span> <span class="do">## and now add on an xlabel</span></span>
+<span id="cb21-5"><a href="graphics-with-ggplot2.html#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Density&quot;</span>) <span class="sc">+</span> <span class="do">## and now add on a ylabel</span></span>
+<span id="cb21-6"><a href="graphics-with-ggplot2.html#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Age by Sex&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;Sex of Passenger&quot;</span>) <span class="sc">+</span> <span class="do">## and now give the graph a title, and </span></span>
+<span id="cb21-7"><a href="graphics-with-ggplot2.html#cb21-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># rename the fill argument to &quot;Sex of Passenger&quot;</span></span>
+<span id="cb21-8"><a href="graphics-with-ggplot2.html#cb21-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="do">## and now make the graph have pretty color scheme</span></span></code></pre></div>
+<pre><code>## Warning: Removed 177 rows containing non-finite values (stat_density).</code></pre>
+<p><img src="series_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p>Notice that within the <code>labs</code> function, we added in another argument, <code>fill</code>. This <code>fill</code> will specifically label the <code>fill</code> you called in the aesthetic mapping (<code>aes</code>). This is beneficial so you can label your legend however you want. Omit the <code>fill</code> argument in the <code>labs</code> function and see what happens for yourself.</p>
+<p>Let’s go through the “grammar of graphics” of this graph in plain English:</p>
+<ul>
+<li>Make a ggplot object and use the <code>titanic</code> tibble and map the <code>age</code> column to the graph, but do two separate “fills” (e.g., versions of the graph), one for each category of sex.</li>
+<li>And now add on a density plot</li>
+<li>And now add on a label the x axis with <code>xlab</code></li>
+<li>And now add on a label the y axis with <code>ylabs</code></li>
+<li>And now add on the graph a title with <code>labs</code> and the title argument, and re-label the <code>fill</code> argument with the label “Sex of Passenger”</li>
+<li>And now make the graph have default pretty colors with <code>theme_minimal</code></li>
+</ul>
+<div id="exercise-14" class="section level3" number="6.4.1">
+<h3><span class="header-section-number">6.4.1</span> Exercise</h3>
+<ul>
+<li>Create the following graph (HINT: use the <code>color</code> argument in the aesthetic mapping and turn <code>survived</code> into a factor using <code>as.factor</code>):</li>
+</ul>
+<p><img src="series_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-cleaning-ii.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/jules32/bookdown-tutorial/edit/master/ggplot2.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["series.pdf"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

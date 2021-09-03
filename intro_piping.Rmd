@@ -1,0 +1,337 @@
+---
+title: 'Guided Exercises: Piping'
+output:
+  html_document:
+    df_print: paged
+header-includes:
+- \usepackage{fancyhdr}
+- \pagestyle{fancy}
+- \fancypagestyle{plain}{\pagestyle{fancy}}
+- \fancyhead[LE, LO]{Econ 245 - Fall 2021}
+- \fancyfoot[LE,LO]{Copyright UCSB 2021}
+- \newcommand{\magenta}[1]{\textcolor{magenta}{#1}}
+- \usepackage{xcolor}
+editor_options:
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Cleaning Data I
+
+For this Guided Exercise, we will once again be working with the `titanic_train` data set from the `titanic` package. This data set provides information on the fate of passengers on the fatal maiden voyage of the ocean liner "Titanic" summarized according to economic status (class), sex, age, and survival. As a reminder, here are some of the important columns: 
+
+* `Survived`: binary variable equal to 1 if the passenger survived
+* `Pclass`: the passenger's class
+* `Name`: the passenger's name
+* `Sex`: the sex of the passenger
+* `Age`: the age of the passenger
+
+Now let's load in the data and necessary packages. 
+```{r, message = F}
+## install the package if you do not have it
+# install.packages("titanic")
+library(titanic)
+library(tidyverse)
+library(janitor)
+
+## saving our data to the name titanic as a tibble
+titanic <- tibble(titanic_train)
+```
+
+We will be focusing on getting comfortable with the following functions in the `tidyverse` package:
+
+* `select`
+* `distinct`
+* `mutate`
+* `group_by`
+* `summarize`
+
+We will also learn how to use the following functions in the `janitor` package:
+
+* `clean_names`
+
+We will be using these functions in conjunction with the pipe (typed as `%>%`) operator. By going through these exercises, you will see proper ways to utilize functions and learn to write code in a readable and reproducible way. 
+
+## The Pipe
+
+A pipe (typed as `%>%`) is a specific operator that comes from the `magrittr` package, but is automatically loaded in with the `tidyverse`. Essentially, it makes reading code easier, typing code faster, and finding  complicated results very easy. A pipe essentially is saying "and now, do this" to a tibble. Piping is best used to chain together multiple functions to subset your data set into smaller pieces that you find more interesting. We will see this pipe in action in the following sections. Mastering the pipe is essential to quick and efficient cleaning, and you can find some incredible results with using pipes and a few simple functions. To demonstrate how a pipe works, I'll use a rather bland motivating example: suppose we want to glance at our `titanic` data using the `head` function. Before the pipe existed, we would need to type the following:
+```{r, eval = F}
+## without a pipe
+head(titanic)
+```
+
+However, with a pipe, we can type the following:
+```{r, eval = F}
+## using a pipe
+titanic %>% 
+  head()
+```
+
+Each of these give us the same result. The way the pipe works, is that it automatically fills the "data" argument of a function with the tibble you are piping from (in this case, the `titanic` tibble). While this seems extraneous in this example, the benefit of the pipe is that you can combine multiple functions together in a readable way. We will see a demonstration of this as we get further into this Guided Exercise.
+
+
+## The `clean_names` function
+
+The `clean_names` function allows us to put all of our column names in our tibble in a standardized format. In particular, the function makes certain that the column names are all lowercase and blank spaces are replaced with an underscore. Keeping your variable names standardized is an important practice that will make data wrangling much easier as your data sets get bigger and you begin collaborating with others.
+
+Let's take a look at our data set without cleaning the names.
+
+```{r}
+## viewing a snapshot of our data set
+titanic %>% 
+  head()
+```
+
+Notice here we used the pipe. The pipe told us to take the `titanic` data set, and perform the `head` function to it. In terms of piping language we could specify what happened:
+
+* Use titanic data set
+* And now take the `head` of the titanic data set
+
+Another important aspect of this output to notice is that  our columns begin with capital letters (e.g. `Class`). As stated, we can use the `clean_names` function from the janitor package to standardize the column name format to all lower case and underscores. Observe:
+
+```{r, eval = F}
+## Using the clean_names function on the titanic data
+titanic %>% 
+  clean_names()
+```
+
+The column names now all have our desired standardized format. Now let's try to use our previous `head` function:
+
+```{r}
+## Using the head function again
+titanic %>% 
+  head()
+```
+
+The columns have gone back to their normal messy ways! This is because **we failed to save the changes we made** to our titanic data set. The pipe operator will perform functions on your tibble, but it will **not** save the changes unless you explicitly tell R to do so. 
+
+Let's use the `clean_names` function, and save the tibble with the cleaned column names.
+
+```{r}
+## saving the titanic tibble with cleaned names
+titanic <- titanic %>% 
+  clean_names()
+## viewing the cleaned names data set as it has now been saved
+titanic %>% 
+  head()
+```
+
+For the rest of this guided exercise, we will be working with this tibble.
+
+## The `select` function
+
+The `select` function is a way to subset your data. It selects whichever variables you are particularly concerned with. For instance, suppose we were only interested in the `age` and `survived` columns of the `titanic` tibble. We could use the `select` function to observe only these columns.
+
+```{r}
+## selecting only the age and survived columns and then previewing with head
+titanic %>% 
+  select(age, survived) %>% 
+  head()
+```
+
+There are a few things that should be noted here. First, we did not save this sub-selection of variables as a new tibble, so this is just a temporary sub-selection. Second, we performed two pipes with one pipe on each line until the ending function. This code could be read as:
+
+* Use the `titanic` tibble
+* And then `select` the `age` and `survived` columns
+* And then use the `head` function to view 
+
+Of course, if we wanted to save our sub-selection, we could easily do this by assigning it to a new tibble.
+
+```{r}
+## assigning the subselection to a new tibble
+titanic_age_survived <- titanic %>% 
+  select(age, survived)
+
+## did not use head here because do not want only the first 5 rows to be saved
+```
+
+Generally, the `select` function is a great way to subset your data to focus on only the columns you are particularly concerned with. 
+
+## The `filter` function
+
+The `filter` function is one of the most powerful and frequently used functions when combined with a pipe. The filter function filters your data set based on some criteria you choose. For example, suppose we want to only look at children in this data set. We can filter out all of the passengers in the data set that have an age less than 18. Observe:
+
+```{r}
+titanic %>% 
+  filter(age < 18) %>% 
+  head()
+```
+
+
+Just to further our understanding, let's once again write out what this code is doing:
+
+* Use the titanic tibble
+* And then filter out only rows that have `age` equal to "Child"
+* And then give the heading of the tibble
+
+### Exercise
+
+* Filter the rows of the `titanic` tibble such that the column `fare` column is greater than 100.
+
+## The `distinct` function
+
+The `distinct` function allows you to see the unique values within a specified column. For instance, suppose we wanted to know all of the unique values that are within the `pclass` column of the `titanic` tibble. We could use the `distinct` function to do this.
+
+```{r}
+## using distinct to find unique values in a column
+titanic %>% 
+  distinct(pclass)
+```
+
+We can see from the `distinct` function that the `pclass` column has three unique values: 1, 2, and 3 which correspond to the passengers' class. The `distinct` function can be a great way to take a look at your data and figure out what kind of values reside within specific columns.
+
+### Exercise
+
+* Using the `distinct` function, find the unique values of the `age` column. 
+
+
+## The `mutate` function. 
+
+The `mutate` function creates a new column in your tibble based on some computation statement. To motivate this, suppose we wanted to create a column in the `titanic` tibble that is named `adjusted_fare` which takes the `fare` column and multiplies it by the rate of inflation to get the ticket fare in today's prices. Using the `mutate` function, we could accomplish this:
+
+```{r}
+## assigning a variable the inflation rate
+inflation_rate <- 27.14
+
+## creating a new variable called adjusted_fare which will be the fare in today's dollars
+titanic %>% 
+  mutate(adjusted_fare = fare * inflation_rate) %>% 
+  head()
+```
+
+There is actually quite a bit going on here, so it's worth noting the syntax of the `mutate` function. 
+
+```{r, eval = F}
+## mutate function syntax
+titanic %>% 
+  mutate(your_variable_name = some expression)
+```
+
+Recall that the tibble **will not** save with this new variable that you created unless you tell it to do so.  
+
+Where `mutate` becomes very powerful is using in conjunction with the `ifelse` function. The `ifelse` function is a function that takes a conditional statement, and if it is TRUE, assigns a value, and if it is FALSE, assigns a different value. For instance, suppose we want to create a binary variable equal to 1 if a person is under the age of 18 and 0 if are not. Hence, we can use the `ifelse` function to create our desired binary variable. The syntax for the `ifelse` function is as follows:
+```{r, eval = F}
+## ifelse syntax
+ifelse(a condition, value if condition is TRUE, value if condition is FALSE)
+```
+
+This will be more clear once you see it in action. Let's actually create the desired binary variable:
+
+```{r}
+titanic %>% 
+  mutate(child = ifelse(age < 18, 1, 0)) %>% 
+  head()
+```
+
+Since we cannot see from the preview that we actually created a binary variable, let's use the `distinct` function as a check.
+
+```{r}
+titanic %>% 
+  mutate(child = ifelse(age < 18, 1, 0)) %>% 
+  distinct(child)
+```
+
+**REMEMBER** the `child` variable **DID NOT** save unless you specifically tell R to do so. We will save this variable as we will use it later.
+
+```{r}
+## saving the new variable
+titanic <- titanic %>% 
+  mutate(child = ifelse(age < 18, 1, 0))
+
+## observing the first 5 rows
+titanic %>%
+  head()
+```
+
+## The `summarize` function
+
+The `summarize` function allows us to create statistics over columns quickly and efficiently. As a demonstration, we will be focusing on our `survived` column. Let's suppose that we wanted to know the average of `survived`. Since this is a binary variable, this would be equivalent to the proportion of people who survived the titanic. 
+
+Now let's make a new column called `proportion_survived` which is equal to the mean of `survived`.
+```{r}
+## finding the average of the survived column
+titanic %>% 
+  summarize(proportion_survived = mean(survived, na.rm = T))
+```
+
+Take a closer look at the `summarize` function. You can think of the `summarize` function as similar to the `mutate` function as it creates a new variable equal to some summary statistic that you tell it to do. The basic syntax for the `summarize` function is as follows:
+
+```{r, eval = F}
+summarize(your_variable_name = somefunction)
+```
+
+As another example, we could find the standard deviation of the `survived` column using the summarize function.
+
+```{r}
+##finding the standard deviation of the survived column
+titanic %>% 
+  summarize(sd_survived = sd(survived, na.rm = T))
+```
+
+### Exercise
+
+* Find the variance of the `survived` column using the `summarize` function. See solutions at the end of the document. 
+
+## The `group_by` and `summarize` functions
+
+The `group_by` and `summarize` functions work together to make computing statistics within-groups easy. Suppose you wanted to know the average rate of survival by class type on the titanic. In other words, you suspect that the survival rate differs by people of different class To do this, you want to take the average of each group. The `group_by` function will group classes together and then the `summarize` function will be able to do summary statistics on each group individually. 
+```{r}
+## finding the survival rate among classes
+titanic %>% 
+  group_by(pclass) %>% 
+  summarize(survival_rate = mean(survived, na.rm = T))
+```
+
+From here you can see that the survival rate greatly varied across different classes. It appears that survival was much more prevalent for higher class people. An interesting result! Let's also review what is happening here in the language of pipes:
+
+* Take the `titanic` data
+* And now group by class
+* And now summarize the survival rate by creating a column equal to the mean of the `survived` column within each class. 
+
+You may be curious what happens when you do a `group_by` without a `summarize`. The truth is, nothing happens! R will create a grouping, but it means nothing unless you actually perform some sort of meaningful statistic on each group. 
+
+```{r}
+## using a group_by without a summarize or following function does nothing
+titanic %>% 
+  group_by(sex)
+```
+
+Since it is imperative to understand the `group_by` followed by the `summarize` function, try out a couple of exercises. 
+
+### Exercise
+
+ * Did women have a higher rate of survival than males? Find the answer to this question using the `group_by` and `summarize` functions.
+
+### Exercise
+ * Is there a difference in survival rates between women and men who were in a higher class? Using the `group_by` and `summarize` functions, find the answer to this question. Hint: put two arguments in the `group_by` function.
+
+
+```{r, echo = F}
+survive_gender = titanic %>% 
+  group_by(sex) %>% 
+  summarize(survivalrate = mean(survived, na.rm = T))
+survive_female = survive_gender$survivalrate[1]
+survive_male = survive_gender$survivalrate[2]
+
+class = titanic %>% 
+  group_by(sex, pclass) %>% 
+  summarize(groupings = mean(survived, na.rm = T))
+first_class_f = class$groupings[1]
+second_class_f = class$groupings[2]
+third_class_f = class$groupings[3]
+first_class_m = class$groupings[4]
+second_class_m = class$groupings[5]
+third_class_m = class$groupings[6]
+```
+
+# Selected Solutions
+
+* (Exercise 1.7.1) Variance = `r round(var(titanic$survived, na.rm = T),2)`
+* (Exercise 1.8.1) Women had higher survival rates at `r round(survive_female,2)`. Males were at `r round(survive_male,2)`.
+* (Exercise 1.8.2) Females in first, second, and third class had survivals rate of `r round(first_class_f,2)`, `r round(second_class_f,2)`, and `r round(third_class_f,2)` respectively. On the other hand, males in first, second, and third class had survival rates of `r round(first_class_m,2)`, `r round(second_class_m,2)`, and `r round(third_class_m,2)` respectively. 
+
+
+

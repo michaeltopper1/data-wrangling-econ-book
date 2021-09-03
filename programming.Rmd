@@ -1,0 +1,281 @@
+---
+title: 'Guided Exercises: Programming'
+output:
+  html_document:
+    df_print: paged
+  pdf_document:
+    number_sections: yes
+header-includes:
+- \usepackage{fancyhdr}
+- \pagestyle{fancy}
+- \fancypagestyle{plain}{\pagestyle{fancy}}
+- \fancyhead[LE, LO]{Econ 245 - Fall 2021}
+- \fancyfoot[LE,LO]{Copyright UCSB 2021}
+- \newcommand{\magenta}[1]{\textcolor{magenta}{#1}}
+- \usepackage{xcolor}
+editor_options:
+  chunk_output_type: console
+---
+
+# Programming
+
+For this Guided Exercise, you will not be working with a particular data set. Instead, we will be focusing on basic programming practices using vectors and functions that we create ourselves.  
+
+## Functions
+
+Functions are an extremely useful tool. As you will see in your homework, they can provide the benefit of nearly zero marginal cost with some upfront fixed costs. Our world is a repetitive place, and minimizing the amount of time you need to repeatedly do a task should be minimized. This is where functions will help us.
+
+To motivate this, let's consider finding the area of a circle. The formula for area of a circle is shown in equation (1). 
+
+\begin{equation}
+Area = \pi \times r^2
+\end{equation}
+
+Suppose you wanted to find the area of two circles with radii of 3 and 5 respectively. Although a simple task, it would be painfully slow to type the numbers over and over into R and return an answer. Instead, let's create a function that will compute this area for us. 
+
+Functions in R come with the following syntax: 
+```{r, eval = F}
+## function_name is the function's name that we create
+## function() tells R that we are creating a function
+## x is an input for the function
+function_name <- function(x){
+  ## body to add. 
+  return()
+}
+```
+There are a few things to note here:
+
+* `function_name` is the name we have given our function.
+* `function` tells R that we are creating a function.
+* `x` is an input to the function
+* `return` specifies what value should return (i.e. output).
+
+Recall that functions are like a machine: they require an input, and using that input, create an output. In this example, our input is x, but we have not specified an output. 
+
+To provide a concrete example, we will now create a function called `area_of_circle` that will do the following: 
+
+1. Take the radius of the circle as an input.
+2. Calculate the area of the circle.
+3. Return the area of the circle as an output.
+
+Observe:
+```{r}
+## This function returns the area of a circle
+## This function takes 1 input: the radius of the circle
+area_of_circle <- function(radius){
+  area <- radius^2 * pi
+  return(area)
+}
+```
+
+Notice how the function was constructed. First, we write comments that explain what the function does, and what its inputs are. This is a best practice so you can understand what your function does in the future. Next, we write the actual code of the function. 
+
+Now that we have created the function, we can input any value for the radius we like and the function will return the area of the circle.
+
+```{r}
+## Calculating area of circle with radius 3
+area_of_circle(radius = 3)
+
+## Calculating area of circle with radius 5
+area_of_circle(radius = 5)
+```
+
+We could also modify the `return` statement so that it gives us a little more information:
+
+```{r}
+## This function takes 1 input: the radius of the circle
+## It returns the area of the circle
+area_of_circle <- function(radius){
+  area <- radius^2 * pi
+  return(print(paste("The area of the circle with radius", radius, "is", area)))
+}
+```
+
+```{r}
+## Calculating area of circle with radius 3
+area_of_circle(radius = 3)
+
+## Calculating area of circle with radius 5
+area_of_circle(radius = 5)
+```
+### Exercise
+
+* Create a function called `miles2kilo_feet2meter` which takes two inputs, `miles` and `feet`. The function then converts the miles input to kilometers, and the feet input to meters. The function then prints out the results, specifying each. 
+
+## For-loops
+
+For-loops are a common type of loop that, like functions, take care of repetitive tasks. For-loops work by iterating through a specified task for a certain amount of times. Once that specified amount of times has been met, the for-loop stops. 
+
+The general syntax for for-loops is as follows: 
+```{r, eval = F}
+## for-loop syntax
+for (i in {some specified range}){
+  ##do something
+}
+```
+
+One thing to note about for loops is the indexing variable `i`. This variable `i` will be set equal to your indexed value at each stage in the loop. We will illustrate this by example:
+
+```{r}
+## a for-loop that loops through values 1 to 5 and prints the index at each stage
+for (i in 1:5){
+  print(i)
+}
+```
+
+The for-loop here is telling R to print the value of `i` at each iteration. The for-loop lasts for 5 iterations as we specified. Notice that at each iteration, the `i` variable is updated to match the index it is looping through. For instance, `i` is assigned to 1 the first time through the loop, 2 the second time through the loop, 3 the third time etc. However, numbers are not the only thing we can loop through. We can actually loop through all of the elements in a vector.
+
+```{r}
+## a vector for demonstration
+favorite_econ = c("Econ 140A", "Econ 241", "Econ 290", "Econ 145")
+
+## looping through each element of the favorite_econ vector
+for (i in favorite_econ){
+  print(i)
+}
+```
+
+Here, `i` is still our index, but instead, we are telling the loop to go through each element in the vector one-by-one. Hence, on the first time through the loop, the index `i` is assigned to "Econ 140A", while `i` is assigned to "Econ 241" the second time through etc. 
+
+Now let's try a loop that is most frequently used: looping through a entire vector's indices. 
+```{r}
+## looping through a vectors indices 
+for (i in 1:length(favorite_econ)){
+  print(favorite_econ[i])
+}
+
+```
+
+There is quite a lot to unpack here:
+
+* The for-loop is assigning the index `i` variable to the number 1 the first time through, 2 the second time through, and continuing on until it reaches the the number 4 which is equal to the length of the `favorite_econ` vector.
+* At each iteration of the loop, we print the value of `favorite_econ` at each index. For instance, `i` is equal to 1 the first time through the loop, so the first thing that will be printed is `favorite_econ[1]` which is equivalent to "Econ 140A" (check yourself!).
+
+Another thing to note is that you do not need to have `i` as the name of the index. In fact, when you combine multiple for-loops together, it can be helpful to change your index. Observe:
+
+```{r}
+## econ_class is the index in this case
+for (econ_class in favorite_econ){
+  print(econ_class)
+}
+```
+
+As a final example, we will modify our `area_of_circle` function. The function will take a range of numbers as an input, and collect the area of the circle using each of these numbers as a radii. In particular, our function will take two inputs: `minradius` and `maxradius`. The `minradius` argument will be the smallest radius we would like to calculate the area of the circle with, while the `maxradius` argument will be the largest. The function will calculate the area of the circle for every integer between `minradius` and `maxradius` and return a vector with all of the areas. 
+
+```{r}
+## modifying the function to collect the area of circles with radii of integers 1 through 10
+area_of_circle <- function(minradius, maxradius){
+  area_vector <- rep(NA, 10) #creating an empty vector of 10 NAs
+  for (i in minradius:maxradius){
+    area_vector[i] = pi * i^2  #calculating the area 
+  }
+  return(area_vector) #returning the vector of areas
+}
+
+```
+
+```{r}
+area_of_circle(minradius = 1, maxradius = 10)
+```
+
+
+As an aside, it is important to note that we can also loop through columns in a data frame. This is a task you will likely need to do at some point in your data wrangling career, and there isn't much great help for this online.
+```{r}
+library(tidyverse)
+## loading in the mtcars data set from R
+cars <- mtcars
+
+## selecting only three columns for demonstration
+cars <- cars %>% select(mpg, hp, cyl)
+
+## looping through the columns and printing them out
+for (i in names(cars)){
+  print(cars[i])
+}
+```
+
+
+### Exercise
+
+* Write a function called `sum_func` that calculates the sum of all numbers within a specified range. The function will take two inputs: `minval` which is the smallest number and `maxval` which is the largest number. 
+
+## If-else
+
+Conditional statements are the heart of programming. The if-else statement evaluates whether a condition is `TRUE` or `FALSE` and then perform a computation based on the truth of the statement. The syntax of an if-else statement is as follows:
+
+```{r, eval = F}
+
+if (logical statement){
+  ##perform an action if the logical statement is TRUE 
+}
+else{
+  ## perform a different action if NOT TRUE
+}
+```
+
+For example, suppose we wanted to loop a vector of random numbers in the range of 1 to 100 and find out how many of them are greater than 50. We could do this in the following way:
+
+```{r}
+## setting the seed for replication
+set.seed(1992)
+
+## creating a random sample of 100 integers in the interval 1 to 100
+numbers <- sample(1:100, 100)
+
+## counting how many numbers come out bigger than 50
+count <- 0 ## setting our counter to 0
+for (i in numbers){
+  ## evaluating if the number is greater than 50
+  if (i > 50) {
+    count <- count + 1 ## adding a 1 to our counter
+  }
+  else{
+    count <- count ## redundant, but here for example
+  }
+}
+
+```
+
+Note the `set.seed` function. This is a function that allows replication of results when using random sampling techniques. Essentially it ensures that your random sample is the same random sample every time you run the program. While the seed was set to 1992, you can set the seed to any number you like. Of course, each seed number has its own unique sample (e.g. `set.seed(1)` will give different results than `set.seed(2)`).
+
+### Exercise
+
+* Loop through your `numbers` vector and assign grade values to each of the numbers, and place the grades in a separate vector. For the grade values, if the number is less than 60, assign an "F", if the number is between 60 and 69 assign a "D", if the number is between 70 and 79 assign a "C", if the number is between 80 and 89 assign a "B", and if the number is between 90 and 100 assign an "A". For fun, graph a histogram of the distribution.
+
+
+\newpage
+
+# Selected Solutions
+
+```{r}
+## a solution to Exercise 1.1.1
+
+## this function converts miles to kilometers and feet to meters
+## it takes two input paramters: miles and feet
+## it returns two values: the kilometers and the meters
+miles2kilo_feet2meter <- function(miles, feet){
+  kilometers <- miles * 1.6
+  meters <- feet * 0.3
+  return(print(paste("Kilometers: ", kilometers, "Meters: ", meters)))
+}
+
+```
+
+
+```{r}
+## a solution to Exercise 1.2.1
+
+## This function calculates the sum of all numbers within a specified range
+## two parameters: minval and maxvalue
+## minval: the minimum value of the range
+## maxval: the maximum value of the range
+sum_func <- function(minval, maxval) {
+  total = 0
+  for (i in minval:maxval) {
+    total = total + i
+  }
+  return(print(paste("The sum of all numbers is ", total)))
+}
+
+```
+

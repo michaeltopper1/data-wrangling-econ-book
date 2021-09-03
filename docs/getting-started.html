@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 Getting Started | Guided Exercises: Graphics with ggplot2</title>
+  <meta name="description" content="A mini bookdown tutorial book on how to make bookdown books." />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 Getting Started | Guided Exercises: Graphics with ggplot2" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="A mini bookdown tutorial book on how to make bookdown books." />
+  <meta name="github-repo" content="openscapes/series" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 Getting Started | Guided Exercises: Graphics with ggplot2" />
+  
+  <meta name="twitter:description" content="A mini bookdown tutorial book on how to make bookdown books." />
+  
+
+<meta name="author" content="Julie Lowndes" />
+
+
+<meta name="date" content="2021-09-02" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="selected-solutions.html"/>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="lib/css/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" href="lib/css/style.css" type="text/css" />
+<link rel="stylesheet" href="lib/css/lesson.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Mini Bookdown Tutorial</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#learn-all-about-bookdown"><i class="fa fa-check"></i><b>1.1</b> Learn all about Bookdown</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i><b>2</b> Getting Started</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="getting-started.html"><a href="getting-started.html#basic-summary-statistics"><i class="fa fa-check"></i><b>2.1</b> Basic summary statistics</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="getting-started.html"><a href="getting-started.html#exercise"><i class="fa fa-check"></i><b>2.1.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="getting-started.html"><a href="getting-started.html#basic-histogram"><i class="fa fa-check"></i><b>2.2</b> Basic histogram</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="getting-started.html"><a href="getting-started.html#exercise-1"><i class="fa fa-check"></i><b>2.2.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="getting-started.html"><a href="getting-started.html#creating-vectors"><i class="fa fa-check"></i><b>2.3</b> Creating Vectors</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="getting-started.html"><a href="getting-started.html#exercise-2"><i class="fa fa-check"></i><b>2.3.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="getting-started.html"><a href="getting-started.html#comparing-vectors"><i class="fa fa-check"></i><b>2.4</b> Comparing Vectors</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="getting-started.html"><a href="getting-started.html#exercise-3"><i class="fa fa-check"></i><b>2.4.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="getting-started.html"><a href="getting-started.html#creating-a-tibble"><i class="fa fa-check"></i><b>2.5</b> Creating a tibble</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="getting-started.html"><a href="getting-started.html#exercise-4"><i class="fa fa-check"></i><b>2.5.1</b> Exercise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="selected-solutions.html"><a href="selected-solutions.html"><i class="fa fa-check"></i><b>3</b> Selected Solutions</a></li>
+<li class="chapter" data-level="4" data-path="getting-started-1.html"><a href="getting-started-1.html"><i class="fa fa-check"></i><b>4</b> Getting Started</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="getting-started-1.html"><a href="getting-started-1.html#the-grammar-of-graphics"><i class="fa fa-check"></i><b>4.1</b> The grammar of graphics</a></li>
+<li class="chapter" data-level="4.2" data-path="getting-started-1.html"><a href="getting-started-1.html#adding-options"><i class="fa fa-check"></i><b>4.2</b> Adding options</a></li>
+<li class="chapter" data-level="4.3" data-path="getting-started-1.html"><a href="getting-started-1.html#adding-multiple-plots-together"><i class="fa fa-check"></i><b>4.3</b> Adding multiple plots together</a></li>
+<li class="chapter" data-level="4.4" data-path="getting-started-1.html"><a href="getting-started-1.html#creating-legends"><i class="fa fa-check"></i><b>4.4</b> Creating legends</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="getting-started-1.html"><a href="getting-started-1.html#exercise-5"><i class="fa fa-check"></i><b>4.4.1</b> Exercise</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://bookdown.org" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Guided Exercises: Graphics with ggplot2</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="getting-started" class="section level1" number="2">
+<h1><span class="header-section-number">Chapter 2</span> Getting Started</h1>
+<p>Welcome to Econ 245 Guided Exercises! In these weekly documents, you will practice data wrangling with some hand-holding as well as some simple exercises to check your understanding. The purpose of these documents is the following:</p>
+<ol style="list-style-type: decimal">
+<li>Make your homework easier.</li>
+<li>Make you a better coder by observing good code.</li>
+<li>Get hands-on practice with functions you will need to complete your assignments.</li>
+<li>Provide a reference document for each topic in the course.</li>
+</ol>
+<p>We <em>strongly</em> suggest that you code along with the examples that we go through, although there will be times when copying and pasting can be useful (e.g., loading in a data set).</p>
+<p>This week we will be focusing on a couple topics. The first will be doing common statistics in R, while the other will be an introduction to vectors, tibbles, and logical operators.</p>
+<p>To begin, we will first load in the data sets that we want to use. We will be using the <code>titanic_train</code> data set from the <code>titanic</code> package. The <code>titanic_train</code> data set provides information on the fate of passengers on the fatal maiden voyage of the ocean liner “Titanic,” summarized according to economic status (class), sex, age and survival. Some import columns:</p>
+<ul>
+<li><code>Survived</code>: binary variable equal to 1 if the passenger survived</li>
+<li><code>Pclass</code>: the passenger’s class</li>
+<li><code>name</code>: the passenger’s name</li>
+<li><code>Sex</code>: the sex of the passenger</li>
+<li><code>Age</code>: the age of the passenger</li>
+</ul>
+<p>Let’s load in the data set along with the packages we will be using. Quick aside: A package is a set of functions that are not defined in R by default. Many people create their own packages which have their own unique functions and data sets within. Packages are easy to install, and you only have to install a package one time and then it will be in your local machine for future use. We can install packages using the <code>install.packages</code> function. Important: installing a package <strong>does not</strong> mean it has been loaded. To be able to use the functions and data sets within the package, you must load the package by using the <code>library</code> function. Also important: a package needs to be loaded within each R session Hence, if you restart R or quit and reopen RStudio (which will restart R), you will need to re-load your packages. Observe:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="getting-started.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## installing the necessary packages. The titanic package has the data set we want</span></span>
+<span id="cb1-2"><a href="getting-started.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="do">## the tidyverse package has the functions we want</span></span>
+<span id="cb1-3"><a href="getting-started.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;titanic&quot;</span>)</span>
+<span id="cb1-4"><a href="getting-started.html#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="getting-started.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="do">## loading in the tidyverse and titanic packages</span></span>
+<span id="cb2-2"><a href="getting-started.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="do">## remember: functions and data in the packages cannot be used unless loaded in!</span></span>
+<span id="cb2-3"><a href="getting-started.html#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="do">## this must be done in each R session!</span></span>
+<span id="cb2-4"><a href="getting-started.html#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──</code></pre>
+<pre><code>## ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
+## ✓ tibble  3.1.3     ✓ dplyr   1.0.7
+## ✓ tidyr   1.1.3     ✓ stringr 1.4.0
+## ✓ readr   2.0.0     ✓ forcats 0.5.1</code></pre>
+<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="getting-started.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(titanic)</span>
+<span id="cb6-2"><a href="getting-started.html#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="getting-started.html#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="do">## loading in the titanic data set</span></span>
+<span id="cb6-4"><a href="getting-started.html#cb6-4" aria-hidden="true" tabindex="-1"></a>titanic <span class="ot">&lt;-</span> titanic_train</span></code></pre></div>
+<div id="basic-summary-statistics" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Basic summary statistics</h2>
+<p>To start off, we will go through some basic summary statistics. For this section, we will focus on the <code>Age</code> column of the data set.</p>
+<p>Let’s say we wanted to view only the <code>Age</code> column of the data. We could accomplish this using the <code>$</code> attachment. Observe:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="getting-started.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="do">## viewing only the age column</span></span>
+<span id="cb7-2"><a href="getting-started.html#cb7-2" aria-hidden="true" tabindex="-1"></a>titanic<span class="sc">$</span>Age</span></code></pre></div>
+<p>From this, we can see that there are many values in the <code>Age</code> column, some numbers, and others NA. NA is a value that R recognizes as “missing.” We will touch more on this in lectures and other assignments. For now, just think of it as a missing element.</p>
+<p>Alternatively, we can get a “snapshot” of our data using the <code>head</code> function.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="getting-started.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="do">## using the head function to get a snapshot of the data</span></span>
+<span id="cb8-2"><a href="getting-started.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(titanic)</span></code></pre></div>
+<pre><code>##   PassengerId Survived Pclass
+## 1           1        0      3
+## 2           2        1      1
+## 3           3        1      3
+## 4           4        1      1
+## 5           5        0      3
+## 6           6        0      3
+##                                                  Name    Sex Age SibSp Parch
+## 1                             Braund, Mr. Owen Harris   male  22     1     0
+## 2 Cumings, Mrs. John Bradley (Florence Briggs Thayer) female  38     1     0
+## 3                              Heikkinen, Miss. Laina female  26     0     0
+## 4        Futrelle, Mrs. Jacques Heath (Lily May Peel) female  35     1     0
+## 5                            Allen, Mr. William Henry   male  35     0     0
+## 6                                    Moran, Mr. James   male  NA     0     0
+##             Ticket    Fare Cabin Embarked
+## 1        A/5 21171  7.2500              S
+## 2         PC 17599 71.2833   C85        C
+## 3 STON/O2. 3101282  7.9250              S
+## 4           113803 53.1000  C123        S
+## 5           373450  8.0500              S
+## 6           330877  8.4583              Q</code></pre>
+<p>Taking a look at your data before you start doing analysis is imperative, and the <code>head</code> function gives you a concise preview of most of your columns.</p>
+<p>Now, let’s attempt some basic summary statistics. For starters, we will use the <code>mean</code>, <code>sd</code>, and <code>var</code> functions to get the mean, standard deviation, and variance of the <code>Age</code> column respectively.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="getting-started.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="do">## finding the mean of the age column</span></span>
+<span id="cb10-2"><a href="getting-started.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(titanic<span class="sc">$</span>Age)</span></code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<p>We get a value of NA as our mean of the <code>Age</code> column, despite our knowledge that the <code>Age</code> column contains many different age values. Let’s use the <code>?</code> to get more information on the <code>mean</code> function to see what may be causing this.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="getting-started.html#cb12-1" aria-hidden="true" tabindex="-1"></a>?mean</span></code></pre></div>
+<p>If we look at some of the arguments that the <code>mean</code> function takes, we can see that one of them is called <code>na.rm</code>. The <code>na.rm</code> function is initially defaulted to <code>FALSE</code>. But what does <code>na.rm</code> do? If we set the <code>na.rm</code> argument to <code>TRUE</code>, then <code>na.rm</code> will remove the NA values before the computation proceeds. This is exactly what we need to get a numerical answer for our mean. Before, R was trying to compute missing values into our <code>mean</code> function which does not make any sense (hence the nonsensical answer).</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="getting-started.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="do">## trying this again using the na.rm = T argument</span></span>
+<span id="cb13-2"><a href="getting-started.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(titanic<span class="sc">$</span>Age, <span class="at">na.rm =</span> T)</span></code></pre></div>
+<pre><code>## [1] 29.69912</code></pre>
+<p>Now we finally get our desired result. It is important to check your column values using the <code>head</code> function if you ever get NA as a statistic to make sure your whole column is not solely missing values. Now it’s time to try it yourself.</p>
+<div id="exercise" class="section level3" number="2.1.1">
+<h3><span class="header-section-number">2.1.1</span> Exercise</h3>
+<ul>
+<li>Using the <code>sd</code> and <code>var</code> functions, find the standard deviation and variance of the <code>Age</code> column. Check your solutions at the end of the document.</li>
+</ul>
+</div>
+</div>
+<div id="basic-histogram" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Basic histogram</h2>
+<p>Another tool to give you an idea of the distribution of your data is the <code>hist</code> function. The <code>hist</code> function creates a histogram of your data. Suppose we are interested in the distribution of ages on the titanic. We could quickly get an accurate depiction by graphing a histogram of the column.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="getting-started.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="do">## graphing a histogram of the Age column</span></span>
+<span id="cb15-2"><a href="getting-started.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(titanic<span class="sc">$</span>Age)</span></code></pre></div>
+<p><img src="series_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<div id="exercise-1" class="section level3" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> Exercise</h3>
+<ul>
+<li>Make a histogram of the <code>Fare</code> column. Change the title of the histogram to “Distribution of Fare.” Do you notice anything interesting?</li>
+</ul>
+</div>
+</div>
+<div id="creating-vectors" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> Creating Vectors</h2>
+<p>R is a <em>vectorized</em> computer language. This means that when you perform a function, it performs it on an entire vector of values, rather than value-by-value. The vectorization of R allows us to perform functions on an entire column of the spreadsheet, rather than going cell-by-cell. In the previous example with the <code>titanic</code> data set, we took the mean of an entire column of values by simply using the <code>mean</code> function rather than iterating through each element of our column, adding up the values, and dividing by the total.</p>
+<p>To get a better understanding of vectors, it is useful to create them yourself. Let’s create a vector using the <code>c</code> function. To create a vector, we need a few things:</p>
+<ol style="list-style-type: decimal">
+<li>If we want to refer to our vector later, we need to name it.</li>
+<li>We need to give the vector elements.</li>
+</ol>
+<p>To begin, we will investigate (1).</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="getting-started.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="do">## creating a vector but not saving it</span></span>
+<span id="cb16-2"><a href="getting-started.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="do">## the vector has 4 elements</span></span>
+<span id="cb16-3"><a href="getting-started.html#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">10</span>)</span></code></pre></div>
+<pre><code>## [1]  1  3  4 10</code></pre>
+<p>Here, we created a vector of four values: 1, 3, 4, and 10. Notice at the top right of RStudio that our Global Environment did not change. This is because we did not save the vector. To save the vector, we need to give it a name. For our purposes, the vector will be named <code>first_vector</code>.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="getting-started.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="do">## creating a vector and naming it to save</span></span>
+<span id="cb18-2"><a href="getting-started.html#cb18-2" aria-hidden="true" tabindex="-1"></a>first_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">10</span>)</span></code></pre></div>
+<p>Once you run this line, you should see that your Global Environment has changed. It should now have the <code>first_vector</code> along with a small description of what it contains (e.g. 1, 3, 4, 10). The purpose of saving vectors (or saving anything) is so that we can refer to it later. Instead of creating a new vector of 1, 3, 4, and 10 each time we want to use it, we can <em>call</em> it by typing its name.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="getting-started.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="do">## calling our vector to observe its elements</span></span>
+<span id="cb19-2"><a href="getting-started.html#cb19-2" aria-hidden="true" tabindex="-1"></a>first_vector</span></code></pre></div>
+<pre><code>## [1]  1  3  4 10</code></pre>
+<div id="exercise-2" class="section level3" number="2.3.1">
+<h3><span class="header-section-number">2.3.1</span> Exercise</h3>
+<ul>
+<li>Create two vectors called <code>my_own_vector1</code> and <code>my_own_vector2</code>. Each vector should have four numbers in them. Use whichever numbers you like.</li>
+</ul>
+</div>
+</div>
+<div id="comparing-vectors" class="section level2" number="2.4">
+<h2><span class="header-section-number">2.4</span> Comparing Vectors</h2>
+<p>Vectors can be compared to values and other vectors. To perform this task we use <em>logical operators</em>. The <em>logical operators</em> are similar to what you learned in elementary math: greater than, equal to, or not equal to. In R, we use the following for logical operators for comparisons:</p>
+<ul>
+<li><code>&lt;</code> greater (less) than</li>
+<li><code>&lt;=</code> greater (less) than or equal to</li>
+<li><code>==</code> equal to</li>
+<li><code>!=</code> not equal to</li>
+</ul>
+<p>The best way to understand how logical operators work is to see them in action. As an example, we will compare our <code>first_vector</code> to the value 7.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="getting-started.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="do">## which elements are greater than 7?</span></span>
+<span id="cb21-2"><a href="getting-started.html#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="dv">7</span> <span class="sc">&gt;</span> first_vector</span></code></pre></div>
+<pre><code>## [1]  TRUE  TRUE  TRUE FALSE</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="getting-started.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ordering does not matter</span></span>
+<span id="cb23-2"><a href="getting-started.html#cb23-2" aria-hidden="true" tabindex="-1"></a>first_vector <span class="sc">&lt;</span> <span class="dv">7</span></span></code></pre></div>
+<pre><code>## [1]  TRUE  TRUE  TRUE FALSE</code></pre>
+<p>Notice that R returned logical values TRUE and FALSE. R went through each element of our vector and checked whether the element was less than the number 7. According to our output, the first three elements in our vector were less than the number 7 (hence TRUE) and the last element was not (hence FALSE). We can evaluate the other logical operators as well:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="getting-started.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="do">## checking if each element is not equal to 7</span></span>
+<span id="cb25-2"><a href="getting-started.html#cb25-2" aria-hidden="true" tabindex="-1"></a>first_vector <span class="sc">!=</span> <span class="dv">7</span></span></code></pre></div>
+<pre><code>## [1] TRUE TRUE TRUE TRUE</code></pre>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="getting-started.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="do">## checking if each element is equal to 7</span></span>
+<span id="cb27-2"><a href="getting-started.html#cb27-2" aria-hidden="true" tabindex="-1"></a>first_vector <span class="sc">==</span> <span class="dv">7</span></span></code></pre></div>
+<pre><code>## [1] FALSE FALSE FALSE FALSE</code></pre>
+<p>As a brief aside, observe the last line of code we wrote to check whether <code>first_vector</code> was equal to 7. Notice that the “equal to” operator is <code>==</code> rather than <code>=</code>. This is because <code>==</code> checks the equivalence of components, while <code>=</code> is an <em>assignment</em> character similar to <code>&lt;-</code>. In fact, <code>&lt;-</code> and <code>=</code> serve the exact same purpose for assignment.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="getting-started.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="do">## assigning our first_vector to the value 7</span></span>
+<span id="cb29-2"><a href="getting-started.html#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="do">## we are not checking whether it is equal to 7</span></span>
+<span id="cb29-3"><a href="getting-started.html#cb29-3" aria-hidden="true" tabindex="-1"></a>first_vector <span class="ot">=</span> <span class="dv">7</span></span>
+<span id="cb29-4"><a href="getting-started.html#cb29-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-5"><a href="getting-started.html#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="do">## showing what our first_vector contains after assignment</span></span>
+<span id="cb29-6"><a href="getting-started.html#cb29-6" aria-hidden="true" tabindex="-1"></a>first_vector</span></code></pre></div>
+<pre><code>## [1] 7</code></pre>
+<p>The R community typically uses <code>&lt;-</code> as assignment rather than <code>=</code>. It does not matter which one you use when assigning a variable name, but this class will use the <code>&lt;-</code> assignment as it is the the most frequent one you see online.</p>
+<div id="exercise-3" class="section level3" number="2.4.1">
+<h3><span class="header-section-number">2.4.1</span> Exercise</h3>
+<ul>
+<li>Using your <code>my_own_vector1</code> and <code>my_own_vector2</code>, compare each of these vectors using the 4 logical operators.</li>
+</ul>
+</div>
+</div>
+<div id="creating-a-tibble" class="section level2" number="2.5">
+<h2><span class="header-section-number">2.5</span> Creating a tibble</h2>
+<p>A tibble is essentially a collection of columns with names, similar to an excel spreadsheet. If you are familiar with other computer languages, it is a special type of data frame that has particularly user-friendly characteristics such as making previewing data easier. To demonstrate this, we will observe the <code>titanic</code> data set we were working with earlier. Enter and run the following code:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="getting-started.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="do">## this is currently a data frame - it does not have nice features to view the data or see the data types</span></span>
+<span id="cb31-2"><a href="getting-started.html#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="do">## the code output is suppressed here to make this document shorter</span></span>
+<span id="cb31-3"><a href="getting-started.html#cb31-3" aria-hidden="true" tabindex="-1"></a>titanic</span></code></pre></div>
+<p>The <code>titanic</code> data set is currently a data frame, and hence, it is difficult to view. Let’s change it to a tibble:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="getting-started.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="do">## changing the titanic data frame to a tibble</span></span>
+<span id="cb32-2"><a href="getting-started.html#cb32-2" aria-hidden="true" tabindex="-1"></a>titanic <span class="ot">&lt;-</span> <span class="fu">tibble</span>(titanic)</span></code></pre></div>
+<p>Now that we’ve changed titanic to a tibble, it has nicer previewing features. Observe what happens when we preview the data:</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="getting-started.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="do">## previewing the data</span></span>
+<span id="cb33-2"><a href="getting-started.html#cb33-2" aria-hidden="true" tabindex="-1"></a>titanic</span></code></pre></div>
+<pre><code>## # A tibble: 891 × 12
+##    PassengerId Survived Pclass Name   Sex     Age SibSp Parch Ticket  Fare Cabin
+##          &lt;int&gt;    &lt;int&gt;  &lt;int&gt; &lt;chr&gt;  &lt;chr&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;
+##  1           1        0      3 Braun… male     22     1     0 A/5 2…  7.25 &quot;&quot;   
+##  2           2        1      1 Cumin… fema…    38     1     0 PC 17… 71.3  &quot;C85&quot;
+##  3           3        1      3 Heikk… fema…    26     0     0 STON/…  7.92 &quot;&quot;   
+##  4           4        1      1 Futre… fema…    35     1     0 113803 53.1  &quot;C12…
+##  5           5        0      3 Allen… male     35     0     0 373450  8.05 &quot;&quot;   
+##  6           6        0      3 Moran… male     NA     0     0 330877  8.46 &quot;&quot;   
+##  7           7        0      1 McCar… male     54     0     0 17463  51.9  &quot;E46&quot;
+##  8           8        0      3 Palss… male      2     3     1 349909 21.1  &quot;&quot;   
+##  9           9        1      3 Johns… fema…    27     0     2 347742 11.1  &quot;&quot;   
+## 10          10        1      2 Nasse… fema…    14     1     0 237736 30.1  &quot;&quot;   
+## # … with 881 more rows, and 1 more variable: Embarked &lt;chr&gt;</code></pre>
+<p>As you can see, we now have a helpful snapshot of our data that displays far nicer than when the <code>titanic</code> data set was a data frame: we can see multiple columns, we see only the first 10 rows, and we can see the data types of each column nested under the column names (for instance, <code>PassengerID</code> is an <code>&lt;int&gt;</code> which stands for integer).</p>
+<p>Tibbles are what we will be working with most frequently in this course. While it is generally uncommon to manually create a tibble, it is a great exercise to get a better understanding of how they work. First, we will create another two vectors and recreate our <code>first_vector</code> with its original values:</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="getting-started.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="do">## reassigning original values to the first_vector</span></span>
+<span id="cb35-2"><a href="getting-started.html#cb35-2" aria-hidden="true" tabindex="-1"></a>first_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">10</span>)</span>
+<span id="cb35-3"><a href="getting-started.html#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="do">## new vector</span></span>
+<span id="cb35-4"><a href="getting-started.html#cb35-4" aria-hidden="true" tabindex="-1"></a>second_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>)</span></code></pre></div>
+<p>Now let’s create a tibble that has two columns. Our first column will be the values of <code>first_vector</code> and our second column will be the values of <code>second_vector</code>. We will use the <code>tibble</code> function which takes vectors as arguments. Similarly to vectors, we need to make sure that we <strong>save our tibble</strong> by assigning it to a name.</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="getting-started.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="do">## creating a tibble named first_tibble with two columns</span></span>
+<span id="cb36-2"><a href="getting-started.html#cb36-2" aria-hidden="true" tabindex="-1"></a>first_tibble <span class="ot">&lt;-</span> <span class="fu">tibble</span>(first_vector, second_vector)</span></code></pre></div>
+<p>Since we assigned this tibble a name, we can now see in our Global Environment that it has saved with our desired name. If we click <code>first_tibble</code> in the Global Environment, it will give us a spreadsheet view of our tibble. We can also accomplish this by using the <code>View</code> function.</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="getting-started.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Viewing our tibble in spreadsheet form</span></span>
+<span id="cb37-2"><a href="getting-started.html#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(first_tibble)</span></code></pre></div>
+<p>Notice that the tibble has two columns which are named identically to our vectors. As shown earlier using the <code>titanic</code> data, we can also perform actions on this tibble.</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="getting-started.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="do">## finding the mean of the first_vector column</span></span>
+<span id="cb38-2"><a href="getting-started.html#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="do">## I did not need to set the na.rm = T since no NA values, but did it anyways</span></span>
+<span id="cb38-3"><a href="getting-started.html#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(first_tibble<span class="sc">$</span>first_vector, <span class="at">na.rm =</span> T)</span></code></pre></div>
+<pre><code>## [1] 4.5</code></pre>
+<p>Alternatively, we could create a tibble with column names that differ from our vector names. In the previous example, our <code>first_tibble</code> has two columns with the names defaulted to <code>first_vector</code> and <code>second_vector</code>. However, we can initialize different names to the column by adding a little more syntax to our <code>tibble</code> function. Suppose I want to make a new tibble named <code>second_tibble</code> with the <code>first_vector</code> and <code>second_vector</code> as columns. However, I want the <code>first_vector</code> column to be named <code>age</code> and the <code>second_vector</code> column to be named <code>gender</code>.</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="getting-started.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Creating a new tibble with two columns with the names &quot;age&quot; and &quot;gender&quot;</span></span>
+<span id="cb40-2"><a href="getting-started.html#cb40-2" aria-hidden="true" tabindex="-1"></a>second_tibble <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="st">&quot;age&quot;</span> <span class="ot">=</span> first_vector, <span class="st">&quot;gender&quot;</span> <span class="ot">=</span> second_vector)</span>
+<span id="cb40-3"><a href="getting-started.html#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="do">## showing the result</span></span>
+<span id="cb40-4"><a href="getting-started.html#cb40-4" aria-hidden="true" tabindex="-1"></a>second_tibble</span></code></pre></div>
+<pre><code>## # A tibble: 4 × 2
+##     age gender
+##   &lt;dbl&gt;  &lt;dbl&gt;
+## 1     1      1
+## 2     3      1
+## 3     4      2
+## 4    10      2</code></pre>
+<p><strong>One other important point</strong>: Notice how in the <code>tibble</code> function we used <code>=</code> rather than <code>&lt;-</code> for assigning names. It is important that you use <code>=</code> for assigning arguments rather than <code>&lt;-</code>. Try using <code>&lt;-</code> in the tibble argument, and see how it fails to properly do what we want.</p>
+<div id="exercise-4" class="section level3" number="2.5.1">
+<h3><span class="header-section-number">2.5.1</span> Exercise</h3>
+<ul>
+<li>Using your vectors <code>my_own_vector1</code> and <code>my_own_vector2</code> that you created in the earlier exercise, create a tibble using the <code>tibble</code> function.</li>
+</ul>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="selected-solutions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/jules32/bookdown-tutorial/edit/master/intro_r.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["series.pdf"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

@@ -4,7 +4,13 @@ language:
     chapter_name: "Chapter "
 rmd_files: [
   "index.Rmd",
-  "setup.Rmd",
-  "write.Rmd"]
+  "guided_exercise_rprojects.Rmd",
+  "intro_r.Rmd",
+  "intro_piping.Rmd",
+  "piping_2.Rmd",
+  "ggplot2.Rmd",
+  "strings.Rmd",
+  "programming.Rmd",
+  "relational_data.Rmd"]
 delete_merged_file: true 
 output_dir: "docs"

@@ -1,0 +1,170 @@
+---
+title: 'Guided Exercises: Relational Data'
+output:
+  html_document:
+    df_print: paged
+  pdf_document:
+    number_sections: yes
+header-includes:
+- \usepackage{fancyhdr}
+- \pagestyle{fancy}
+- \fancypagestyle{plain}{\pagestyle{fancy}}
+- \fancyhead[LE, LO]{Econ 245 - Fall 2021}
+- \fancyfoot[LE,LO]{Copyright UCSB 2021}
+- \newcommand{\magenta}[1]{\textcolor{magenta}{#1}}
+- \usepackage{xcolor}
+editor_options:
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Relational Data
+
+For this Guided Exercise, we will be focusing on how to find *primary keys*. A primary key is a compact way of saying "how to uniquely identify observations in your data set". To practice finding primary keys, we will be using a variety of data sets that are already preloaded in R packages. The purpose of identifying primary keys is to make merging multiple data sets together easier. Merging data works best when you can merge on keys that uniquely identify your observations. This ensures that each observation is connected to their true data in the foreign data set (i.e. the data set that it will be merged to). A failure to merge your data correctly will result in inaccurate data that will not produce any meaningful result. This is what we want to avoid. 
+
+## Finding Primary Keys 
+
+The most useful technique to finding primary keys involves a combination of your intuition and the `count` and `filter` functions. To start, we'll load in the `titanic_train` data from the `titanic` package.
+
+```{r, message = F}
+##loading in the necessary package
+library(tidyverse)
+library(titanic)
+library(janitor)
+## data we will be working with  
+titanic <- clean_names(titanic_train)
+```
+
+Let's take a look at the first few rows of our data by using the `head` function.
+
+```{r}
+##getting a snapshot of our data
+titanic %>% 
+  head()
+```
+
+To uniquely identify an observation, we need a column (or combination of columns) that puts each passenger into one row. In other words, since we have individual-level data, we want to find a row that will uniquely identify each individual. Since this is our first example, this is relatively simple: `passenger_id` uniquely identifies an individual, and so does `name`. While this seems intuitive, it is important to actually check whether this is true. This is where the technique of `filter` and `count` must be applied.
+
+We will be using the following algorithm to check whether a column (or combination of columns) uniquely identifies our observations:
+
+* Start with one column that you believe could uniquely identify an observation
+* Count all of the elements in a column
+* Filter out any of them that occur more than once
+* If you do not receive any observation that occur more than once, you are done, if not, you must either try another column, or try a combination of columns. Use your intuition. 
+
+This small algorithm ensures that we are uniquely identifying each observation. It clearly displays observations that occur more than once to inform us that this column (or columns) does or does not identify a primary key. To summarize, if we run our algorithm and receive any output of observations, we failed to find a primary key and need to rethink how we identify an observation. 
+
+Let's try out this algorithm on our two columns that we intuitively thought could identify each individual.
+```{r}
+## using algorithm on the passenger_id column
+titanic %>% 
+  count(passenger_id) %>% 
+  filter(n >1)
+```
+
+Success! The `passenger_id` column does not contain multiple observations of identification. Therefore, it uniquely identifies each observation, and we could use this column to merge in data from other data sets. 
+
+```{r}
+## using algorithm on the name column
+titanic %>% 
+  count(name) %>% 
+  filter(n >1)
+```
+
+Another success! The `name` column also does not contain multiple observations of any particular name. Therefore, it also identifies each individual, and we could also use this column to merge in data from other data sets.
+
+On the other hand, let's test the `ticket` column as it intuitively seems like it could also uniquely identify an observation (there is usually one ticket per person). 
+```{r}
+## testing if ticket uniquely identifies
+titanic %>% 
+  count(ticket) %>% 
+  filter(n >1) %>% 
+  head()
+```
+
+Clearly, since we see that there are multiple duplicates of ticket numbers, we cannot uniquely identify our observations using the `ticket` column. 
+
+Our `titanic` dataset is simple in that we have two ways to uniquely identify an observation which only included one column, but this is not always true. In the next section, we will go through a harder example which will require a collection of columns. 
+
+## Finding Primary Keys (harder)
+
+In the `titanic` example, finding the primary keys was pretty intuitive, and a little trivial. However, this is not always the case. Let's take a look at a data set from the `babynames` package. The `babynames` data set provides data on names given at birth from the Social Security Administration. This includes all names with at least 5 uses (sorry Elon). For our purposes, we will subset the data set since the original data is almost 2 million observations.
+
+```{r, message = F}
+## loading the necessary package
+library(babynames)
+## selecting only the first 20,000 observations and getting rid of one of the rows we don't need
+babynames <- babynames[1:20000,] %>% 
+  select(-n)
+```
+
+```{r}
+## getting a preview of the data
+babynames %>% 
+  head()
+```
+
+As we can see, there are four columns:
+
+* `year`- the year of the birth
+* `sex` - the sex of the child
+* `name` - the name of the child
+* `prop` - a weighting variable we do not care about
+
+We want to uniquely identify an observation. This is where we need intuition as well as our algorithm. Would `name` uniquely identify an observation? No. A name can appear in many different years. Observe our algorithm:
+```{r}
+## checking if name uniquely identifies the data 
+babynames %>% 
+  count(name) %>% 
+  filter(n >1)
+```
+
+Clearly, we see that there are multiple times a name appears. Hence, we must use a *collection* of columns to uniquely identify (recall our algorithm). 
+
+Our intuition should tell us that using `name` and `year` may allow us to uniquely identify our data since each name likely occurs one time within each year. As always, our algorithm can check this assumption:
+
+```{r}
+## checking if name and year uniquely identifies the data
+babynames %>% 
+  count(name, year) %>% 
+  filter(n>1)
+```
+
+It seems we are still not getting unique observations as there are many names that appear twice. Why would this be? This is where you must think critically about your data. Notice that our algorithm has shown us that names occur a maximum of two times. This should hint at something: *these names are being used for both males and females*. Therefore, to uniquely identify an observation, we must use *three* columns: `name`, `year`, and `sex`. 
+
+```{r}
+## checking if name, year, and sex uniquely identify an observation
+babynames %>% 
+  count(name, year, sex) %>% 
+  filter(n > 1)
+```
+
+Success! We managed to find a grouping of columns that brought each observation to one entry. Hence, if we were merging in data, we would want to use these three columns to connect the data.
+
+### Exercise
+
+* (Taken from R for Data Science Chapter 13.3 Exercises) Identify the primary key in the following data set from the `fueleconomy` package: `vehicles`. Remember, the primary key could be a single column or a collection of columns.
+
+### Exercise
+
+* (Taken from R for Data Science Chapter 13.3 Exercises) Identify the primary key in the following data set from the `Lahman` package: `Batting`. Remember, the primary key could be a single column or a collection of columns.
+
+### Exercise
+
+* (Taken from R for Data Science Chapter 13.3 Exercises) Identify the primary key in the following data set from the `nasaweather` package: `atmos`. Remember, the primary key could be a single column or a collection of columns.
+
+
+# Selected Solutions
+
+These are shown on the next page. Please do not look at these until you have tried the exercises. These are provided because these exercises are more difficult.
+
+\newpage
+
+* (Exercise 1.2.1) The column `id` uniquely identifies the observations.
+* (Exercise 1.2.2) The columns (`playerID`, `yearID`, `stint`) uniquely identify each observation. The columns (`playerID`,`yearID`) are not a primary key because players can play on different teams within the same year
+* (Exercise 1.2.3) The primary key is (`lat`, `long`, `year`, `month`). The primary key represents the location and time that the measurement was taken.
+
+
