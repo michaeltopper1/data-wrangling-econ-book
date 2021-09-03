@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 9 Graphics with ggplot2 | Data Wrangling for Economists</title>
+  <title>Chapter 6 Graphics with ggplot2 | Data Wrangling for Economists</title>
   <meta name="description" content="Enter description." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 9 Graphics with ggplot2 | Data Wrangling for Economists" />
+  <meta property="og:title" content="Chapter 6 Graphics with ggplot2 | Data Wrangling for Economists" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="openscapes/series" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 9 Graphics with ggplot2 | Data Wrangling for Economists" />
+  <meta name="twitter:title" content="Chapter 6 Graphics with ggplot2 | Data Wrangling for Economists" />
   
   <meta name="twitter:description" content="Enter description." />
   
@@ -31,7 +31,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="selected-solutions-2.html"/>
+<link rel="prev" href="data-cleaning-ii.html"/>
 <link rel="next" href="strings.html"/>
 <script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
@@ -138,136 +138,134 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Mini Bookdown Tutorial</a></li>
+<li><a href="./">Data Wrangling for Economists</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#learn-all-about-bookdown"><i class="fa fa-check"></i><b>1.1</b> Learn all about Bookdown</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="the-rproject.html"><a href="the-rproject.html"><i class="fa fa-check"></i><b>2</b> The <code>Rproject</code></a></li>
-<li class="chapter" data-level="3" data-path="intro-to-r.html"><a href="intro-to-r.html"><i class="fa fa-check"></i><b>3</b> Intro to R</a>
+<li class="chapter" data-level="2" data-path="intro-to-r.html"><a href="intro-to-r.html"><i class="fa fa-check"></i><b>2</b> Intro to R</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="intro-to-r.html"><a href="intro-to-r.html#basic-summary-statistics"><i class="fa fa-check"></i><b>3.1</b> Basic summary statistics</a>
+<li class="chapter" data-level="2.1" data-path="intro-to-r.html"><a href="intro-to-r.html#basic-summary-statistics"><i class="fa fa-check"></i><b>2.1</b> Basic summary statistics</a>
 <ul>
-<li class="chapter" data-level="3.1.1" data-path="intro-to-r.html"><a href="intro-to-r.html#exercise"><i class="fa fa-check"></i><b>3.1.1</b> Exercise</a></li>
+<li class="chapter" data-level="2.1.1" data-path="intro-to-r.html"><a href="intro-to-r.html#exercise"><i class="fa fa-check"></i><b>2.1.1</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="intro-to-r.html"><a href="intro-to-r.html#basic-histogram"><i class="fa fa-check"></i><b>3.2</b> Basic histogram</a>
+<li class="chapter" data-level="2.2" data-path="intro-to-r.html"><a href="intro-to-r.html#basic-histogram"><i class="fa fa-check"></i><b>2.2</b> Basic histogram</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="intro-to-r.html"><a href="intro-to-r.html#exercise-1"><i class="fa fa-check"></i><b>3.2.1</b> Exercise</a></li>
+<li class="chapter" data-level="2.2.1" data-path="intro-to-r.html"><a href="intro-to-r.html#exercise-1"><i class="fa fa-check"></i><b>2.2.1</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="intro-to-r.html"><a href="intro-to-r.html#creating-vectors"><i class="fa fa-check"></i><b>3.3</b> Creating Vectors</a>
+<li class="chapter" data-level="2.3" data-path="intro-to-r.html"><a href="intro-to-r.html#creating-vectors"><i class="fa fa-check"></i><b>2.3</b> Creating Vectors</a>
 <ul>
-<li class="chapter" data-level="3.3.1" data-path="intro-to-r.html"><a href="intro-to-r.html#exercise-2"><i class="fa fa-check"></i><b>3.3.1</b> Exercise</a></li>
+<li class="chapter" data-level="2.3.1" data-path="intro-to-r.html"><a href="intro-to-r.html#exercise-2"><i class="fa fa-check"></i><b>2.3.1</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="intro-to-r.html"><a href="intro-to-r.html#comparing-vectors"><i class="fa fa-check"></i><b>3.4</b> Comparing Vectors</a>
+<li class="chapter" data-level="2.4" data-path="intro-to-r.html"><a href="intro-to-r.html#comparing-vectors"><i class="fa fa-check"></i><b>2.4</b> Comparing Vectors</a>
 <ul>
-<li class="chapter" data-level="3.4.1" data-path="intro-to-r.html"><a href="intro-to-r.html#exercise-3"><i class="fa fa-check"></i><b>3.4.1</b> Exercise</a></li>
+<li class="chapter" data-level="2.4.1" data-path="intro-to-r.html"><a href="intro-to-r.html#exercise-3"><i class="fa fa-check"></i><b>2.4.1</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="intro-to-r.html"><a href="intro-to-r.html#creating-a-tibble"><i class="fa fa-check"></i><b>3.5</b> Creating a tibble</a>
-<ul>
-<li class="chapter" data-level="3.5.1" data-path="intro-to-r.html"><a href="intro-to-r.html#exercise-4"><i class="fa fa-check"></i><b>3.5.1</b> Exercise</a></li>
+<li class="chapter" data-level="2.5" data-path="intro-to-r.html"><a href="intro-to-r.html#creating-a-tibble"><i class="fa fa-check"></i><b>2.5</b> Creating a tibble</a></li>
+<li class="chapter" data-level="2.6" data-path="intro-to-r.html"><a href="intro-to-r.html#exercise-4"><i class="fa fa-check"></i><b>2.6</b> Exercise</a></li>
+<li class="chapter" data-level="2.7" data-path="intro-to-r.html"><a href="intro-to-r.html#selected-solutions"><i class="fa fa-check"></i><b>2.7</b> Selected Solutions</a></li>
 </ul></li>
+<li class="chapter" data-level="3" data-path="the-rproject.html"><a href="the-rproject.html"><i class="fa fa-check"></i><b>3</b> The <code>Rproject</code></a></li>
+<li class="chapter" data-level="4" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html"><i class="fa fa-check"></i><b>4</b> Cleaning Data I</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#the-pipe"><i class="fa fa-check"></i><b>4.1</b> The Pipe</a></li>
+<li class="chapter" data-level="4.2" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#the-clean_names-function"><i class="fa fa-check"></i><b>4.2</b> The <code>clean_names</code> function</a></li>
+<li class="chapter" data-level="4.3" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#the-select-function"><i class="fa fa-check"></i><b>4.3</b> The <code>select</code> function</a></li>
+<li class="chapter" data-level="4.4" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#the-filter-function"><i class="fa fa-check"></i><b>4.4</b> The <code>filter</code> function</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#exercise-5"><i class="fa fa-check"></i><b>4.4.1</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="selected-solutions.html"><a href="selected-solutions.html"><i class="fa fa-check"></i><b>4</b> Selected Solutions</a></li>
-<li class="chapter" data-level="5" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html"><i class="fa fa-check"></i><b>5</b> Cleaning Data I</a>
+<li class="chapter" data-level="4.5" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#the-distinct-function"><i class="fa fa-check"></i><b>4.5</b> The <code>distinct</code> function</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#the-pipe"><i class="fa fa-check"></i><b>5.1</b> The Pipe</a></li>
-<li class="chapter" data-level="5.2" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#the-clean_names-function"><i class="fa fa-check"></i><b>5.2</b> The <code>clean_names</code> function</a></li>
-<li class="chapter" data-level="5.3" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#the-select-function"><i class="fa fa-check"></i><b>5.3</b> The <code>select</code> function</a></li>
-<li class="chapter" data-level="5.4" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#the-filter-function"><i class="fa fa-check"></i><b>5.4</b> The <code>filter</code> function</a>
-<ul>
-<li class="chapter" data-level="5.4.1" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#exercise-5"><i class="fa fa-check"></i><b>5.4.1</b> Exercise</a></li>
+<li class="chapter" data-level="4.5.1" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#exercise-6"><i class="fa fa-check"></i><b>4.5.1</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="5.5" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#the-distinct-function"><i class="fa fa-check"></i><b>5.5</b> The <code>distinct</code> function</a>
+<li class="chapter" data-level="4.6" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#the-mutate-function."><i class="fa fa-check"></i><b>4.6</b> The <code>mutate</code> function.</a></li>
+<li class="chapter" data-level="4.7" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#the-summarize-function"><i class="fa fa-check"></i><b>4.7</b> The <code>summarize</code> function</a>
 <ul>
-<li class="chapter" data-level="5.5.1" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#exercise-6"><i class="fa fa-check"></i><b>5.5.1</b> Exercise</a></li>
+<li class="chapter" data-level="4.7.1" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#exercise-7"><i class="fa fa-check"></i><b>4.7.1</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="5.6" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#the-mutate-function."><i class="fa fa-check"></i><b>5.6</b> The <code>mutate</code> function.</a></li>
-<li class="chapter" data-level="5.7" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#the-summarize-function"><i class="fa fa-check"></i><b>5.7</b> The <code>summarize</code> function</a>
+<li class="chapter" data-level="4.8" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#the-group_by-and-summarize-functions"><i class="fa fa-check"></i><b>4.8</b> The <code>group_by</code> and <code>summarize</code> functions</a></li>
+<li class="chapter" data-level="4.9" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#exercise-8"><i class="fa fa-check"></i><b>4.9</b> Exercise</a>
 <ul>
-<li class="chapter" data-level="5.7.1" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#exercise-7"><i class="fa fa-check"></i><b>5.7.1</b> Exercise</a></li>
+<li class="chapter" data-level="4.9.1" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#exercise-9"><i class="fa fa-check"></i><b>4.9.1</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="5.8" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#the-group_by-and-summarize-functions"><i class="fa fa-check"></i><b>5.8</b> The <code>group_by</code> and <code>summarize</code> functions</a>
-<ul>
-<li class="chapter" data-level="5.8.1" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#exercise-8"><i class="fa fa-check"></i><b>5.8.1</b> Exercise</a></li>
-<li class="chapter" data-level="5.8.2" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#exercise-9"><i class="fa fa-check"></i><b>5.8.2</b> Exercise</a></li>
+<li class="chapter" data-level="4.10" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#selected-solutions-1"><i class="fa fa-check"></i><b>4.10</b> Selected Solutions</a></li>
 </ul></li>
+<li class="chapter" data-level="5" data-path="data-cleaning-ii.html"><a href="data-cleaning-ii.html"><i class="fa fa-check"></i><b>5</b> Data Cleaning II</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="data-cleaning-ii.html"><a href="data-cleaning-ii.html#the-count-function"><i class="fa fa-check"></i><b>5.1</b> The <code>count</code> function</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="data-cleaning-ii.html"><a href="data-cleaning-ii.html#exercise-10"><i class="fa fa-check"></i><b>5.1.1</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="selected-solutions-1.html"><a href="selected-solutions-1.html"><i class="fa fa-check"></i><b>6</b> Selected Solutions</a></li>
-<li class="chapter" data-level="7" data-path="data-cleaning-ii.html"><a href="data-cleaning-ii.html"><i class="fa fa-check"></i><b>7</b> Data Cleaning II</a>
+<li class="chapter" data-level="5.2" data-path="data-cleaning-ii.html"><a href="data-cleaning-ii.html#using-the-is.na-function"><i class="fa fa-check"></i><b>5.2</b> Using the <code>is.na</code> function</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="data-cleaning-ii.html"><a href="data-cleaning-ii.html#the-count-function"><i class="fa fa-check"></i><b>7.1</b> The <code>count</code> function</a>
-<ul>
-<li class="chapter" data-level="7.1.1" data-path="data-cleaning-ii.html"><a href="data-cleaning-ii.html#exercise-10"><i class="fa fa-check"></i><b>7.1.1</b> Exercise</a></li>
+<li class="chapter" data-level="5.2.1" data-path="data-cleaning-ii.html"><a href="data-cleaning-ii.html#exercise-11"><i class="fa fa-check"></i><b>5.2.1</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="7.2" data-path="data-cleaning-ii.html"><a href="data-cleaning-ii.html#using-the-is.na-function"><i class="fa fa-check"></i><b>7.2</b> Using the <code>is.na</code> function</a>
+<li class="chapter" data-level="5.3" data-path="data-cleaning-ii.html"><a href="data-cleaning-ii.html#the-arrange-function"><i class="fa fa-check"></i><b>5.3</b> The <code>arrange</code> function</a></li>
+<li class="chapter" data-level="5.4" data-path="data-cleaning-ii.html"><a href="data-cleaning-ii.html#the-filter-function-with-logicals"><i class="fa fa-check"></i><b>5.4</b> The <code>filter</code> function with logicals</a></li>
+<li class="chapter" data-level="5.5" data-path="data-cleaning-ii.html"><a href="data-cleaning-ii.html#exercise-12"><i class="fa fa-check"></i><b>5.5</b> Exercise</a>
 <ul>
-<li class="chapter" data-level="7.2.1" data-path="data-cleaning-ii.html"><a href="data-cleaning-ii.html#exercise-11"><i class="fa fa-check"></i><b>7.2.1</b> Exercise</a></li>
+<li class="chapter" data-level="5.5.1" data-path="data-cleaning-ii.html"><a href="data-cleaning-ii.html#exercise-13"><i class="fa fa-check"></i><b>5.5.1</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="7.3" data-path="data-cleaning-ii.html"><a href="data-cleaning-ii.html#the-arrange-function"><i class="fa fa-check"></i><b>7.3</b> The <code>arrange</code> function</a></li>
-<li class="chapter" data-level="7.4" data-path="data-cleaning-ii.html"><a href="data-cleaning-ii.html#the-filter-function-with-logicals"><i class="fa fa-check"></i><b>7.4</b> The <code>filter</code> function with logicals</a>
-<ul>
-<li class="chapter" data-level="7.4.1" data-path="data-cleaning-ii.html"><a href="data-cleaning-ii.html#exercise-12"><i class="fa fa-check"></i><b>7.4.1</b> Exercise</a></li>
-<li class="chapter" data-level="7.4.2" data-path="data-cleaning-ii.html"><a href="data-cleaning-ii.html#exercise-13"><i class="fa fa-check"></i><b>7.4.2</b> Exercise</a></li>
+<li class="chapter" data-level="5.6" data-path="data-cleaning-ii.html"><a href="data-cleaning-ii.html#selected-solutions-2"><i class="fa fa-check"></i><b>5.6</b> Selected Solutions</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="8" data-path="selected-solutions-2.html"><a href="selected-solutions-2.html"><i class="fa fa-check"></i><b>8</b> Selected Solutions</a></li>
-<li class="chapter" data-level="9" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html"><i class="fa fa-check"></i><b>9</b> Graphics with ggplot2</a>
+<li class="chapter" data-level="6" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html"><i class="fa fa-check"></i><b>6</b> Graphics with ggplot2</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html#the-grammar-of-graphics"><i class="fa fa-check"></i><b>9.1</b> The grammar of graphics</a></li>
-<li class="chapter" data-level="9.2" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html#adding-options"><i class="fa fa-check"></i><b>9.2</b> Adding options</a></li>
-<li class="chapter" data-level="9.3" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html#adding-multiple-plots-together"><i class="fa fa-check"></i><b>9.3</b> Adding multiple plots together</a></li>
-<li class="chapter" data-level="9.4" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html#creating-legends"><i class="fa fa-check"></i><b>9.4</b> Creating legends</a>
+<li class="chapter" data-level="6.1" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html#the-grammar-of-graphics"><i class="fa fa-check"></i><b>6.1</b> The grammar of graphics</a></li>
+<li class="chapter" data-level="6.2" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html#adding-options"><i class="fa fa-check"></i><b>6.2</b> Adding options</a></li>
+<li class="chapter" data-level="6.3" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html#adding-multiple-plots-together"><i class="fa fa-check"></i><b>6.3</b> Adding multiple plots together</a></li>
+<li class="chapter" data-level="6.4" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html#creating-legends"><i class="fa fa-check"></i><b>6.4</b> Creating legends</a>
 <ul>
-<li class="chapter" data-level="9.4.1" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html#exercise-14"><i class="fa fa-check"></i><b>9.4.1</b> Exercise</a></li>
+<li class="chapter" data-level="6.4.1" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html#exercise-14"><i class="fa fa-check"></i><b>6.4.1</b> Exercise</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="strings.html"><a href="strings.html"><i class="fa fa-check"></i><b>10</b> Strings</a>
+<li class="chapter" data-level="7" data-path="strings.html"><a href="strings.html"><i class="fa fa-check"></i><b>7</b> Strings</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="strings.html"><a href="strings.html#regular-expressions"><i class="fa fa-check"></i><b>10.1</b> Regular Expressions</a>
+<li class="chapter" data-level="7.1" data-path="strings.html"><a href="strings.html#regular-expressions"><i class="fa fa-check"></i><b>7.1</b> Regular Expressions</a>
 <ul>
-<li class="chapter" data-level="10.1.1" data-path="strings.html"><a href="strings.html#exercise-1-1"><i class="fa fa-check"></i><b>10.1.1</b> Exercise 1</a></li>
+<li class="chapter" data-level="7.1.1" data-path="strings.html"><a href="strings.html#exercise-1-1"><i class="fa fa-check"></i><b>7.1.1</b> Exercise 1</a></li>
 </ul></li>
-<li class="chapter" data-level="10.2" data-path="strings.html"><a href="strings.html#regular-expressions-continued"><i class="fa fa-check"></i><b>10.2</b> Regular Expressions Continued</a>
+<li class="chapter" data-level="7.2" data-path="strings.html"><a href="strings.html#regular-expressions-continued"><i class="fa fa-check"></i><b>7.2</b> Regular Expressions Continued</a>
 <ul>
-<li class="chapter" data-level="10.2.1" data-path="strings.html"><a href="strings.html#exercise-2-1"><i class="fa fa-check"></i><b>10.2.1</b> Exercise 2</a></li>
+<li class="chapter" data-level="7.2.1" data-path="strings.html"><a href="strings.html#exercise-2-1"><i class="fa fa-check"></i><b>7.2.1</b> Exercise 2</a></li>
 </ul></li>
-<li class="chapter" data-level="10.3" data-path="strings.html"><a href="strings.html#using-extract"><i class="fa fa-check"></i><b>10.3</b> Using <code>extract</code></a></li>
-<li class="chapter" data-level="10.4" data-path="strings.html"><a href="strings.html#using-separate"><i class="fa fa-check"></i><b>10.4</b> Using <code>separate</code></a></li>
-<li class="chapter" data-level="10.5" data-path="strings.html"><a href="strings.html#the-gsub-function"><i class="fa fa-check"></i><b>10.5</b> The <code>gsub</code> function</a>
+<li class="chapter" data-level="7.3" data-path="strings.html"><a href="strings.html#using-extract"><i class="fa fa-check"></i><b>7.3</b> Using <code>extract</code></a></li>
+<li class="chapter" data-level="7.4" data-path="strings.html"><a href="strings.html#using-separate"><i class="fa fa-check"></i><b>7.4</b> Using <code>separate</code></a></li>
+<li class="chapter" data-level="7.5" data-path="strings.html"><a href="strings.html#the-gsub-function"><i class="fa fa-check"></i><b>7.5</b> The <code>gsub</code> function</a>
 <ul>
-<li class="chapter" data-level="10.5.1" data-path="strings.html"><a href="strings.html#exercise-3-1"><i class="fa fa-check"></i><b>10.5.1</b> Exercise 3</a></li>
+<li class="chapter" data-level="7.5.1" data-path="strings.html"><a href="strings.html#exercise-3-1"><i class="fa fa-check"></i><b>7.5.1</b> Exercise 3</a></li>
 </ul></li>
-<li class="chapter" data-level="10.6" data-path="strings.html"><a href="strings.html#solutions"><i class="fa fa-check"></i><b>10.6</b> Solutions</a></li>
+<li class="chapter" data-level="7.6" data-path="strings.html"><a href="strings.html#solutions"><i class="fa fa-check"></i><b>7.6</b> Solutions</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="programming.html"><a href="programming.html"><i class="fa fa-check"></i><b>11</b> Programming</a>
+<li class="chapter" data-level="8" data-path="programming.html"><a href="programming.html"><i class="fa fa-check"></i><b>8</b> Programming</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="programming.html"><a href="programming.html#functions"><i class="fa fa-check"></i><b>11.1</b> Functions</a>
+<li class="chapter" data-level="8.1" data-path="programming.html"><a href="programming.html#functions"><i class="fa fa-check"></i><b>8.1</b> Functions</a>
 <ul>
-<li class="chapter" data-level="11.1.1" data-path="programming.html"><a href="programming.html#exercise-15"><i class="fa fa-check"></i><b>11.1.1</b> Exercise</a></li>
+<li class="chapter" data-level="8.1.1" data-path="programming.html"><a href="programming.html#exercise-15"><i class="fa fa-check"></i><b>8.1.1</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="11.2" data-path="programming.html"><a href="programming.html#for-loops"><i class="fa fa-check"></i><b>11.2</b> For-loops</a>
+<li class="chapter" data-level="8.2" data-path="programming.html"><a href="programming.html#for-loops"><i class="fa fa-check"></i><b>8.2</b> For-loops</a>
 <ul>
-<li class="chapter" data-level="11.2.1" data-path="programming.html"><a href="programming.html#exercise-16"><i class="fa fa-check"></i><b>11.2.1</b> Exercise</a></li>
+<li class="chapter" data-level="8.2.1" data-path="programming.html"><a href="programming.html#exercise-16"><i class="fa fa-check"></i><b>8.2.1</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="11.3" data-path="programming.html"><a href="programming.html#if-else"><i class="fa fa-check"></i><b>11.3</b> If-else</a>
+<li class="chapter" data-level="8.3" data-path="programming.html"><a href="programming.html#if-else"><i class="fa fa-check"></i><b>8.3</b> If-else</a>
 <ul>
-<li class="chapter" data-level="11.3.1" data-path="programming.html"><a href="programming.html#exercise-17"><i class="fa fa-check"></i><b>11.3.1</b> Exercise</a></li>
+<li class="chapter" data-level="8.3.1" data-path="programming.html"><a href="programming.html#exercise-17"><i class="fa fa-check"></i><b>8.3.1</b> Exercise</a></li>
 </ul></li>
+<li class="chapter" data-level="8.4" data-path="programming.html"><a href="programming.html#selected-solutions-3"><i class="fa fa-check"></i><b>8.4</b> Selected Solutions</a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="selected-solutions-3.html"><a href="selected-solutions-3.html"><i class="fa fa-check"></i><b>12</b> Selected Solutions</a></li>
-<li class="chapter" data-level="13" data-path="relational-data.html"><a href="relational-data.html"><i class="fa fa-check"></i><b>13</b> Relational Data</a>
+<li class="chapter" data-level="9" data-path="relational-data.html"><a href="relational-data.html"><i class="fa fa-check"></i><b>9</b> Relational Data</a>
 <ul>
-<li class="chapter" data-level="13.1" data-path="relational-data.html"><a href="relational-data.html#finding-primary-keys"><i class="fa fa-check"></i><b>13.1</b> Finding Primary Keys</a></li>
-<li class="chapter" data-level="13.2" data-path="relational-data.html"><a href="relational-data.html#finding-primary-keys-harder"><i class="fa fa-check"></i><b>13.2</b> Finding Primary Keys (harder)</a>
+<li class="chapter" data-level="9.1" data-path="relational-data.html"><a href="relational-data.html#finding-primary-keys"><i class="fa fa-check"></i><b>9.1</b> Finding Primary Keys</a></li>
+<li class="chapter" data-level="9.2" data-path="relational-data.html"><a href="relational-data.html#finding-primary-keys-harder"><i class="fa fa-check"></i><b>9.2</b> Finding Primary Keys (harder)</a>
 <ul>
-<li class="chapter" data-level="13.2.1" data-path="relational-data.html"><a href="relational-data.html#exercise-18"><i class="fa fa-check"></i><b>13.2.1</b> Exercise</a></li>
-<li class="chapter" data-level="13.2.2" data-path="relational-data.html"><a href="relational-data.html#exercise-19"><i class="fa fa-check"></i><b>13.2.2</b> Exercise</a></li>
-<li class="chapter" data-level="13.2.3" data-path="relational-data.html"><a href="relational-data.html#exercise-20"><i class="fa fa-check"></i><b>13.2.3</b> Exercise</a></li>
+<li class="chapter" data-level="9.2.1" data-path="relational-data.html"><a href="relational-data.html#exercise-18"><i class="fa fa-check"></i><b>9.2.1</b> Exercise</a></li>
+<li class="chapter" data-level="9.2.2" data-path="relational-data.html"><a href="relational-data.html#exercise-19"><i class="fa fa-check"></i><b>9.2.2</b> Exercise</a></li>
+<li class="chapter" data-level="9.2.3" data-path="relational-data.html"><a href="relational-data.html#exercise-20"><i class="fa fa-check"></i><b>9.2.3</b> Exercise</a></li>
 </ul></li>
+<li class="chapter" data-level="9.3" data-path="relational-data.html"><a href="relational-data.html#selected-solutions-4"><i class="fa fa-check"></i><b>9.3</b> Selected Solutions</a></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="selected-solutions-4.html"><a href="selected-solutions-4.html"><i class="fa fa-check"></i><b>14</b> Selected Solutions</a></li>
 <li class="divider"></li>
 <li><a href="https://bookdown.org" target="blank">Published with bookdown</a></li>
 
@@ -288,8 +286,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="graphics-with-ggplot2" class="section level1" number="9">
-<h1><span class="header-section-number">Chapter 9</span> Graphics with ggplot2</h1>
+<div id="graphics-with-ggplot2" class="section level1" number="6">
+<h1><span class="header-section-number">Chapter 6</span> Graphics with ggplot2</h1>
 <p>In this Guided Exercise, we will be focusing on visualization with an emphasis on using <code>ggplot2</code>. While the basic R plots have lower fixed costs to begin using, they are generally less customizable, less initially pretty, and do not work as well in the <em>flow</em> of the <code>tidyverse</code> package. On the other hand, <code>ggplot2</code> has a logical flow to the graphics system. There is always a specific grammar that must be followed to make graphs, and once you understand it, making graphs becomes fun and (more or less) easy. In practice, you will learn that the essence of making graphs is Googling your questions. There is almost certainly an individual who has needed to make a graph similar to yours, and the R community has probably responded using <code>ggplot2</code>.</p>
 <p>For this week, we will once again be working with the <code>titanic_train</code> data from the <code>titanic</code> package. As a reminder, this data set provides information on the fate of passengers on the fatal maiden voyage of the ocean liner “Titanic,” summarized according to economic status (class), sex, age, and survival. Here are some of the important columns:</p>
 <ul>
@@ -306,8 +304,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb101-4"><a href="graphics-with-ggplot2.html#cb101-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb101-5"><a href="graphics-with-ggplot2.html#cb101-5" aria-hidden="true" tabindex="-1"></a><span class="do">##loading in the data set and cleaning the names</span></span>
 <span id="cb101-6"><a href="graphics-with-ggplot2.html#cb101-6" aria-hidden="true" tabindex="-1"></a>titanic <span class="ot">&lt;-</span> janitor<span class="sc">::</span><span class="fu">clean_names</span>(titanic_train)</span></code></pre></div>
-<div id="the-grammar-of-graphics" class="section level2" number="9.1">
-<h2><span class="header-section-number">9.1</span> The grammar of graphics</h2>
+<div id="the-grammar-of-graphics" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> The grammar of graphics</h2>
 <p>The most important aspect to understand in <code>ggplot2</code> is the “grammar of graphics.” The <code>ggplot2</code> package has its own syntax for making graphs. This syntax, while confusing at first, is extremely elegant when your graphics become more complicated. Let’s start off with the basic template for making graphics:</p>
 <div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="graphics-with-ggplot2.html#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="do">##The basic template</span></span>
 <span id="cb102-2"><a href="graphics-with-ggplot2.html#cb102-2" aria-hidden="true" tabindex="-1"></a><span class="do">## This uses the titanic data set</span></span>
@@ -324,8 +322,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>The <code>geom_histogram</code> function is a function that specifies we want to make a histogram. All graphs in the <code>ggplot2</code> package begin with “geom” so that we can easily recognize that we are calling a specific type of graph. Other examples are a scatter plot (<code>geom_point</code>), density plot (<code>geom_density</code>), box-and-whisker plot (<code>geom_boxplot</code>), or a bar graph (<code>geom_bar</code>).</li>
 </ul>
 </div>
-<div id="adding-options" class="section level2" number="9.2">
-<h2><span class="header-section-number">9.2</span> Adding options</h2>
+<div id="adding-options" class="section level2" number="6.2">
+<h2><span class="header-section-number">6.2</span> Adding options</h2>
 <p>As stated above, the <code>+</code> is essentially a <code>%&gt;%</code>, but for graphics. It can be thought of verbally as “and now add this to the graph.” To demonstrate this, let’s use our histogram of the <code>age</code> column that we saw in the last section. Suppose we wanted to do the following:</p>
 <ul>
 <li>Edit the x axis with our own custom label</li>
@@ -375,8 +373,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="series_files/figure-html/unnamed-chunk-70-1.png" width="672" /></p>
 <p>As shown, it is incredibly simple to switch between different types of graphs. In fact, once you have a template of the certain options you like to add to your graph, you can simply change the <code>geom_</code> to your desired graph type.</p>
 </div>
-<div id="adding-multiple-plots-together" class="section level2" number="9.3">
-<h2><span class="header-section-number">9.3</span> Adding multiple plots together</h2>
+<div id="adding-multiple-plots-together" class="section level2" number="6.3">
+<h2><span class="header-section-number">6.3</span> Adding multiple plots together</h2>
 <p>One of the main draws of <code>ggplot2</code> is how simple it is to overlay graphs. For instance, suppose we want a plot that has two histograms, one for male age, and one for female age. We can easily do this by simply adding on a <code>geom_histogram</code> argument.</p>
 <div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="graphics-with-ggplot2.html#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="do">## making two histograms on one graph</span></span>
 <span id="cb112-2"><a href="graphics-with-ggplot2.html#cb112-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> titanic, <span class="fu">aes</span>(<span class="at">x =</span> age)) <span class="sc">+</span></span>
@@ -404,8 +402,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## Warning: Removed 53 rows containing non-finite values (stat_density).</code></pre>
 <p><img src="series_files/figure-html/unnamed-chunk-73-1.png" width="672" /></p>
 </div>
-<div id="creating-legends" class="section level2" number="9.4">
-<h2><span class="header-section-number">9.4</span> Creating legends</h2>
+<div id="creating-legends" class="section level2" number="6.4">
+<h2><span class="header-section-number">6.4</span> Creating legends</h2>
 <p>Legends are automatically created for you using the <code>fill</code> argument <strong>within the aesthetic mapping</strong>. For instance, suppose we wanted to create a graph similar to above with two densities of <code>age</code>: one for males and one for females. We can actually accomplish this in a more compact way by adding the <code>fill</code> argument to our aesthetic mapping. The <code>fill</code> argument within <code>aes</code> specifically tells <code>ggplot</code> that you want to separate this graph by a categorical variable.</p>
 <div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="graphics-with-ggplot2.html#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="do">## making two histograms on one graph and adding a legend using the fill argument</span></span>
 <span id="cb121-2"><a href="graphics-with-ggplot2.html#cb121-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> titanic, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">fill =</span> sex)) <span class="sc">+</span></span>
@@ -427,8 +425,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>And now add on the graph a title with <code>labs</code> and the title argument, and re-label the <code>fill</code> argument with the label “Sex of Passenger”</li>
 <li>And now make the graph have default pretty colors with <code>theme_minimal</code></li>
 </ul>
-<div id="exercise-14" class="section level3" number="9.4.1">
-<h3><span class="header-section-number">9.4.1</span> Exercise</h3>
+<div id="exercise-14" class="section level3" number="6.4.1">
+<h3><span class="header-section-number">6.4.1</span> Exercise</h3>
 <ul>
 <li>Create the following graph (HINT: use the <code>color</code> argument in the aesthetic mapping and turn <code>survived</code> into a factor using <code>as.factor</code>):</li>
 </ul>
@@ -442,7 +440,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="selected-solutions-2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-cleaning-ii.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="strings.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>

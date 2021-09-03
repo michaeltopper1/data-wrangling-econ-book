@@ -255,12 +255,12 @@ second_tibble
 
 **One other important point**: Notice how in the `tibble` function we used `=` rather than `<-` for assigning names. It is important that you use `=` for assigning arguments rather than `<-`. Try using `<-` in the tibble argument, and see how it fails to properly do what we want. 
 
-### Exercise 
+## Exercise 
 
 * Using your vectors `my_own_vector1` and `my_own_vector2` that you created in the earlier exercise, create a tibble using the `tibble` function. 
 
 
-# Selected Solutions
+## Selected Solutions
 
 * (Exercise 1.1.1) Standard deviation: `r sd(titanic$Age, na.rm = T)`  Variance: `r var(titanic$Age, na.rm= T)`
 

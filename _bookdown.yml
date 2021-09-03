@@ -4,8 +4,8 @@ language:
     chapter_name: "Chapter "
 rmd_files: [
   "index.Rmd",
-  "guided_exercise_rprojects.Rmd",
   "intro_r.Rmd",
+  "guided_exercise_rprojects.Rmd",
   "intro_piping.Rmd",
   "piping_2.Rmd",
   "ggplot2.Rmd",

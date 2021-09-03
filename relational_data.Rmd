@@ -135,11 +135,10 @@ Success! We managed to find a grouping of columns that brought each observation 
 * (Taken from R for Data Science Chapter 13.3 Exercises) Identify the primary key in the following data set from the `nasaweather` package: `atmos`. Remember, the primary key could be a single column or a collection of columns.
 
 
-# Selected Solutions
+## Selected Solutions
 
 These are shown on the next page. Please do not look at these until you have tried the exercises. These are provided because these exercises are more difficult.
 
-\newpage
 
 * (Exercise 1.2.1) The column `id` uniquely identifies the observations.
 * (Exercise 1.2.2) The columns (`playerID`, `yearID`, `stint`) uniquely identify each observation. The columns (`playerID`,`yearID`) are not a primary key because players can play on different teams within the same year

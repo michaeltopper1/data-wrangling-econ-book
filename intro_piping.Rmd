@@ -281,7 +281,7 @@ titanic %>%
 
 Since it is imperative to understand the `group_by` followed by the `summarize` function, try out a couple of exercises. 
 
-### Exercise
+## Exercise
 
  * Did women have a higher rate of survival than males? Find the answer to this question using the `group_by` and `summarize` functions.
 
@@ -307,7 +307,7 @@ second_class_m = class$groupings[5]
 third_class_m = class$groupings[6]
 ```
 
-# Selected Solutions
+## Selected Solutions
 
 * (Exercise 1.7.1) Variance = `r round(var(titanic$survived, na.rm = T),2)`
 * (Exercise 1.8.1) Women had higher survival rates at `r round(survive_female,2)`. Males were at `r round(survive_male,2)`.

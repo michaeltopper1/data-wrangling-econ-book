@@ -227,7 +227,7 @@ Note the `set.seed` function. This is a function that allows replication of resu
 
 \newpage
 
-# Selected Solutions
+## Selected Solutions
 
 ```{r}
 ## a solution to Exercise 1.1.1

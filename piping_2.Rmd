@@ -128,7 +128,7 @@ horror_movies %>%
 
 Notice that we we have review ratings that are less than 9.0, and also countries that are not Canada. This is because only **one** of our statements need to be TRUE (although, as stated, **both** can be TRUE as well).
 
-### Exercise
+## Exercise
 
 * Use the `filter` function to filter the horror movies that were released only in the USA or were  "NOT RATED". Find which of these movies had the highest review rating. 
 
@@ -137,7 +137,7 @@ Notice that we we have review ratings that are less than 9.0, and also countries
 * Count the number of PG-13 movies that are only in Japan and USA. 
 
 
-# Selected Solutions
+## Selected Solutions
 
 ```{r, echo = F}
 ## exercise 1.1.1

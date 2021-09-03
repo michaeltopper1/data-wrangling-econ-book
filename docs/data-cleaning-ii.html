@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 7 Data Cleaning II | Data Wrangling for Economists</title>
+  <title>Chapter 5 Data Cleaning II | Data Wrangling for Economists</title>
   <meta name="description" content="Enter description." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 7 Data Cleaning II | Data Wrangling for Economists" />
+  <meta property="og:title" content="Chapter 5 Data Cleaning II | Data Wrangling for Economists" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="openscapes/series" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 7 Data Cleaning II | Data Wrangling for Economists" />
+  <meta name="twitter:title" content="Chapter 5 Data Cleaning II | Data Wrangling for Economists" />
   
   <meta name="twitter:description" content="Enter description." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="selected-solutions-1.html"/>
-<link rel="next" href="selected-solutions-2.html"/>
+<link rel="prev" href="cleaning-data-i.html"/>
+<link rel="next" href="graphics-with-ggplot2.html"/>
 <script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -138,136 +138,134 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Mini Bookdown Tutorial</a></li>
+<li><a href="./">Data Wrangling for Economists</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#learn-all-about-bookdown"><i class="fa fa-check"></i><b>1.1</b> Learn all about Bookdown</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="the-rproject.html"><a href="the-rproject.html"><i class="fa fa-check"></i><b>2</b> The <code>Rproject</code></a></li>
-<li class="chapter" data-level="3" data-path="intro-to-r.html"><a href="intro-to-r.html"><i class="fa fa-check"></i><b>3</b> Intro to R</a>
+<li class="chapter" data-level="2" data-path="intro-to-r.html"><a href="intro-to-r.html"><i class="fa fa-check"></i><b>2</b> Intro to R</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="intro-to-r.html"><a href="intro-to-r.html#basic-summary-statistics"><i class="fa fa-check"></i><b>3.1</b> Basic summary statistics</a>
+<li class="chapter" data-level="2.1" data-path="intro-to-r.html"><a href="intro-to-r.html#basic-summary-statistics"><i class="fa fa-check"></i><b>2.1</b> Basic summary statistics</a>
 <ul>
-<li class="chapter" data-level="3.1.1" data-path="intro-to-r.html"><a href="intro-to-r.html#exercise"><i class="fa fa-check"></i><b>3.1.1</b> Exercise</a></li>
+<li class="chapter" data-level="2.1.1" data-path="intro-to-r.html"><a href="intro-to-r.html#exercise"><i class="fa fa-check"></i><b>2.1.1</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="intro-to-r.html"><a href="intro-to-r.html#basic-histogram"><i class="fa fa-check"></i><b>3.2</b> Basic histogram</a>
+<li class="chapter" data-level="2.2" data-path="intro-to-r.html"><a href="intro-to-r.html#basic-histogram"><i class="fa fa-check"></i><b>2.2</b> Basic histogram</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="intro-to-r.html"><a href="intro-to-r.html#exercise-1"><i class="fa fa-check"></i><b>3.2.1</b> Exercise</a></li>
+<li class="chapter" data-level="2.2.1" data-path="intro-to-r.html"><a href="intro-to-r.html#exercise-1"><i class="fa fa-check"></i><b>2.2.1</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="intro-to-r.html"><a href="intro-to-r.html#creating-vectors"><i class="fa fa-check"></i><b>3.3</b> Creating Vectors</a>
+<li class="chapter" data-level="2.3" data-path="intro-to-r.html"><a href="intro-to-r.html#creating-vectors"><i class="fa fa-check"></i><b>2.3</b> Creating Vectors</a>
 <ul>
-<li class="chapter" data-level="3.3.1" data-path="intro-to-r.html"><a href="intro-to-r.html#exercise-2"><i class="fa fa-check"></i><b>3.3.1</b> Exercise</a></li>
+<li class="chapter" data-level="2.3.1" data-path="intro-to-r.html"><a href="intro-to-r.html#exercise-2"><i class="fa fa-check"></i><b>2.3.1</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="intro-to-r.html"><a href="intro-to-r.html#comparing-vectors"><i class="fa fa-check"></i><b>3.4</b> Comparing Vectors</a>
+<li class="chapter" data-level="2.4" data-path="intro-to-r.html"><a href="intro-to-r.html#comparing-vectors"><i class="fa fa-check"></i><b>2.4</b> Comparing Vectors</a>
 <ul>
-<li class="chapter" data-level="3.4.1" data-path="intro-to-r.html"><a href="intro-to-r.html#exercise-3"><i class="fa fa-check"></i><b>3.4.1</b> Exercise</a></li>
+<li class="chapter" data-level="2.4.1" data-path="intro-to-r.html"><a href="intro-to-r.html#exercise-3"><i class="fa fa-check"></i><b>2.4.1</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="intro-to-r.html"><a href="intro-to-r.html#creating-a-tibble"><i class="fa fa-check"></i><b>3.5</b> Creating a tibble</a>
-<ul>
-<li class="chapter" data-level="3.5.1" data-path="intro-to-r.html"><a href="intro-to-r.html#exercise-4"><i class="fa fa-check"></i><b>3.5.1</b> Exercise</a></li>
+<li class="chapter" data-level="2.5" data-path="intro-to-r.html"><a href="intro-to-r.html#creating-a-tibble"><i class="fa fa-check"></i><b>2.5</b> Creating a tibble</a></li>
+<li class="chapter" data-level="2.6" data-path="intro-to-r.html"><a href="intro-to-r.html#exercise-4"><i class="fa fa-check"></i><b>2.6</b> Exercise</a></li>
+<li class="chapter" data-level="2.7" data-path="intro-to-r.html"><a href="intro-to-r.html#selected-solutions"><i class="fa fa-check"></i><b>2.7</b> Selected Solutions</a></li>
 </ul></li>
+<li class="chapter" data-level="3" data-path="the-rproject.html"><a href="the-rproject.html"><i class="fa fa-check"></i><b>3</b> The <code>Rproject</code></a></li>
+<li class="chapter" data-level="4" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html"><i class="fa fa-check"></i><b>4</b> Cleaning Data I</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#the-pipe"><i class="fa fa-check"></i><b>4.1</b> The Pipe</a></li>
+<li class="chapter" data-level="4.2" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#the-clean_names-function"><i class="fa fa-check"></i><b>4.2</b> The <code>clean_names</code> function</a></li>
+<li class="chapter" data-level="4.3" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#the-select-function"><i class="fa fa-check"></i><b>4.3</b> The <code>select</code> function</a></li>
+<li class="chapter" data-level="4.4" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#the-filter-function"><i class="fa fa-check"></i><b>4.4</b> The <code>filter</code> function</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#exercise-5"><i class="fa fa-check"></i><b>4.4.1</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="selected-solutions.html"><a href="selected-solutions.html"><i class="fa fa-check"></i><b>4</b> Selected Solutions</a></li>
-<li class="chapter" data-level="5" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html"><i class="fa fa-check"></i><b>5</b> Cleaning Data I</a>
+<li class="chapter" data-level="4.5" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#the-distinct-function"><i class="fa fa-check"></i><b>4.5</b> The <code>distinct</code> function</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#the-pipe"><i class="fa fa-check"></i><b>5.1</b> The Pipe</a></li>
-<li class="chapter" data-level="5.2" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#the-clean_names-function"><i class="fa fa-check"></i><b>5.2</b> The <code>clean_names</code> function</a></li>
-<li class="chapter" data-level="5.3" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#the-select-function"><i class="fa fa-check"></i><b>5.3</b> The <code>select</code> function</a></li>
-<li class="chapter" data-level="5.4" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#the-filter-function"><i class="fa fa-check"></i><b>5.4</b> The <code>filter</code> function</a>
-<ul>
-<li class="chapter" data-level="5.4.1" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#exercise-5"><i class="fa fa-check"></i><b>5.4.1</b> Exercise</a></li>
+<li class="chapter" data-level="4.5.1" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#exercise-6"><i class="fa fa-check"></i><b>4.5.1</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="5.5" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#the-distinct-function"><i class="fa fa-check"></i><b>5.5</b> The <code>distinct</code> function</a>
+<li class="chapter" data-level="4.6" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#the-mutate-function."><i class="fa fa-check"></i><b>4.6</b> The <code>mutate</code> function.</a></li>
+<li class="chapter" data-level="4.7" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#the-summarize-function"><i class="fa fa-check"></i><b>4.7</b> The <code>summarize</code> function</a>
 <ul>
-<li class="chapter" data-level="5.5.1" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#exercise-6"><i class="fa fa-check"></i><b>5.5.1</b> Exercise</a></li>
+<li class="chapter" data-level="4.7.1" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#exercise-7"><i class="fa fa-check"></i><b>4.7.1</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="5.6" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#the-mutate-function."><i class="fa fa-check"></i><b>5.6</b> The <code>mutate</code> function.</a></li>
-<li class="chapter" data-level="5.7" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#the-summarize-function"><i class="fa fa-check"></i><b>5.7</b> The <code>summarize</code> function</a>
+<li class="chapter" data-level="4.8" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#the-group_by-and-summarize-functions"><i class="fa fa-check"></i><b>4.8</b> The <code>group_by</code> and <code>summarize</code> functions</a></li>
+<li class="chapter" data-level="4.9" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#exercise-8"><i class="fa fa-check"></i><b>4.9</b> Exercise</a>
 <ul>
-<li class="chapter" data-level="5.7.1" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#exercise-7"><i class="fa fa-check"></i><b>5.7.1</b> Exercise</a></li>
+<li class="chapter" data-level="4.9.1" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#exercise-9"><i class="fa fa-check"></i><b>4.9.1</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="5.8" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#the-group_by-and-summarize-functions"><i class="fa fa-check"></i><b>5.8</b> The <code>group_by</code> and <code>summarize</code> functions</a>
-<ul>
-<li class="chapter" data-level="5.8.1" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#exercise-8"><i class="fa fa-check"></i><b>5.8.1</b> Exercise</a></li>
-<li class="chapter" data-level="5.8.2" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#exercise-9"><i class="fa fa-check"></i><b>5.8.2</b> Exercise</a></li>
+<li class="chapter" data-level="4.10" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#selected-solutions-1"><i class="fa fa-check"></i><b>4.10</b> Selected Solutions</a></li>
 </ul></li>
+<li class="chapter" data-level="5" data-path="data-cleaning-ii.html"><a href="data-cleaning-ii.html"><i class="fa fa-check"></i><b>5</b> Data Cleaning II</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="data-cleaning-ii.html"><a href="data-cleaning-ii.html#the-count-function"><i class="fa fa-check"></i><b>5.1</b> The <code>count</code> function</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="data-cleaning-ii.html"><a href="data-cleaning-ii.html#exercise-10"><i class="fa fa-check"></i><b>5.1.1</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="selected-solutions-1.html"><a href="selected-solutions-1.html"><i class="fa fa-check"></i><b>6</b> Selected Solutions</a></li>
-<li class="chapter" data-level="7" data-path="data-cleaning-ii.html"><a href="data-cleaning-ii.html"><i class="fa fa-check"></i><b>7</b> Data Cleaning II</a>
+<li class="chapter" data-level="5.2" data-path="data-cleaning-ii.html"><a href="data-cleaning-ii.html#using-the-is.na-function"><i class="fa fa-check"></i><b>5.2</b> Using the <code>is.na</code> function</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="data-cleaning-ii.html"><a href="data-cleaning-ii.html#the-count-function"><i class="fa fa-check"></i><b>7.1</b> The <code>count</code> function</a>
-<ul>
-<li class="chapter" data-level="7.1.1" data-path="data-cleaning-ii.html"><a href="data-cleaning-ii.html#exercise-10"><i class="fa fa-check"></i><b>7.1.1</b> Exercise</a></li>
+<li class="chapter" data-level="5.2.1" data-path="data-cleaning-ii.html"><a href="data-cleaning-ii.html#exercise-11"><i class="fa fa-check"></i><b>5.2.1</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="7.2" data-path="data-cleaning-ii.html"><a href="data-cleaning-ii.html#using-the-is.na-function"><i class="fa fa-check"></i><b>7.2</b> Using the <code>is.na</code> function</a>
+<li class="chapter" data-level="5.3" data-path="data-cleaning-ii.html"><a href="data-cleaning-ii.html#the-arrange-function"><i class="fa fa-check"></i><b>5.3</b> The <code>arrange</code> function</a></li>
+<li class="chapter" data-level="5.4" data-path="data-cleaning-ii.html"><a href="data-cleaning-ii.html#the-filter-function-with-logicals"><i class="fa fa-check"></i><b>5.4</b> The <code>filter</code> function with logicals</a></li>
+<li class="chapter" data-level="5.5" data-path="data-cleaning-ii.html"><a href="data-cleaning-ii.html#exercise-12"><i class="fa fa-check"></i><b>5.5</b> Exercise</a>
 <ul>
-<li class="chapter" data-level="7.2.1" data-path="data-cleaning-ii.html"><a href="data-cleaning-ii.html#exercise-11"><i class="fa fa-check"></i><b>7.2.1</b> Exercise</a></li>
+<li class="chapter" data-level="5.5.1" data-path="data-cleaning-ii.html"><a href="data-cleaning-ii.html#exercise-13"><i class="fa fa-check"></i><b>5.5.1</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="7.3" data-path="data-cleaning-ii.html"><a href="data-cleaning-ii.html#the-arrange-function"><i class="fa fa-check"></i><b>7.3</b> The <code>arrange</code> function</a></li>
-<li class="chapter" data-level="7.4" data-path="data-cleaning-ii.html"><a href="data-cleaning-ii.html#the-filter-function-with-logicals"><i class="fa fa-check"></i><b>7.4</b> The <code>filter</code> function with logicals</a>
-<ul>
-<li class="chapter" data-level="7.4.1" data-path="data-cleaning-ii.html"><a href="data-cleaning-ii.html#exercise-12"><i class="fa fa-check"></i><b>7.4.1</b> Exercise</a></li>
-<li class="chapter" data-level="7.4.2" data-path="data-cleaning-ii.html"><a href="data-cleaning-ii.html#exercise-13"><i class="fa fa-check"></i><b>7.4.2</b> Exercise</a></li>
+<li class="chapter" data-level="5.6" data-path="data-cleaning-ii.html"><a href="data-cleaning-ii.html#selected-solutions-2"><i class="fa fa-check"></i><b>5.6</b> Selected Solutions</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="8" data-path="selected-solutions-2.html"><a href="selected-solutions-2.html"><i class="fa fa-check"></i><b>8</b> Selected Solutions</a></li>
-<li class="chapter" data-level="9" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html"><i class="fa fa-check"></i><b>9</b> Graphics with ggplot2</a>
+<li class="chapter" data-level="6" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html"><i class="fa fa-check"></i><b>6</b> Graphics with ggplot2</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html#the-grammar-of-graphics"><i class="fa fa-check"></i><b>9.1</b> The grammar of graphics</a></li>
-<li class="chapter" data-level="9.2" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html#adding-options"><i class="fa fa-check"></i><b>9.2</b> Adding options</a></li>
-<li class="chapter" data-level="9.3" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html#adding-multiple-plots-together"><i class="fa fa-check"></i><b>9.3</b> Adding multiple plots together</a></li>
-<li class="chapter" data-level="9.4" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html#creating-legends"><i class="fa fa-check"></i><b>9.4</b> Creating legends</a>
+<li class="chapter" data-level="6.1" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html#the-grammar-of-graphics"><i class="fa fa-check"></i><b>6.1</b> The grammar of graphics</a></li>
+<li class="chapter" data-level="6.2" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html#adding-options"><i class="fa fa-check"></i><b>6.2</b> Adding options</a></li>
+<li class="chapter" data-level="6.3" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html#adding-multiple-plots-together"><i class="fa fa-check"></i><b>6.3</b> Adding multiple plots together</a></li>
+<li class="chapter" data-level="6.4" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html#creating-legends"><i class="fa fa-check"></i><b>6.4</b> Creating legends</a>
 <ul>
-<li class="chapter" data-level="9.4.1" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html#exercise-14"><i class="fa fa-check"></i><b>9.4.1</b> Exercise</a></li>
+<li class="chapter" data-level="6.4.1" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html#exercise-14"><i class="fa fa-check"></i><b>6.4.1</b> Exercise</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="strings.html"><a href="strings.html"><i class="fa fa-check"></i><b>10</b> Strings</a>
+<li class="chapter" data-level="7" data-path="strings.html"><a href="strings.html"><i class="fa fa-check"></i><b>7</b> Strings</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="strings.html"><a href="strings.html#regular-expressions"><i class="fa fa-check"></i><b>10.1</b> Regular Expressions</a>
+<li class="chapter" data-level="7.1" data-path="strings.html"><a href="strings.html#regular-expressions"><i class="fa fa-check"></i><b>7.1</b> Regular Expressions</a>
 <ul>
-<li class="chapter" data-level="10.1.1" data-path="strings.html"><a href="strings.html#exercise-1-1"><i class="fa fa-check"></i><b>10.1.1</b> Exercise 1</a></li>
+<li class="chapter" data-level="7.1.1" data-path="strings.html"><a href="strings.html#exercise-1-1"><i class="fa fa-check"></i><b>7.1.1</b> Exercise 1</a></li>
 </ul></li>
-<li class="chapter" data-level="10.2" data-path="strings.html"><a href="strings.html#regular-expressions-continued"><i class="fa fa-check"></i><b>10.2</b> Regular Expressions Continued</a>
+<li class="chapter" data-level="7.2" data-path="strings.html"><a href="strings.html#regular-expressions-continued"><i class="fa fa-check"></i><b>7.2</b> Regular Expressions Continued</a>
 <ul>
-<li class="chapter" data-level="10.2.1" data-path="strings.html"><a href="strings.html#exercise-2-1"><i class="fa fa-check"></i><b>10.2.1</b> Exercise 2</a></li>
+<li class="chapter" data-level="7.2.1" data-path="strings.html"><a href="strings.html#exercise-2-1"><i class="fa fa-check"></i><b>7.2.1</b> Exercise 2</a></li>
 </ul></li>
-<li class="chapter" data-level="10.3" data-path="strings.html"><a href="strings.html#using-extract"><i class="fa fa-check"></i><b>10.3</b> Using <code>extract</code></a></li>
-<li class="chapter" data-level="10.4" data-path="strings.html"><a href="strings.html#using-separate"><i class="fa fa-check"></i><b>10.4</b> Using <code>separate</code></a></li>
-<li class="chapter" data-level="10.5" data-path="strings.html"><a href="strings.html#the-gsub-function"><i class="fa fa-check"></i><b>10.5</b> The <code>gsub</code> function</a>
+<li class="chapter" data-level="7.3" data-path="strings.html"><a href="strings.html#using-extract"><i class="fa fa-check"></i><b>7.3</b> Using <code>extract</code></a></li>
+<li class="chapter" data-level="7.4" data-path="strings.html"><a href="strings.html#using-separate"><i class="fa fa-check"></i><b>7.4</b> Using <code>separate</code></a></li>
+<li class="chapter" data-level="7.5" data-path="strings.html"><a href="strings.html#the-gsub-function"><i class="fa fa-check"></i><b>7.5</b> The <code>gsub</code> function</a>
 <ul>
-<li class="chapter" data-level="10.5.1" data-path="strings.html"><a href="strings.html#exercise-3-1"><i class="fa fa-check"></i><b>10.5.1</b> Exercise 3</a></li>
+<li class="chapter" data-level="7.5.1" data-path="strings.html"><a href="strings.html#exercise-3-1"><i class="fa fa-check"></i><b>7.5.1</b> Exercise 3</a></li>
 </ul></li>
-<li class="chapter" data-level="10.6" data-path="strings.html"><a href="strings.html#solutions"><i class="fa fa-check"></i><b>10.6</b> Solutions</a></li>
+<li class="chapter" data-level="7.6" data-path="strings.html"><a href="strings.html#solutions"><i class="fa fa-check"></i><b>7.6</b> Solutions</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="programming.html"><a href="programming.html"><i class="fa fa-check"></i><b>11</b> Programming</a>
+<li class="chapter" data-level="8" data-path="programming.html"><a href="programming.html"><i class="fa fa-check"></i><b>8</b> Programming</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="programming.html"><a href="programming.html#functions"><i class="fa fa-check"></i><b>11.1</b> Functions</a>
+<li class="chapter" data-level="8.1" data-path="programming.html"><a href="programming.html#functions"><i class="fa fa-check"></i><b>8.1</b> Functions</a>
 <ul>
-<li class="chapter" data-level="11.1.1" data-path="programming.html"><a href="programming.html#exercise-15"><i class="fa fa-check"></i><b>11.1.1</b> Exercise</a></li>
+<li class="chapter" data-level="8.1.1" data-path="programming.html"><a href="programming.html#exercise-15"><i class="fa fa-check"></i><b>8.1.1</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="11.2" data-path="programming.html"><a href="programming.html#for-loops"><i class="fa fa-check"></i><b>11.2</b> For-loops</a>
+<li class="chapter" data-level="8.2" data-path="programming.html"><a href="programming.html#for-loops"><i class="fa fa-check"></i><b>8.2</b> For-loops</a>
 <ul>
-<li class="chapter" data-level="11.2.1" data-path="programming.html"><a href="programming.html#exercise-16"><i class="fa fa-check"></i><b>11.2.1</b> Exercise</a></li>
+<li class="chapter" data-level="8.2.1" data-path="programming.html"><a href="programming.html#exercise-16"><i class="fa fa-check"></i><b>8.2.1</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="11.3" data-path="programming.html"><a href="programming.html#if-else"><i class="fa fa-check"></i><b>11.3</b> If-else</a>
+<li class="chapter" data-level="8.3" data-path="programming.html"><a href="programming.html#if-else"><i class="fa fa-check"></i><b>8.3</b> If-else</a>
 <ul>
-<li class="chapter" data-level="11.3.1" data-path="programming.html"><a href="programming.html#exercise-17"><i class="fa fa-check"></i><b>11.3.1</b> Exercise</a></li>
+<li class="chapter" data-level="8.3.1" data-path="programming.html"><a href="programming.html#exercise-17"><i class="fa fa-check"></i><b>8.3.1</b> Exercise</a></li>
 </ul></li>
+<li class="chapter" data-level="8.4" data-path="programming.html"><a href="programming.html#selected-solutions-3"><i class="fa fa-check"></i><b>8.4</b> Selected Solutions</a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="selected-solutions-3.html"><a href="selected-solutions-3.html"><i class="fa fa-check"></i><b>12</b> Selected Solutions</a></li>
-<li class="chapter" data-level="13" data-path="relational-data.html"><a href="relational-data.html"><i class="fa fa-check"></i><b>13</b> Relational Data</a>
+<li class="chapter" data-level="9" data-path="relational-data.html"><a href="relational-data.html"><i class="fa fa-check"></i><b>9</b> Relational Data</a>
 <ul>
-<li class="chapter" data-level="13.1" data-path="relational-data.html"><a href="relational-data.html#finding-primary-keys"><i class="fa fa-check"></i><b>13.1</b> Finding Primary Keys</a></li>
-<li class="chapter" data-level="13.2" data-path="relational-data.html"><a href="relational-data.html#finding-primary-keys-harder"><i class="fa fa-check"></i><b>13.2</b> Finding Primary Keys (harder)</a>
+<li class="chapter" data-level="9.1" data-path="relational-data.html"><a href="relational-data.html#finding-primary-keys"><i class="fa fa-check"></i><b>9.1</b> Finding Primary Keys</a></li>
+<li class="chapter" data-level="9.2" data-path="relational-data.html"><a href="relational-data.html#finding-primary-keys-harder"><i class="fa fa-check"></i><b>9.2</b> Finding Primary Keys (harder)</a>
 <ul>
-<li class="chapter" data-level="13.2.1" data-path="relational-data.html"><a href="relational-data.html#exercise-18"><i class="fa fa-check"></i><b>13.2.1</b> Exercise</a></li>
-<li class="chapter" data-level="13.2.2" data-path="relational-data.html"><a href="relational-data.html#exercise-19"><i class="fa fa-check"></i><b>13.2.2</b> Exercise</a></li>
-<li class="chapter" data-level="13.2.3" data-path="relational-data.html"><a href="relational-data.html#exercise-20"><i class="fa fa-check"></i><b>13.2.3</b> Exercise</a></li>
+<li class="chapter" data-level="9.2.1" data-path="relational-data.html"><a href="relational-data.html#exercise-18"><i class="fa fa-check"></i><b>9.2.1</b> Exercise</a></li>
+<li class="chapter" data-level="9.2.2" data-path="relational-data.html"><a href="relational-data.html#exercise-19"><i class="fa fa-check"></i><b>9.2.2</b> Exercise</a></li>
+<li class="chapter" data-level="9.2.3" data-path="relational-data.html"><a href="relational-data.html#exercise-20"><i class="fa fa-check"></i><b>9.2.3</b> Exercise</a></li>
 </ul></li>
+<li class="chapter" data-level="9.3" data-path="relational-data.html"><a href="relational-data.html#selected-solutions-4"><i class="fa fa-check"></i><b>9.3</b> Selected Solutions</a></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="selected-solutions-4.html"><a href="selected-solutions-4.html"><i class="fa fa-check"></i><b>14</b> Selected Solutions</a></li>
 <li class="divider"></li>
 <li><a href="https://bookdown.org" target="blank">Published with bookdown</a></li>
 
@@ -288,8 +286,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="data-cleaning-ii" class="section level1" number="7">
-<h1><span class="header-section-number">Chapter 7</span> Data Cleaning II</h1>
+<div id="data-cleaning-ii" class="section level1" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Data Cleaning II</h1>
 <p>For this Guided Exercise, we will be importing a dataset from TidyTuesday Github. Tidy Tuesday is a weekly social data project in R where users explore a new dataset each week and share their findings on Twitter with #TidyTuesday. In particular, we will be focusing on a horror movies data set from IMDB. IMDB is the world’s most popular and authoritative source for movie, TV and celebrity content, designed to help fans explore the world of movies and shows and decide what to watch. This data set shows us information on horror movies that are on IMDB’s website. Here are some important variables we will be working with:</p>
 <ul>
 <li><code>review_rating</code>- the IMDB users average rating of the movie.</li>
@@ -311,16 +309,16 @@ and put it into a tibble called <code>horror_movies</code> using the <code>read_
 <span id="cb81-4"><a href="data-cleaning-ii.html#cb81-4" aria-hidden="true" tabindex="-1"></a><span class="do">## loading in the data</span></span>
 <span id="cb81-5"><a href="data-cleaning-ii.html#cb81-5" aria-hidden="true" tabindex="-1"></a>horror_movies <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-10-22/horror_movies.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Rows: 3328 Columns: 12</code></pre>
-<pre><code>## ── Column specification ────────────────────────────────────────────────────────
+<pre><code>## ── Column specification ────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
-## chr (11): title, genres, release_date, release_country, movie_rating, movie_...
+## chr (11): title, genres, release_date, release_country, movie_rating, mo...
 ## dbl  (1): review_rating</code></pre>
 <pre><code>## 
 ## ℹ Use `spec()` to retrieve the full column specification for this data.
 ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 <p>Notice how easy it was to read data off of a website and into R using the <code>read_csv</code> function: all it took was copying a pasting a link.</p>
-<div id="the-count-function" class="section level2" number="7.1">
-<h2><span class="header-section-number">7.1</span> The <code>count</code> function</h2>
+<div id="the-count-function" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> The <code>count</code> function</h2>
 <p>The <code>count</code> function takes all of the unique elements in a column, and counts how many times each element occurs. For instance, say we want to find the amount of times each movie rating occurs in our data set. We can do this using the <code>count</code> function.</p>
 <div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="data-cleaning-ii.html#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="do">## finding out how many of each rating of horror movie there are</span></span>
 <span id="cb85-2"><a href="data-cleaning-ii.html#cb85-2" aria-hidden="true" tabindex="-1"></a>horror_movies <span class="sc">%&gt;%</span> </span>
@@ -360,15 +358,15 @@ and put it into a tibble called <code>horror_movies</code> using the <code>read_
 ## 11 TV-PG            1
 ## 12 X                1</code></pre>
 <p>The <code>sort</code> argument is particularly useful for spotting things like a large amount of NAs, or getting an idea of how a column is distributed.</p>
-<div id="exercise-10" class="section level3" number="7.1.1">
-<h3><span class="header-section-number">7.1.1</span> Exercise</h3>
+<div id="exercise-10" class="section level3" number="5.1.1">
+<h3><span class="header-section-number">5.1.1</span> Exercise</h3>
 <ul>
 <li>What is the most frequent review rating?</li>
 </ul>
 </div>
 </div>
-<div id="using-the-is.na-function" class="section level2" number="7.2">
-<h2><span class="header-section-number">7.2</span> Using the <code>is.na</code> function</h2>
+<div id="using-the-is.na-function" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Using the <code>is.na</code> function</h2>
 <p>The <code>is.na</code> function used to find the NAs withing a particular column. It takes one argument: the column you specify . The <code>is.na</code> function works particularly well with the <code>filter</code> function. Suppose we want to see how many NAs are in the <code>movie_rating</code> column. We can do this by <code>count</code>, and a <code>filter</code> in conjunction with the <code>is.na</code> function.</p>
 <div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="data-cleaning-ii.html#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Looking at only the NAs</span></span>
 <span id="cb89-2"><a href="data-cleaning-ii.html#cb89-2" aria-hidden="true" tabindex="-1"></a>horror_movies <span class="sc">%&gt;%</span> </span>
@@ -398,33 +396,33 @@ and put it into a tibble called <code>horror_movies</code> using the <code>read_
 ## 10           5.3    78
 ## # … with 77 more rows</code></pre>
 <p>What exactly happened here? The <code>!</code> logical is the “not” or “negating” logical. If we were to type <code>filter(is.na(review_rating))</code> we are telling R to filter all the elements inside of <code>review_rating</code> that are NA. However, if we type <code>filter(!is.na(review_rating))</code> we are telling R to NOT filter all the elements inside of <code>review_rating</code> taht are NA. Hence, we are actually filtering out the NAs in this line of code.</p>
-<div id="exercise-11" class="section level3" number="7.2.1">
-<h3><span class="header-section-number">7.2.1</span> Exercise</h3>
+<div id="exercise-11" class="section level3" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> Exercise</h3>
 <ul>
 <li>Make a new tibble called <span class="math inline">\(\color{magenta}{\text{horrror\_movies\_NA}}\)</span> that filters out all the NAs in the entire data set.</li>
 </ul>
 </div>
 </div>
-<div id="the-arrange-function" class="section level2" number="7.3">
-<h2><span class="header-section-number">7.3</span> The <code>arrange</code> function</h2>
+<div id="the-arrange-function" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> The <code>arrange</code> function</h2>
 <p>The arrange function is a simple function that simply sorts columns into ascending or descending order. For instance, suppose we sort our entire data set by which movies had the highest <code>review_rating</code>. We could do this by using the <code>arrange</code> function:</p>
 <div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="data-cleaning-ii.html#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="do">## using the arrange function to sort the review rating from lowest to highest</span></span>
 <span id="cb93-2"><a href="data-cleaning-ii.html#cb93-2" aria-hidden="true" tabindex="-1"></a>horror_movies <span class="sc">%&gt;%</span> </span>
 <span id="cb93-3"><a href="data-cleaning-ii.html#cb93-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(review_rating) <span class="sc">%&gt;%</span> </span>
 <span id="cb93-4"><a href="data-cleaning-ii.html#cb93-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 10 × 12
-##    title       genres    release_date release_country movie_rating review_rating
-##    &lt;chr&gt;       &lt;chr&gt;     &lt;chr&gt;        &lt;chr&gt;           &lt;chr&gt;                &lt;dbl&gt;
-##  1 Countrycid… Horror    8-Sep-17     USA             &lt;NA&gt;                   1  
-##  2 Una Comedi… Comedy| … 21-Sep-17    Peru            &lt;NA&gt;                   1  
-##  3 A Rain Wom… Horror    4-Jun-16     Japan           &lt;NA&gt;                   1.2
-##  4 Potato Sal… Comedy| … 23-Jul-15    Germany         &lt;NA&gt;                   1.3
-##  5 Dead Walke… Horror    31-Jul-13    USA             TV-MA                  1.4
-##  6 Amityville… Horror    3-Jan-17     USA             &lt;NA&gt;                   1.5
-##  7 Shark Exor… Horror    14-Aug-15    USA             &lt;NA&gt;                   1.5
-##  8 Attack of … Action| … 20-Apr-12    India           &lt;NA&gt;                   1.5
-##  9 Interstela… Action| … 9-May-16     USA             &lt;NA&gt;                   1.6
-## 10 Raiders of… Action| … 19-May-15    USA             NOT RATED              1.6
+##    title     genres  release_date release_country movie_rating review_rating
+##    &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt;        &lt;chr&gt;           &lt;chr&gt;                &lt;dbl&gt;
+##  1 Countryc… Horror  8-Sep-17     USA             &lt;NA&gt;                   1  
+##  2 Una Come… Comedy… 21-Sep-17    Peru            &lt;NA&gt;                   1  
+##  3 A Rain W… Horror  4-Jun-16     Japan           &lt;NA&gt;                   1.2
+##  4 Potato S… Comedy… 23-Jul-15    Germany         &lt;NA&gt;                   1.3
+##  5 Dead Wal… Horror  31-Jul-13    USA             TV-MA                  1.4
+##  6 Amityvil… Horror  3-Jan-17     USA             &lt;NA&gt;                   1.5
+##  7 Shark Ex… Horror  14-Aug-15    USA             &lt;NA&gt;                   1.5
+##  8 Attack o… Action… 20-Apr-12    India           &lt;NA&gt;                   1.5
+##  9 Interste… Action… 9-May-16     USA             &lt;NA&gt;                   1.6
+## 10 Raiders … Action… 19-May-15    USA             NOT RATED              1.6
 ## # … with 6 more variables: movie_run_time &lt;chr&gt;, plot &lt;chr&gt;, cast &lt;chr&gt;,
 ## #   language &lt;chr&gt;, filming_locations &lt;chr&gt;, budget &lt;chr&gt;</code></pre>
 <p>By default, the <code>arrange</code> function sorts in ascending rather than descending order. If we want to change this, we can use the <code>arrange</code> function in conjunction with the <code>desc</code> function.</p>
@@ -433,23 +431,23 @@ and put it into a tibble called <code>horror_movies</code> using the <code>read_
 <span id="cb95-3"><a href="data-cleaning-ii.html#cb95-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(review_rating)) <span class="sc">%&gt;%</span> </span>
 <span id="cb95-4"><a href="data-cleaning-ii.html#cb95-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 10 × 12
-##    title      genres     release_date release_country movie_rating review_rating
-##    &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;        &lt;chr&gt;           &lt;chr&gt;                &lt;dbl&gt;
-##  1 Bonehill … Horror     27-Oct-17    USA             &lt;NA&gt;                   9.8
-##  2 The Theta… Action| H… 13-Oct-17    USA             &lt;NA&gt;                   9.6
-##  3 The Carmi… Comedy| H… 26-Oct-17    Canada          &lt;NA&gt;                   9.6
-##  4 The Small… Horror     1-Oct-17     UK              &lt;NA&gt;                   9.5
-##  5 Hotel Inf… Action| H… 29-Sep-17    UK              &lt;NA&gt;                   9.5
-##  6 Flesh of … Horror     21-Oct-17    USA             &lt;NA&gt;                   9.5
-##  7 Bong of t… Horror     20-Oct-17    USA             &lt;NA&gt;                   9.4
-##  8 The Thirt… Horror     15-May-17    UK              &lt;NA&gt;                   9.4
-##  9 Take 2: T… Horror     1-Feb-15     USA             &lt;NA&gt;                   9.3
-## 10 Johann Ka… Action| A… 1-Sep-16     USA             &lt;NA&gt;                   9.3
+##    title    genres   release_date release_country movie_rating review_rating
+##    &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt;        &lt;chr&gt;           &lt;chr&gt;                &lt;dbl&gt;
+##  1 Bonehil… Horror   27-Oct-17    USA             &lt;NA&gt;                   9.8
+##  2 The The… Action|… 13-Oct-17    USA             &lt;NA&gt;                   9.6
+##  3 The Car… Comedy|… 26-Oct-17    Canada          &lt;NA&gt;                   9.6
+##  4 The Sma… Horror   1-Oct-17     UK              &lt;NA&gt;                   9.5
+##  5 Hotel I… Action|… 29-Sep-17    UK              &lt;NA&gt;                   9.5
+##  6 Flesh o… Horror   21-Oct-17    USA             &lt;NA&gt;                   9.5
+##  7 Bong of… Horror   20-Oct-17    USA             &lt;NA&gt;                   9.4
+##  8 The Thi… Horror   15-May-17    UK              &lt;NA&gt;                   9.4
+##  9 Take 2:… Horror   1-Feb-15     USA             &lt;NA&gt;                   9.3
+## 10 Johann … Action|… 1-Sep-16     USA             &lt;NA&gt;                   9.3
 ## # … with 6 more variables: movie_run_time &lt;chr&gt;, plot &lt;chr&gt;, cast &lt;chr&gt;,
 ## #   language &lt;chr&gt;, filming_locations &lt;chr&gt;, budget &lt;chr&gt;</code></pre>
 </div>
-<div id="the-filter-function-with-logicals" class="section level2" number="7.4">
-<h2><span class="header-section-number">7.4</span> The <code>filter</code> function with logicals</h2>
+<div id="the-filter-function-with-logicals" class="section level2" number="5.4">
+<h2><span class="header-section-number">5.4</span> The <code>filter</code> function with logicals</h2>
 <p>As you saw last week, the <code>filter</code> function is great for subsetting your data based on a certain criteria. However, the <code>filter</code> function becomes much more powerful when used with logical operators. The three most common logical operators we use are the following:</p>
 <ul>
 <li><code>!</code> - the “not” logical operator</li>
@@ -462,10 +460,10 @@ and put it into a tibble called <code>horror_movies</code> using the <code>read_
 <span id="cb97-3"><a href="data-cleaning-ii.html#cb97-3" aria-hidden="true" tabindex="-1"></a>horror_movies <span class="sc">%&gt;%</span> </span>
 <span id="cb97-4"><a href="data-cleaning-ii.html#cb97-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(review_rating <span class="sc">&gt;=</span> <span class="fl">9.0</span> <span class="sc">&amp;</span> release_country <span class="sc">==</span> <span class="st">&quot;Canada&quot;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 2 × 12
-##   title       genres     release_date release_country movie_rating review_rating
-##   &lt;chr&gt;       &lt;chr&gt;      &lt;chr&gt;        &lt;chr&gt;           &lt;chr&gt;                &lt;dbl&gt;
-## 1 Tales from… Horror     18-Oct-17    Canada          &lt;NA&gt;                   9  
-## 2 The Carmil… Comedy| H… 26-Oct-17    Canada          &lt;NA&gt;                   9.6
+##   title     genres   release_date release_country movie_rating review_rating
+##   &lt;chr&gt;     &lt;chr&gt;    &lt;chr&gt;        &lt;chr&gt;           &lt;chr&gt;                &lt;dbl&gt;
+## 1 Tales fr… Horror   18-Oct-17    Canada          &lt;NA&gt;                   9  
+## 2 The Carm… Comedy|… 26-Oct-17    Canada          &lt;NA&gt;                   9.6
 ## # … with 6 more variables: movie_run_time &lt;chr&gt;, plot &lt;chr&gt;, cast &lt;chr&gt;,
 ## #   language &lt;chr&gt;, filming_locations &lt;chr&gt;, budget &lt;chr&gt;</code></pre>
 <p>Notice that now we are looking at movies that have a 9.0 or higher movie rating, and were released in Canada. We can see that there are only 2 movies that match these criteria.</p>
@@ -488,18 +486,27 @@ and put it into a tibble called <code>horror_movies</code> using the <code>read_
 ## 10           4   Canada              2
 ## # … with 42 more rows</code></pre>
 <p>Notice that we we have review ratings that are less than 9.0, and also countries that are not Canada. This is because only <strong>one</strong> of our statements need to be TRUE (although, as stated, <strong>both</strong> can be TRUE as well).</p>
-<div id="exercise-12" class="section level3" number="7.4.1">
-<h3><span class="header-section-number">7.4.1</span> Exercise</h3>
+</div>
+<div id="exercise-12" class="section level2" number="5.5">
+<h2><span class="header-section-number">5.5</span> Exercise</h2>
 <ul>
 <li>Use the <code>filter</code> function to filter the horror movies that were released only in the USA or were “NOT RATED.” Find which of these movies had the highest review rating.</li>
 </ul>
-</div>
-<div id="exercise-13" class="section level3" number="7.4.2">
-<h3><span class="header-section-number">7.4.2</span> Exercise</h3>
+<div id="exercise-13" class="section level3" number="5.5.1">
+<h3><span class="header-section-number">5.5.1</span> Exercise</h3>
 <ul>
 <li>Count the number of PG-13 movies that are only in Japan and USA.</li>
 </ul>
 </div>
+</div>
+<div id="selected-solutions-2" class="section level2" number="5.6">
+<h2><span class="header-section-number">5.6</span> Selected Solutions</h2>
+<ul>
+<li><p>(Exercise 1.1.1) The most common review rating is 252 for NA, and 95 if we consider NA to not be a review rating.</p></li>
+<li><p>(Exercise 1.4.1) Of the movies that were released in USA or had a rating of “NOT RATED” the highest review rating was a 9.8 by the movie Bonehill Road (2017).</p></li>
+<li><p>(Exercise 1.4.2) Of the movies that were released in USA or Japan, there were 67 movies that were rated “PG-13.”</p></li>
+</ul>
+
 </div>
 </div>
             </section>
@@ -507,8 +514,8 @@ and put it into a tibble called <code>horror_movies</code> using the <code>read_
           </div>
         </div>
       </div>
-<a href="selected-solutions-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="selected-solutions-2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="cleaning-data-i.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="graphics-with-ggplot2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

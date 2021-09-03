@@ -1,8 +1,7 @@
-fig:unnamed-chunk-6
+fig:unnamed-chunk-30
 fig:switching
 welcome
 learn-all-about-bookdown
-the-rproject
 intro-to-r
 basic-summary-statistics
 exercise
@@ -15,6 +14,7 @@ exercise-3
 creating-a-tibble
 exercise-4
 selected-solutions
+the-rproject
 cleaning-data-i
 the-pipe
 the-clean_names-function
