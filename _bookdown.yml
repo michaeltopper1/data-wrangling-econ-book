@@ -10,8 +10,9 @@ rmd_files: [
   "intro_piping.Rmd",
   "piping_2.Rmd",
   "ggplot2.Rmd",
-  "strings.Rmd",
   "organization.Rmd",
+  "strings.Rmd",
+  "web_scraping_tutorial/web_scrape_lecture.Rmd",
   "programming.Rmd",
   "relational_data.Rmd"]
 delete_merged_file: true 
