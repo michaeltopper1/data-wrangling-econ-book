@@ -1,7 +1,4 @@
 ---
-title: "An Introduction to Web Scraping in R"
-date: "Last Updated: `r Sys.Date()`"
-author: "Danny Klinenberg"
 output: 
   pdf_document:
     number_sections: TRUE

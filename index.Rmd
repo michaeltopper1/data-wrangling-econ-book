@@ -1,17 +1,18 @@
 --- 
 title: "Data Wrangling for Economists"
-author: 
-  - Michael Topper^[UC Santa Barbara, michaeltopper@ucsb.edu]
-  - Danny Klinenberg^[UC Santa Barbara, dklinenberg@ucsb.edu]
+author:
+- Michael Topper^[UC Santa Barbara, michaeltopper@ucsb.edu]
+- Danny Klinenberg^[UC Santa Barbara, dklinenberg@ucsb.edu]
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
-# output: bookdown::gitbook
 documentclass: book
-bibliography: [book.bib, packages.bib]
+bibliography:
+- book.bib
+- packages.bib
 biblio-style: apalike
 link-citations: yes
 github-repo: openscapes/series
-description: "Enter description."
+description: Enter description.
 ---
 
 # Welcome {#welcome}

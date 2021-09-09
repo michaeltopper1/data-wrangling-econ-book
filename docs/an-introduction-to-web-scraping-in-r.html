@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 10 An Introduction to Web Scraping in R | An Introduction to Web Scraping in R</title>
+  <title>Chapter 10 An Introduction to Web Scraping in R | Data Wrangling for Economists</title>
   <meta name="description" content="Enter description." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 10 An Introduction to Web Scraping in R | An Introduction to Web Scraping in R" />
+  <meta property="og:title" content="Chapter 10 An Introduction to Web Scraping in R | Data Wrangling for Economists" />
   <meta property="og:type" content="book" />
   
   
@@ -16,14 +16,16 @@
   <meta name="github-repo" content="openscapes/series" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 10 An Introduction to Web Scraping in R | An Introduction to Web Scraping in R" />
+  <meta name="twitter:title" content="Chapter 10 An Introduction to Web Scraping in R | Data Wrangling for Economists" />
   
   <meta name="twitter:description" content="Enter description." />
   
 
+<meta name="author" content="Michael Topper" />
 <meta name="author" content="Danny Klinenberg" />
 
 
+<meta name="date" content="2021-09-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -52,11 +54,6 @@
 
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
-<script src="libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
-<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
-<link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
-<script src="libs/str_view-binding-1.4.0/str_view.js"></script>
 
 
 <style type="text/css">
@@ -142,7 +139,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Data Wrangling for Economists</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> output: bookdown::gitbook</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#organization"><i class="fa fa-check"></i><b>1.1</b> Organization</a></li>
 </ul></li>
@@ -329,7 +326,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">An Introduction to Web Scraping in R</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Wrangling for Economists</a>
           </h1>
         </div>
 
@@ -342,17 +339,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <blockquote>
 <p><em>Note: This document is meant for internal uses within UCSB. Proper citations have not been included in this draft. Please use this document as an individual learning tool, not for official citation or distribution.</em></p>
 </blockquote>
-<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="an-introduction-to-web-scraping-in-r.html#cb207-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Packages for lesson:</span></span>
-<span id="cb207-2"><a href="an-introduction-to-web-scraping-in-r.html#cb207-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pacman)</span>
-<span id="cb207-3"><a href="an-introduction-to-web-scraping-in-r.html#cb207-3" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(</span>
-<span id="cb207-4"><a href="an-introduction-to-web-scraping-in-r.html#cb207-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;jsonlite&quot;</span>,<span class="co"># read in json formats</span></span>
-<span id="cb207-5"><a href="an-introduction-to-web-scraping-in-r.html#cb207-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;formatR&quot;</span>, <span class="co"># makes code wrap in an Rmarkdown file</span></span>
-<span id="cb207-6"><a href="an-introduction-to-web-scraping-in-r.html#cb207-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;glue&quot;</span>, <span class="co"># tidyverse concatenate text</span></span>
-<span id="cb207-7"><a href="an-introduction-to-web-scraping-in-r.html#cb207-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;magrittr&quot;</span>,<span class="co"># fancy pipe</span></span>
-<span id="cb207-8"><a href="an-introduction-to-web-scraping-in-r.html#cb207-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;polite&quot;</span>,<span class="co"># make sure website is okay to scrape</span></span>
-<span id="cb207-9"><a href="an-introduction-to-web-scraping-in-r.html#cb207-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;rvest&quot;</span>,<span class="co"># Grabbing, formatting, and cleaning html code</span></span>
-<span id="cb207-10"><a href="an-introduction-to-web-scraping-in-r.html#cb207-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;tidyverse&quot;</span><span class="co"># Thanks Hadley Wickham!</span></span>
-<span id="cb207-11"><a href="an-introduction-to-web-scraping-in-r.html#cb207-11" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="an-introduction-to-web-scraping-in-r.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Packages for lesson:</span></span>
+<span id="cb1-2"><a href="an-introduction-to-web-scraping-in-r.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pacman)</span>
+<span id="cb1-3"><a href="an-introduction-to-web-scraping-in-r.html#cb1-3" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(</span>
+<span id="cb1-4"><a href="an-introduction-to-web-scraping-in-r.html#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;jsonlite&quot;</span>,<span class="co"># read in json formats</span></span>
+<span id="cb1-5"><a href="an-introduction-to-web-scraping-in-r.html#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;formatR&quot;</span>, <span class="co"># makes code wrap in an Rmarkdown file</span></span>
+<span id="cb1-6"><a href="an-introduction-to-web-scraping-in-r.html#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;glue&quot;</span>, <span class="co"># tidyverse concatenate text</span></span>
+<span id="cb1-7"><a href="an-introduction-to-web-scraping-in-r.html#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;magrittr&quot;</span>,<span class="co"># fancy pipe</span></span>
+<span id="cb1-8"><a href="an-introduction-to-web-scraping-in-r.html#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;polite&quot;</span>,<span class="co"># make sure website is okay to scrape</span></span>
+<span id="cb1-9"><a href="an-introduction-to-web-scraping-in-r.html#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;rvest&quot;</span>,<span class="co"># Grabbing, formatting, and cleaning html code</span></span>
+<span id="cb1-10"><a href="an-introduction-to-web-scraping-in-r.html#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;tidyverse&quot;</span><span class="co"># Thanks Hadley Wickham!</span></span>
+<span id="cb1-11"><a href="an-introduction-to-web-scraping-in-r.html#cb1-11" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <p>In addition, this lesson will require using Google Chrome and the <a href="https://selectorgadget.com/">selector gadget</a> extension. This <a href="https://chrome.google.com/webstore/detail/selectorgadget/mhjhnkcfbdhnjickkkdbjoemdmbfginb?hl=en">link</a> is to Google Chrome selector gadget extension. Please add the selector gadget to Google Chrome now.</p>
 <div id="what-is-web-scraping" class="section level2" number="10.1">
 <h2><span class="header-section-number">10.1</span> What is Web Scraping?</h2>
@@ -363,31 +360,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="can-i-scrape-from-this-site" class="section level2" number="10.2">
 <h2><span class="header-section-number">10.2</span> Can I Scrape From This Site?</h2>
 <p>Before scraping a website, we must ensure the site is scrape-able. This means that the owners of the site are okay with individuals taking information from their site. Reasons they may not be okay with this is proprietary information or crashing the site. Constantly accessing sites with a scraper, or code meant to extract data from a website, can lead to performance issues and ultimately crashing a site. To see if we’re allowed to scrape from a site, we’ll use the package <code>polite</code>. There is a useful repository <a href="https://github.com/dmi3kno/polite">here</a>.</p>
-<p><code>polite</code> ’s main function is <code>bow</code>.<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a> This command is politely asking if we have permission to access a website. The general framework of the command is as follows:</p>
-<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="an-introduction-to-web-scraping-in-r.html#cb208-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bow</span>(</span>
-<span id="cb208-2"><a href="an-introduction-to-web-scraping-in-r.html#cb208-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">url =</span> <span class="st">&quot;https://tuitiontracker.org/fitness/data/school-data/&quot;</span>,</span>
-<span id="cb208-3"><a href="an-introduction-to-web-scraping-in-r.html#cb208-3" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb208-4"><a href="an-introduction-to-web-scraping-in-r.html#cb208-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">user_agent =</span> <span class="st">&quot;Danny Klinenberg &lt;dklinenberg@ucsb.edu&gt;&quot;</span></span>
-<span id="cb208-5"><a href="an-introduction-to-web-scraping-in-r.html#cb208-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p><code>polite</code> ’s main function is <code>bow</code>.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> This command is politely asking if we have permission to access a website. The general framework of the command is as follows:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="an-introduction-to-web-scraping-in-r.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bow</span>(</span>
+<span id="cb2-2"><a href="an-introduction-to-web-scraping-in-r.html#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">url =</span> <span class="st">&quot;https://tuitiontracker.org/fitness/data/school-data/&quot;</span>,</span>
+<span id="cb2-3"><a href="an-introduction-to-web-scraping-in-r.html#cb2-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-4"><a href="an-introduction-to-web-scraping-in-r.html#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">user_agent =</span> <span class="st">&quot;Danny Klinenberg &lt;dklinenberg@ucsb.edu&gt;&quot;</span></span>
+<span id="cb2-5"><a href="an-introduction-to-web-scraping-in-r.html#cb2-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <p>The command <code>url</code> is our target site we wish to scrape. <code>user_agent</code> is our name and email. While the <code>user_agent</code> is not necessary, it’s extra polite to the hosts of the website.</p>
 <p>If we’re allowed to scrape from a website, the result will look like this:</p>
-<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="an-introduction-to-web-scraping-in-r.html#cb209-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bow</span>(</span>
-<span id="cb209-2"><a href="an-introduction-to-web-scraping-in-r.html#cb209-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">url =</span> <span class="st">&quot;https://tuitiontracker.org/fitness/data/school-data/&quot;</span>,</span>
-<span id="cb209-3"><a href="an-introduction-to-web-scraping-in-r.html#cb209-3" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb209-4"><a href="an-introduction-to-web-scraping-in-r.html#cb209-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">user_agent =</span> <span class="st">&quot;Danny Klinenberg &lt;dklinenberg@ucsb.edu&gt;&quot;</span></span>
-<span id="cb209-5"><a href="an-introduction-to-web-scraping-in-r.html#cb209-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="an-introduction-to-web-scraping-in-r.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bow</span>(</span>
+<span id="cb3-2"><a href="an-introduction-to-web-scraping-in-r.html#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">url =</span> <span class="st">&quot;https://tuitiontracker.org/fitness/data/school-data/&quot;</span>,</span>
+<span id="cb3-3"><a href="an-introduction-to-web-scraping-in-r.html#cb3-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-4"><a href="an-introduction-to-web-scraping-in-r.html#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">user_agent =</span> <span class="st">&quot;Danny Klinenberg &lt;dklinenberg@ucsb.edu&gt;&quot;</span></span>
+<span id="cb3-5"><a href="an-introduction-to-web-scraping-in-r.html#cb3-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <pre><code>## &lt;polite session&gt; https://tuitiontracker.org/fitness/data/school-data/
 ##     User-agent: Danny Klinenberg &lt;dklinenberg@ucsb.edu&gt;
 ##     robots.txt: 1 rules are defined for 1 bots
 ##    Crawl delay: 5 sec
 ##   The path is scrapable for this user-agent</code></pre>
-<p>Let’s walk through the lines of output. Line one is the website we’re asking to pull from. Line 2 is us identifying ourselves. Line 3 are the rules of pulling from their website.<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a> Line 4 is the crawl delay. This is how much time the hosts requests between pulling from the website. Hosts asks for crawl delays to avoid overloading the site leading to a crash. If we are to pull alot of time from a website, we may get blocked for not following this rule. We’ll talk about how to add time between pulls in the UCSB Economics example.<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a></p>
+<p>Let’s walk through the lines of output. Line one is the website we’re asking to pull from. Line 2 is us identifying ourselves. Line 3 are the rules of pulling from their website.<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> Line 4 is the crawl delay. This is how much time the hosts requests between pulling from the website. Hosts asks for crawl delays to avoid overloading the site leading to a crash. If we are to pull alot of time from a website, we may get blocked for not following this rule. We’ll talk about how to add time between pulls in the UCSB Economics example.<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a></p>
 <p>If we are not allowed to scrape, the results will look like this:</p>
-<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="an-introduction-to-web-scraping-in-r.html#cb211-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bow</span>(</span>
-<span id="cb211-2"><a href="an-introduction-to-web-scraping-in-r.html#cb211-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">url =</span> <span class="st">&quot;https://collegecrisis.shinyapps.io/dashboard/&quot;</span>,</span>
-<span id="cb211-3"><a href="an-introduction-to-web-scraping-in-r.html#cb211-3" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb211-4"><a href="an-introduction-to-web-scraping-in-r.html#cb211-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">user_agent =</span> <span class="st">&quot;Danny Klinenberg &lt;dklinenberg@ucsb.edu&gt;&quot;</span></span>
-<span id="cb211-5"><a href="an-introduction-to-web-scraping-in-r.html#cb211-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="an-introduction-to-web-scraping-in-r.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bow</span>(</span>
+<span id="cb5-2"><a href="an-introduction-to-web-scraping-in-r.html#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">url =</span> <span class="st">&quot;https://collegecrisis.shinyapps.io/dashboard/&quot;</span>,</span>
+<span id="cb5-3"><a href="an-introduction-to-web-scraping-in-r.html#cb5-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-4"><a href="an-introduction-to-web-scraping-in-r.html#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">user_agent =</span> <span class="st">&quot;Danny Klinenberg &lt;dklinenberg@ucsb.edu&gt;&quot;</span></span>
+<span id="cb5-5"><a href="an-introduction-to-web-scraping-in-r.html#cb5-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <pre><code>## &lt;polite session&gt; https://collegecrisis.shinyapps.io/dashboard/
 ##     User-agent: Danny Klinenberg &lt;dklinenberg@ucsb.edu&gt;
 ##     robots.txt: 1 rules are defined for 1 bots
@@ -424,7 +421,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <img src="web_scraping_tutorial/pictures/p5.png" style="width:100.0%" alt="" />
 <p class="caption">Network Tab After Refreshing the Page</p>
 </div>
-<p>Most of these files are well beyond my understanding of website infrastructure. However, I have figured out that sites tend to store their underlying data as a <code>.csv</code> , <code>.json</code> or <code>.ndjson</code> . A <code>.json</code> is a more flexible <code>.csv</code>. Think of a <code>.json</code> as a <code>.csv</code> only instead of each cell housing a single data, it can house another <code>.csv</code>. In <code>R</code> terms, a <code>.json</code> is like a list. A <code>.ndjson</code> is like a <code>.json</code> only each row is it’s very own <code>.json</code>.<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a> Once we find a .<code>json</code>, we can right click it and copy the file path. Here, I’m opening <strong>110705.json</strong>:</p>
+<p>Most of these files are well beyond my understanding of website infrastructure. However, I have figured out that sites tend to store their underlying data as a <code>.csv</code> , <code>.json</code> or <code>.ndjson</code> . A <code>.json</code> is a more flexible <code>.csv</code>. Think of a <code>.json</code> as a <code>.csv</code> only instead of each cell housing a single data, it can house another <code>.csv</code>. In <code>R</code> terms, a <code>.json</code> is like a list. A <code>.ndjson</code> is like a <code>.json</code> only each row is it’s very own <code>.json</code>.<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a> Once we find a .<code>json</code>, we can right click it and copy the file path. Here, I’m opening <strong>110705.json</strong>:</p>
 <div class="figure">
 <img src="web_scraping_tutorial/pictures/p6.png" style="width:100.0%" alt="" />
 <p class="caption">Opening .json Attempt 1</p>
@@ -435,18 +432,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p class="caption">Opening the .json Link</p>
 </div>
 <p>We grabbed the right one. Nice! We can then import the file directly into <code>R</code>:</p>
-<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="an-introduction-to-web-scraping-in-r.html#cb213-1" aria-hidden="true" tabindex="-1"></a>ucsb <span class="ot">&lt;-</span> jsonlite<span class="sc">::</span><span class="fu">read_json</span>(<span class="st">&quot;https://tuitiontracker.org/fitness/data/school-data/110705.json&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="an-introduction-to-web-scraping-in-r.html#cb7-1" aria-hidden="true" tabindex="-1"></a>ucsb <span class="ot">&lt;-</span> jsonlite<span class="sc">::</span><span class="fu">read_json</span>(<span class="st">&quot;https://tuitiontracker.org/fitness/data/school-data/110705.json&quot;</span>)</span></code></pre></div>
 <p>We can then grab things like the name, IPEDS UNITID, and the stress scores (stored in flags):</p>
-<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="an-introduction-to-web-scraping-in-r.html#cb214-1" aria-hidden="true" tabindex="-1"></a>ucsb<span class="sc">$</span>institution</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="an-introduction-to-web-scraping-in-r.html#cb8-1" aria-hidden="true" tabindex="-1"></a>ucsb<span class="sc">$</span>institution</span></code></pre></div>
 <pre><code>## [1] &quot;University of California-Santa Barbara&quot;</code></pre>
-<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="an-introduction-to-web-scraping-in-r.html#cb216-1" aria-hidden="true" tabindex="-1"></a>ucsb<span class="sc">$</span>unitid</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="an-introduction-to-web-scraping-in-r.html#cb10-1" aria-hidden="true" tabindex="-1"></a>ucsb<span class="sc">$</span>unitid</span></code></pre></div>
 <pre><code>## [1] &quot;110705&quot;</code></pre>
-<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="an-introduction-to-web-scraping-in-r.html#cb218-1" aria-hidden="true" tabindex="-1"></a>ucsb<span class="sc">$</span>flags</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="an-introduction-to-web-scraping-in-r.html#cb12-1" aria-hidden="true" tabindex="-1"></a>ucsb<span class="sc">$</span>flags</span></code></pre></div>
 <pre><code>## [1] &quot;[0,0,0,0]&quot;</code></pre>
 <p>Now, having data on one school is cool, but what if we had data on all the schools. For example, suppose we were interested in finding the stress scores for the following schools:</p>
-<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="an-introduction-to-web-scraping-in-r.html#cb220-1" aria-hidden="true" tabindex="-1"></a>schools <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">schools =</span> <span class="fu">c</span>(<span class="st">&quot;UCSB&quot;</span>, <span class="st">&quot;Cal Poly SLO&quot;</span>, <span class="st">&quot;Sac State&quot;</span>),</span>
-<span id="cb220-2"><a href="an-introduction-to-web-scraping-in-r.html#cb220-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">unitid =</span> <span class="fu">c</span>(<span class="dv">110705</span>, <span class="dv">110422</span>, <span class="dv">110617</span>))</span>
-<span id="cb220-3"><a href="an-introduction-to-web-scraping-in-r.html#cb220-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(schools)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="an-introduction-to-web-scraping-in-r.html#cb14-1" aria-hidden="true" tabindex="-1"></a>schools <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">schools =</span> <span class="fu">c</span>(<span class="st">&quot;UCSB&quot;</span>, <span class="st">&quot;Cal Poly SLO&quot;</span>, <span class="st">&quot;Sac State&quot;</span>),</span>
+<span id="cb14-2"><a href="an-introduction-to-web-scraping-in-r.html#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">unitid =</span> <span class="fu">c</span>(<span class="dv">110705</span>, <span class="dv">110422</span>, <span class="dv">110617</span>))</span>
+<span id="cb14-3"><a href="an-introduction-to-web-scraping-in-r.html#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(schools)</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 2
 ##   schools      unitid
 ##   &lt;chr&gt;         &lt;dbl&gt;
@@ -456,31 +453,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Let’s look at the url for UCSB: "<a href="https://tuitiontracker.org/fitness/data/school-data/110705.json%22" class="uri">https://tuitiontracker.org/fitness/data/school-data/110705.json%22</a>.</p>
 <p>Now, let’s look at the url for Sac State: "<a href="https://tuitiontracker.org/fitness/data/school-data/110705.json%22">https://tuitiontracker.org/fitness/data/school-data/110617.json"</a></p>
 <p>Notice that the urls are identical except of the numbers before .json. Usually, websites have some sort of method for their url names. In this case, the data url is “<a href="https://tuitiontracker.org/fitness/data/school-data/" class="uri">https://tuitiontracker.org/fitness/data/school-data/</a><strong>UNITID</strong>.json,” where UNITID is the IPEDS UNITID. We can pull those off of IPEDS easy, so all we’d need to do to get the stress scores is loop through the UNITIDS! Let’s do that here:</p>
-<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="an-introduction-to-web-scraping-in-r.html#cb222-1" aria-hidden="true" tabindex="-1"></a>num_schools <span class="ot">&lt;-</span> <span class="dv">3</span>  <span class="co"># interested in 3 schools</span></span>
-<span id="cb222-2"><a href="an-introduction-to-web-scraping-in-r.html#cb222-2" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">school =</span> <span class="fu">rep</span>(<span class="cn">NA</span>, num_schools), <span class="at">unitid =</span> <span class="fu">rep</span>(<span class="cn">NA</span>,</span>
-<span id="cb222-3"><a href="an-introduction-to-web-scraping-in-r.html#cb222-3" aria-hidden="true" tabindex="-1"></a>    num_schools), <span class="at">enrollment_stress =</span> <span class="fu">rep</span>(<span class="cn">NA</span>, num_schools),</span>
-<span id="cb222-4"><a href="an-introduction-to-web-scraping-in-r.html#cb222-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">retention_stress =</span> <span class="fu">rep</span>(<span class="cn">NA</span>, num_schools), <span class="at">avg_tui_stress =</span> <span class="fu">rep</span>(<span class="cn">NA</span>,</span>
-<span id="cb222-5"><a href="an-introduction-to-web-scraping-in-r.html#cb222-5" aria-hidden="true" tabindex="-1"></a>        num_schools), <span class="at">approp_stress =</span> <span class="fu">rep</span>(<span class="cn">NA</span>, num_schools))</span>
-<span id="cb222-6"><a href="an-introduction-to-web-scraping-in-r.html#cb222-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb222-7"><a href="an-introduction-to-web-scraping-in-r.html#cb222-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>num_schools) {</span>
-<span id="cb222-8"><a href="an-introduction-to-web-scraping-in-r.html#cb222-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># remember, we&#39;re polite, so we honor the 5 second</span></span>
-<span id="cb222-9"><a href="an-introduction-to-web-scraping-in-r.html#cb222-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># rule</span></span>
-<span id="cb222-10"><a href="an-introduction-to-web-scraping-in-r.html#cb222-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Sys.sleep</span>(<span class="dv">5</span>)</span>
-<span id="cb222-11"><a href="an-introduction-to-web-scraping-in-r.html#cb222-11" aria-hidden="true" tabindex="-1"></a>    school <span class="ot">&lt;-</span> jsonlite<span class="sc">::</span><span class="fu">read_json</span>(<span class="fu">paste0</span>(<span class="st">&quot;https://tuitiontracker.org/fitness/data/school-data/&quot;</span>,</span>
-<span id="cb222-12"><a href="an-introduction-to-web-scraping-in-r.html#cb222-12" aria-hidden="true" tabindex="-1"></a>        schools<span class="sc">$</span>unitid[i], <span class="st">&quot;.json&quot;</span>))</span>
-<span id="cb222-13"><a href="an-introduction-to-web-scraping-in-r.html#cb222-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># clean the flag scores and unlist</span></span>
-<span id="cb222-14"><a href="an-introduction-to-web-scraping-in-r.html#cb222-14" aria-hidden="true" tabindex="-1"></a>    scores <span class="ot">&lt;-</span> school<span class="sc">$</span>flags <span class="sc">%&gt;%</span></span>
-<span id="cb222-15"><a href="an-introduction-to-web-scraping-in-r.html#cb222-15" aria-hidden="true" tabindex="-1"></a>        <span class="fu">str_replace_all</span>(<span class="st">&quot;</span><span class="sc">\\</span><span class="st">[|</span><span class="sc">\\</span><span class="st">]&quot;</span>, <span class="st">&quot;&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb222-16"><a href="an-introduction-to-web-scraping-in-r.html#cb222-16" aria-hidden="true" tabindex="-1"></a>        <span class="fu">str_split</span>(<span class="st">&quot;,&quot;</span>) <span class="sc">%&gt;%</span>  <span class="fu">str_split</span>(<span class="st">&quot;,&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb222-17"><a href="an-introduction-to-web-scraping-in-r.html#cb222-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">unlist</span>()</span>
-<span id="cb222-18"><a href="an-introduction-to-web-scraping-in-r.html#cb222-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># save the stuff</span></span>
-<span id="cb222-19"><a href="an-introduction-to-web-scraping-in-r.html#cb222-19" aria-hidden="true" tabindex="-1"></a>    dat<span class="sc">$</span>school[i] <span class="ot">&lt;-</span> school<span class="sc">$</span>institution</span>
-<span id="cb222-20"><a href="an-introduction-to-web-scraping-in-r.html#cb222-20" aria-hidden="true" tabindex="-1"></a>    dat<span class="sc">$</span>unitid[i] <span class="ot">&lt;-</span> school<span class="sc">$</span>unitid</span>
-<span id="cb222-21"><a href="an-introduction-to-web-scraping-in-r.html#cb222-21" aria-hidden="true" tabindex="-1"></a>    dat<span class="sc">$</span>enrollment_stress[i] <span class="ot">&lt;-</span> scores[<span class="dv">1</span>]</span>
-<span id="cb222-22"><a href="an-introduction-to-web-scraping-in-r.html#cb222-22" aria-hidden="true" tabindex="-1"></a>    dat<span class="sc">$</span>retention_stress[i] <span class="ot">&lt;-</span> scores[<span class="dv">2</span>]</span>
-<span id="cb222-23"><a href="an-introduction-to-web-scraping-in-r.html#cb222-23" aria-hidden="true" tabindex="-1"></a>    dat<span class="sc">$</span>avg_tui_stress[i] <span class="ot">&lt;-</span> scores[<span class="dv">3</span>]</span>
-<span id="cb222-24"><a href="an-introduction-to-web-scraping-in-r.html#cb222-24" aria-hidden="true" tabindex="-1"></a>    dat<span class="sc">$</span>approp_stress[i] <span class="ot">&lt;-</span> scores[<span class="dv">4</span>]</span>
-<span id="cb222-25"><a href="an-introduction-to-web-scraping-in-r.html#cb222-25" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="an-introduction-to-web-scraping-in-r.html#cb16-1" aria-hidden="true" tabindex="-1"></a>num_schools <span class="ot">&lt;-</span> <span class="dv">3</span>  <span class="co"># interested in 3 schools</span></span>
+<span id="cb16-2"><a href="an-introduction-to-web-scraping-in-r.html#cb16-2" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">school =</span> <span class="fu">rep</span>(<span class="cn">NA</span>, num_schools), <span class="at">unitid =</span> <span class="fu">rep</span>(<span class="cn">NA</span>,</span>
+<span id="cb16-3"><a href="an-introduction-to-web-scraping-in-r.html#cb16-3" aria-hidden="true" tabindex="-1"></a>    num_schools), <span class="at">enrollment_stress =</span> <span class="fu">rep</span>(<span class="cn">NA</span>, num_schools),</span>
+<span id="cb16-4"><a href="an-introduction-to-web-scraping-in-r.html#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">retention_stress =</span> <span class="fu">rep</span>(<span class="cn">NA</span>, num_schools), <span class="at">avg_tui_stress =</span> <span class="fu">rep</span>(<span class="cn">NA</span>,</span>
+<span id="cb16-5"><a href="an-introduction-to-web-scraping-in-r.html#cb16-5" aria-hidden="true" tabindex="-1"></a>        num_schools), <span class="at">approp_stress =</span> <span class="fu">rep</span>(<span class="cn">NA</span>, num_schools))</span>
+<span id="cb16-6"><a href="an-introduction-to-web-scraping-in-r.html#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="an-introduction-to-web-scraping-in-r.html#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>num_schools) {</span>
+<span id="cb16-8"><a href="an-introduction-to-web-scraping-in-r.html#cb16-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># remember, we&#39;re polite, so we honor the 5 second</span></span>
+<span id="cb16-9"><a href="an-introduction-to-web-scraping-in-r.html#cb16-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># rule</span></span>
+<span id="cb16-10"><a href="an-introduction-to-web-scraping-in-r.html#cb16-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Sys.sleep</span>(<span class="dv">5</span>)</span>
+<span id="cb16-11"><a href="an-introduction-to-web-scraping-in-r.html#cb16-11" aria-hidden="true" tabindex="-1"></a>    school <span class="ot">&lt;-</span> jsonlite<span class="sc">::</span><span class="fu">read_json</span>(<span class="fu">paste0</span>(<span class="st">&quot;https://tuitiontracker.org/fitness/data/school-data/&quot;</span>,</span>
+<span id="cb16-12"><a href="an-introduction-to-web-scraping-in-r.html#cb16-12" aria-hidden="true" tabindex="-1"></a>        schools<span class="sc">$</span>unitid[i], <span class="st">&quot;.json&quot;</span>))</span>
+<span id="cb16-13"><a href="an-introduction-to-web-scraping-in-r.html#cb16-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># clean the flag scores and unlist</span></span>
+<span id="cb16-14"><a href="an-introduction-to-web-scraping-in-r.html#cb16-14" aria-hidden="true" tabindex="-1"></a>    scores <span class="ot">&lt;-</span> school<span class="sc">$</span>flags <span class="sc">%&gt;%</span></span>
+<span id="cb16-15"><a href="an-introduction-to-web-scraping-in-r.html#cb16-15" aria-hidden="true" tabindex="-1"></a>        <span class="fu">str_replace_all</span>(<span class="st">&quot;</span><span class="sc">\\</span><span class="st">[|</span><span class="sc">\\</span><span class="st">]&quot;</span>, <span class="st">&quot;&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb16-16"><a href="an-introduction-to-web-scraping-in-r.html#cb16-16" aria-hidden="true" tabindex="-1"></a>        <span class="fu">str_split</span>(<span class="st">&quot;,&quot;</span>) <span class="sc">%&gt;%</span>  <span class="fu">str_split</span>(<span class="st">&quot;,&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb16-17"><a href="an-introduction-to-web-scraping-in-r.html#cb16-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">unlist</span>()</span>
+<span id="cb16-18"><a href="an-introduction-to-web-scraping-in-r.html#cb16-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># save the stuff</span></span>
+<span id="cb16-19"><a href="an-introduction-to-web-scraping-in-r.html#cb16-19" aria-hidden="true" tabindex="-1"></a>    dat<span class="sc">$</span>school[i] <span class="ot">&lt;-</span> school<span class="sc">$</span>institution</span>
+<span id="cb16-20"><a href="an-introduction-to-web-scraping-in-r.html#cb16-20" aria-hidden="true" tabindex="-1"></a>    dat<span class="sc">$</span>unitid[i] <span class="ot">&lt;-</span> school<span class="sc">$</span>unitid</span>
+<span id="cb16-21"><a href="an-introduction-to-web-scraping-in-r.html#cb16-21" aria-hidden="true" tabindex="-1"></a>    dat<span class="sc">$</span>enrollment_stress[i] <span class="ot">&lt;-</span> scores[<span class="dv">1</span>]</span>
+<span id="cb16-22"><a href="an-introduction-to-web-scraping-in-r.html#cb16-22" aria-hidden="true" tabindex="-1"></a>    dat<span class="sc">$</span>retention_stress[i] <span class="ot">&lt;-</span> scores[<span class="dv">2</span>]</span>
+<span id="cb16-23"><a href="an-introduction-to-web-scraping-in-r.html#cb16-23" aria-hidden="true" tabindex="-1"></a>    dat<span class="sc">$</span>avg_tui_stress[i] <span class="ot">&lt;-</span> scores[<span class="dv">3</span>]</span>
+<span id="cb16-24"><a href="an-introduction-to-web-scraping-in-r.html#cb16-24" aria-hidden="true" tabindex="-1"></a>    dat<span class="sc">$</span>approp_stress[i] <span class="ot">&lt;-</span> scores[<span class="dv">4</span>]</span>
+<span id="cb16-25"><a href="an-introduction-to-web-scraping-in-r.html#cb16-25" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## Warning in stri_split_regex(string, pattern, n = n, simplify = simplify, :
 ## argument is not an atomic vector; coercing
 
@@ -489,7 +486,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 ## Warning in stri_split_regex(string, pattern, n = n, simplify = simplify, :
 ## argument is not an atomic vector; coercing</code></pre>
-<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="an-introduction-to-web-scraping-in-r.html#cb224-1" aria-hidden="true" tabindex="-1"></a>dat</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="an-introduction-to-web-scraping-in-r.html#cb18-1" aria-hidden="true" tabindex="-1"></a>dat</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 6
 ##   school     unitid enrollment_stre… retention_stress avg_tui_stress approp_stress
 ##   &lt;chr&gt;      &lt;chr&gt;  &lt;chr&gt;            &lt;chr&gt;            &lt;chr&gt;          &lt;chr&gt;        
@@ -509,29 +506,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">10.4</span> Web Scraping: UCSB Economics Contact Information</h2>
 <p>Pulling from an API is always the preferable approach. However, sometimes we can’t pull from an API because it isn’t publicly available. In that case, we have to scrape the html directly from the website. Hadley Wickham, tidyverse creator, developed the <code>rvest</code> to assist in web scraping in R. There are many blog posts describing how to use <code>rvest,</code> but I’d recommend starting with the official <a href="https://github.com/tidyverse/rvest">github page</a>. This example will require using <code>SelectorGadget</code>.</p>
 <p>In my experience, scraping a web page has a very similar code structure:</p>
-<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="an-introduction-to-web-scraping-in-r.html#cb226-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_html</span>(<span class="st">&quot;website_name&quot;</span>) <span class="sc">%&gt;%</span> <span class="co"># read in html</span></span>
-<span id="cb226-2"><a href="an-introduction-to-web-scraping-in-r.html#cb226-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="st">&quot;found with selector gadget&quot;</span>) <span class="sc">%&gt;%</span> <span class="co">#find right node</span></span>
-<span id="cb226-3"><a href="an-introduction-to-web-scraping-in-r.html#cb226-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_text</span>() <span class="sc">%&gt;%</span> <span class="co"># convert to text</span></span>
-<span id="cb226-4"><a href="an-introduction-to-web-scraping-in-r.html#cb226-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>() <span class="co"># tidy it up</span></span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="an-introduction-to-web-scraping-in-r.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_html</span>(<span class="st">&quot;website_name&quot;</span>) <span class="sc">%&gt;%</span> <span class="co"># read in html</span></span>
+<span id="cb20-2"><a href="an-introduction-to-web-scraping-in-r.html#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="st">&quot;found with selector gadget&quot;</span>) <span class="sc">%&gt;%</span> <span class="co">#find right node</span></span>
+<span id="cb20-3"><a href="an-introduction-to-web-scraping-in-r.html#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_text</span>() <span class="sc">%&gt;%</span> <span class="co"># convert to text</span></span>
+<span id="cb20-4"><a href="an-introduction-to-web-scraping-in-r.html#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>() <span class="co"># tidy it up</span></span></code></pre></div>
 <p>The first line reads in the website, the second line tells R which part of the html code to find, the third line converts it into readable text, and the fourth line puts it in a tibble. Each line will be discussed in detail through the example.</p>
-<p>We’re going to pull data from the <a href="https://econ.ucsb.edu/people">UCSB Economics Directory</a>.<a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a> Our goal is to create a tibble with an individual’s name.</p>
+<p>We’re going to pull data from the <a href="https://econ.ucsb.edu/people">UCSB Economics Directory</a>.<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a> Our goal is to create a tibble with an individual’s name.</p>
 <p>To start, let’s take a look at the website:</p>
 <div class="figure">
 <img src="web_scraping_tutorial/pictures/p8.png" style="width:100.0%" alt="" />
 <p class="caption">UCSB Economics Directory Screenshot</p>
 </div>
 <p>First, let’s make sure we have permission to scrape this site:</p>
-<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="an-introduction-to-web-scraping-in-r.html#cb227-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bow</span>(<span class="at">url=</span><span class="st">&quot;https://econ.ucsb.edu/people&quot;</span>,</span>
-<span id="cb227-2"><a href="an-introduction-to-web-scraping-in-r.html#cb227-2" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb227-3"><a href="an-introduction-to-web-scraping-in-r.html#cb227-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">user_agent =</span> <span class="st">&quot;Danny Klinenberg &lt;dklinenberg@ucsb.edu&gt;&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="an-introduction-to-web-scraping-in-r.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bow</span>(<span class="at">url=</span><span class="st">&quot;https://econ.ucsb.edu/people&quot;</span>,</span>
+<span id="cb21-2"><a href="an-introduction-to-web-scraping-in-r.html#cb21-2" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb21-3"><a href="an-introduction-to-web-scraping-in-r.html#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">user_agent =</span> <span class="st">&quot;Danny Klinenberg &lt;dklinenberg@ucsb.edu&gt;&quot;</span>)</span></code></pre></div>
 <pre><code>## &lt;polite session&gt; https://econ.ucsb.edu/people
 ##     User-agent: Danny Klinenberg &lt;dklinenberg@ucsb.edu&gt;
 ##     robots.txt: 42 rules are defined for 1 bots
 ##    Crawl delay: 5 sec
 ##   The path is scrapable for this user-agent</code></pre>
 <p>Good news, we have permission! Now, we’re going to read in the raw html code into R:</p>
-<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="an-introduction-to-web-scraping-in-r.html#cb229-1" aria-hidden="true" tabindex="-1"></a>website <span class="ot">&lt;-</span> <span class="fu">read_html</span>(<span class="st">&quot;https://econ.ucsb.edu/people&quot;</span>)</span></code></pre></div>
-<p>Take a moment to open the website object in R. You should notice that it’s incomprehensible. It’s some list titled <code>&lt;html&gt;</code> then it has something called <code>&lt;body&gt;</code> and some other stuff. Thanks to Hadley, we don’t need to parse through the raw html code to try and extract our desired information. Instead, we can use the <code>rvest</code> package. Through rvest, we can tell <code>R</code> which specific node<a href="#fn15" class="footnote-ref" id="fnref15"><sup>15</sup></a> of the html code we want and it’ll grab the information for that node. To know which node we want, we use the selector gadget in chrome. To open selector gadget, click the puzzle piece in the top right hand corner, then the magnifying glass:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="an-introduction-to-web-scraping-in-r.html#cb23-1" aria-hidden="true" tabindex="-1"></a>website <span class="ot">&lt;-</span> <span class="fu">read_html</span>(<span class="st">&quot;https://econ.ucsb.edu/people&quot;</span>)</span></code></pre></div>
+<p>Take a moment to open the website object in R. You should notice that it’s incomprehensible. It’s some list titled <code>&lt;html&gt;</code> then it has something called <code>&lt;body&gt;</code> and some other stuff. Thanks to Hadley, we don’t need to parse through the raw html code to try and extract our desired information. Instead, we can use the <code>rvest</code> package. Through rvest, we can tell <code>R</code> which specific node<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a> of the html code we want and it’ll grab the information for that node. To know which node we want, we use the selector gadget in chrome. To open selector gadget, click the puzzle piece in the top right hand corner, then the magnifying glass:</p>
 <div class="figure">
 <img src="web_scraping_tutorial/pictures/p9.png" style="width:100.0%" alt="" />
 <p class="caption">Opening Selector Gadget</p>
@@ -542,9 +539,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p class="caption">Selector Gadget after clicking next to Alexander Abajian</p>
 </div>
 <p>The green is the html node we asked for while the yellow boxes are the “guesses” selector gadget is making on information you want. If you click a yellow box (e.g. next to Camilo Abbate Granada’s name), the box will turn red and the string at the bottom (green circle) will change. If you click Camilo’s name again, it will turn yellow again. Once we have the information we want highlighted, we copy the string in the green circle and paste it into <code>html_nodes</code>:</p>
-<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="an-introduction-to-web-scraping-in-r.html#cb230-1" aria-hidden="true" tabindex="-1"></a>website <span class="sc">%&gt;%</span></span>
-<span id="cb230-2"><a href="an-introduction-to-web-scraping-in-r.html#cb230-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">html_nodes</span>(<span class="st">&quot;h3&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb230-3"><a href="an-introduction-to-web-scraping-in-r.html#cb230-3" aria-hidden="true" tabindex="-1"></a>    .[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]  <span class="co"># only displaying first 5</span></span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="an-introduction-to-web-scraping-in-r.html#cb24-1" aria-hidden="true" tabindex="-1"></a>website <span class="sc">%&gt;%</span></span>
+<span id="cb24-2"><a href="an-introduction-to-web-scraping-in-r.html#cb24-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">html_nodes</span>(<span class="st">&quot;h3&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb24-3"><a href="an-introduction-to-web-scraping-in-r.html#cb24-3" aria-hidden="true" tabindex="-1"></a>    .[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]  <span class="co"># only displaying first 5</span></span></code></pre></div>
 <pre><code>## {xml_nodeset (5)}
 ## [1] &lt;h3&gt;&lt;a href=&quot;/people/students/alexander-abajian&quot; hreflang=&quot;en&quot;&gt;Alexander Ab ...
 ## [2] &lt;h3&gt;&lt;a href=&quot;/people/students/camilo-abbate-granada&quot; hreflang=&quot;en&quot;&gt;Camilo A ...
@@ -552,11 +549,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [4] &lt;h3&gt;&lt;a href=&quot;/people/students/roberto-amaral-de-castro-prado-santos&quot; hrefla ...
 ## [5] &lt;h3&gt;&lt;a href=&quot;/people/lecturers/bob-anderson&quot; hreflang=&quot;en&quot;&gt;Bob Anderson&lt;/a&gt; ...</code></pre>
 <p>We could parse the information we want ourselves, or we could use the <code>html_text</code> command:</p>
-<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="an-introduction-to-web-scraping-in-r.html#cb232-1" aria-hidden="true" tabindex="-1"></a>website <span class="sc">%&gt;%</span> </span>
-<span id="cb232-2"><a href="an-introduction-to-web-scraping-in-r.html#cb232-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="st">&quot;h3&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb232-3"><a href="an-introduction-to-web-scraping-in-r.html#cb232-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_text</span>(<span class="at">trim=</span>T) <span class="sc">%&gt;%</span> <span class="co"># removes hanging white space at the beginning and end</span></span>
-<span id="cb232-4"><a href="an-introduction-to-web-scraping-in-r.html#cb232-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb232-5"><a href="an-introduction-to-web-scraping-in-r.html#cb232-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) <span class="co"># only displaying first 5</span></span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="an-introduction-to-web-scraping-in-r.html#cb26-1" aria-hidden="true" tabindex="-1"></a>website <span class="sc">%&gt;%</span> </span>
+<span id="cb26-2"><a href="an-introduction-to-web-scraping-in-r.html#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="st">&quot;h3&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb26-3"><a href="an-introduction-to-web-scraping-in-r.html#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_text</span>(<span class="at">trim=</span>T) <span class="sc">%&gt;%</span> <span class="co"># removes hanging white space at the beginning and end</span></span>
+<span id="cb26-4"><a href="an-introduction-to-web-scraping-in-r.html#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb26-5"><a href="an-introduction-to-web-scraping-in-r.html#cb26-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) <span class="co"># only displaying first 5</span></span></code></pre></div>
 <pre><code>## # A tibble: 5 × 1
 ##   value                                
 ##   &lt;chr&gt;                                
@@ -571,13 +568,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div class="footnotes">
 <hr />
-<ol start="10">
-<li id="fn10"><p>The whole package is inspired by British etiquette at a tea party. They really get into it on their <a href="https://www.rostrum.blog/2019/03/04/polite-webscrape/">blogpost</a>.<a href="an-introduction-to-web-scraping-in-r.html#fnref10" class="footnote-back">↩︎</a></p></li>
-<li id="fn11"><p>I’m not sure how to access the rules and it hasn’t come up as an issue yet so hopefully it’s fine?<a href="an-introduction-to-web-scraping-in-r.html#fnref11" class="footnote-back">↩︎</a></p></li>
-<li id="fn12"><p>For those extra excited, we’ll be using <code>Sys.Sleep</code> at the beginning of each loop.<a href="an-introduction-to-web-scraping-in-r.html#fnref12" class="footnote-back">↩︎</a></p></li>
-<li id="fn13"><p>You’ll have to work with <code>.ndjson</code> files if you want to use the Parler data dump.<a href="an-introduction-to-web-scraping-in-r.html#fnref13" class="footnote-back">↩︎</a></p></li>
-<li id="fn14"><p>If the UCSB page has undergone major revisions, you can replace the url with an archived verison of the page: <a href="https://web.archive.org/web/20210722193128/https://econ.ucsb.edu/people" class="uri">https://web.archive.org/web/20210722193128/https://econ.ucsb.edu/people</a><a href="an-introduction-to-web-scraping-in-r.html#fnref14" class="footnote-back">↩︎</a></p></li>
-<li id="fn15"><p>html lingo for element.<a href="an-introduction-to-web-scraping-in-r.html#fnref15" class="footnote-back">↩︎</a></p></li>
+<ol start="3">
+<li id="fn3"><p>The whole package is inspired by British etiquette at a tea party. They really get into it on their <a href="https://www.rostrum.blog/2019/03/04/polite-webscrape/">blogpost</a>.<a href="an-introduction-to-web-scraping-in-r.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>I’m not sure how to access the rules and it hasn’t come up as an issue yet so hopefully it’s fine?<a href="an-introduction-to-web-scraping-in-r.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p>For those extra excited, we’ll be using <code>Sys.Sleep</code> at the beginning of each loop.<a href="an-introduction-to-web-scraping-in-r.html#fnref5" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p>You’ll have to work with <code>.ndjson</code> files if you want to use the Parler data dump.<a href="an-introduction-to-web-scraping-in-r.html#fnref6" class="footnote-back">↩︎</a></p></li>
+<li id="fn7"><p>If the UCSB page has undergone major revisions, you can replace the url with an archived verison of the page: <a href="https://web.archive.org/web/20210722193128/https://econ.ucsb.edu/people" class="uri">https://web.archive.org/web/20210722193128/https://econ.ucsb.edu/people</a><a href="an-introduction-to-web-scraping-in-r.html#fnref7" class="footnote-back">↩︎</a></p></li>
+<li id="fn8"><p>html lingo for element.<a href="an-introduction-to-web-scraping-in-r.html#fnref8" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -637,20 +634,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>
