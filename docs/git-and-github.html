@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 4 Git and Github | Data Wrangling for Economists</title>
+  <title>Chapter 4 Git and Github | An Introduction to Web Scraping in R</title>
   <meta name="description" content="Enter description." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 4 Git and Github | Data Wrangling for Economists" />
+  <meta property="og:title" content="Chapter 4 Git and Github | An Introduction to Web Scraping in R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,16 +16,14 @@
   <meta name="github-repo" content="openscapes/series" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 4 Git and Github | Data Wrangling for Economists" />
+  <meta name="twitter:title" content="Chapter 4 Git and Github | An Introduction to Web Scraping in R" />
   
   <meta name="twitter:description" content="Enter description." />
   
 
-<meta name="author" content="Michael Topper" />
 <meta name="author" content="Danny Klinenberg" />
 
 
-<meta name="date" content="2021-09-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -34,7 +32,7 @@
   
 <link rel="prev" href="the-rproject.html"/>
 <link rel="next" href="cleaning-data-i.html"/>
-<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -54,11 +52,11 @@
 
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
 <link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
 <script src="libs/str_view-binding-1.4.0/str_view.js"></script>
-<script src="libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -255,62 +253,69 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.4.1" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html#exercise-15"><i class="fa fa-check"></i><b>7.4.1</b> Exercise</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="strings.html"><a href="strings.html"><i class="fa fa-check"></i><b>8</b> Strings</a>
+<li class="chapter" data-level="8" data-path="file-organization.html"><a href="file-organization.html"><i class="fa fa-check"></i><b>8</b> File Organization</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="strings.html"><a href="strings.html#regular-expressions"><i class="fa fa-check"></i><b>8.1</b> Regular Expressions</a>
+<li class="chapter" data-level="8.1" data-path="file-organization.html"><a href="file-organization.html#organizing"><i class="fa fa-check"></i><b>8.1</b> Organizing</a></li>
+<li class="chapter" data-level="8.2" data-path="file-organization.html"><a href="file-organization.html#rmarkdown"><i class="fa fa-check"></i><b>8.2</b> <code>Rmarkdown</code></a>
 <ul>
-<li class="chapter" data-level="8.1.1" data-path="strings.html"><a href="strings.html#exercise-1-1"><i class="fa fa-check"></i><b>8.1.1</b> Exercise 1</a></li>
-</ul></li>
-<li class="chapter" data-level="8.2" data-path="strings.html"><a href="strings.html#regular-expressions-continued"><i class="fa fa-check"></i><b>8.2</b> Regular Expressions Continued</a>
-<ul>
-<li class="chapter" data-level="8.2.1" data-path="strings.html"><a href="strings.html#exercise-2-1"><i class="fa fa-check"></i><b>8.2.1</b> Exercise 2</a></li>
-</ul></li>
-<li class="chapter" data-level="8.3" data-path="strings.html"><a href="strings.html#using-extract"><i class="fa fa-check"></i><b>8.3</b> Using <code>extract</code></a></li>
-<li class="chapter" data-level="8.4" data-path="strings.html"><a href="strings.html#using-separate"><i class="fa fa-check"></i><b>8.4</b> Using <code>separate</code></a></li>
-<li class="chapter" data-level="8.5" data-path="strings.html"><a href="strings.html#the-gsub-function"><i class="fa fa-check"></i><b>8.5</b> The <code>gsub</code> function</a>
-<ul>
-<li class="chapter" data-level="8.5.1" data-path="strings.html"><a href="strings.html#exercise-3-1"><i class="fa fa-check"></i><b>8.5.1</b> Exercise 3</a></li>
-</ul></li>
-<li class="chapter" data-level="8.6" data-path="strings.html"><a href="strings.html#solutions"><i class="fa fa-check"></i><b>8.6</b> Solutions</a></li>
-</ul></li>
-<li class="chapter" data-level="9" data-path="file-organization.html"><a href="file-organization.html"><i class="fa fa-check"></i><b>9</b> File Organization</a>
-<ul>
-<li class="chapter" data-level="9.1" data-path="file-organization.html"><a href="file-organization.html#organizing"><i class="fa fa-check"></i><b>9.1</b> Organizing</a></li>
-<li class="chapter" data-level="9.2" data-path="file-organization.html"><a href="file-organization.html#rmarkdown"><i class="fa fa-check"></i><b>9.2</b> <code>Rmarkdown</code></a>
-<ul>
-<li class="chapter" data-level="9.2.1" data-path="file-organization.html"><a href="file-organization.html#the-anatomy-of-an-rmarkdown-file"><i class="fa fa-check"></i><b>9.2.1</b> The Anatomy of an <code>Rmarkdown</code> File</a></li>
-<li class="chapter" data-level="9.2.2" data-path="file-organization.html"><a href="file-organization.html#the-body-of-the-rmarkdown"><i class="fa fa-check"></i><b>9.2.2</b> The Body of the <code>Rmarkdown</code></a></li>
-<li class="chapter" data-level="9.2.3" data-path="file-organization.html"><a href="file-organization.html#childing"><i class="fa fa-check"></i><b>9.2.3</b> Childing</a></li>
-<li class="chapter" data-level="9.2.4" data-path="file-organization.html"><a href="file-organization.html#bibliographies"><i class="fa fa-check"></i><b>9.2.4</b> Bibliographies</a></li>
-<li class="chapter" data-level="9.2.5" data-path="file-organization.html"><a href="file-organization.html#a-final-note-on-rmarkdown-visual-markdown-editor"><i class="fa fa-check"></i><b>9.2.5</b> A Final Note on <code>Rmarkdown</code>: Visual Markdown Editor</a></li>
+<li class="chapter" data-level="8.2.1" data-path="file-organization.html"><a href="file-organization.html#the-anatomy-of-an-rmarkdown-file"><i class="fa fa-check"></i><b>8.2.1</b> The Anatomy of an <code>Rmarkdown</code> File</a></li>
+<li class="chapter" data-level="8.2.2" data-path="file-organization.html"><a href="file-organization.html#the-body-of-the-rmarkdown"><i class="fa fa-check"></i><b>8.2.2</b> The Body of the <code>Rmarkdown</code></a></li>
+<li class="chapter" data-level="8.2.3" data-path="file-organization.html"><a href="file-organization.html#childing"><i class="fa fa-check"></i><b>8.2.3</b> Childing</a></li>
+<li class="chapter" data-level="8.2.4" data-path="file-organization.html"><a href="file-organization.html#bibliographies"><i class="fa fa-check"></i><b>8.2.4</b> Bibliographies</a></li>
+<li class="chapter" data-level="8.2.5" data-path="file-organization.html"><a href="file-organization.html#a-final-note-on-rmarkdown-visual-markdown-editor"><i class="fa fa-check"></i><b>8.2.5</b> A Final Note on <code>Rmarkdown</code>: Visual Markdown Editor</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="programming.html"><a href="programming.html"><i class="fa fa-check"></i><b>10</b> Programming</a>
+<li class="chapter" data-level="9" data-path="strings.html"><a href="strings.html"><i class="fa fa-check"></i><b>9</b> Strings</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="programming.html"><a href="programming.html#functions"><i class="fa fa-check"></i><b>10.1</b> Functions</a>
+<li class="chapter" data-level="9.1" data-path="strings.html"><a href="strings.html#regular-expressions"><i class="fa fa-check"></i><b>9.1</b> Regular Expressions</a>
 <ul>
-<li class="chapter" data-level="10.1.1" data-path="programming.html"><a href="programming.html#exercise-16"><i class="fa fa-check"></i><b>10.1.1</b> Exercise</a></li>
+<li class="chapter" data-level="9.1.1" data-path="strings.html"><a href="strings.html#exercise-1-1"><i class="fa fa-check"></i><b>9.1.1</b> Exercise 1</a></li>
 </ul></li>
-<li class="chapter" data-level="10.2" data-path="programming.html"><a href="programming.html#for-loops"><i class="fa fa-check"></i><b>10.2</b> For-loops</a>
+<li class="chapter" data-level="9.2" data-path="strings.html"><a href="strings.html#regular-expressions-continued"><i class="fa fa-check"></i><b>9.2</b> Regular Expressions Continued</a>
 <ul>
-<li class="chapter" data-level="10.2.1" data-path="programming.html"><a href="programming.html#exercise-17"><i class="fa fa-check"></i><b>10.2.1</b> Exercise</a></li>
+<li class="chapter" data-level="9.2.1" data-path="strings.html"><a href="strings.html#exercise-2-1"><i class="fa fa-check"></i><b>9.2.1</b> Exercise 2</a></li>
 </ul></li>
-<li class="chapter" data-level="10.3" data-path="programming.html"><a href="programming.html#if-else"><i class="fa fa-check"></i><b>10.3</b> If-else</a>
+<li class="chapter" data-level="9.3" data-path="strings.html"><a href="strings.html#using-extract"><i class="fa fa-check"></i><b>9.3</b> Using <code>extract</code></a></li>
+<li class="chapter" data-level="9.4" data-path="strings.html"><a href="strings.html#using-separate"><i class="fa fa-check"></i><b>9.4</b> Using <code>separate</code></a></li>
+<li class="chapter" data-level="9.5" data-path="strings.html"><a href="strings.html#the-gsub-function"><i class="fa fa-check"></i><b>9.5</b> The <code>gsub</code> function</a>
 <ul>
-<li class="chapter" data-level="10.3.1" data-path="programming.html"><a href="programming.html#exercise-18"><i class="fa fa-check"></i><b>10.3.1</b> Exercise</a></li>
+<li class="chapter" data-level="9.5.1" data-path="strings.html"><a href="strings.html#exercise-3-1"><i class="fa fa-check"></i><b>9.5.1</b> Exercise 3</a></li>
 </ul></li>
-<li class="chapter" data-level="10.4" data-path="programming.html"><a href="programming.html#selected-solutions-3"><i class="fa fa-check"></i><b>10.4</b> Selected Solutions</a></li>
+<li class="chapter" data-level="9.6" data-path="strings.html"><a href="strings.html#solutions"><i class="fa fa-check"></i><b>9.6</b> Solutions</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="relational-data.html"><a href="relational-data.html"><i class="fa fa-check"></i><b>11</b> Relational Data</a>
+<li class="chapter" data-level="10" data-path="an-introduction-to-web-scraping-in-r.html"><a href="an-introduction-to-web-scraping-in-r.html"><i class="fa fa-check"></i><b>10</b> An Introduction to Web Scraping in R</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="relational-data.html"><a href="relational-data.html#finding-primary-keys"><i class="fa fa-check"></i><b>11.1</b> Finding Primary Keys</a></li>
-<li class="chapter" data-level="11.2" data-path="relational-data.html"><a href="relational-data.html#finding-primary-keys-harder"><i class="fa fa-check"></i><b>11.2</b> Finding Primary Keys (harder)</a>
-<ul>
-<li class="chapter" data-level="11.2.1" data-path="relational-data.html"><a href="relational-data.html#exercise-19"><i class="fa fa-check"></i><b>11.2.1</b> Exercise</a></li>
-<li class="chapter" data-level="11.2.2" data-path="relational-data.html"><a href="relational-data.html#exercise-20"><i class="fa fa-check"></i><b>11.2.2</b> Exercise</a></li>
-<li class="chapter" data-level="11.2.3" data-path="relational-data.html"><a href="relational-data.html#exercise-21"><i class="fa fa-check"></i><b>11.2.3</b> Exercise</a></li>
+<li class="chapter" data-level="10.1" data-path="an-introduction-to-web-scraping-in-r.html"><a href="an-introduction-to-web-scraping-in-r.html#what-is-web-scraping"><i class="fa fa-check"></i><b>10.1</b> What is Web Scraping?</a></li>
+<li class="chapter" data-level="10.2" data-path="an-introduction-to-web-scraping-in-r.html"><a href="an-introduction-to-web-scraping-in-r.html#can-i-scrape-from-this-site"><i class="fa fa-check"></i><b>10.2</b> Can I Scrape From This Site?</a></li>
+<li class="chapter" data-level="10.3" data-path="an-introduction-to-web-scraping-in-r.html"><a href="an-introduction-to-web-scraping-in-r.html#pulling-from-an-api-hechingers-report"><i class="fa fa-check"></i><b>10.3</b> Pulling from an API: Hechinger’s Report</a></li>
+<li class="chapter" data-level="10.4" data-path="an-introduction-to-web-scraping-in-r.html"><a href="an-introduction-to-web-scraping-in-r.html#web-scraping-ucsb-economics-contact-information"><i class="fa fa-check"></i><b>10.4</b> Web Scraping: UCSB Economics Contact Information</a></li>
 </ul></li>
-<li class="chapter" data-level="11.3" data-path="relational-data.html"><a href="relational-data.html#selected-solutions-4"><i class="fa fa-check"></i><b>11.3</b> Selected Solutions</a></li>
+<li class="chapter" data-level="11" data-path="programming.html"><a href="programming.html"><i class="fa fa-check"></i><b>11</b> Programming</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="programming.html"><a href="programming.html#functions"><i class="fa fa-check"></i><b>11.1</b> Functions</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="programming.html"><a href="programming.html#exercise-16"><i class="fa fa-check"></i><b>11.1.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="programming.html"><a href="programming.html#for-loops"><i class="fa fa-check"></i><b>11.2</b> For-loops</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="programming.html"><a href="programming.html#exercise-17"><i class="fa fa-check"></i><b>11.2.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="programming.html"><a href="programming.html#if-else"><i class="fa fa-check"></i><b>11.3</b> If-else</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="programming.html"><a href="programming.html#exercise-18"><i class="fa fa-check"></i><b>11.3.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="programming.html"><a href="programming.html#selected-solutions-3"><i class="fa fa-check"></i><b>11.4</b> Selected Solutions</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="relational-data.html"><a href="relational-data.html"><i class="fa fa-check"></i><b>12</b> Relational Data</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="relational-data.html"><a href="relational-data.html#finding-primary-keys"><i class="fa fa-check"></i><b>12.1</b> Finding Primary Keys</a></li>
+<li class="chapter" data-level="12.2" data-path="relational-data.html"><a href="relational-data.html#finding-primary-keys-harder"><i class="fa fa-check"></i><b>12.2</b> Finding Primary Keys (harder)</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="relational-data.html"><a href="relational-data.html#exercise-19"><i class="fa fa-check"></i><b>12.2.1</b> Exercise</a></li>
+<li class="chapter" data-level="12.2.2" data-path="relational-data.html"><a href="relational-data.html#exercise-20"><i class="fa fa-check"></i><b>12.2.2</b> Exercise</a></li>
+<li class="chapter" data-level="12.2.3" data-path="relational-data.html"><a href="relational-data.html#exercise-21"><i class="fa fa-check"></i><b>12.2.3</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="relational-data.html"><a href="relational-data.html#selected-solutions-4"><i class="fa fa-check"></i><b>12.3</b> Selected Solutions</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://bookdown.org" target="blank">Published with bookdown</a></li>
@@ -324,7 +329,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Wrangling for Economists</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">An Introduction to Web Scraping in R</a>
           </h1>
         </div>
 
@@ -343,7 +348,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>It integrates seamlessly with RStudio.</li>
 <li>No more <code>paper_v1.pdf</code>, <code>paper_v2.pdf</code>, <code>paper_v2_edit.pdf</code> etc.</li>
 </ul>
-<p>Unfortunately, Git has a steep learning curve. This is mainly due to the jargon that comes along with it.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> I will do my best to define terms, and hopefully make the process a little less confusing.</p>
+<p>Unfortunately, Git has a steep learning curve. This is mainly due to the jargon that comes along with it.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> I will do my best to define terms, and hopefully make the process a little less confusing.</p>
 <p>The next few subsections are dedicated to getting all of software installed and communicating with each other for integration. Honestly, this is an extremely painful process without good resources. Fortunately, <a href="https://happygitwithr.com/install-r-rstudio.html">there is a good one</a> made by Jenny Bryan that I will be following closely throughout this document.</p>
 <div id="installing-git" class="section level2" number="4.1">
 <h2><span class="header-section-number">4.1</span> Installing Git</h2>
@@ -408,7 +413,7 @@ Figure 4.1: The terminal in RStudio.
 <div id="the-workflow-1" class="section level3" number="4.5.2">
 <h3><span class="header-section-number">4.5.2</span> The Workflow</h3>
 <p><em>This section is to be covered thoroughly in the lecture.</em></p>
-<p>This section will cover the workflow from the start of a new project<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> to the general day-to-day tasks. Here are the steps:</p>
+<p>This section will cover the workflow from the start of a new project<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> to the general day-to-day tasks. Here are the steps:</p>
 <ol style="list-style-type: decimal">
 <li><p>Create a Github Repository with an intuitive name. Initialize the Github repository with a Readme, and keep all the other defaults the same. This only needs to be done one time for each project.</p></li>
 <li><p>Clone the Github Repository in RStudio. This requires going to the main page of your Github repository and then:</p>
@@ -416,7 +421,7 @@ Figure 4.1: The terminal in RStudio.
 <li>Clicking the green CODE button,</li>
 <li>Copying the HTTPS to your clipboard</li>
 <li>Going to RStudio and clicking File -&gt; New Project -&gt; Version Control -&gt; Git</li>
-<li>Copying the HTTPS code into the Repository URL space, naming the RProject the same as your Github repository<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>, and choosing the folder directory on your computer that you want this project to be nested in. This only needs to be done one time for each project.</li>
+<li>Copying the HTTPS code into the Repository URL space, naming the RProject the same as your Github repository<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>, and choosing the folder directory on your computer that you want this project to be nested in. This only needs to be done one time for each project.</li>
 </ol></li>
 </ol>
 <p>After these two steps are done, the workflow will remain as follows <em>for the rest of your project</em>.</p>
@@ -443,7 +448,7 @@ Figure 4.2: The Git panel of RStudio.
 </div>
 <div id="commiting" class="section level3" number="4.5.5">
 <h3><span class="header-section-number">4.5.5</span> Commiting</h3>
-<p>Recall that “committing” is jargon for submitting a new version of your work. Git and Github will track each commit you make and you can revert back to these specific versions at any time you like. This subsection will focus on committing within RStudio. As shown in Figure , you can press the Commit button to save the version of your work. This will bring up a new interface in RStudio as shown in Figure . From here, you are able to click on any of the files that have <strong>saved</strong> changes to.<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a> Check any of the boxes you want to add to this particular commit. Checking a box is equivalent to “staging” a change. When you stage a change, you can see the differences in the files highlighted by green and red. You can stage as many files as you like in a commit. Personally, I think each commit should be a single task, so do not try to stage and commit too many changes at once. You should also add a commit message that explains what you did in the changes. This will be extremely useful for when you want to go back to a previous version. Click the Commit button when ready to commit to the changes.</p>
+<p>Recall that “committing” is jargon for submitting a new version of your work. Git and Github will track each commit you make and you can revert back to these specific versions at any time you like. This subsection will focus on committing within RStudio. As shown in Figure , you can press the Commit button to save the version of your work. This will bring up a new interface in RStudio as shown in Figure . From here, you are able to click on any of the files that have <strong>saved</strong> changes to.<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> Check any of the boxes you want to add to this particular commit. Checking a box is equivalent to “staging” a change. When you stage a change, you can see the differences in the files highlighted by green and red. You can stage as many files as you like in a commit. Personally, I think each commit should be a single task, so do not try to stage and commit too many changes at once. You should also add a commit message that explains what you did in the changes. This will be extremely useful for when you want to go back to a previous version. Click the Commit button when ready to commit to the changes.</p>
 <div class="figure"><span id="fig:unnamed-chunk-39"></span>
 <img src="images/git/commit.png" alt="\label{commit}The Commit user-interface of RStudio." width="110%" />
 <p class="caption">
@@ -461,7 +466,7 @@ Figure 4.3: The Commit user-interface of RStudio.
 </div>
 <div id="the-main-commands-command-lineterminal" class="section level3" number="4.5.8">
 <h3><span class="header-section-number">4.5.8</span> The Main Commands (Command Line/Terminal)</h3>
-<p>The workflow described above can all be done within the terminal. I advise against using the terminal<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a> as a beginner since the terminal itself has a steep learning curve. However, once (or if) you are comfortable using it, it can speed up your interactions with Git/Github. I have mapped out the main commands to get you started in the terminal if you want to try it out. Personally, I was not comfortable using these commands until a few days into writing this lecture, so no rush.</p>
+<p>The workflow described above can all be done within the terminal. I advise against using the terminal<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> as a beginner since the terminal itself has a steep learning curve. However, once (or if) you are comfortable using it, it can speed up your interactions with Git/Github. I have mapped out the main commands to get you started in the terminal if you want to try it out. Personally, I was not comfortable using these commands until a few days into writing this lecture, so no rush.</p>
 <p><em>Assuming all of this is done on the master branch. </em></p>
 <ul>
 <li><em>Stage changes</em> (e.g., get ready for saving all the changes to a version)</li>
@@ -483,7 +488,7 @@ Figure 4.3: The Commit user-interface of RStudio.
 </div>
 <div id="branches" class="section level2" number="4.6">
 <h2><span class="header-section-number">4.6</span> Branches</h2>
-<p>Branches are one of the most appealing features of Git. As an example, suppose you want to try a whole new analysis in your paper, but do not necessarily want to “commit” (bad pun) to the changes. This is where branches come in. A branch is essentially a clone of your files, but you can “branch” off into different directions without hurting your master copy. This includes adding new documents, deleting documents, adding data, editing scripts etc. However, if you like the changes you make on the new branch, you can push and merge them into the master copy. Don’t like the changes? Then just delete the branch and switch back to the master copy. For the purposes of this document, we will call our main copy of our files the <em>master branch</em>. This is generally the default on Github<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a>, and you should either adopt this convention or find a very intuitive substitute.</p>
+<p>Branches are one of the most appealing features of Git. As an example, suppose you want to try a whole new analysis in your paper, but do not necessarily want to “commit” (bad pun) to the changes. This is where branches come in. A branch is essentially a clone of your files, but you can “branch” off into different directions without hurting your master copy. This includes adding new documents, deleting documents, adding data, editing scripts etc. However, if you like the changes you make on the new branch, you can push and merge them into the master copy. Don’t like the changes? Then just delete the branch and switch back to the master copy. For the purposes of this document, we will call our main copy of our files the <em>master branch</em>. This is generally the default on Github<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>, and you should either adopt this convention or find a very intuitive substitute.</p>
 <p>Branches have a steep learning curve (as does all of Git), but they are extremely important and make Git worthwhile.</p>
 <div id="creating-a-branch" class="section level3" number="4.6.1">
 <h3><span class="header-section-number">4.6.1</span> Creating a branch</h3>
@@ -570,13 +575,13 @@ Figure 4.5: Creating a pull request.
 </div>
 <div class="footnotes">
 <hr />
-<ol start="3">
-<li id="fn3"><p>Git was created by computer scientists, for computer scientists. So the jargon doesn’t always translate well to economists.<a href="git-and-github.html#fnref3" class="footnote-back">↩︎</a></p></li>
-<li id="fn4"><p>By project, I do not mean RProject.<a href="git-and-github.html#fnref4" class="footnote-back">↩︎</a></p></li>
-<li id="fn5"><p>This is not necessary, you can name it whatever you want, but why confuse yourself?<a href="git-and-github.html#fnref5" class="footnote-back">↩︎</a></p></li>
-<li id="fn6"><p>If you have not saved the changes to your local computer, Git will not show any changes!<a href="git-and-github.html#fnref6" class="footnote-back">↩︎</a></p></li>
-<li id="fn7"><p>We are actually going to have to use the terminal later in this documenet to revert to previous versions. Of course, you hopefully won’t have to do this too often so you can simply copy and paste the lines shown later on.<a href="git-and-github.html#fnref7" class="footnote-back">↩︎</a></p></li>
-<li id="fn8"><p>Sometimes Github will set up the master branch with the name <em>main</em>. You can of course change this when initializing your repository.<a href="git-and-github.html#fnref8" class="footnote-back">↩︎</a></p></li>
+<ol start="1">
+<li id="fn1"><p>Git was created by computer scientists, for computer scientists. So the jargon doesn’t always translate well to economists.<a href="git-and-github.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>By project, I do not mean RProject.<a href="git-and-github.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>This is not necessary, you can name it whatever you want, but why confuse yourself?<a href="git-and-github.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>If you have not saved the changes to your local computer, Git will not show any changes!<a href="git-and-github.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p>We are actually going to have to use the terminal later in this documenet to revert to previous versions. Of course, you hopefully won’t have to do this too often so you can simply copy and paste the lines shown later on.<a href="git-and-github.html#fnref5" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p>Sometimes Github will set up the master branch with the name <em>main</em>. You can of course change this when initializing your repository.<a href="git-and-github.html#fnref6" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

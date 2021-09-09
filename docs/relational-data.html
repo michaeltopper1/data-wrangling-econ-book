@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 11 Relational Data | Data Wrangling for Economists</title>
+  <title>Chapter 12 Relational Data | An Introduction to Web Scraping in R</title>
   <meta name="description" content="Enter description." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 11 Relational Data | Data Wrangling for Economists" />
+  <meta property="og:title" content="Chapter 12 Relational Data | An Introduction to Web Scraping in R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,16 +16,14 @@
   <meta name="github-repo" content="openscapes/series" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 11 Relational Data | Data Wrangling for Economists" />
+  <meta name="twitter:title" content="Chapter 12 Relational Data | An Introduction to Web Scraping in R" />
   
   <meta name="twitter:description" content="Enter description." />
   
 
-<meta name="author" content="Michael Topper" />
 <meta name="author" content="Danny Klinenberg" />
 
 
-<meta name="date" content="2021-09-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -34,7 +32,7 @@
   
 <link rel="prev" href="programming.html"/>
 
-<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -54,11 +52,11 @@
 
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
 <link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
 <script src="libs/str_view-binding-1.4.0/str_view.js"></script>
-<script src="libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -255,62 +253,69 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.4.1" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html#exercise-15"><i class="fa fa-check"></i><b>7.4.1</b> Exercise</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="strings.html"><a href="strings.html"><i class="fa fa-check"></i><b>8</b> Strings</a>
+<li class="chapter" data-level="8" data-path="file-organization.html"><a href="file-organization.html"><i class="fa fa-check"></i><b>8</b> File Organization</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="strings.html"><a href="strings.html#regular-expressions"><i class="fa fa-check"></i><b>8.1</b> Regular Expressions</a>
+<li class="chapter" data-level="8.1" data-path="file-organization.html"><a href="file-organization.html#organizing"><i class="fa fa-check"></i><b>8.1</b> Organizing</a></li>
+<li class="chapter" data-level="8.2" data-path="file-organization.html"><a href="file-organization.html#rmarkdown"><i class="fa fa-check"></i><b>8.2</b> <code>Rmarkdown</code></a>
 <ul>
-<li class="chapter" data-level="8.1.1" data-path="strings.html"><a href="strings.html#exercise-1-1"><i class="fa fa-check"></i><b>8.1.1</b> Exercise 1</a></li>
-</ul></li>
-<li class="chapter" data-level="8.2" data-path="strings.html"><a href="strings.html#regular-expressions-continued"><i class="fa fa-check"></i><b>8.2</b> Regular Expressions Continued</a>
-<ul>
-<li class="chapter" data-level="8.2.1" data-path="strings.html"><a href="strings.html#exercise-2-1"><i class="fa fa-check"></i><b>8.2.1</b> Exercise 2</a></li>
-</ul></li>
-<li class="chapter" data-level="8.3" data-path="strings.html"><a href="strings.html#using-extract"><i class="fa fa-check"></i><b>8.3</b> Using <code>extract</code></a></li>
-<li class="chapter" data-level="8.4" data-path="strings.html"><a href="strings.html#using-separate"><i class="fa fa-check"></i><b>8.4</b> Using <code>separate</code></a></li>
-<li class="chapter" data-level="8.5" data-path="strings.html"><a href="strings.html#the-gsub-function"><i class="fa fa-check"></i><b>8.5</b> The <code>gsub</code> function</a>
-<ul>
-<li class="chapter" data-level="8.5.1" data-path="strings.html"><a href="strings.html#exercise-3-1"><i class="fa fa-check"></i><b>8.5.1</b> Exercise 3</a></li>
-</ul></li>
-<li class="chapter" data-level="8.6" data-path="strings.html"><a href="strings.html#solutions"><i class="fa fa-check"></i><b>8.6</b> Solutions</a></li>
-</ul></li>
-<li class="chapter" data-level="9" data-path="file-organization.html"><a href="file-organization.html"><i class="fa fa-check"></i><b>9</b> File Organization</a>
-<ul>
-<li class="chapter" data-level="9.1" data-path="file-organization.html"><a href="file-organization.html#organizing"><i class="fa fa-check"></i><b>9.1</b> Organizing</a></li>
-<li class="chapter" data-level="9.2" data-path="file-organization.html"><a href="file-organization.html#rmarkdown"><i class="fa fa-check"></i><b>9.2</b> <code>Rmarkdown</code></a>
-<ul>
-<li class="chapter" data-level="9.2.1" data-path="file-organization.html"><a href="file-organization.html#the-anatomy-of-an-rmarkdown-file"><i class="fa fa-check"></i><b>9.2.1</b> The Anatomy of an <code>Rmarkdown</code> File</a></li>
-<li class="chapter" data-level="9.2.2" data-path="file-organization.html"><a href="file-organization.html#the-body-of-the-rmarkdown"><i class="fa fa-check"></i><b>9.2.2</b> The Body of the <code>Rmarkdown</code></a></li>
-<li class="chapter" data-level="9.2.3" data-path="file-organization.html"><a href="file-organization.html#childing"><i class="fa fa-check"></i><b>9.2.3</b> Childing</a></li>
-<li class="chapter" data-level="9.2.4" data-path="file-organization.html"><a href="file-organization.html#bibliographies"><i class="fa fa-check"></i><b>9.2.4</b> Bibliographies</a></li>
-<li class="chapter" data-level="9.2.5" data-path="file-organization.html"><a href="file-organization.html#a-final-note-on-rmarkdown-visual-markdown-editor"><i class="fa fa-check"></i><b>9.2.5</b> A Final Note on <code>Rmarkdown</code>: Visual Markdown Editor</a></li>
+<li class="chapter" data-level="8.2.1" data-path="file-organization.html"><a href="file-organization.html#the-anatomy-of-an-rmarkdown-file"><i class="fa fa-check"></i><b>8.2.1</b> The Anatomy of an <code>Rmarkdown</code> File</a></li>
+<li class="chapter" data-level="8.2.2" data-path="file-organization.html"><a href="file-organization.html#the-body-of-the-rmarkdown"><i class="fa fa-check"></i><b>8.2.2</b> The Body of the <code>Rmarkdown</code></a></li>
+<li class="chapter" data-level="8.2.3" data-path="file-organization.html"><a href="file-organization.html#childing"><i class="fa fa-check"></i><b>8.2.3</b> Childing</a></li>
+<li class="chapter" data-level="8.2.4" data-path="file-organization.html"><a href="file-organization.html#bibliographies"><i class="fa fa-check"></i><b>8.2.4</b> Bibliographies</a></li>
+<li class="chapter" data-level="8.2.5" data-path="file-organization.html"><a href="file-organization.html#a-final-note-on-rmarkdown-visual-markdown-editor"><i class="fa fa-check"></i><b>8.2.5</b> A Final Note on <code>Rmarkdown</code>: Visual Markdown Editor</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="programming.html"><a href="programming.html"><i class="fa fa-check"></i><b>10</b> Programming</a>
+<li class="chapter" data-level="9" data-path="strings.html"><a href="strings.html"><i class="fa fa-check"></i><b>9</b> Strings</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="programming.html"><a href="programming.html#functions"><i class="fa fa-check"></i><b>10.1</b> Functions</a>
+<li class="chapter" data-level="9.1" data-path="strings.html"><a href="strings.html#regular-expressions"><i class="fa fa-check"></i><b>9.1</b> Regular Expressions</a>
 <ul>
-<li class="chapter" data-level="10.1.1" data-path="programming.html"><a href="programming.html#exercise-16"><i class="fa fa-check"></i><b>10.1.1</b> Exercise</a></li>
+<li class="chapter" data-level="9.1.1" data-path="strings.html"><a href="strings.html#exercise-1-1"><i class="fa fa-check"></i><b>9.1.1</b> Exercise 1</a></li>
 </ul></li>
-<li class="chapter" data-level="10.2" data-path="programming.html"><a href="programming.html#for-loops"><i class="fa fa-check"></i><b>10.2</b> For-loops</a>
+<li class="chapter" data-level="9.2" data-path="strings.html"><a href="strings.html#regular-expressions-continued"><i class="fa fa-check"></i><b>9.2</b> Regular Expressions Continued</a>
 <ul>
-<li class="chapter" data-level="10.2.1" data-path="programming.html"><a href="programming.html#exercise-17"><i class="fa fa-check"></i><b>10.2.1</b> Exercise</a></li>
+<li class="chapter" data-level="9.2.1" data-path="strings.html"><a href="strings.html#exercise-2-1"><i class="fa fa-check"></i><b>9.2.1</b> Exercise 2</a></li>
 </ul></li>
-<li class="chapter" data-level="10.3" data-path="programming.html"><a href="programming.html#if-else"><i class="fa fa-check"></i><b>10.3</b> If-else</a>
+<li class="chapter" data-level="9.3" data-path="strings.html"><a href="strings.html#using-extract"><i class="fa fa-check"></i><b>9.3</b> Using <code>extract</code></a></li>
+<li class="chapter" data-level="9.4" data-path="strings.html"><a href="strings.html#using-separate"><i class="fa fa-check"></i><b>9.4</b> Using <code>separate</code></a></li>
+<li class="chapter" data-level="9.5" data-path="strings.html"><a href="strings.html#the-gsub-function"><i class="fa fa-check"></i><b>9.5</b> The <code>gsub</code> function</a>
 <ul>
-<li class="chapter" data-level="10.3.1" data-path="programming.html"><a href="programming.html#exercise-18"><i class="fa fa-check"></i><b>10.3.1</b> Exercise</a></li>
+<li class="chapter" data-level="9.5.1" data-path="strings.html"><a href="strings.html#exercise-3-1"><i class="fa fa-check"></i><b>9.5.1</b> Exercise 3</a></li>
 </ul></li>
-<li class="chapter" data-level="10.4" data-path="programming.html"><a href="programming.html#selected-solutions-3"><i class="fa fa-check"></i><b>10.4</b> Selected Solutions</a></li>
+<li class="chapter" data-level="9.6" data-path="strings.html"><a href="strings.html#solutions"><i class="fa fa-check"></i><b>9.6</b> Solutions</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="relational-data.html"><a href="relational-data.html"><i class="fa fa-check"></i><b>11</b> Relational Data</a>
+<li class="chapter" data-level="10" data-path="an-introduction-to-web-scraping-in-r.html"><a href="an-introduction-to-web-scraping-in-r.html"><i class="fa fa-check"></i><b>10</b> An Introduction to Web Scraping in R</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="relational-data.html"><a href="relational-data.html#finding-primary-keys"><i class="fa fa-check"></i><b>11.1</b> Finding Primary Keys</a></li>
-<li class="chapter" data-level="11.2" data-path="relational-data.html"><a href="relational-data.html#finding-primary-keys-harder"><i class="fa fa-check"></i><b>11.2</b> Finding Primary Keys (harder)</a>
-<ul>
-<li class="chapter" data-level="11.2.1" data-path="relational-data.html"><a href="relational-data.html#exercise-19"><i class="fa fa-check"></i><b>11.2.1</b> Exercise</a></li>
-<li class="chapter" data-level="11.2.2" data-path="relational-data.html"><a href="relational-data.html#exercise-20"><i class="fa fa-check"></i><b>11.2.2</b> Exercise</a></li>
-<li class="chapter" data-level="11.2.3" data-path="relational-data.html"><a href="relational-data.html#exercise-21"><i class="fa fa-check"></i><b>11.2.3</b> Exercise</a></li>
+<li class="chapter" data-level="10.1" data-path="an-introduction-to-web-scraping-in-r.html"><a href="an-introduction-to-web-scraping-in-r.html#what-is-web-scraping"><i class="fa fa-check"></i><b>10.1</b> What is Web Scraping?</a></li>
+<li class="chapter" data-level="10.2" data-path="an-introduction-to-web-scraping-in-r.html"><a href="an-introduction-to-web-scraping-in-r.html#can-i-scrape-from-this-site"><i class="fa fa-check"></i><b>10.2</b> Can I Scrape From This Site?</a></li>
+<li class="chapter" data-level="10.3" data-path="an-introduction-to-web-scraping-in-r.html"><a href="an-introduction-to-web-scraping-in-r.html#pulling-from-an-api-hechingers-report"><i class="fa fa-check"></i><b>10.3</b> Pulling from an API: Hechinger’s Report</a></li>
+<li class="chapter" data-level="10.4" data-path="an-introduction-to-web-scraping-in-r.html"><a href="an-introduction-to-web-scraping-in-r.html#web-scraping-ucsb-economics-contact-information"><i class="fa fa-check"></i><b>10.4</b> Web Scraping: UCSB Economics Contact Information</a></li>
 </ul></li>
-<li class="chapter" data-level="11.3" data-path="relational-data.html"><a href="relational-data.html#selected-solutions-4"><i class="fa fa-check"></i><b>11.3</b> Selected Solutions</a></li>
+<li class="chapter" data-level="11" data-path="programming.html"><a href="programming.html"><i class="fa fa-check"></i><b>11</b> Programming</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="programming.html"><a href="programming.html#functions"><i class="fa fa-check"></i><b>11.1</b> Functions</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="programming.html"><a href="programming.html#exercise-16"><i class="fa fa-check"></i><b>11.1.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="programming.html"><a href="programming.html#for-loops"><i class="fa fa-check"></i><b>11.2</b> For-loops</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="programming.html"><a href="programming.html#exercise-17"><i class="fa fa-check"></i><b>11.2.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="programming.html"><a href="programming.html#if-else"><i class="fa fa-check"></i><b>11.3</b> If-else</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="programming.html"><a href="programming.html#exercise-18"><i class="fa fa-check"></i><b>11.3.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="programming.html"><a href="programming.html#selected-solutions-3"><i class="fa fa-check"></i><b>11.4</b> Selected Solutions</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="relational-data.html"><a href="relational-data.html"><i class="fa fa-check"></i><b>12</b> Relational Data</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="relational-data.html"><a href="relational-data.html#finding-primary-keys"><i class="fa fa-check"></i><b>12.1</b> Finding Primary Keys</a></li>
+<li class="chapter" data-level="12.2" data-path="relational-data.html"><a href="relational-data.html#finding-primary-keys-harder"><i class="fa fa-check"></i><b>12.2</b> Finding Primary Keys (harder)</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="relational-data.html"><a href="relational-data.html#exercise-19"><i class="fa fa-check"></i><b>12.2.1</b> Exercise</a></li>
+<li class="chapter" data-level="12.2.2" data-path="relational-data.html"><a href="relational-data.html#exercise-20"><i class="fa fa-check"></i><b>12.2.2</b> Exercise</a></li>
+<li class="chapter" data-level="12.2.3" data-path="relational-data.html"><a href="relational-data.html#exercise-21"><i class="fa fa-check"></i><b>12.2.3</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="relational-data.html"><a href="relational-data.html#selected-solutions-4"><i class="fa fa-check"></i><b>12.3</b> Selected Solutions</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://bookdown.org" target="blank">Published with bookdown</a></li>
@@ -324,7 +329,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Wrangling for Economists</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">An Introduction to Web Scraping in R</a>
           </h1>
         </div>
 
@@ -332,36 +337,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="relational-data" class="section level1" number="11">
-<h1><span class="header-section-number">Chapter 11</span> Relational Data</h1>
+<div id="relational-data" class="section level1" number="12">
+<h1><span class="header-section-number">Chapter 12</span> Relational Data</h1>
 <p>For this chapter, we will be focusing on how to find <em>primary keys</em>. A primary key is a compact way of saying “how to uniquely identify observations in your data set.” To practice finding primary keys, we will be using a variety of data sets that are already preloaded in R packages. The purpose of identifying primary keys is to make merging multiple data sets together easier. Merging data works best when you can merge on keys that uniquely identify your observations. This ensures that each observation is connected to their true data in the foreign data set (i.e. the data set that it will be merged to). A failure to merge your data correctly will result in inaccurate data that will not produce any meaningful result. This is what we want to avoid.</p>
-<div id="finding-primary-keys" class="section level2" number="11.1">
-<h2><span class="header-section-number">11.1</span> Finding Primary Keys</h2>
+<div id="finding-primary-keys" class="section level2" number="12.1">
+<h2><span class="header-section-number">12.1</span> Finding Primary Keys</h2>
 <p>The most useful technique to finding primary keys involves a combination of your intuition and the <code>count</code> and <code>filter</code> functions. To start, we’ll load in the <code>titanic_train</code> data from the <code>titanic</code> package.</p>
-<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="relational-data.html#cb236-1" aria-hidden="true" tabindex="-1"></a><span class="do">##loading in the necessary package</span></span>
-<span id="cb236-2"><a href="relational-data.html#cb236-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb236-3"><a href="relational-data.html#cb236-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(titanic)</span>
-<span id="cb236-4"><a href="relational-data.html#cb236-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
-<span id="cb236-5"><a href="relational-data.html#cb236-5" aria-hidden="true" tabindex="-1"></a><span class="do">## data we will be working with  </span></span>
-<span id="cb236-6"><a href="relational-data.html#cb236-6" aria-hidden="true" tabindex="-1"></a>titanic <span class="ot">&lt;-</span> <span class="fu">clean_names</span>(titanic_train)</span></code></pre></div>
+<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="relational-data.html#cb263-1" aria-hidden="true" tabindex="-1"></a><span class="do">## loading in the necessary package</span></span>
+<span id="cb263-2"><a href="relational-data.html#cb263-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb263-3"><a href="relational-data.html#cb263-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(titanic)</span>
+<span id="cb263-4"><a href="relational-data.html#cb263-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb263-5"><a href="relational-data.html#cb263-5" aria-hidden="true" tabindex="-1"></a><span class="do">## data we will be working with</span></span>
+<span id="cb263-6"><a href="relational-data.html#cb263-6" aria-hidden="true" tabindex="-1"></a>titanic <span class="ot">&lt;-</span> <span class="fu">clean_names</span>(titanic_train)</span></code></pre></div>
 <p>Let’s take a look at the first few rows of our data by using the <code>head</code> function.</p>
-<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="relational-data.html#cb237-1" aria-hidden="true" tabindex="-1"></a><span class="do">##getting a snapshot of our data</span></span>
-<span id="cb237-2"><a href="relational-data.html#cb237-2" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span> </span>
-<span id="cb237-3"><a href="relational-data.html#cb237-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
-<pre><code>##   passenger_id survived pclass                                                name
-## 1            1        0      3                             Braund, Mr. Owen Harris
-## 2            2        1      1 Cumings, Mrs. John Bradley (Florence Briggs Thayer)
-## 3            3        1      3                              Heikkinen, Miss. Laina
-## 4            4        1      1        Futrelle, Mrs. Jacques Heath (Lily May Peel)
-## 5            5        0      3                            Allen, Mr. William Henry
-## 6            6        0      3                                    Moran, Mr. James
-##      sex age sib_sp parch           ticket    fare cabin embarked
-## 1   male  22      1     0        A/5 21171  7.2500              S
-## 2 female  38      1     0         PC 17599 71.2833   C85        C
-## 3 female  26      0     0 STON/O2. 3101282  7.9250              S
-## 4 female  35      1     0           113803 53.1000  C123        S
-## 5   male  35      0     0           373450  8.0500              S
-## 6   male  NA      0     0           330877  8.4583              Q</code></pre>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="relational-data.html#cb264-1" aria-hidden="true" tabindex="-1"></a><span class="do">## getting a snapshot of our data</span></span>
+<span id="cb264-2"><a href="relational-data.html#cb264-2" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span></span>
+<span id="cb264-3"><a href="relational-data.html#cb264-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">head</span>()</span></code></pre></div>
+<pre><code>##   passenger_id survived pclass
+## 1            1        0      3
+## 2            2        1      1
+## 3            3        1      3
+## 4            4        1      1
+## 5            5        0      3
+## 6            6        0      3
+##                                                  name    sex age sib_sp parch
+## 1                             Braund, Mr. Owen Harris   male  22      1     0
+## 2 Cumings, Mrs. John Bradley (Florence Briggs Thayer) female  38      1     0
+## 3                              Heikkinen, Miss. Laina female  26      0     0
+## 4        Futrelle, Mrs. Jacques Heath (Lily May Peel) female  35      1     0
+## 5                            Allen, Mr. William Henry   male  35      0     0
+## 6                                    Moran, Mr. James   male  NA      0     0
+##             ticket    fare cabin embarked
+## 1        A/5 21171  7.2500              S
+## 2         PC 17599 71.2833   C85        C
+## 3 STON/O2. 3101282  7.9250              S
+## 4           113803 53.1000  C123        S
+## 5           373450  8.0500              S
+## 6           330877  8.4583              Q</code></pre>
 <p>To uniquely identify an observation, we need a column (or combination of columns) that puts each passenger into one row. In other words, since we have individual-level data, we want to find a row that will uniquely identify each individual. Since this is our first example, this is relatively simple: <code>passenger_id</code> uniquely identifies an individual, and so does <code>name</code>. While this seems intuitive, it is important to actually check whether this is true. This is where the technique of <code>filter</code> and <code>count</code> must be applied.</p>
 <p>We will be using the following algorithm to check whether a column (or combination of columns) uniquely identifies our observations:</p>
 <ul>
@@ -372,26 +384,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>This small algorithm ensures that we are uniquely identifying each observation. It clearly displays observations that occur more than once to inform us that this column (or columns) does or does not identify a primary key. To summarize, if we run our algorithm and receive any output of observations, we failed to find a primary key and need to rethink how we identify an observation.</p>
 <p>Let’s try out this algorithm on our two columns that we intuitively thought could identify each individual.</p>
-<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="relational-data.html#cb239-1" aria-hidden="true" tabindex="-1"></a><span class="do">## using algorithm on the passenger_id column</span></span>
-<span id="cb239-2"><a href="relational-data.html#cb239-2" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span> </span>
-<span id="cb239-3"><a href="relational-data.html#cb239-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(passenger_id) <span class="sc">%&gt;%</span> </span>
-<span id="cb239-4"><a href="relational-data.html#cb239-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n <span class="sc">&gt;</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="relational-data.html#cb266-1" aria-hidden="true" tabindex="-1"></a><span class="do">## using algorithm on the passenger_id column</span></span>
+<span id="cb266-2"><a href="relational-data.html#cb266-2" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span></span>
+<span id="cb266-3"><a href="relational-data.html#cb266-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">count</span>(passenger_id) <span class="sc">%&gt;%</span></span>
+<span id="cb266-4"><a href="relational-data.html#cb266-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(n <span class="sc">&gt;</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## [1] passenger_id n           
 ## &lt;0 rows&gt; (or 0-length row.names)</code></pre>
 <p>Success! The <code>passenger_id</code> column does not contain multiple observations of identification. Therefore, it uniquely identifies each observation, and we could use this column to merge in data from other data sets.</p>
-<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="relational-data.html#cb241-1" aria-hidden="true" tabindex="-1"></a><span class="do">## using algorithm on the name column</span></span>
-<span id="cb241-2"><a href="relational-data.html#cb241-2" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span> </span>
-<span id="cb241-3"><a href="relational-data.html#cb241-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(name) <span class="sc">%&gt;%</span> </span>
-<span id="cb241-4"><a href="relational-data.html#cb241-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n <span class="sc">&gt;</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="relational-data.html#cb268-1" aria-hidden="true" tabindex="-1"></a><span class="do">## using algorithm on the name column</span></span>
+<span id="cb268-2"><a href="relational-data.html#cb268-2" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span></span>
+<span id="cb268-3"><a href="relational-data.html#cb268-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">count</span>(name) <span class="sc">%&gt;%</span></span>
+<span id="cb268-4"><a href="relational-data.html#cb268-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(n <span class="sc">&gt;</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## [1] name n   
 ## &lt;0 rows&gt; (or 0-length row.names)</code></pre>
 <p>Another success! The <code>name</code> column also does not contain multiple observations of any particular name. Therefore, it also identifies each individual, and we could also use this column to merge in data from other data sets.</p>
 <p>On the other hand, let’s test the <code>ticket</code> column as it intuitively seems like it could also uniquely identify an observation (there is usually one ticket per person).</p>
-<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="relational-data.html#cb243-1" aria-hidden="true" tabindex="-1"></a><span class="do">## testing if ticket uniquely identifies</span></span>
-<span id="cb243-2"><a href="relational-data.html#cb243-2" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span> </span>
-<span id="cb243-3"><a href="relational-data.html#cb243-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(ticket) <span class="sc">%&gt;%</span> </span>
-<span id="cb243-4"><a href="relational-data.html#cb243-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n <span class="sc">&gt;</span><span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb243-5"><a href="relational-data.html#cb243-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="relational-data.html#cb270-1" aria-hidden="true" tabindex="-1"></a><span class="do">## testing if ticket uniquely identifies</span></span>
+<span id="cb270-2"><a href="relational-data.html#cb270-2" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span></span>
+<span id="cb270-3"><a href="relational-data.html#cb270-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">count</span>(ticket) <span class="sc">%&gt;%</span></span>
+<span id="cb270-4"><a href="relational-data.html#cb270-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(n <span class="sc">&gt;</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb270-5"><a href="relational-data.html#cb270-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">head</span>()</span></code></pre></div>
 <pre><code>##   ticket n
 ## 1 110152 3
 ## 2 110413 3
@@ -402,17 +414,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Clearly, since we see that there are multiple duplicates of ticket numbers, we cannot uniquely identify our observations using the <code>ticket</code> column.</p>
 <p>Our <code>titanic</code> dataset is simple in that we have two ways to uniquely identify an observation which only included one column, but this is not always true. In the next section, we will go through a harder example which will require a collection of columns.</p>
 </div>
-<div id="finding-primary-keys-harder" class="section level2" number="11.2">
-<h2><span class="header-section-number">11.2</span> Finding Primary Keys (harder)</h2>
+<div id="finding-primary-keys-harder" class="section level2" number="12.2">
+<h2><span class="header-section-number">12.2</span> Finding Primary Keys (harder)</h2>
 <p>In the <code>titanic</code> example, finding the primary keys was pretty intuitive, and a little trivial. However, this is not always the case. Let’s take a look at a data set from the <code>babynames</code> package. The <code>babynames</code> data set provides data on names given at birth from the Social Security Administration. This includes all names with at least 5 uses (sorry Elon). For our purposes, we will subset the data set since the original data is almost 2 million observations.</p>
-<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="relational-data.html#cb245-1" aria-hidden="true" tabindex="-1"></a><span class="do">## loading the necessary package</span></span>
-<span id="cb245-2"><a href="relational-data.html#cb245-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(babynames)</span>
-<span id="cb245-3"><a href="relational-data.html#cb245-3" aria-hidden="true" tabindex="-1"></a><span class="do">## selecting only the first 20,000 observations and getting rid of one of the rows we don&#39;t need</span></span>
-<span id="cb245-4"><a href="relational-data.html#cb245-4" aria-hidden="true" tabindex="-1"></a>babynames <span class="ot">&lt;-</span> babynames[<span class="dv">1</span><span class="sc">:</span><span class="dv">20000</span>,] <span class="sc">%&gt;%</span> </span>
-<span id="cb245-5"><a href="relational-data.html#cb245-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>n)</span></code></pre></div>
-<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="relational-data.html#cb246-1" aria-hidden="true" tabindex="-1"></a><span class="do">## getting a preview of the data</span></span>
-<span id="cb246-2"><a href="relational-data.html#cb246-2" aria-hidden="true" tabindex="-1"></a>babynames <span class="sc">%&gt;%</span> </span>
-<span id="cb246-3"><a href="relational-data.html#cb246-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="relational-data.html#cb272-1" aria-hidden="true" tabindex="-1"></a><span class="do">## loading the necessary package</span></span>
+<span id="cb272-2"><a href="relational-data.html#cb272-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(babynames)</span>
+<span id="cb272-3"><a href="relational-data.html#cb272-3" aria-hidden="true" tabindex="-1"></a><span class="do">## selecting only the first 20,000 observations and</span></span>
+<span id="cb272-4"><a href="relational-data.html#cb272-4" aria-hidden="true" tabindex="-1"></a><span class="do">## getting rid of one of the rows we don&#39;t need</span></span>
+<span id="cb272-5"><a href="relational-data.html#cb272-5" aria-hidden="true" tabindex="-1"></a>babynames <span class="ot">&lt;-</span> babynames[<span class="dv">1</span><span class="sc">:</span><span class="dv">20000</span>, ] <span class="sc">%&gt;%</span></span>
+<span id="cb272-6"><a href="relational-data.html#cb272-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="sc">-</span>n)</span></code></pre></div>
+<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="relational-data.html#cb273-1" aria-hidden="true" tabindex="-1"></a><span class="do">## getting a preview of the data</span></span>
+<span id="cb273-2"><a href="relational-data.html#cb273-2" aria-hidden="true" tabindex="-1"></a>babynames <span class="sc">%&gt;%</span></span>
+<span id="cb273-3"><a href="relational-data.html#cb273-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">head</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 4
 ##    year sex   name        prop
 ##   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;      &lt;dbl&gt;
@@ -430,10 +443,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>prop</code> - a weighting variable we do not care about</li>
 </ul>
 <p>We want to uniquely identify an observation. This is where we need intuition as well as our algorithm. Would <code>name</code> uniquely identify an observation? No. A name can appear in many different years. Observe our algorithm:</p>
-<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="relational-data.html#cb248-1" aria-hidden="true" tabindex="-1"></a><span class="do">## checking if name uniquely identifies the data </span></span>
-<span id="cb248-2"><a href="relational-data.html#cb248-2" aria-hidden="true" tabindex="-1"></a>babynames <span class="sc">%&gt;%</span> </span>
-<span id="cb248-3"><a href="relational-data.html#cb248-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(name) <span class="sc">%&gt;%</span> </span>
-<span id="cb248-4"><a href="relational-data.html#cb248-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n <span class="sc">&gt;</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="relational-data.html#cb275-1" aria-hidden="true" tabindex="-1"></a><span class="do">## checking if name uniquely identifies the data</span></span>
+<span id="cb275-2"><a href="relational-data.html#cb275-2" aria-hidden="true" tabindex="-1"></a>babynames <span class="sc">%&gt;%</span></span>
+<span id="cb275-3"><a href="relational-data.html#cb275-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">count</span>(name) <span class="sc">%&gt;%</span></span>
+<span id="cb275-4"><a href="relational-data.html#cb275-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(n <span class="sc">&gt;</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 2,728 × 2
 ##    name        n
 ##    &lt;chr&gt;   &lt;int&gt;
@@ -450,10 +463,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## # … with 2,718 more rows</code></pre>
 <p>Clearly, we see that there are multiple times a name appears. Hence, we must use a <em>collection</em> of columns to uniquely identify (recall our algorithm).</p>
 <p>Our intuition should tell us that using <code>name</code> and <code>year</code> may allow us to uniquely identify our data since each name likely occurs one time within each year. As always, our algorithm can check this assumption:</p>
-<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="relational-data.html#cb250-1" aria-hidden="true" tabindex="-1"></a><span class="do">## checking if name and year uniquely identifies the data</span></span>
-<span id="cb250-2"><a href="relational-data.html#cb250-2" aria-hidden="true" tabindex="-1"></a>babynames <span class="sc">%&gt;%</span> </span>
-<span id="cb250-3"><a href="relational-data.html#cb250-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(name, year) <span class="sc">%&gt;%</span> </span>
-<span id="cb250-4"><a href="relational-data.html#cb250-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n<span class="sc">&gt;</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="relational-data.html#cb277-1" aria-hidden="true" tabindex="-1"></a><span class="do">## checking if name and year uniquely identifies the</span></span>
+<span id="cb277-2"><a href="relational-data.html#cb277-2" aria-hidden="true" tabindex="-1"></a><span class="do">## data</span></span>
+<span id="cb277-3"><a href="relational-data.html#cb277-3" aria-hidden="true" tabindex="-1"></a>babynames <span class="sc">%&gt;%</span></span>
+<span id="cb277-4"><a href="relational-data.html#cb277-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">count</span>(name, year) <span class="sc">%&gt;%</span></span>
+<span id="cb277-5"><a href="relational-data.html#cb277-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(n <span class="sc">&gt;</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 1,245 × 3
 ##    name   year     n
 ##    &lt;chr&gt; &lt;dbl&gt; &lt;int&gt;
@@ -469,34 +483,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 10 Addie  1886     2
 ## # … with 1,235 more rows</code></pre>
 <p>It seems we are still not getting unique observations as there are many names that appear twice. Why would this be? This is where you must think critically about your data. Notice that our algorithm has shown us that names occur a maximum of two times. This should hint at something: <em>these names are being used for both males and females</em>. Therefore, to uniquely identify an observation, we must use <em>three</em> columns: <code>name</code>, <code>year</code>, and <code>sex</code>.</p>
-<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="relational-data.html#cb252-1" aria-hidden="true" tabindex="-1"></a><span class="do">## checking if name, year, and sex uniquely identify an observation</span></span>
-<span id="cb252-2"><a href="relational-data.html#cb252-2" aria-hidden="true" tabindex="-1"></a>babynames <span class="sc">%&gt;%</span> </span>
-<span id="cb252-3"><a href="relational-data.html#cb252-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(name, year, sex) <span class="sc">%&gt;%</span> </span>
-<span id="cb252-4"><a href="relational-data.html#cb252-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n <span class="sc">&gt;</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="relational-data.html#cb279-1" aria-hidden="true" tabindex="-1"></a><span class="do">## checking if name, year, and sex uniquely identify</span></span>
+<span id="cb279-2"><a href="relational-data.html#cb279-2" aria-hidden="true" tabindex="-1"></a><span class="do">## an observation</span></span>
+<span id="cb279-3"><a href="relational-data.html#cb279-3" aria-hidden="true" tabindex="-1"></a>babynames <span class="sc">%&gt;%</span></span>
+<span id="cb279-4"><a href="relational-data.html#cb279-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">count</span>(name, year, sex) <span class="sc">%&gt;%</span></span>
+<span id="cb279-5"><a href="relational-data.html#cb279-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(n <span class="sc">&gt;</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 0 × 4
 ## # … with 4 variables: name &lt;chr&gt;, year &lt;dbl&gt;, sex &lt;chr&gt;, n &lt;int&gt;</code></pre>
 <p>Success! We managed to find a grouping of columns that brought each observation to one entry. Hence, if we were merging in data, we would want to use these three columns to connect the data.</p>
-<div id="exercise-19" class="section level3" number="11.2.1">
-<h3><span class="header-section-number">11.2.1</span> Exercise</h3>
+<div id="exercise-19" class="section level3" number="12.2.1">
+<h3><span class="header-section-number">12.2.1</span> Exercise</h3>
 <ul>
 <li>(Taken from R for Data Science Chapter 13.3 Exercises) Identify the primary key in the following data set from the <code>fueleconomy</code> package: <code>vehicles</code>. Remember, the primary key could be a single column or a collection of columns.</li>
 </ul>
 </div>
-<div id="exercise-20" class="section level3" number="11.2.2">
-<h3><span class="header-section-number">11.2.2</span> Exercise</h3>
+<div id="exercise-20" class="section level3" number="12.2.2">
+<h3><span class="header-section-number">12.2.2</span> Exercise</h3>
 <ul>
 <li>(Taken from R for Data Science Chapter 13.3 Exercises) Identify the primary key in the following data set from the <code>Lahman</code> package: <code>Batting</code>. Remember, the primary key could be a single column or a collection of columns.</li>
 </ul>
 </div>
-<div id="exercise-21" class="section level3" number="11.2.3">
-<h3><span class="header-section-number">11.2.3</span> Exercise</h3>
+<div id="exercise-21" class="section level3" number="12.2.3">
+<h3><span class="header-section-number">12.2.3</span> Exercise</h3>
 <ul>
 <li>(Taken from R for Data Science Chapter 13.3 Exercises) Identify the primary key in the following data set from the <code>nasaweather</code> package: <code>atmos</code>. Remember, the primary key could be a single column or a collection of columns.</li>
 </ul>
 </div>
 </div>
-<div id="selected-solutions-4" class="section level2" number="11.3">
-<h2><span class="header-section-number">11.3</span> Selected Solutions</h2>
+<div id="selected-solutions-4" class="section level2" number="12.3">
+<h2><span class="header-section-number">12.3</span> Selected Solutions</h2>
 <p>These are shown on the next page. Please do not look at these until you have tried the exercises. These are provided because these exercises are more difficult.</p>
 <ul>
 <li>(Exercise 1.2.1) The column <code>id</code> uniquely identifies the observations.</li>
@@ -506,6 +521,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </div>
 </div>
+
+
+
+
 
 
 

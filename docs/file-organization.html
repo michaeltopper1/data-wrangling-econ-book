@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 9 File Organization | Data Wrangling for Economists</title>
+  <title>Chapter 8 File Organization | An Introduction to Web Scraping in R</title>
   <meta name="description" content="Enter description." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 9 File Organization | Data Wrangling for Economists" />
+  <meta property="og:title" content="Chapter 8 File Organization | An Introduction to Web Scraping in R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,25 +16,23 @@
   <meta name="github-repo" content="openscapes/series" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 9 File Organization | Data Wrangling for Economists" />
+  <meta name="twitter:title" content="Chapter 8 File Organization | An Introduction to Web Scraping in R" />
   
   <meta name="twitter:description" content="Enter description." />
   
 
-<meta name="author" content="Michael Topper" />
 <meta name="author" content="Danny Klinenberg" />
 
 
-<meta name="date" content="2021-09-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="strings.html"/>
-<link rel="next" href="programming.html"/>
-<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<link rel="prev" href="graphics-with-ggplot2.html"/>
+<link rel="next" href="strings.html"/>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -54,11 +52,11 @@
 
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
 <link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
 <script src="libs/str_view-binding-1.4.0/str_view.js"></script>
-<script src="libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -255,62 +253,69 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.4.1" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html#exercise-15"><i class="fa fa-check"></i><b>7.4.1</b> Exercise</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="strings.html"><a href="strings.html"><i class="fa fa-check"></i><b>8</b> Strings</a>
+<li class="chapter" data-level="8" data-path="file-organization.html"><a href="file-organization.html"><i class="fa fa-check"></i><b>8</b> File Organization</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="strings.html"><a href="strings.html#regular-expressions"><i class="fa fa-check"></i><b>8.1</b> Regular Expressions</a>
+<li class="chapter" data-level="8.1" data-path="file-organization.html"><a href="file-organization.html#organizing"><i class="fa fa-check"></i><b>8.1</b> Organizing</a></li>
+<li class="chapter" data-level="8.2" data-path="file-organization.html"><a href="file-organization.html#rmarkdown"><i class="fa fa-check"></i><b>8.2</b> <code>Rmarkdown</code></a>
 <ul>
-<li class="chapter" data-level="8.1.1" data-path="strings.html"><a href="strings.html#exercise-1-1"><i class="fa fa-check"></i><b>8.1.1</b> Exercise 1</a></li>
-</ul></li>
-<li class="chapter" data-level="8.2" data-path="strings.html"><a href="strings.html#regular-expressions-continued"><i class="fa fa-check"></i><b>8.2</b> Regular Expressions Continued</a>
-<ul>
-<li class="chapter" data-level="8.2.1" data-path="strings.html"><a href="strings.html#exercise-2-1"><i class="fa fa-check"></i><b>8.2.1</b> Exercise 2</a></li>
-</ul></li>
-<li class="chapter" data-level="8.3" data-path="strings.html"><a href="strings.html#using-extract"><i class="fa fa-check"></i><b>8.3</b> Using <code>extract</code></a></li>
-<li class="chapter" data-level="8.4" data-path="strings.html"><a href="strings.html#using-separate"><i class="fa fa-check"></i><b>8.4</b> Using <code>separate</code></a></li>
-<li class="chapter" data-level="8.5" data-path="strings.html"><a href="strings.html#the-gsub-function"><i class="fa fa-check"></i><b>8.5</b> The <code>gsub</code> function</a>
-<ul>
-<li class="chapter" data-level="8.5.1" data-path="strings.html"><a href="strings.html#exercise-3-1"><i class="fa fa-check"></i><b>8.5.1</b> Exercise 3</a></li>
-</ul></li>
-<li class="chapter" data-level="8.6" data-path="strings.html"><a href="strings.html#solutions"><i class="fa fa-check"></i><b>8.6</b> Solutions</a></li>
-</ul></li>
-<li class="chapter" data-level="9" data-path="file-organization.html"><a href="file-organization.html"><i class="fa fa-check"></i><b>9</b> File Organization</a>
-<ul>
-<li class="chapter" data-level="9.1" data-path="file-organization.html"><a href="file-organization.html#organizing"><i class="fa fa-check"></i><b>9.1</b> Organizing</a></li>
-<li class="chapter" data-level="9.2" data-path="file-organization.html"><a href="file-organization.html#rmarkdown"><i class="fa fa-check"></i><b>9.2</b> <code>Rmarkdown</code></a>
-<ul>
-<li class="chapter" data-level="9.2.1" data-path="file-organization.html"><a href="file-organization.html#the-anatomy-of-an-rmarkdown-file"><i class="fa fa-check"></i><b>9.2.1</b> The Anatomy of an <code>Rmarkdown</code> File</a></li>
-<li class="chapter" data-level="9.2.2" data-path="file-organization.html"><a href="file-organization.html#the-body-of-the-rmarkdown"><i class="fa fa-check"></i><b>9.2.2</b> The Body of the <code>Rmarkdown</code></a></li>
-<li class="chapter" data-level="9.2.3" data-path="file-organization.html"><a href="file-organization.html#childing"><i class="fa fa-check"></i><b>9.2.3</b> Childing</a></li>
-<li class="chapter" data-level="9.2.4" data-path="file-organization.html"><a href="file-organization.html#bibliographies"><i class="fa fa-check"></i><b>9.2.4</b> Bibliographies</a></li>
-<li class="chapter" data-level="9.2.5" data-path="file-organization.html"><a href="file-organization.html#a-final-note-on-rmarkdown-visual-markdown-editor"><i class="fa fa-check"></i><b>9.2.5</b> A Final Note on <code>Rmarkdown</code>: Visual Markdown Editor</a></li>
+<li class="chapter" data-level="8.2.1" data-path="file-organization.html"><a href="file-organization.html#the-anatomy-of-an-rmarkdown-file"><i class="fa fa-check"></i><b>8.2.1</b> The Anatomy of an <code>Rmarkdown</code> File</a></li>
+<li class="chapter" data-level="8.2.2" data-path="file-organization.html"><a href="file-organization.html#the-body-of-the-rmarkdown"><i class="fa fa-check"></i><b>8.2.2</b> The Body of the <code>Rmarkdown</code></a></li>
+<li class="chapter" data-level="8.2.3" data-path="file-organization.html"><a href="file-organization.html#childing"><i class="fa fa-check"></i><b>8.2.3</b> Childing</a></li>
+<li class="chapter" data-level="8.2.4" data-path="file-organization.html"><a href="file-organization.html#bibliographies"><i class="fa fa-check"></i><b>8.2.4</b> Bibliographies</a></li>
+<li class="chapter" data-level="8.2.5" data-path="file-organization.html"><a href="file-organization.html#a-final-note-on-rmarkdown-visual-markdown-editor"><i class="fa fa-check"></i><b>8.2.5</b> A Final Note on <code>Rmarkdown</code>: Visual Markdown Editor</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="programming.html"><a href="programming.html"><i class="fa fa-check"></i><b>10</b> Programming</a>
+<li class="chapter" data-level="9" data-path="strings.html"><a href="strings.html"><i class="fa fa-check"></i><b>9</b> Strings</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="programming.html"><a href="programming.html#functions"><i class="fa fa-check"></i><b>10.1</b> Functions</a>
+<li class="chapter" data-level="9.1" data-path="strings.html"><a href="strings.html#regular-expressions"><i class="fa fa-check"></i><b>9.1</b> Regular Expressions</a>
 <ul>
-<li class="chapter" data-level="10.1.1" data-path="programming.html"><a href="programming.html#exercise-16"><i class="fa fa-check"></i><b>10.1.1</b> Exercise</a></li>
+<li class="chapter" data-level="9.1.1" data-path="strings.html"><a href="strings.html#exercise-1-1"><i class="fa fa-check"></i><b>9.1.1</b> Exercise 1</a></li>
 </ul></li>
-<li class="chapter" data-level="10.2" data-path="programming.html"><a href="programming.html#for-loops"><i class="fa fa-check"></i><b>10.2</b> For-loops</a>
+<li class="chapter" data-level="9.2" data-path="strings.html"><a href="strings.html#regular-expressions-continued"><i class="fa fa-check"></i><b>9.2</b> Regular Expressions Continued</a>
 <ul>
-<li class="chapter" data-level="10.2.1" data-path="programming.html"><a href="programming.html#exercise-17"><i class="fa fa-check"></i><b>10.2.1</b> Exercise</a></li>
+<li class="chapter" data-level="9.2.1" data-path="strings.html"><a href="strings.html#exercise-2-1"><i class="fa fa-check"></i><b>9.2.1</b> Exercise 2</a></li>
 </ul></li>
-<li class="chapter" data-level="10.3" data-path="programming.html"><a href="programming.html#if-else"><i class="fa fa-check"></i><b>10.3</b> If-else</a>
+<li class="chapter" data-level="9.3" data-path="strings.html"><a href="strings.html#using-extract"><i class="fa fa-check"></i><b>9.3</b> Using <code>extract</code></a></li>
+<li class="chapter" data-level="9.4" data-path="strings.html"><a href="strings.html#using-separate"><i class="fa fa-check"></i><b>9.4</b> Using <code>separate</code></a></li>
+<li class="chapter" data-level="9.5" data-path="strings.html"><a href="strings.html#the-gsub-function"><i class="fa fa-check"></i><b>9.5</b> The <code>gsub</code> function</a>
 <ul>
-<li class="chapter" data-level="10.3.1" data-path="programming.html"><a href="programming.html#exercise-18"><i class="fa fa-check"></i><b>10.3.1</b> Exercise</a></li>
+<li class="chapter" data-level="9.5.1" data-path="strings.html"><a href="strings.html#exercise-3-1"><i class="fa fa-check"></i><b>9.5.1</b> Exercise 3</a></li>
 </ul></li>
-<li class="chapter" data-level="10.4" data-path="programming.html"><a href="programming.html#selected-solutions-3"><i class="fa fa-check"></i><b>10.4</b> Selected Solutions</a></li>
+<li class="chapter" data-level="9.6" data-path="strings.html"><a href="strings.html#solutions"><i class="fa fa-check"></i><b>9.6</b> Solutions</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="relational-data.html"><a href="relational-data.html"><i class="fa fa-check"></i><b>11</b> Relational Data</a>
+<li class="chapter" data-level="10" data-path="an-introduction-to-web-scraping-in-r.html"><a href="an-introduction-to-web-scraping-in-r.html"><i class="fa fa-check"></i><b>10</b> An Introduction to Web Scraping in R</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="relational-data.html"><a href="relational-data.html#finding-primary-keys"><i class="fa fa-check"></i><b>11.1</b> Finding Primary Keys</a></li>
-<li class="chapter" data-level="11.2" data-path="relational-data.html"><a href="relational-data.html#finding-primary-keys-harder"><i class="fa fa-check"></i><b>11.2</b> Finding Primary Keys (harder)</a>
-<ul>
-<li class="chapter" data-level="11.2.1" data-path="relational-data.html"><a href="relational-data.html#exercise-19"><i class="fa fa-check"></i><b>11.2.1</b> Exercise</a></li>
-<li class="chapter" data-level="11.2.2" data-path="relational-data.html"><a href="relational-data.html#exercise-20"><i class="fa fa-check"></i><b>11.2.2</b> Exercise</a></li>
-<li class="chapter" data-level="11.2.3" data-path="relational-data.html"><a href="relational-data.html#exercise-21"><i class="fa fa-check"></i><b>11.2.3</b> Exercise</a></li>
+<li class="chapter" data-level="10.1" data-path="an-introduction-to-web-scraping-in-r.html"><a href="an-introduction-to-web-scraping-in-r.html#what-is-web-scraping"><i class="fa fa-check"></i><b>10.1</b> What is Web Scraping?</a></li>
+<li class="chapter" data-level="10.2" data-path="an-introduction-to-web-scraping-in-r.html"><a href="an-introduction-to-web-scraping-in-r.html#can-i-scrape-from-this-site"><i class="fa fa-check"></i><b>10.2</b> Can I Scrape From This Site?</a></li>
+<li class="chapter" data-level="10.3" data-path="an-introduction-to-web-scraping-in-r.html"><a href="an-introduction-to-web-scraping-in-r.html#pulling-from-an-api-hechingers-report"><i class="fa fa-check"></i><b>10.3</b> Pulling from an API: Hechinger’s Report</a></li>
+<li class="chapter" data-level="10.4" data-path="an-introduction-to-web-scraping-in-r.html"><a href="an-introduction-to-web-scraping-in-r.html#web-scraping-ucsb-economics-contact-information"><i class="fa fa-check"></i><b>10.4</b> Web Scraping: UCSB Economics Contact Information</a></li>
 </ul></li>
-<li class="chapter" data-level="11.3" data-path="relational-data.html"><a href="relational-data.html#selected-solutions-4"><i class="fa fa-check"></i><b>11.3</b> Selected Solutions</a></li>
+<li class="chapter" data-level="11" data-path="programming.html"><a href="programming.html"><i class="fa fa-check"></i><b>11</b> Programming</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="programming.html"><a href="programming.html#functions"><i class="fa fa-check"></i><b>11.1</b> Functions</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="programming.html"><a href="programming.html#exercise-16"><i class="fa fa-check"></i><b>11.1.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="programming.html"><a href="programming.html#for-loops"><i class="fa fa-check"></i><b>11.2</b> For-loops</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="programming.html"><a href="programming.html#exercise-17"><i class="fa fa-check"></i><b>11.2.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="programming.html"><a href="programming.html#if-else"><i class="fa fa-check"></i><b>11.3</b> If-else</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="programming.html"><a href="programming.html#exercise-18"><i class="fa fa-check"></i><b>11.3.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="programming.html"><a href="programming.html#selected-solutions-3"><i class="fa fa-check"></i><b>11.4</b> Selected Solutions</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="relational-data.html"><a href="relational-data.html"><i class="fa fa-check"></i><b>12</b> Relational Data</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="relational-data.html"><a href="relational-data.html#finding-primary-keys"><i class="fa fa-check"></i><b>12.1</b> Finding Primary Keys</a></li>
+<li class="chapter" data-level="12.2" data-path="relational-data.html"><a href="relational-data.html#finding-primary-keys-harder"><i class="fa fa-check"></i><b>12.2</b> Finding Primary Keys (harder)</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="relational-data.html"><a href="relational-data.html#exercise-19"><i class="fa fa-check"></i><b>12.2.1</b> Exercise</a></li>
+<li class="chapter" data-level="12.2.2" data-path="relational-data.html"><a href="relational-data.html#exercise-20"><i class="fa fa-check"></i><b>12.2.2</b> Exercise</a></li>
+<li class="chapter" data-level="12.2.3" data-path="relational-data.html"><a href="relational-data.html#exercise-21"><i class="fa fa-check"></i><b>12.2.3</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="relational-data.html"><a href="relational-data.html#selected-solutions-4"><i class="fa fa-check"></i><b>12.3</b> Selected Solutions</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://bookdown.org" target="blank">Published with bookdown</a></li>
@@ -324,7 +329,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Wrangling for Economists</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">An Introduction to Web Scraping in R</a>
           </h1>
         </div>
 
@@ -332,54 +337,54 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="file-organization" class="section level1" number="9">
-<h1><span class="header-section-number">Chapter 9</span> File Organization</h1>
-<div id="organizing" class="section level2" number="9.1">
-<h2><span class="header-section-number">9.1</span> Organizing</h2>
+<div id="file-organization" class="section level1" number="8">
+<h1><span class="header-section-number">Chapter 8</span> File Organization</h1>
+<div id="organizing" class="section level2" number="8.1">
+<h2><span class="header-section-number">8.1</span> Organizing</h2>
 <p><em>Writing a research project is more than economic theory, models, and analysis; it also relies on being organized. Most of us have never thought about how to organize multi-year projects because we’ve never had to do them. In this chapter, we will be discussing two topics on the organization side of a research project: file organization and reproducible research papers. This will be less about data cleaning and more about staying organized with <code>R</code>.</em></p>
-<p>File organization is something we all need but are rarely taught. This section closely follows Princeton’s Empirical Study of Conflict (ESOC) research production guide produced by Jacob N. Shapiro. It is highly recommended you read through the production guide.<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a> The guide goes through file organization as well as best coding practices. Before continuing, it needs to be noted there is no one best way to organize files. At the end of the day, it is what works best FOR YOU! This portion of the book lays out one example of file organization. It is recommended you tweak the ideas discussed in this portion of the Guided Exercise to meet your needs. Remember, file organization is meant to make your life easier.</p>
+<p>File organization is something we all need but are rarely taught. This section closely follows Princeton’s Empirical Study of Conflict (ESOC) research production guide produced by Jacob N. Shapiro. It is highly recommended you read through the production guide.<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a> The guide goes through file organization as well as best coding practices. Before continuing, it needs to be noted there is no one best way to organize files. At the end of the day, it is what works best FOR YOU! This portion of the book lays out one example of file organization. It is recommended you tweak the ideas discussed in this portion of the Guided Exercise to meet your needs. Remember, file organization is meant to make your life easier.</p>
 <p>Before we begin, create a new <code>R Project</code> and name it whatever you want, wherever you want. After creating an <code>R Project</code>, it is time to fill it with all your work. Your base <code>Rproject</code> directory should have every file in a folder except <code>.RData</code>, <code>.Rhistory</code>, <code>lab_diary.txt</code>, the <code>Rproject</code>, <code>project_idea.txt</code> and <code>git_ignore</code> if you’re syncing with Github. Below is an example <code>R Project</code> titled payments_hate_speech:</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-122"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-94"></span>
 <img src="images/organization/pic_2.png" alt="Project Layout" width="60%" />
 <p class="caption">
-Figure 9.1: Project Layout
+Figure 8.1: Project Layout
 </p>
 </div>
 <p>Note that all folders are numbers and each number is two digits. The leading zeros are to ensure that the documents are in the correct order (e.g., 01, 02, 03).</p>
 <p>Each folder will have a specific purpose with an accompanying <code>README.txt</code> file. The <code>README.txt</code> file should provide a 1-2 sentence description of what the file is/does. If it is raw data, it should say where the data was from. If it is an <code>R</code> script that creates your main data, say that along with what the inputs and outputs are. If it is an <code>R</code> script that makes Table X for your paper, say it does that along with what it inputs/other files it depends on. Write as if you are writing for someone who has never heard of your project nor ever looked at your data. This person may very well be a reviewer. It will also be you a year after you start your project! Figure  provides an example of a README.txt for the folder <code>03_model</code>. Each file in the folder has a 1 sentence description, a list of the inputs to the file, and what the file outputs. Notice the local file-paths are included in the inputs and outputs so someone can follow the files. Keeping <code>README.txt</code> files are tedious but incredibility important. If done thoroughly, the data replication needed when submitting papers is already complete. You just send the <code>R Project</code>.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-123"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-95"></span>
 <img src="images/organization/README.png" alt="\label{readme} README.txt Example for 03\_model" width="75%" />
 <p class="caption">
-Figure 9.2:  README.txt Example for 03_model
+Figure 8.2:  README.txt Example for 03_model
 </p>
 </div>
 <p>The <code>lab_diary.txt</code> is a common tool used in other fields. It’s a place to record what you tried during the day. These notes often come in handy as they cut down the time you spend re-estimating the same regression because you forgot what you did it a week ago. Here is an example of a lab diary.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-124"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-96"></span>
 <img src="images/organization/pic_3.png" alt="Lab Diary" width="75%" />
 <p class="caption">
-Figure 9.3: Lab Diary
+Figure 8.3: Lab Diary
 </p>
 </div>
 <p>When progressing through your research career, it’s important to figure out an organization style that works best for you. After you find it, create a general template of it. Then, whenever you have a new idea, you can just copy the template and your project is already set up. No more wasting time making folders and thinking about how you want to organize your project. Figure  shows one approach; this approach has one general folder housing all projects, then a template for the project organization. Whenever a new idea comes to mind, the template folder is copied for quick setup.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-125"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-97"></span>
 <img src="images/organization/organization1.png" alt="\label{template} Having a Template" width="50%" />
 <p class="caption">
-Figure 9.4:  Having a Template
+Figure 8.4:  Having a Template
 </p>
 </div>
 </div>
-<div id="rmarkdown" class="section level2" number="9.2">
-<h2><span class="header-section-number">9.2</span> <code>Rmarkdown</code></h2>
+<div id="rmarkdown" class="section level2" number="8.2">
+<h2><span class="header-section-number">8.2</span> <code>Rmarkdown</code></h2>
 <p><code>Rmarkdown</code> is a native report compiler in <code>R</code>. It can be used to create many many things from .pdf, .docx, and .html files to interactive dashboards to websites. It’s impossible to cover everything in <code>Rmarkdown</code> in the span of a quarter, let alone a lecture. So we’ll focus on the basics.</p>
-<p><code>Rmarkdown</code> is an alternative to Latex compilers like Overleaf<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a>. That means you can do all the same fancy math and formatting as if you were in Overleaf without ever leaving <code>R</code>. The benefits of <code>Rmarkdown</code> is the idea of code integration: you can directly run code in the document. This means you can pull data in and make a graph within your file automatically. If you update some data, the graph will update whenever you recompile. You can even have code in the middle of a sentence. You can write 2+2=4, but instead of writing 4, you can write <code>`r `</code> with 2+2 following the r and it’ll solve it within line. If you’re discussing descriptive statistics in the body of your work, you no longer have to worry about copying and pasting the numbers wrong. It pulls directly from the data.</p>
+<p><code>Rmarkdown</code> is an alternative to Latex compilers like Overleaf<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a>. That means you can do all the same fancy math and formatting as if you were in Overleaf without ever leaving <code>R</code>. The benefits of <code>Rmarkdown</code> is the idea of code integration: you can directly run code in the document. This means you can pull data in and make a graph within your file automatically. If you update some data, the graph will update whenever you recompile. You can even have code in the middle of a sentence. You can write 2+2=4, but instead of writing 4, you can write <code>`r `</code> with 2+2 following the r and it’ll solve it within line. If you’re discussing descriptive statistics in the body of your work, you no longer have to worry about copying and pasting the numbers wrong. It pulls directly from the data.</p>
 <p>Today we’ll focus on the general setup of an <code>Rmarkdown</code> file and best practices we’ve learned for using <code>Rmarkdown</code>.</p>
-<div id="the-anatomy-of-an-rmarkdown-file" class="section level3" number="9.2.1">
-<h3><span class="header-section-number">9.2.1</span> The Anatomy of an <code>Rmarkdown</code> File</h3>
+<div id="the-anatomy-of-an-rmarkdown-file" class="section level3" number="8.2.1">
+<h3><span class="header-section-number">8.2.1</span> The Anatomy of an <code>Rmarkdown</code> File</h3>
 <p>You can create an <code>Rmarkdown</code> file just as you would an <code>Rscript</code>: <code>File-&gt;New File-&gt; R Markdown</code>. After setting the name and type of output, you’ll be greeted with this file (or something quite similar):</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-126"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-98"></span>
 <img src="images/organization/rmarkdown1.png" alt="Basic Rmarkdown File" width="75%" />
 <p class="caption">
-Figure 9.5: Basic Rmarkdown File
+Figure 8.5: Basic Rmarkdown File
 </p>
 </div>
 <p>We’re going to focus on the top part, known as the YAML. This is where you set all the parameters for your document. Most YAMLs include things such as title, subtitle, author, and general paper preferences. An important note about the YAML is that indentation matters. Parameters end with a colon and parameters that are indented are read as sub-parameters. Below is an example of the YAML for a working paper as of 2021.</p>
@@ -388,7 +393,7 @@ Figure 9.5: Basic Rmarkdown File
 <span id="numCode-3"><a href="file-organization.html#numCode-3"></a>subtitle<span class="sc">:</span> <span class="st">&quot;Evidence from OwenBenjaminComedy&quot;</span></span>
 <span id="numCode-4"><a href="file-organization.html#numCode-4"></a>author<span class="sc">:</span> Danny Klinenberg<span class="sc">^</span>[Ph.D. student at University of California, Santa Barbara;</span>
 <span id="numCode-5"><a href="file-organization.html#numCode-5"></a>  dklinenberg<span class="sc">@</span>ucsb.edu. All errors, omissions, and opinions are my own.]</span>
-<span id="numCode-6"><a href="file-organization.html#numCode-6"></a>date<span class="sc">:</span> <span class="st">&#39;Last Updated: 2021-09-03&#39;</span></span>
+<span id="numCode-6"><a href="file-organization.html#numCode-6"></a>date<span class="sc">:</span> <span class="st">&#39;Last Updated: 2021-09-09&#39;</span></span>
 <span id="numCode-7"><a href="file-organization.html#numCode-7"></a>output<span class="sc">:</span></span>
 <span id="numCode-8"><a href="file-organization.html#numCode-8"></a>  pdf_document<span class="sc">:</span></span>
 <span id="numCode-9"><a href="file-organization.html#numCode-9"></a>    keep_tex<span class="sc">:</span> <span class="cn">TRUE</span></span>
@@ -432,8 +437,8 @@ Figure 9.5: Basic Rmarkdown File
 <p>There are many other options for the YAML and other ways to read in the parameters (such as a header.tex file) but we can stop here for now. The end of this discussion provides resources for in-depth questions on the matter.</p>
 <p><em>Disclaimer</em>: Setting up the YAML is not a one and done process most projects. It usually involves adding and removing Latex packages.</p>
 </div>
-<div id="the-body-of-the-rmarkdown" class="section level3" number="9.2.2">
-<h3><span class="header-section-number">9.2.2</span> The Body of the <code>Rmarkdown</code></h3>
+<div id="the-body-of-the-rmarkdown" class="section level3" number="8.2.2">
+<h3><span class="header-section-number">8.2.2</span> The Body of the <code>Rmarkdown</code></h3>
 <p>The actual document is comprise of words, Latex, and code chunks. Below are some helpful tricks for writing in Rmarkdown:</p>
 <ul>
 <li><p>A line beginning with one # signifies a section header.</p></li>
@@ -443,18 +448,18 @@ Figure 9.5: Basic Rmarkdown File
 <li><p>You can use all your favorite Latex commands in the body just as you would any other compiler.</p></li>
 </ul>
 <p>The main benefit to <code>Rmarkdown</code> is the code chunk. You can create code chunk by pressing <code>option+command+i</code> on a Mac. You should see the following appear within your <code>Rmarkdown</code> file:</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-127"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-99"></span>
 <img src="images/organization/rmarkdown2.png" alt="R code chunk" width="50%" />
 <p class="caption">
-Figure 9.6: R code chunk
+Figure 8.6: R code chunk
 </p>
 </div>
 <p>A code chunk operates just like it’s own little <code>Rscript</code>. Code chunks in an <code>Rmarkdown</code> file are all thought of as being part of the same <code>Rscript</code>, meaning they all use the same global environment. The top part of the code chunk, <code>{r}</code>, has a few options we’d like to highlight.</p>
 <p>First, you can name your code chunks by adding a title after the r: ```{r example_code_chunk}. There can’t be any spaces in the code chunk. This is useful for quickly moving around your document.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-128"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-100"></span>
 <img src="images/organization/rmarkdown3.png" alt="\label{quickly}Quickly Moving" width="50%" />
 <p class="caption">
-Figure 9.7: Quickly Moving
+Figure 8.7: Quickly Moving
 </p>
 </div>
 <p>You can also choose what each code chunk does. To use these options, you write {r, option1=, option2=,…}. Below is a short list of the common settings you may be interested in:</p>
@@ -464,7 +469,7 @@ Figure 9.7: Quickly Moving
 <li><code>eval</code>: Whether or not the code is evaluated.</li>
 </ul>
 <p>The code chunks will be most useful for integrating tables, images, and graphs. For example, the last image we saw was produced using the following code:</p>
-<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="file-organization.html#cb199-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;images&quot;</span>, <span class="st">&quot;organization&quot;</span>,<span class="st">&quot;rmarkdown2.png&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="file-organization.html#cb138-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;images&quot;</span>, <span class="st">&quot;organization&quot;</span>,<span class="st">&quot;rmarkdown2.png&quot;</span>))</span></code></pre></div>
 <p>Some useful options for figures and graphs are:</p>
 <ul>
 <li><p><code>fig.cap</code>: allows you to add a figure caption. You can make the figure reference-able by using label{}. For example, {r, fig.cap=“\\label{graph1} graph 1”} will allow you to reference graph 1 in the text by using \ref{graph1} Then the graph number in the text will always match the graph number in the title. If creating a graph natively using ggplot2/other graphing technique, you will still want to use <code>fig.cap</code> so that the numbers automatically update correctly and you can reference the graphs in text.</p></li>
@@ -472,15 +477,15 @@ Figure 9.7: Quickly Moving
 <li><p><code>fig.align</code>: If you want your figure to be centered, left justified, or right justified.</p></li>
 </ul>
 <p>Finally, we can see that making tables becomes a painless process. The following code chunk creates a tibble to demonstrate how easy it is to make a table.</p>
-<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="file-organization.html#cb200-1" aria-hidden="true" tabindex="-1"></a>random_data<span class="ot">&lt;-</span><span class="fu">tibble</span>(<span class="at">y=</span><span class="fu">rnorm</span>(<span class="dv">100</span>,<span class="dv">0</span>,<span class="dv">1</span>),</span>
-<span id="cb200-2"><a href="file-organization.html#cb200-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">x=</span>y<span class="sc">+</span><span class="dv">4</span><span class="sc">+</span><span class="fu">rnorm</span>(<span class="dv">100</span>,<span class="dv">0</span>,<span class="dv">1</span>)</span>
-<span id="cb200-3"><a href="file-organization.html#cb200-3" aria-hidden="true" tabindex="-1"></a>                    )</span></code></pre></div>
-<p>Below, a simple regression is estimated. Using one line, the estimates are pushed to a publication-ready table as shown in Table .<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a></p>
-<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="file-organization.html#cb201-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(y<span class="sc">~</span>x,<span class="at">data =</span> random_data) <span class="sc">%&gt;%</span> </span>
-<span id="cb201-2"><a href="file-organization.html#cb201-2" aria-hidden="true" tabindex="-1"></a>  modelsummary<span class="sc">::</span><span class="fu">modelsummary</span>(<span class="at">title =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">label{table1}A Publication-Quality Table&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="file-organization.html#cb139-1" aria-hidden="true" tabindex="-1"></a>random_data<span class="ot">&lt;-</span><span class="fu">tibble</span>(<span class="at">y=</span><span class="fu">rnorm</span>(<span class="dv">100</span>,<span class="dv">0</span>,<span class="dv">1</span>),</span>
+<span id="cb139-2"><a href="file-organization.html#cb139-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">x=</span>y<span class="sc">+</span><span class="dv">4</span><span class="sc">+</span><span class="fu">rnorm</span>(<span class="dv">100</span>,<span class="dv">0</span>,<span class="dv">1</span>)</span>
+<span id="cb139-3"><a href="file-organization.html#cb139-3" aria-hidden="true" tabindex="-1"></a>                    )</span></code></pre></div>
+<p>Below, a simple regression is estimated. Using one line, the estimates are pushed to a publication-ready table as shown in Table .<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a></p>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="file-organization.html#cb140-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(y<span class="sc">~</span>x,<span class="at">data =</span> random_data) <span class="sc">%&gt;%</span> </span>
+<span id="cb140-2"><a href="file-organization.html#cb140-2" aria-hidden="true" tabindex="-1"></a>  modelsummary<span class="sc">::</span><span class="fu">modelsummary</span>(<span class="at">title =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">label{table1}A Publication-Quality Table&quot;</span>)</span></code></pre></div>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:unnamed-chunk-131">Table 9.1: </span>A Publication-Quality Table
+<span id="tab:unnamed-chunk-103">Table 8.1: </span>A Publication-Quality Table
 </caption>
 <thead>
 <tr>
@@ -497,14 +502,14 @@ Model 1
 (Intercept)
 </td>
 <td style="text-align:center;">
--2.075
+-2.348
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
 </td>
 <td style="text-align:center;">
-(0.215)
+(0.206)
 </td>
 </tr>
 <tr>
@@ -512,14 +517,14 @@ Model 1
 x
 </td>
 <td style="text-align:center;">
-0.507
+0.568
 </td>
 </tr>
 <tr>
 <td style="text-align:left;box-shadow: 0px 1px">
 </td>
 <td style="text-align:center;box-shadow: 0px 1px">
-(0.050)
+(0.051)
 </td>
 </tr>
 <tr>
@@ -535,7 +540,7 @@ Num.Obs.
 R2
 </td>
 <td style="text-align:center;">
-0.512
+0.558
 </td>
 </tr>
 <tr>
@@ -543,7 +548,7 @@ R2
 R2 Adj.
 </td>
 <td style="text-align:center;">
-0.507
+0.554
 </td>
 </tr>
 <tr>
@@ -551,7 +556,7 @@ R2 Adj.
 AIC
 </td>
 <td style="text-align:center;">
-224.1
+200.4
 </td>
 </tr>
 <tr>
@@ -559,7 +564,7 @@ AIC
 BIC
 </td>
 <td style="text-align:center;">
-231.9
+208.2
 </td>
 </tr>
 <tr>
@@ -567,7 +572,7 @@ BIC
 Log.Lik.
 </td>
 <td style="text-align:center;">
--109.041
+-97.200
 </td>
 </tr>
 <tr>
@@ -575,7 +580,7 @@ Log.Lik.
 F
 </td>
 <td style="text-align:center;">
-102.672
+123.926
 </td>
 </tr>
 </tbody>
@@ -583,29 +588,29 @@ F
 <p>With tables, you want to put the title in the table function. With graphs and images, you want to put the title in <code>fig.cap</code> at the top of the code chunk.</p>
 <div style="page-break-after: always;"></div>
 </div>
-<div id="childing" class="section level3" number="9.2.3">
-<h3><span class="header-section-number">9.2.3</span> Childing</h3>
+<div id="childing" class="section level3" number="8.2.3">
+<h3><span class="header-section-number">8.2.3</span> Childing</h3>
 <p>Research papers can be tens, if not hundreds, of pages long. No matter which compiler you choose, you will run into errors that will not let your paper compile. One way to limit this issue is to child parts of your paper into a main <code>Rmarkdown</code> file. Childing is to <code>Rmarkdown</code> as source is to <code>R</code> scripts. It allows us to tell <code>Rmarkdown</code> to go read in other <code>.Rmd</code> files. Figure  shows a general setup for a research paper using <code>Rmarkdown</code>.</p>
-<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="file-organization.html#cb202-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;images&quot;</span>, <span class="st">&quot;organization&quot;</span>,<span class="st">&quot;rmarkdown_3.png&quot;</span>))</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-132"></span>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="file-organization.html#cb141-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;images&quot;</span>, <span class="st">&quot;organization&quot;</span>,<span class="st">&quot;rmarkdown_3.png&quot;</span>))</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-104"></span>
 <img src="images/organization/rmarkdown_3.png" alt="\label{files}Rmarkdown Research Paper" width="60%" />
 <p class="caption">
-Figure 9.8: Rmarkdown Research Paper
+Figure 8.8: Rmarkdown Research Paper
 </p>
 </div>
 <p>File <code>00_klinenberg_hatepay.Rmd</code> is the master file that brings all the other files in. This is where we put our YAML information and bring the other files in. Figure  shows the beginning of the master .Rmd with the YAML collapsed form view.</p>
-<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="file-organization.html#cb203-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;images&quot;</span>, <span class="st">&quot;organization&quot;</span>,<span class="st">&quot;rmarkdown4.png&quot;</span>))</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-133"></span>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="file-organization.html#cb142-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;images&quot;</span>, <span class="st">&quot;organization&quot;</span>,<span class="st">&quot;rmarkdown4.png&quot;</span>))</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-105"></span>
 <img src="images/organization/rmarkdown4.png" alt="\label{main_rmd}Example Master Rmarkdown File" width="60%" />
 <p class="caption">
-Figure 9.9: Example Master Rmarkdown File
+Figure 8.9: Example Master Rmarkdown File
 </p>
 </div>
 <p>Notice lines 82 and 86. The <code>R</code> header has the <code>child</code> option chosen and nothing else. This means that the <code>R</code> chunk will read the file as it’s execution. If you don’t have all the files next to each other, make sure to properly specify the file path.</p>
 <p>Now, if your paper is not compiling, you do not have to go through the entire paper. You can individually load each <code>.Rmd</code> file and run it in isolation. Hence, you only need to debug 1-2 pages rather than 50.</p>
 </div>
-<div id="bibliographies" class="section level3" number="9.2.4">
-<h3><span class="header-section-number">9.2.4</span> Bibliographies</h3>
+<div id="bibliographies" class="section level3" number="8.2.4">
+<h3><span class="header-section-number">8.2.4</span> Bibliographies</h3>
 <p>You can specify where the bibliography will go by writing the following lines in a <code>Rmarkdown</code> file:</p>
 <pre><code># References {.unnumbered}
 
@@ -620,13 +625,13 @@ Figure 9.9: Example Master Rmarkdown File
     \renewcommand{\theequation}{A\arabic{table}} \setcounter{equation}{0}
     \setcounter{page}{1}</code></pre>
 </div>
-<div id="a-final-note-on-rmarkdown-visual-markdown-editor" class="section level3" number="9.2.5">
-<h3><span class="header-section-number">9.2.5</span> A Final Note on <code>Rmarkdown</code>: Visual Markdown Editor</h3>
+<div id="a-final-note-on-rmarkdown-visual-markdown-editor" class="section level3" number="8.2.5">
+<h3><span class="header-section-number">8.2.5</span> A Final Note on <code>Rmarkdown</code>: Visual Markdown Editor</h3>
 <p>A final note is the recent addition of the visual markdown editor. This is an html interface that blends the best of the Microsoft suite and Latex. You can access this by clicking the compass in the top right corner:</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-134"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-106"></span>
 <img src="images/organization/rmarkdown5.png" alt="Enter the Editor" width="60%" />
 <p class="caption">
-Figure 9.10: Enter the Editor
+Figure 8.10: Enter the Editor
 </p>
 </div>
 <p>When you enter the visual markdown editor, you should notice a few things. First, headers look like headers. Second, we now have options at the top of the toolbar. These options include bolding, italicizing and underlining. We also have the option to use the GUI interface to make bullet points and add in citations (using @). The citation feature integrates with all major citation softwares (like Zotero) and automatically creates a .bib file in the same folder as your <code>.RMD</code> file.</p>
@@ -645,10 +650,10 @@ Figure 9.10: Enter the Editor
 </div>
 <div class="footnotes">
 <hr />
-<ol start="9">
-<li id="fn9"><p><a href="https://martinctc.github.io/blog/rstudio-projects-and-working-directories-a-beginner&#39;s-guide/">This</a> is a ten minute guide that covers the basics of folder structure in <code>R</code>.<a href="file-organization.html#fnref9" class="footnote-back">↩︎</a></p></li>
-<li id="fn10"><p>Fancy math works here too: <span class="math inline">\(\mathbb{E}[Y|X]=X\beta\)</span><a href="file-organization.html#fnref10" class="footnote-back">↩︎</a></p></li>
-<li id="fn11"><p><code>modelsummary::modelsummary</code> is a very powerful tool. Please refer back to Homework 4 for a description of the tool and link to their introduction site.<a href="file-organization.html#fnref11" class="footnote-back">↩︎</a></p></li>
+<ol start="7">
+<li id="fn7"><p>The whole package is inspired by British etiquette at a tea party. They really get into it on their <a href="https://www.rostrum.blog/2019/03/04/polite-webscrape/">blogpost</a>.<a href="file-organization.html#fnref7" class="footnote-back">↩︎</a></p></li>
+<li id="fn8"><p>I’m not sure how to access the rules and it hasn’t come up as an issue yet so hopefully it’s fine?<a href="file-organization.html#fnref8" class="footnote-back">↩︎</a></p></li>
+<li id="fn9"><p>For those extra excited, we’ll be using <code>Sys.Sleep</code> at the beginning of each loop.<a href="file-organization.html#fnref9" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -656,8 +661,8 @@ Figure 9.10: Enter the Editor
           </div>
         </div>
       </div>
-<a href="strings.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="programming.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="graphics-with-ggplot2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="strings.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

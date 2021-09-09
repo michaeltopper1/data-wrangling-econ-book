@@ -107,6 +107,7 @@ The legal, ethical, and moral issues of scraping web pages are a popular topic r
 
 The Hechinger's Report created a college financial fitness report for most universities based off of the book [*College Stress Test*](https://jhupbooks.press.jhu.edu/title/college-stress-test)*.* The report shows the financial health of a school along four metrics: enrollment, retention, average tuition, and appropriations. Let's take a look at how UCSB did. The url for UCSB's financial health report is <https://tuitiontracker.org/fitness/school.html?unitid=110705>. The page looks like this (I added the green circle):
 
+
 ![UCSB Report](web_scraping_tutorial/pictures/p1.png)
 
 We're interested in getting the scores for the four stress variables. Bars filled in with red signify levels of stress. More red bars means more stress. In UCSB's case, they have no stress (yay!). However, this isn't in a format to pull directly into a tibble. Analysis is not possible...yet.

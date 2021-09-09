@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 Intro to R | Data Wrangling for Economists</title>
+  <title>Chapter 2 Intro to R | An Introduction to Web Scraping in R</title>
   <meta name="description" content="Enter description." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 Intro to R | Data Wrangling for Economists" />
+  <meta property="og:title" content="Chapter 2 Intro to R | An Introduction to Web Scraping in R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,16 +16,14 @@
   <meta name="github-repo" content="openscapes/series" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 Intro to R | Data Wrangling for Economists" />
+  <meta name="twitter:title" content="Chapter 2 Intro to R | An Introduction to Web Scraping in R" />
   
   <meta name="twitter:description" content="Enter description." />
   
 
-<meta name="author" content="Michael Topper" />
 <meta name="author" content="Danny Klinenberg" />
 
 
-<meta name="date" content="2021-09-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -34,7 +32,7 @@
   
 <link rel="prev" href="index.html"/>
 <link rel="next" href="the-rproject.html"/>
-<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -54,11 +52,11 @@
 
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
 <link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
 <script src="libs/str_view-binding-1.4.0/str_view.js"></script>
-<script src="libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -255,62 +253,69 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.4.1" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html#exercise-15"><i class="fa fa-check"></i><b>7.4.1</b> Exercise</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="strings.html"><a href="strings.html"><i class="fa fa-check"></i><b>8</b> Strings</a>
+<li class="chapter" data-level="8" data-path="file-organization.html"><a href="file-organization.html"><i class="fa fa-check"></i><b>8</b> File Organization</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="strings.html"><a href="strings.html#regular-expressions"><i class="fa fa-check"></i><b>8.1</b> Regular Expressions</a>
+<li class="chapter" data-level="8.1" data-path="file-organization.html"><a href="file-organization.html#organizing"><i class="fa fa-check"></i><b>8.1</b> Organizing</a></li>
+<li class="chapter" data-level="8.2" data-path="file-organization.html"><a href="file-organization.html#rmarkdown"><i class="fa fa-check"></i><b>8.2</b> <code>Rmarkdown</code></a>
 <ul>
-<li class="chapter" data-level="8.1.1" data-path="strings.html"><a href="strings.html#exercise-1-1"><i class="fa fa-check"></i><b>8.1.1</b> Exercise 1</a></li>
-</ul></li>
-<li class="chapter" data-level="8.2" data-path="strings.html"><a href="strings.html#regular-expressions-continued"><i class="fa fa-check"></i><b>8.2</b> Regular Expressions Continued</a>
-<ul>
-<li class="chapter" data-level="8.2.1" data-path="strings.html"><a href="strings.html#exercise-2-1"><i class="fa fa-check"></i><b>8.2.1</b> Exercise 2</a></li>
-</ul></li>
-<li class="chapter" data-level="8.3" data-path="strings.html"><a href="strings.html#using-extract"><i class="fa fa-check"></i><b>8.3</b> Using <code>extract</code></a></li>
-<li class="chapter" data-level="8.4" data-path="strings.html"><a href="strings.html#using-separate"><i class="fa fa-check"></i><b>8.4</b> Using <code>separate</code></a></li>
-<li class="chapter" data-level="8.5" data-path="strings.html"><a href="strings.html#the-gsub-function"><i class="fa fa-check"></i><b>8.5</b> The <code>gsub</code> function</a>
-<ul>
-<li class="chapter" data-level="8.5.1" data-path="strings.html"><a href="strings.html#exercise-3-1"><i class="fa fa-check"></i><b>8.5.1</b> Exercise 3</a></li>
-</ul></li>
-<li class="chapter" data-level="8.6" data-path="strings.html"><a href="strings.html#solutions"><i class="fa fa-check"></i><b>8.6</b> Solutions</a></li>
-</ul></li>
-<li class="chapter" data-level="9" data-path="file-organization.html"><a href="file-organization.html"><i class="fa fa-check"></i><b>9</b> File Organization</a>
-<ul>
-<li class="chapter" data-level="9.1" data-path="file-organization.html"><a href="file-organization.html#organizing"><i class="fa fa-check"></i><b>9.1</b> Organizing</a></li>
-<li class="chapter" data-level="9.2" data-path="file-organization.html"><a href="file-organization.html#rmarkdown"><i class="fa fa-check"></i><b>9.2</b> <code>Rmarkdown</code></a>
-<ul>
-<li class="chapter" data-level="9.2.1" data-path="file-organization.html"><a href="file-organization.html#the-anatomy-of-an-rmarkdown-file"><i class="fa fa-check"></i><b>9.2.1</b> The Anatomy of an <code>Rmarkdown</code> File</a></li>
-<li class="chapter" data-level="9.2.2" data-path="file-organization.html"><a href="file-organization.html#the-body-of-the-rmarkdown"><i class="fa fa-check"></i><b>9.2.2</b> The Body of the <code>Rmarkdown</code></a></li>
-<li class="chapter" data-level="9.2.3" data-path="file-organization.html"><a href="file-organization.html#childing"><i class="fa fa-check"></i><b>9.2.3</b> Childing</a></li>
-<li class="chapter" data-level="9.2.4" data-path="file-organization.html"><a href="file-organization.html#bibliographies"><i class="fa fa-check"></i><b>9.2.4</b> Bibliographies</a></li>
-<li class="chapter" data-level="9.2.5" data-path="file-organization.html"><a href="file-organization.html#a-final-note-on-rmarkdown-visual-markdown-editor"><i class="fa fa-check"></i><b>9.2.5</b> A Final Note on <code>Rmarkdown</code>: Visual Markdown Editor</a></li>
+<li class="chapter" data-level="8.2.1" data-path="file-organization.html"><a href="file-organization.html#the-anatomy-of-an-rmarkdown-file"><i class="fa fa-check"></i><b>8.2.1</b> The Anatomy of an <code>Rmarkdown</code> File</a></li>
+<li class="chapter" data-level="8.2.2" data-path="file-organization.html"><a href="file-organization.html#the-body-of-the-rmarkdown"><i class="fa fa-check"></i><b>8.2.2</b> The Body of the <code>Rmarkdown</code></a></li>
+<li class="chapter" data-level="8.2.3" data-path="file-organization.html"><a href="file-organization.html#childing"><i class="fa fa-check"></i><b>8.2.3</b> Childing</a></li>
+<li class="chapter" data-level="8.2.4" data-path="file-organization.html"><a href="file-organization.html#bibliographies"><i class="fa fa-check"></i><b>8.2.4</b> Bibliographies</a></li>
+<li class="chapter" data-level="8.2.5" data-path="file-organization.html"><a href="file-organization.html#a-final-note-on-rmarkdown-visual-markdown-editor"><i class="fa fa-check"></i><b>8.2.5</b> A Final Note on <code>Rmarkdown</code>: Visual Markdown Editor</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="programming.html"><a href="programming.html"><i class="fa fa-check"></i><b>10</b> Programming</a>
+<li class="chapter" data-level="9" data-path="strings.html"><a href="strings.html"><i class="fa fa-check"></i><b>9</b> Strings</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="programming.html"><a href="programming.html#functions"><i class="fa fa-check"></i><b>10.1</b> Functions</a>
+<li class="chapter" data-level="9.1" data-path="strings.html"><a href="strings.html#regular-expressions"><i class="fa fa-check"></i><b>9.1</b> Regular Expressions</a>
 <ul>
-<li class="chapter" data-level="10.1.1" data-path="programming.html"><a href="programming.html#exercise-16"><i class="fa fa-check"></i><b>10.1.1</b> Exercise</a></li>
+<li class="chapter" data-level="9.1.1" data-path="strings.html"><a href="strings.html#exercise-1-1"><i class="fa fa-check"></i><b>9.1.1</b> Exercise 1</a></li>
 </ul></li>
-<li class="chapter" data-level="10.2" data-path="programming.html"><a href="programming.html#for-loops"><i class="fa fa-check"></i><b>10.2</b> For-loops</a>
+<li class="chapter" data-level="9.2" data-path="strings.html"><a href="strings.html#regular-expressions-continued"><i class="fa fa-check"></i><b>9.2</b> Regular Expressions Continued</a>
 <ul>
-<li class="chapter" data-level="10.2.1" data-path="programming.html"><a href="programming.html#exercise-17"><i class="fa fa-check"></i><b>10.2.1</b> Exercise</a></li>
+<li class="chapter" data-level="9.2.1" data-path="strings.html"><a href="strings.html#exercise-2-1"><i class="fa fa-check"></i><b>9.2.1</b> Exercise 2</a></li>
 </ul></li>
-<li class="chapter" data-level="10.3" data-path="programming.html"><a href="programming.html#if-else"><i class="fa fa-check"></i><b>10.3</b> If-else</a>
+<li class="chapter" data-level="9.3" data-path="strings.html"><a href="strings.html#using-extract"><i class="fa fa-check"></i><b>9.3</b> Using <code>extract</code></a></li>
+<li class="chapter" data-level="9.4" data-path="strings.html"><a href="strings.html#using-separate"><i class="fa fa-check"></i><b>9.4</b> Using <code>separate</code></a></li>
+<li class="chapter" data-level="9.5" data-path="strings.html"><a href="strings.html#the-gsub-function"><i class="fa fa-check"></i><b>9.5</b> The <code>gsub</code> function</a>
 <ul>
-<li class="chapter" data-level="10.3.1" data-path="programming.html"><a href="programming.html#exercise-18"><i class="fa fa-check"></i><b>10.3.1</b> Exercise</a></li>
+<li class="chapter" data-level="9.5.1" data-path="strings.html"><a href="strings.html#exercise-3-1"><i class="fa fa-check"></i><b>9.5.1</b> Exercise 3</a></li>
 </ul></li>
-<li class="chapter" data-level="10.4" data-path="programming.html"><a href="programming.html#selected-solutions-3"><i class="fa fa-check"></i><b>10.4</b> Selected Solutions</a></li>
+<li class="chapter" data-level="9.6" data-path="strings.html"><a href="strings.html#solutions"><i class="fa fa-check"></i><b>9.6</b> Solutions</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="relational-data.html"><a href="relational-data.html"><i class="fa fa-check"></i><b>11</b> Relational Data</a>
+<li class="chapter" data-level="10" data-path="an-introduction-to-web-scraping-in-r.html"><a href="an-introduction-to-web-scraping-in-r.html"><i class="fa fa-check"></i><b>10</b> An Introduction to Web Scraping in R</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="relational-data.html"><a href="relational-data.html#finding-primary-keys"><i class="fa fa-check"></i><b>11.1</b> Finding Primary Keys</a></li>
-<li class="chapter" data-level="11.2" data-path="relational-data.html"><a href="relational-data.html#finding-primary-keys-harder"><i class="fa fa-check"></i><b>11.2</b> Finding Primary Keys (harder)</a>
-<ul>
-<li class="chapter" data-level="11.2.1" data-path="relational-data.html"><a href="relational-data.html#exercise-19"><i class="fa fa-check"></i><b>11.2.1</b> Exercise</a></li>
-<li class="chapter" data-level="11.2.2" data-path="relational-data.html"><a href="relational-data.html#exercise-20"><i class="fa fa-check"></i><b>11.2.2</b> Exercise</a></li>
-<li class="chapter" data-level="11.2.3" data-path="relational-data.html"><a href="relational-data.html#exercise-21"><i class="fa fa-check"></i><b>11.2.3</b> Exercise</a></li>
+<li class="chapter" data-level="10.1" data-path="an-introduction-to-web-scraping-in-r.html"><a href="an-introduction-to-web-scraping-in-r.html#what-is-web-scraping"><i class="fa fa-check"></i><b>10.1</b> What is Web Scraping?</a></li>
+<li class="chapter" data-level="10.2" data-path="an-introduction-to-web-scraping-in-r.html"><a href="an-introduction-to-web-scraping-in-r.html#can-i-scrape-from-this-site"><i class="fa fa-check"></i><b>10.2</b> Can I Scrape From This Site?</a></li>
+<li class="chapter" data-level="10.3" data-path="an-introduction-to-web-scraping-in-r.html"><a href="an-introduction-to-web-scraping-in-r.html#pulling-from-an-api-hechingers-report"><i class="fa fa-check"></i><b>10.3</b> Pulling from an API: Hechinger’s Report</a></li>
+<li class="chapter" data-level="10.4" data-path="an-introduction-to-web-scraping-in-r.html"><a href="an-introduction-to-web-scraping-in-r.html#web-scraping-ucsb-economics-contact-information"><i class="fa fa-check"></i><b>10.4</b> Web Scraping: UCSB Economics Contact Information</a></li>
 </ul></li>
-<li class="chapter" data-level="11.3" data-path="relational-data.html"><a href="relational-data.html#selected-solutions-4"><i class="fa fa-check"></i><b>11.3</b> Selected Solutions</a></li>
+<li class="chapter" data-level="11" data-path="programming.html"><a href="programming.html"><i class="fa fa-check"></i><b>11</b> Programming</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="programming.html"><a href="programming.html#functions"><i class="fa fa-check"></i><b>11.1</b> Functions</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="programming.html"><a href="programming.html#exercise-16"><i class="fa fa-check"></i><b>11.1.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="programming.html"><a href="programming.html#for-loops"><i class="fa fa-check"></i><b>11.2</b> For-loops</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="programming.html"><a href="programming.html#exercise-17"><i class="fa fa-check"></i><b>11.2.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="programming.html"><a href="programming.html#if-else"><i class="fa fa-check"></i><b>11.3</b> If-else</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="programming.html"><a href="programming.html#exercise-18"><i class="fa fa-check"></i><b>11.3.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="programming.html"><a href="programming.html#selected-solutions-3"><i class="fa fa-check"></i><b>11.4</b> Selected Solutions</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="relational-data.html"><a href="relational-data.html"><i class="fa fa-check"></i><b>12</b> Relational Data</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="relational-data.html"><a href="relational-data.html#finding-primary-keys"><i class="fa fa-check"></i><b>12.1</b> Finding Primary Keys</a></li>
+<li class="chapter" data-level="12.2" data-path="relational-data.html"><a href="relational-data.html#finding-primary-keys-harder"><i class="fa fa-check"></i><b>12.2</b> Finding Primary Keys (harder)</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="relational-data.html"><a href="relational-data.html#exercise-19"><i class="fa fa-check"></i><b>12.2.1</b> Exercise</a></li>
+<li class="chapter" data-level="12.2.2" data-path="relational-data.html"><a href="relational-data.html#exercise-20"><i class="fa fa-check"></i><b>12.2.2</b> Exercise</a></li>
+<li class="chapter" data-level="12.2.3" data-path="relational-data.html"><a href="relational-data.html#exercise-21"><i class="fa fa-check"></i><b>12.2.3</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="relational-data.html"><a href="relational-data.html#selected-solutions-4"><i class="fa fa-check"></i><b>12.3</b> Selected Solutions</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://bookdown.org" target="blank">Published with bookdown</a></li>
@@ -324,7 +329,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Wrangling for Economists</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">An Introduction to Web Scraping in R</a>
           </h1>
         </div>
 
@@ -352,12 +357,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2-2"><a href="intro-to-r.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="do">## remember: functions and data in the packages cannot be used unless loaded in!</span></span>
 <span id="cb2-3"><a href="intro-to-r.html#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="do">## this must be done in each R session!</span></span>
 <span id="cb2-4"><a href="intro-to-r.html#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
-<pre><code>## ── Attaching packages ───────────────────────────────────────────── tidyverse 1.3.1 ──</code></pre>
+<pre><code>## ── Attaching packages ───────────────────────────────────────── tidyverse 1.3.1 ──</code></pre>
 <pre><code>## ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
-## ✓ tibble  3.1.3     ✓ dplyr   1.0.7
+## ✓ tibble  3.1.4     ✓ dplyr   1.0.7
 ## ✓ tidyr   1.1.3     ✓ stringr 1.4.0
 ## ✓ readr   2.0.0     ✓ forcats 0.5.1</code></pre>
-<pre><code>## ── Conflicts ──────────────────────────────────────────────── tidyverse_conflicts() ──
+<pre><code>## ── Conflicts ──────────────────────────────────────────── tidyverse_conflicts() ──
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()</code></pre>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="intro-to-r.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(titanic)</span>
@@ -499,18 +504,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="intro-to-r.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="do">## previewing the data</span></span>
 <span id="cb33-2"><a href="intro-to-r.html#cb33-2" aria-hidden="true" tabindex="-1"></a>titanic</span></code></pre></div>
 <pre><code>## # A tibble: 891 × 12
-##    PassengerId Survived Pclass Name        Sex     Age SibSp Parch Ticket   Fare Cabin
-##          &lt;int&gt;    &lt;int&gt;  &lt;int&gt; &lt;chr&gt;       &lt;chr&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;
-##  1           1        0      3 Braund, Mr… male     22     1     0 A/5 21…  7.25 &quot;&quot;   
-##  2           2        1      1 Cumings, M… fema…    38     1     0 PC 175… 71.3  &quot;C85&quot;
-##  3           3        1      3 Heikkinen,… fema…    26     0     0 STON/O…  7.92 &quot;&quot;   
-##  4           4        1      1 Futrelle, … fema…    35     1     0 113803  53.1  &quot;C12…
-##  5           5        0      3 Allen, Mr.… male     35     0     0 373450   8.05 &quot;&quot;   
-##  6           6        0      3 Moran, Mr.… male     NA     0     0 330877   8.46 &quot;&quot;   
-##  7           7        0      1 McCarthy, … male     54     0     0 17463   51.9  &quot;E46&quot;
-##  8           8        0      3 Palsson, M… male      2     3     1 349909  21.1  &quot;&quot;   
-##  9           9        1      3 Johnson, M… fema…    27     0     2 347742  11.1  &quot;&quot;   
-## 10          10        1      2 Nasser, Mr… fema…    14     1     0 237736  30.1  &quot;&quot;   
+##    PassengerId Survived Pclass Name     Sex     Age SibSp Parch Ticket  Fare Cabin
+##          &lt;int&gt;    &lt;int&gt;  &lt;int&gt; &lt;chr&gt;    &lt;chr&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;
+##  1           1        0      3 Braund,… male     22     1     0 A/5 2…  7.25 &quot;&quot;   
+##  2           2        1      1 Cumings… fema…    38     1     0 PC 17… 71.3  &quot;C85&quot;
+##  3           3        1      3 Heikkin… fema…    26     0     0 STON/…  7.92 &quot;&quot;   
+##  4           4        1      1 Futrell… fema…    35     1     0 113803 53.1  &quot;C12…
+##  5           5        0      3 Allen, … male     35     0     0 373450  8.05 &quot;&quot;   
+##  6           6        0      3 Moran, … male     NA     0     0 330877  8.46 &quot;&quot;   
+##  7           7        0      1 McCarth… male     54     0     0 17463  51.9  &quot;E46&quot;
+##  8           8        0      3 Palsson… male      2     3     1 349909 21.1  &quot;&quot;   
+##  9           9        1      3 Johnson… fema…    27     0     2 347742 11.1  &quot;&quot;   
+## 10          10        1      2 Nasser,… fema…    14     1     0 237736 30.1  &quot;&quot;   
 ## # … with 881 more rows, and 1 more variable: Embarked &lt;chr&gt;</code></pre>
 <p>As you can see, we now have a helpful snapshot of our data that displays far nicer than when the <code>titanic</code> data set was a data frame: we can see multiple columns, we see only the first 10 rows, and we can see the data types of each column nested under the column names (for instance, <code>PassengerID</code> is an <code>&lt;int&gt;</code> which stands for integer).</p>
 <p>Tibbles are what we will be working with most frequently in this course. While it is generally uncommon to manually create a tibble, it is a great exercise to get a better understanding of how they work. First, we will create another two vectors and recreate our <code>first_vector</code> with its original values:</p>

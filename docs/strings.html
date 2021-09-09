@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 8 Strings | Data Wrangling for Economists</title>
+  <title>Chapter 9 Strings | An Introduction to Web Scraping in R</title>
   <meta name="description" content="Enter description." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 8 Strings | Data Wrangling for Economists" />
+  <meta property="og:title" content="Chapter 9 Strings | An Introduction to Web Scraping in R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,25 +16,23 @@
   <meta name="github-repo" content="openscapes/series" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 8 Strings | Data Wrangling for Economists" />
+  <meta name="twitter:title" content="Chapter 9 Strings | An Introduction to Web Scraping in R" />
   
   <meta name="twitter:description" content="Enter description." />
   
 
-<meta name="author" content="Michael Topper" />
 <meta name="author" content="Danny Klinenberg" />
 
 
-<meta name="date" content="2021-09-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="graphics-with-ggplot2.html"/>
-<link rel="next" href="file-organization.html"/>
-<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<link rel="prev" href="file-organization.html"/>
+<link rel="next" href="an-introduction-to-web-scraping-in-r.html"/>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -54,11 +52,11 @@
 
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
 <link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
 <script src="libs/str_view-binding-1.4.0/str_view.js"></script>
-<script src="libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -255,62 +253,69 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.4.1" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html#exercise-15"><i class="fa fa-check"></i><b>7.4.1</b> Exercise</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="strings.html"><a href="strings.html"><i class="fa fa-check"></i><b>8</b> Strings</a>
+<li class="chapter" data-level="8" data-path="file-organization.html"><a href="file-organization.html"><i class="fa fa-check"></i><b>8</b> File Organization</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="strings.html"><a href="strings.html#regular-expressions"><i class="fa fa-check"></i><b>8.1</b> Regular Expressions</a>
+<li class="chapter" data-level="8.1" data-path="file-organization.html"><a href="file-organization.html#organizing"><i class="fa fa-check"></i><b>8.1</b> Organizing</a></li>
+<li class="chapter" data-level="8.2" data-path="file-organization.html"><a href="file-organization.html#rmarkdown"><i class="fa fa-check"></i><b>8.2</b> <code>Rmarkdown</code></a>
 <ul>
-<li class="chapter" data-level="8.1.1" data-path="strings.html"><a href="strings.html#exercise-1-1"><i class="fa fa-check"></i><b>8.1.1</b> Exercise 1</a></li>
-</ul></li>
-<li class="chapter" data-level="8.2" data-path="strings.html"><a href="strings.html#regular-expressions-continued"><i class="fa fa-check"></i><b>8.2</b> Regular Expressions Continued</a>
-<ul>
-<li class="chapter" data-level="8.2.1" data-path="strings.html"><a href="strings.html#exercise-2-1"><i class="fa fa-check"></i><b>8.2.1</b> Exercise 2</a></li>
-</ul></li>
-<li class="chapter" data-level="8.3" data-path="strings.html"><a href="strings.html#using-extract"><i class="fa fa-check"></i><b>8.3</b> Using <code>extract</code></a></li>
-<li class="chapter" data-level="8.4" data-path="strings.html"><a href="strings.html#using-separate"><i class="fa fa-check"></i><b>8.4</b> Using <code>separate</code></a></li>
-<li class="chapter" data-level="8.5" data-path="strings.html"><a href="strings.html#the-gsub-function"><i class="fa fa-check"></i><b>8.5</b> The <code>gsub</code> function</a>
-<ul>
-<li class="chapter" data-level="8.5.1" data-path="strings.html"><a href="strings.html#exercise-3-1"><i class="fa fa-check"></i><b>8.5.1</b> Exercise 3</a></li>
-</ul></li>
-<li class="chapter" data-level="8.6" data-path="strings.html"><a href="strings.html#solutions"><i class="fa fa-check"></i><b>8.6</b> Solutions</a></li>
-</ul></li>
-<li class="chapter" data-level="9" data-path="file-organization.html"><a href="file-organization.html"><i class="fa fa-check"></i><b>9</b> File Organization</a>
-<ul>
-<li class="chapter" data-level="9.1" data-path="file-organization.html"><a href="file-organization.html#organizing"><i class="fa fa-check"></i><b>9.1</b> Organizing</a></li>
-<li class="chapter" data-level="9.2" data-path="file-organization.html"><a href="file-organization.html#rmarkdown"><i class="fa fa-check"></i><b>9.2</b> <code>Rmarkdown</code></a>
-<ul>
-<li class="chapter" data-level="9.2.1" data-path="file-organization.html"><a href="file-organization.html#the-anatomy-of-an-rmarkdown-file"><i class="fa fa-check"></i><b>9.2.1</b> The Anatomy of an <code>Rmarkdown</code> File</a></li>
-<li class="chapter" data-level="9.2.2" data-path="file-organization.html"><a href="file-organization.html#the-body-of-the-rmarkdown"><i class="fa fa-check"></i><b>9.2.2</b> The Body of the <code>Rmarkdown</code></a></li>
-<li class="chapter" data-level="9.2.3" data-path="file-organization.html"><a href="file-organization.html#childing"><i class="fa fa-check"></i><b>9.2.3</b> Childing</a></li>
-<li class="chapter" data-level="9.2.4" data-path="file-organization.html"><a href="file-organization.html#bibliographies"><i class="fa fa-check"></i><b>9.2.4</b> Bibliographies</a></li>
-<li class="chapter" data-level="9.2.5" data-path="file-organization.html"><a href="file-organization.html#a-final-note-on-rmarkdown-visual-markdown-editor"><i class="fa fa-check"></i><b>9.2.5</b> A Final Note on <code>Rmarkdown</code>: Visual Markdown Editor</a></li>
+<li class="chapter" data-level="8.2.1" data-path="file-organization.html"><a href="file-organization.html#the-anatomy-of-an-rmarkdown-file"><i class="fa fa-check"></i><b>8.2.1</b> The Anatomy of an <code>Rmarkdown</code> File</a></li>
+<li class="chapter" data-level="8.2.2" data-path="file-organization.html"><a href="file-organization.html#the-body-of-the-rmarkdown"><i class="fa fa-check"></i><b>8.2.2</b> The Body of the <code>Rmarkdown</code></a></li>
+<li class="chapter" data-level="8.2.3" data-path="file-organization.html"><a href="file-organization.html#childing"><i class="fa fa-check"></i><b>8.2.3</b> Childing</a></li>
+<li class="chapter" data-level="8.2.4" data-path="file-organization.html"><a href="file-organization.html#bibliographies"><i class="fa fa-check"></i><b>8.2.4</b> Bibliographies</a></li>
+<li class="chapter" data-level="8.2.5" data-path="file-organization.html"><a href="file-organization.html#a-final-note-on-rmarkdown-visual-markdown-editor"><i class="fa fa-check"></i><b>8.2.5</b> A Final Note on <code>Rmarkdown</code>: Visual Markdown Editor</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="programming.html"><a href="programming.html"><i class="fa fa-check"></i><b>10</b> Programming</a>
+<li class="chapter" data-level="9" data-path="strings.html"><a href="strings.html"><i class="fa fa-check"></i><b>9</b> Strings</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="programming.html"><a href="programming.html#functions"><i class="fa fa-check"></i><b>10.1</b> Functions</a>
+<li class="chapter" data-level="9.1" data-path="strings.html"><a href="strings.html#regular-expressions"><i class="fa fa-check"></i><b>9.1</b> Regular Expressions</a>
 <ul>
-<li class="chapter" data-level="10.1.1" data-path="programming.html"><a href="programming.html#exercise-16"><i class="fa fa-check"></i><b>10.1.1</b> Exercise</a></li>
+<li class="chapter" data-level="9.1.1" data-path="strings.html"><a href="strings.html#exercise-1-1"><i class="fa fa-check"></i><b>9.1.1</b> Exercise 1</a></li>
 </ul></li>
-<li class="chapter" data-level="10.2" data-path="programming.html"><a href="programming.html#for-loops"><i class="fa fa-check"></i><b>10.2</b> For-loops</a>
+<li class="chapter" data-level="9.2" data-path="strings.html"><a href="strings.html#regular-expressions-continued"><i class="fa fa-check"></i><b>9.2</b> Regular Expressions Continued</a>
 <ul>
-<li class="chapter" data-level="10.2.1" data-path="programming.html"><a href="programming.html#exercise-17"><i class="fa fa-check"></i><b>10.2.1</b> Exercise</a></li>
+<li class="chapter" data-level="9.2.1" data-path="strings.html"><a href="strings.html#exercise-2-1"><i class="fa fa-check"></i><b>9.2.1</b> Exercise 2</a></li>
 </ul></li>
-<li class="chapter" data-level="10.3" data-path="programming.html"><a href="programming.html#if-else"><i class="fa fa-check"></i><b>10.3</b> If-else</a>
+<li class="chapter" data-level="9.3" data-path="strings.html"><a href="strings.html#using-extract"><i class="fa fa-check"></i><b>9.3</b> Using <code>extract</code></a></li>
+<li class="chapter" data-level="9.4" data-path="strings.html"><a href="strings.html#using-separate"><i class="fa fa-check"></i><b>9.4</b> Using <code>separate</code></a></li>
+<li class="chapter" data-level="9.5" data-path="strings.html"><a href="strings.html#the-gsub-function"><i class="fa fa-check"></i><b>9.5</b> The <code>gsub</code> function</a>
 <ul>
-<li class="chapter" data-level="10.3.1" data-path="programming.html"><a href="programming.html#exercise-18"><i class="fa fa-check"></i><b>10.3.1</b> Exercise</a></li>
+<li class="chapter" data-level="9.5.1" data-path="strings.html"><a href="strings.html#exercise-3-1"><i class="fa fa-check"></i><b>9.5.1</b> Exercise 3</a></li>
 </ul></li>
-<li class="chapter" data-level="10.4" data-path="programming.html"><a href="programming.html#selected-solutions-3"><i class="fa fa-check"></i><b>10.4</b> Selected Solutions</a></li>
+<li class="chapter" data-level="9.6" data-path="strings.html"><a href="strings.html#solutions"><i class="fa fa-check"></i><b>9.6</b> Solutions</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="relational-data.html"><a href="relational-data.html"><i class="fa fa-check"></i><b>11</b> Relational Data</a>
+<li class="chapter" data-level="10" data-path="an-introduction-to-web-scraping-in-r.html"><a href="an-introduction-to-web-scraping-in-r.html"><i class="fa fa-check"></i><b>10</b> An Introduction to Web Scraping in R</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="relational-data.html"><a href="relational-data.html#finding-primary-keys"><i class="fa fa-check"></i><b>11.1</b> Finding Primary Keys</a></li>
-<li class="chapter" data-level="11.2" data-path="relational-data.html"><a href="relational-data.html#finding-primary-keys-harder"><i class="fa fa-check"></i><b>11.2</b> Finding Primary Keys (harder)</a>
-<ul>
-<li class="chapter" data-level="11.2.1" data-path="relational-data.html"><a href="relational-data.html#exercise-19"><i class="fa fa-check"></i><b>11.2.1</b> Exercise</a></li>
-<li class="chapter" data-level="11.2.2" data-path="relational-data.html"><a href="relational-data.html#exercise-20"><i class="fa fa-check"></i><b>11.2.2</b> Exercise</a></li>
-<li class="chapter" data-level="11.2.3" data-path="relational-data.html"><a href="relational-data.html#exercise-21"><i class="fa fa-check"></i><b>11.2.3</b> Exercise</a></li>
+<li class="chapter" data-level="10.1" data-path="an-introduction-to-web-scraping-in-r.html"><a href="an-introduction-to-web-scraping-in-r.html#what-is-web-scraping"><i class="fa fa-check"></i><b>10.1</b> What is Web Scraping?</a></li>
+<li class="chapter" data-level="10.2" data-path="an-introduction-to-web-scraping-in-r.html"><a href="an-introduction-to-web-scraping-in-r.html#can-i-scrape-from-this-site"><i class="fa fa-check"></i><b>10.2</b> Can I Scrape From This Site?</a></li>
+<li class="chapter" data-level="10.3" data-path="an-introduction-to-web-scraping-in-r.html"><a href="an-introduction-to-web-scraping-in-r.html#pulling-from-an-api-hechingers-report"><i class="fa fa-check"></i><b>10.3</b> Pulling from an API: Hechinger’s Report</a></li>
+<li class="chapter" data-level="10.4" data-path="an-introduction-to-web-scraping-in-r.html"><a href="an-introduction-to-web-scraping-in-r.html#web-scraping-ucsb-economics-contact-information"><i class="fa fa-check"></i><b>10.4</b> Web Scraping: UCSB Economics Contact Information</a></li>
 </ul></li>
-<li class="chapter" data-level="11.3" data-path="relational-data.html"><a href="relational-data.html#selected-solutions-4"><i class="fa fa-check"></i><b>11.3</b> Selected Solutions</a></li>
+<li class="chapter" data-level="11" data-path="programming.html"><a href="programming.html"><i class="fa fa-check"></i><b>11</b> Programming</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="programming.html"><a href="programming.html#functions"><i class="fa fa-check"></i><b>11.1</b> Functions</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="programming.html"><a href="programming.html#exercise-16"><i class="fa fa-check"></i><b>11.1.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="programming.html"><a href="programming.html#for-loops"><i class="fa fa-check"></i><b>11.2</b> For-loops</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="programming.html"><a href="programming.html#exercise-17"><i class="fa fa-check"></i><b>11.2.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="programming.html"><a href="programming.html#if-else"><i class="fa fa-check"></i><b>11.3</b> If-else</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="programming.html"><a href="programming.html#exercise-18"><i class="fa fa-check"></i><b>11.3.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="programming.html"><a href="programming.html#selected-solutions-3"><i class="fa fa-check"></i><b>11.4</b> Selected Solutions</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="relational-data.html"><a href="relational-data.html"><i class="fa fa-check"></i><b>12</b> Relational Data</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="relational-data.html"><a href="relational-data.html#finding-primary-keys"><i class="fa fa-check"></i><b>12.1</b> Finding Primary Keys</a></li>
+<li class="chapter" data-level="12.2" data-path="relational-data.html"><a href="relational-data.html#finding-primary-keys-harder"><i class="fa fa-check"></i><b>12.2</b> Finding Primary Keys (harder)</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="relational-data.html"><a href="relational-data.html#exercise-19"><i class="fa fa-check"></i><b>12.2.1</b> Exercise</a></li>
+<li class="chapter" data-level="12.2.2" data-path="relational-data.html"><a href="relational-data.html#exercise-20"><i class="fa fa-check"></i><b>12.2.2</b> Exercise</a></li>
+<li class="chapter" data-level="12.2.3" data-path="relational-data.html"><a href="relational-data.html#exercise-21"><i class="fa fa-check"></i><b>12.2.3</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="relational-data.html"><a href="relational-data.html#selected-solutions-4"><i class="fa fa-check"></i><b>12.3</b> Selected Solutions</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://bookdown.org" target="blank">Published with bookdown</a></li>
@@ -324,7 +329,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Wrangling for Economists</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">An Introduction to Web Scraping in R</a>
           </h1>
         </div>
 
@@ -332,23 +337,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="strings" class="section level1" number="8">
-<h1><span class="header-section-number">Chapter 8</span> Strings</h1>
+<div id="strings" class="section level1" number="9">
+<h1><span class="header-section-number">Chapter 9</span> Strings</h1>
 <p>For this chapter, we will once again be importing the horror movies data set from the TidyTuesday Github. This data set contains information from IMDB on various horror movies. Some important columns we will be focusing on this week:</p>
 <ul>
 <li><code>title</code>- the title of the movie</li>
 <li><code>release_date</code>- movie release date in day-month-year format</li>
 </ul>
 <p>Let’s load in the data:</p>
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="strings.html#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="do">## install the package if you do not have it</span></span>
-<span id="cb138-2"><a href="strings.html#cb138-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb138-3"><a href="strings.html#cb138-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb138-4"><a href="strings.html#cb138-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Load in the data</span></span>
-<span id="cb138-5"><a href="strings.html#cb138-5" aria-hidden="true" tabindex="-1"></a>horror_movies <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-10-22/horror_movies.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="strings.html#cb146-1" aria-hidden="true" tabindex="-1"></a><span class="do">## install the package if you do not have it</span></span>
+<span id="cb146-2"><a href="strings.html#cb146-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb146-3"><a href="strings.html#cb146-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb146-4"><a href="strings.html#cb146-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Load in the data</span></span>
+<span id="cb146-5"><a href="strings.html#cb146-5" aria-hidden="true" tabindex="-1"></a>horror_movies <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-10-22/horror_movies.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Rows: 3328 Columns: 12</code></pre>
-<pre><code>## ── Column specification ──────────────────────────────────────────────────────────────
+<pre><code>## ── Column specification ──────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
-## chr (11): title, genres, release_date, release_country, movie_rating, movie_run_ti...
+## chr (11): title, genres, release_date, release_country, movie_rating, movie_ru...
 ## dbl  (1): review_rating</code></pre>
 <pre><code>## 
 ## ℹ Use `spec()` to retrieve the full column specification for this data.
@@ -360,48 +365,48 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Using the <code>separate</code> function</li>
 </ol>
 <p>Using all of these three things together will allow you to do powerful data wrangling techniques that are valued greatly in the workforce.</p>
-<div id="regular-expressions" class="section level2" number="8.1">
-<h2><span class="header-section-number">8.1</span> Regular Expressions</h2>
+<div id="regular-expressions" class="section level2" number="9.1">
+<h2><span class="header-section-number">9.1</span> Regular Expressions</h2>
 <p>Regular expressions are a fantastic tool that will allow you to match patterns in strings. To demonstrate their value, we will start off by making a vector of strings, and use <code>str_view</code> to show how we can match patterns using regular expressions.</p>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="strings.html#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="do">## creating a vector of strings I would like to analyze</span></span>
-<span id="cb142-2"><a href="strings.html#cb142-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span>  <span class="fu">c</span>(<span class="st">&quot;Econ 145&quot;</span>, <span class="st">&quot;Hello!&quot;</span>, <span class="st">&quot;Best CLASS&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="strings.html#cb150-1" aria-hidden="true" tabindex="-1"></a><span class="do">## creating a vector of strings I would like to analyze</span></span>
+<span id="cb150-2"><a href="strings.html#cb150-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span>  <span class="fu">c</span>(<span class="st">&quot;Econ 145&quot;</span>, <span class="st">&quot;Hello!&quot;</span>, <span class="st">&quot;Best CLASS&quot;</span>)</span></code></pre></div>
 <p>Let’s see if we can match some basic patterns. Suppose I want to find the “o” in each component of the vector. I can do the following:</p>
-<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="strings.html#cb143-1" aria-hidden="true" tabindex="-1"></a><span class="do">## finding all of the o&#39;s in tthe vector x using str_view</span></span>
-<span id="cb143-2"><a href="strings.html#cb143-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="at">string =</span> x, <span class="at">pattern =</span> <span class="st">&quot;o&quot;</span>)</span></code></pre></div>
-<div id="htmlwidget-e0901051fd43495c549f" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-e0901051fd43495c549f">{"x":{"html":"<ul>\n  <li>Ec<span class='match'>o<\/span>n 145<\/li>\n  <li>Hell<span class='match'>o<\/span>!<\/li>\n  <li>Best CLASS<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="strings.html#cb151-1" aria-hidden="true" tabindex="-1"></a><span class="do">## finding all of the o&#39;s in tthe vector x using str_view</span></span>
+<span id="cb151-2"><a href="strings.html#cb151-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="at">string =</span> x, <span class="at">pattern =</span> <span class="st">&quot;o&quot;</span>)</span></code></pre></div>
+<div id="htmlwidget-dcd6859de223611bed42" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-dcd6859de223611bed42">{"x":{"html":"<ul>\n  <li>Ec<span class='match'>o<\/span>n 145<\/li>\n  <li>Hell<span class='match'>o<\/span>!<\/li>\n  <li>Best CLASS<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p>Notice that we are matching (see the highlighted text) on the pattern “o” in every element of the vector. Note that there was no “o” to match on in the last element, “Best CLASS,” so nothing was highlighted.</p>
 <p>We can take this even further by matching on a selection of numbers. Suppose we want to match the numbers “145.” We can simply type in “145” into our pattern match.</p>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="strings.html#cb144-1" aria-hidden="true" tabindex="-1"></a><span class="do">## matching on the pattern 145</span></span>
-<span id="cb144-2"><a href="strings.html#cb144-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="at">string =</span> x, <span class="at">pattern =</span> <span class="st">&quot;145&quot;</span>)</span></code></pre></div>
-<div id="htmlwidget-b63fe22d2761f572323f" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-b63fe22d2761f572323f">{"x":{"html":"<ul>\n  <li>Econ <span class='match'>145<\/span><\/li>\n  <li>Hello!<\/li>\n  <li>Best CLASS<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="strings.html#cb152-1" aria-hidden="true" tabindex="-1"></a><span class="do">## matching on the pattern 145</span></span>
+<span id="cb152-2"><a href="strings.html#cb152-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="at">string =</span> x, <span class="at">pattern =</span> <span class="st">&quot;145&quot;</span>)</span></code></pre></div>
+<div id="htmlwidget-93c8e478e826dc2a040b" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-93c8e478e826dc2a040b">{"x":{"html":"<ul>\n  <li>Econ <span class='match'>145<\/span><\/li>\n  <li>Hello!<\/li>\n  <li>Best CLASS<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p>However, these are all trivial examples. Regular expressions allow us to match on <em>patterns</em>, not just simple expressions. For example, suppose we have a vector which has multiple names of courses in the economics department:</p>
-<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="strings.html#cb145-1" aria-hidden="true" tabindex="-1"></a><span class="do">## creating a new vector with three string elements </span></span>
-<span id="cb145-2"><a href="strings.html#cb145-2" aria-hidden="true" tabindex="-1"></a>econ_classes <span class="ot">&lt;-</span>  <span class="fu">c</span>(<span class="st">&quot;Econ 145&quot;</span>, <span class="st">&quot;Econ 10A&quot;</span>, <span class="st">&quot;Econ 140A&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="strings.html#cb153-1" aria-hidden="true" tabindex="-1"></a><span class="do">## creating a new vector with three string elements </span></span>
+<span id="cb153-2"><a href="strings.html#cb153-2" aria-hidden="true" tabindex="-1"></a>econ_classes <span class="ot">&lt;-</span>  <span class="fu">c</span>(<span class="st">&quot;Econ 145&quot;</span>, <span class="st">&quot;Econ 10A&quot;</span>, <span class="st">&quot;Econ 140A&quot;</span>)</span></code></pre></div>
 <p>Now suppose I want to pattern match only the course numbers. I can do this by using a regular expression.</p>
 <ul>
 <li><code>\d</code>: the regular expression pattern that matches any digit</li>
 </ul>
 <p>Let’s see this in action.</p>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="strings.html#cb146-1" aria-hidden="true" tabindex="-1"></a><span class="do">## matching incorrectly on any digit</span></span>
-<span id="cb146-2"><a href="strings.html#cb146-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="at">string =</span> econ_classes, <span class="at">pattern =</span> <span class="st">&quot;\d&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="strings.html#cb154-1" aria-hidden="true" tabindex="-1"></a><span class="do">## matching incorrectly on any digit</span></span>
+<span id="cb154-2"><a href="strings.html#cb154-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="at">string =</span> econ_classes, <span class="at">pattern =</span> <span class="st">&quot;\d&quot;</span>)</span></code></pre></div>
 <p>The first thing you should notice when you click enter is that an error message occurs: Error: ’ is an unrecognized escape in character string starting "". We get this error message because <code>\</code> is an escape character in the R programming language. Therefore, we need to escape the escape character by using <code>\\d</code> to match on a number. This can often be annoyingly difficult to remember, but the the error message should guide you to remember this detail.</p>
-<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="strings.html#cb147-1" aria-hidden="true" tabindex="-1"></a><span class="do">## matching correctly on any digit</span></span>
-<span id="cb147-2"><a href="strings.html#cb147-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="at">string =</span> econ_classes, <span class="at">pattern =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">d&quot;</span>)</span></code></pre></div>
-<div id="htmlwidget-41921577dbbcddf682df" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-41921577dbbcddf682df">{"x":{"html":"<ul>\n  <li>Econ <span class='match'>1<\/span>45<\/li>\n  <li>Econ <span class='match'>1<\/span>0A<\/li>\n  <li>Econ <span class='match'>1<\/span>40A<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="strings.html#cb155-1" aria-hidden="true" tabindex="-1"></a><span class="do">## matching correctly on any digit</span></span>
+<span id="cb155-2"><a href="strings.html#cb155-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="at">string =</span> econ_classes, <span class="at">pattern =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">d&quot;</span>)</span></code></pre></div>
+<div id="htmlwidget-b60e84723a9220c7f4f3" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b60e84723a9220c7f4f3">{"x":{"html":"<ul>\n  <li>Econ <span class='match'>1<\/span>45<\/li>\n  <li>Econ <span class='match'>1<\/span>0A<\/li>\n  <li>Econ <span class='match'>1<\/span>40A<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p>We managed to match on a number in every single element of the vector without actually specifying we wanted a “1.” This is absolutely incredible.</p>
 <p>It is important to note that <code>\\d</code> will only match on one number, and by default, the first number it comes across in the string going from left to right. If we want to match on more numbers, we need to add in more <code>\\d</code>s. For instance, if we wanted to match on 2 digits, our pattern argument would be equal to <code>\\d\\d</code>.</p>
-<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="strings.html#cb148-1" aria-hidden="true" tabindex="-1"></a><span class="do">## matching on any two digits in each component</span></span>
-<span id="cb148-2"><a href="strings.html#cb148-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="at">string =</span> econ_classes, <span class="at">pattern =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">d</span><span class="sc">\\</span><span class="st">d&quot;</span>)</span></code></pre></div>
-<div id="htmlwidget-958e202caeeb9295c079" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-958e202caeeb9295c079">{"x":{"html":"<ul>\n  <li>Econ <span class='match'>14<\/span>5<\/li>\n  <li>Econ <span class='match'>10<\/span>A<\/li>\n  <li>Econ <span class='match'>14<\/span>0A<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="strings.html#cb156-1" aria-hidden="true" tabindex="-1"></a><span class="do">## matching on any two digits in each component</span></span>
+<span id="cb156-2"><a href="strings.html#cb156-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="at">string =</span> econ_classes, <span class="at">pattern =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">d</span><span class="sc">\\</span><span class="st">d&quot;</span>)</span></code></pre></div>
+<div id="htmlwidget-b99fe94ab90485a39d21" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b99fe94ab90485a39d21">{"x":{"html":"<ul>\n  <li>Econ <span class='match'>14<\/span>5<\/li>\n  <li>Econ <span class='match'>10<\/span>A<\/li>\n  <li>Econ <span class='match'>14<\/span>0A<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p>Let’s try to match on all of the course numbers. Notice that some course numbers have 2 digits, while others have 3. Let’s see what happens when we try to match on 3 digits.</p>
-<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="strings.html#cb149-1" aria-hidden="true" tabindex="-1"></a><span class="do">## matching on exactly three digits in each component</span></span>
-<span id="cb149-2"><a href="strings.html#cb149-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="at">string =</span> econ_classes, <span class="at">pattern =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">d</span><span class="sc">\\</span><span class="st">d</span><span class="sc">\\</span><span class="st">d&quot;</span>)</span></code></pre></div>
-<div id="htmlwidget-5c2bd5be453e6dfbff34" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-5c2bd5be453e6dfbff34">{"x":{"html":"<ul>\n  <li>Econ <span class='match'>145<\/span><\/li>\n  <li>Econ 10A<\/li>\n  <li>Econ <span class='match'>140<\/span>A<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="strings.html#cb157-1" aria-hidden="true" tabindex="-1"></a><span class="do">## matching on exactly three digits in each component</span></span>
+<span id="cb157-2"><a href="strings.html#cb157-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="at">string =</span> econ_classes, <span class="at">pattern =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">d</span><span class="sc">\\</span><span class="st">d</span><span class="sc">\\</span><span class="st">d&quot;</span>)</span></code></pre></div>
+<div id="htmlwidget-ecda247b5be1d191511e" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-ecda247b5be1d191511e">{"x":{"html":"<ul>\n  <li>Econ <span class='match'>145<\/span><\/li>\n  <li>Econ 10A<\/li>\n  <li>Econ <span class='match'>140<\/span>A<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p>We can see that we matched on <em>exactly</em> 3 digits, and failed to match on the element that only contained 2 digits. However, as you may have expected, we have ways to work around this using what we call <em>repetition patterns</em>. You can specify the number of matches you would like to make using the following:</p>
 <ul>
 <li><code>{n}</code>: matches exactly n amount of your pattern</li>
@@ -410,23 +415,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>{n,m}</code>: matches between n and m</li>
 </ul>
 <p>Hence, we can match on all the course digits by specifying how many times we would like to match the <code>\d</code> patter.</p>
-<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="strings.html#cb150-1" aria-hidden="true" tabindex="-1"></a><span class="do">##matches any digit 2 or more times</span></span>
-<span id="cb150-2"><a href="strings.html#cb150-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="at">string =</span> econ_classes, <span class="at">pattern =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">d{2,}&quot;</span>)</span></code></pre></div>
-<div id="htmlwidget-46b7291003fd0c31e0c0" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-46b7291003fd0c31e0c0">{"x":{"html":"<ul>\n  <li>Econ <span class='match'>145<\/span><\/li>\n  <li>Econ <span class='match'>10<\/span>A<\/li>\n  <li>Econ <span class='match'>140<\/span>A<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="strings.html#cb158-1" aria-hidden="true" tabindex="-1"></a><span class="do">##matches any digit 2 or more times</span></span>
+<span id="cb158-2"><a href="strings.html#cb158-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="at">string =</span> econ_classes, <span class="at">pattern =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">d{2,}&quot;</span>)</span></code></pre></div>
+<div id="htmlwidget-ba84e1ea0b2e20b47130" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-ba84e1ea0b2e20b47130">{"x":{"html":"<ul>\n  <li>Econ <span class='match'>145<\/span><\/li>\n  <li>Econ <span class='match'>10<\/span>A<\/li>\n  <li>Econ <span class='match'>140<\/span>A<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p>Success! We managed to match the <code>\d</code> pattern two or more times and have matched on the course digits. The way we would read this pattern is left to right: “match on any digit, and do this two times or more.”</p>
-<div id="exercise-1-1" class="section level3" number="8.1.1">
-<h3><span class="header-section-number">8.1.1</span> Exercise 1</h3>
+<div id="exercise-1-1" class="section level3" number="9.1.1">
+<h3><span class="header-section-number">9.1.1</span> Exercise 1</h3>
 <ul>
 <li>Find another way to match on the digits of the <code>econ_classes</code> vector.</li>
 </ul>
 </div>
 </div>
-<div id="regular-expressions-continued" class="section level2" number="8.2">
-<h2><span class="header-section-number">8.2</span> Regular Expressions Continued</h2>
+<div id="regular-expressions-continued" class="section level2" number="9.2">
+<h2><span class="header-section-number">9.2</span> Regular Expressions Continued</h2>
 <p>Let’s try matching on other types of expressions.</p>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="strings.html#cb151-1" aria-hidden="true" tabindex="-1"></a><span class="do">## creating a new vector for us to match patterns on</span></span>
-<span id="cb151-2"><a href="strings.html#cb151-2" aria-hidden="true" tabindex="-1"></a>vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;aaabbbccc&quot;</span>, <span class="st">&quot;dddAAAccc&quot;</span>, <span class="st">&quot;eib iii&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="strings.html#cb159-1" aria-hidden="true" tabindex="-1"></a><span class="do">## creating a new vector for us to match patterns on</span></span>
+<span id="cb159-2"><a href="strings.html#cb159-2" aria-hidden="true" tabindex="-1"></a>vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;aaabbbccc&quot;</span>, <span class="st">&quot;dddAAAccc&quot;</span>, <span class="st">&quot;eib iii&quot;</span>)</span></code></pre></div>
 <p>Here are a couple more useful patterns:</p>
 <ul>
 <li><code>[abc]</code>: matches exactly one time on a, b, or c. If multiple appear, it matches on the one that comes first.</li>
@@ -434,25 +439,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>\s</code>: matches any whitespace (e.g. space, tab, newline).</li>
 </ul>
 <p>We will match on the beginning letter of each of these elements in our vector.</p>
-<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="strings.html#cb152-1" aria-hidden="true" tabindex="-1"></a><span class="do">##matching on the letters a d or e</span></span>
-<span id="cb152-2"><a href="strings.html#cb152-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="at">string =</span> vector, <span class="at">pattern =</span> <span class="st">&quot;[ade]&quot;</span>)</span></code></pre></div>
-<div id="htmlwidget-fbf9a4e6ce04d7e50949" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-fbf9a4e6ce04d7e50949">{"x":{"html":"<ul>\n  <li><span class='match'>a<\/span>aabbbccc<\/li>\n  <li><span class='match'>d<\/span>ddAAAccc<\/li>\n  <li><span class='match'>e<\/span>ib iii<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
-<div id="exercise-2-1" class="section level3" number="8.2.1">
-<h3><span class="header-section-number">8.2.1</span> Exercise 2</h3>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="strings.html#cb160-1" aria-hidden="true" tabindex="-1"></a><span class="do">##matching on the letters a d or e</span></span>
+<span id="cb160-2"><a href="strings.html#cb160-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="at">string =</span> vector, <span class="at">pattern =</span> <span class="st">&quot;[ade]&quot;</span>)</span></code></pre></div>
+<div id="htmlwidget-d53cc998c905917dba38" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d53cc998c905917dba38">{"x":{"html":"<ul>\n  <li><span class='match'>a<\/span>aabbbccc<\/li>\n  <li><span class='match'>d<\/span>ddAAAccc<\/li>\n  <li><span class='match'>e<\/span>ib iii<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="exercise-2-1" class="section level3" number="9.2.1">
+<h3><span class="header-section-number">9.2.1</span> Exercise 2</h3>
 <ul>
 <li>Using the <code>vector</code> and <code>str_view</code>, match on the capital A and the whitespace.</li>
 </ul>
 </div>
 </div>
-<div id="using-extract" class="section level2" number="8.3">
-<h2><span class="header-section-number">8.3</span> Using <code>extract</code></h2>
+<div id="using-extract" class="section level2" number="9.3">
+<h2><span class="header-section-number">9.3</span> Using <code>extract</code></h2>
 <p>We will now focus on matching regular expressions within the context of tidying data. Let’s specifically focus on the <code>title</code> and <code>release_date</code> columns.</p>
-<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="strings.html#cb153-1" aria-hidden="true" tabindex="-1"></a><span class="do">## selecting only the title and release date columns in the horror movies data set</span></span>
-<span id="cb153-2"><a href="strings.html#cb153-2" aria-hidden="true" tabindex="-1"></a>horror_movies <span class="ot">&lt;-</span> horror_movies <span class="sc">%&gt;%</span> </span>
-<span id="cb153-3"><a href="strings.html#cb153-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(title, release_date)</span>
-<span id="cb153-4"><a href="strings.html#cb153-4" aria-hidden="true" tabindex="-1"></a><span class="do">## showing the head of the data set</span></span>
-<span id="cb153-5"><a href="strings.html#cb153-5" aria-hidden="true" tabindex="-1"></a>horror_movies <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="strings.html#cb161-1" aria-hidden="true" tabindex="-1"></a><span class="do">## selecting only the title and release date columns in the horror movies data set</span></span>
+<span id="cb161-2"><a href="strings.html#cb161-2" aria-hidden="true" tabindex="-1"></a>horror_movies <span class="ot">&lt;-</span> horror_movies <span class="sc">%&gt;%</span> </span>
+<span id="cb161-3"><a href="strings.html#cb161-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(title, release_date)</span>
+<span id="cb161-4"><a href="strings.html#cb161-4" aria-hidden="true" tabindex="-1"></a><span class="do">## showing the head of the data set</span></span>
+<span id="cb161-5"><a href="strings.html#cb161-5" aria-hidden="true" tabindex="-1"></a>horror_movies <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 2
 ##   title                               release_date
 ##   &lt;chr&gt;                               &lt;chr&gt;       
@@ -464,9 +469,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 6 In Extremis (2017)                  2017</code></pre>
 <p>Notice that it looks like each movie title is followed by a whitespace, and then a parenthesis with the movie release year inside of it. For the purposes of explaining <code>extract</code>, we will focus on extracting the dates from the <code>title</code> column.</p>
 <p>The <code>extract</code> function extracts information you want from a column and puts it into a column of your choice. The specific arguments it has are col, into, and regex. These correspond to the column you want to extract an expression from, the column name you are going to send your extracted expression into, and the regular expression pattern you want to extract respectively.</p>
-<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="strings.html#cb155-1" aria-hidden="true" tabindex="-1"></a><span class="do">## extracting the year from the </span></span>
-<span id="cb155-2"><a href="strings.html#cb155-2" aria-hidden="true" tabindex="-1"></a>horror_movies <span class="sc">%&gt;%</span> </span>
-<span id="cb155-3"><a href="strings.html#cb155-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">extract</span>(<span class="at">col =</span> title, <span class="at">into =</span> <span class="st">&quot;year&quot;</span>, <span class="at">regex =</span> <span class="st">&quot;(</span><span class="sc">\\</span><span class="st">d</span><span class="sc">\\</span><span class="st">d</span><span class="sc">\\</span><span class="st">d</span><span class="sc">\\</span><span class="st">d)&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="strings.html#cb163-1" aria-hidden="true" tabindex="-1"></a><span class="do">## extracting the year from the </span></span>
+<span id="cb163-2"><a href="strings.html#cb163-2" aria-hidden="true" tabindex="-1"></a>horror_movies <span class="sc">%&gt;%</span> </span>
+<span id="cb163-3"><a href="strings.html#cb163-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">extract</span>(<span class="at">col =</span> title, <span class="at">into =</span> <span class="st">&quot;year&quot;</span>, <span class="at">regex =</span> <span class="st">&quot;(</span><span class="sc">\\</span><span class="st">d</span><span class="sc">\\</span><span class="st">d</span><span class="sc">\\</span><span class="st">d</span><span class="sc">\\</span><span class="st">d)&quot;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 3,328 × 2
 ##    year  release_date
 ##    &lt;chr&gt; &lt;chr&gt;       
@@ -482,13 +487,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 10 2016  7-Oct-16    
 ## # … with 3,318 more rows</code></pre>
 <p>It is important to note that we <strong>need to put parenthesis</strong> around the pattern that we want to match in our <code>regex</code> argument for the match to work. Observe what happens when we do not:</p>
-<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="strings.html#cb157-1" aria-hidden="true" tabindex="-1"></a><span class="do">## code does not work because no parenthesis around the regex expression</span></span>
-<span id="cb157-2"><a href="strings.html#cb157-2" aria-hidden="true" tabindex="-1"></a>horror_movies <span class="sc">%&gt;%</span> </span>
-<span id="cb157-3"><a href="strings.html#cb157-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">extract</span>(<span class="at">col =</span> title, <span class="at">into =</span> <span class="st">&quot;year&quot;</span>, <span class="at">regex =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">d</span><span class="sc">\\</span><span class="st">d</span><span class="sc">\\</span><span class="st">d</span><span class="sc">\\</span><span class="st">d&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="strings.html#cb165-1" aria-hidden="true" tabindex="-1"></a><span class="do">## code does not work because no parenthesis around the regex expression</span></span>
+<span id="cb165-2"><a href="strings.html#cb165-2" aria-hidden="true" tabindex="-1"></a>horror_movies <span class="sc">%&gt;%</span> </span>
+<span id="cb165-3"><a href="strings.html#cb165-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">extract</span>(<span class="at">col =</span> title, <span class="at">into =</span> <span class="st">&quot;year&quot;</span>, <span class="at">regex =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">d</span><span class="sc">\\</span><span class="st">d</span><span class="sc">\\</span><span class="st">d</span><span class="sc">\\</span><span class="st">d&quot;</span>)</span></code></pre></div>
 <p>This is because the parenthesis define a group of patterns that you want to match. Everything inside your parenthesis is a group. For the purposes of this class, we will only be extracting 1 group, as extracting more than one group gets very complicated.</p>
-<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="strings.html#cb158-1" aria-hidden="true" tabindex="-1"></a><span class="do">## the correct code: works because we put parenthesis around the regex expression</span></span>
-<span id="cb158-2"><a href="strings.html#cb158-2" aria-hidden="true" tabindex="-1"></a>horror_movies <span class="sc">%&gt;%</span> </span>
-<span id="cb158-3"><a href="strings.html#cb158-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">extract</span>(<span class="at">col =</span> title, <span class="at">into =</span> <span class="st">&quot;year&quot;</span>, <span class="at">regex =</span> <span class="st">&quot;(</span><span class="sc">\\</span><span class="st">d</span><span class="sc">\\</span><span class="st">d</span><span class="sc">\\</span><span class="st">d</span><span class="sc">\\</span><span class="st">d)&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="strings.html#cb166-1" aria-hidden="true" tabindex="-1"></a><span class="do">## the correct code: works because we put parenthesis around the regex expression</span></span>
+<span id="cb166-2"><a href="strings.html#cb166-2" aria-hidden="true" tabindex="-1"></a>horror_movies <span class="sc">%&gt;%</span> </span>
+<span id="cb166-3"><a href="strings.html#cb166-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">extract</span>(<span class="at">col =</span> title, <span class="at">into =</span> <span class="st">&quot;year&quot;</span>, <span class="at">regex =</span> <span class="st">&quot;(</span><span class="sc">\\</span><span class="st">d</span><span class="sc">\\</span><span class="st">d</span><span class="sc">\\</span><span class="st">d</span><span class="sc">\\</span><span class="st">d)&quot;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 3,328 × 2
 ##    year  release_date
 ##    &lt;chr&gt; &lt;chr&gt;       
@@ -504,9 +509,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 10 2016  7-Oct-16    
 ## # … with 3,318 more rows</code></pre>
 <p>Notice when we ran the previous correct code, our <code>title</code> column disappeared. This is because by default, the extract function deletes the original column. To avoid this, we can set the <code>remove</code> argument to <code>FALSE</code>.</p>
-<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="strings.html#cb160-1" aria-hidden="true" tabindex="-1"></a><span class="do">## the correct code: works because we put parenthesis around the regex expression</span></span>
-<span id="cb160-2"><a href="strings.html#cb160-2" aria-hidden="true" tabindex="-1"></a>horror_movies <span class="sc">%&gt;%</span> </span>
-<span id="cb160-3"><a href="strings.html#cb160-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">extract</span>(<span class="at">col =</span> title, <span class="at">into =</span> <span class="st">&quot;year&quot;</span>, <span class="at">regex =</span> <span class="st">&quot;(</span><span class="sc">\\</span><span class="st">d</span><span class="sc">\\</span><span class="st">d</span><span class="sc">\\</span><span class="st">d</span><span class="sc">\\</span><span class="st">d)&quot;</span>, <span class="at">remove =</span> F)</span></code></pre></div>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="strings.html#cb168-1" aria-hidden="true" tabindex="-1"></a><span class="do">## the correct code: works because we put parenthesis around the regex expression</span></span>
+<span id="cb168-2"><a href="strings.html#cb168-2" aria-hidden="true" tabindex="-1"></a>horror_movies <span class="sc">%&gt;%</span> </span>
+<span id="cb168-3"><a href="strings.html#cb168-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">extract</span>(<span class="at">col =</span> title, <span class="at">into =</span> <span class="st">&quot;year&quot;</span>, <span class="at">regex =</span> <span class="st">&quot;(</span><span class="sc">\\</span><span class="st">d</span><span class="sc">\\</span><span class="st">d</span><span class="sc">\\</span><span class="st">d</span><span class="sc">\\</span><span class="st">d)&quot;</span>, <span class="at">remove =</span> F)</span></code></pre></div>
 <pre><code>## # A tibble: 3,328 × 3
 ##    title                               year  release_date
 ##    &lt;chr&gt;                               &lt;chr&gt; &lt;chr&gt;       
@@ -522,13 +527,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 10 Tutak Tutak Tutiya (2016)           2016  7-Oct-16    
 ## # … with 3,318 more rows</code></pre>
 </div>
-<div id="using-separate" class="section level2" number="8.4">
-<h2><span class="header-section-number">8.4</span> Using <code>separate</code></h2>
+<div id="using-separate" class="section level2" number="9.4">
+<h2><span class="header-section-number">9.4</span> Using <code>separate</code></h2>
 <p>The <code>separate</code> function will split a column into multiple columns based on a regular expression. You can think of separate as a way to split with a more complicated delimiter (a delimiter is a character that separates values). For starters, we will separate once again look at the <code>title</code> column in the horror movies data. Recall that the <code>title</code> column is organized as the movie title, followed by a blank space and then the year of release in parenthesis. We will take advantage of this unique organization and separate our <code>title</code> column into two columns: <code>title</code> which will have the title of the movie, and <code>year</code> which will have the release year. While this will take multiple steps to get into a perfectly cleaned data set, we can utilize our piping procedures to make it relatively straightforward.</p>
 <p>First, let’s separate the column based on the first parenthesis that we see.</p>
-<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="strings.html#cb162-1" aria-hidden="true" tabindex="-1"></a><span class="do">## separating on the first parenthesis in the title column</span></span>
-<span id="cb162-2"><a href="strings.html#cb162-2" aria-hidden="true" tabindex="-1"></a>horror_movies <span class="sc">%&gt;%</span> </span>
-<span id="cb162-3"><a href="strings.html#cb162-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(<span class="at">col =</span> title, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;title&quot;</span>,<span class="st">&quot;year&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">(&quot;</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="strings.html#cb170-1" aria-hidden="true" tabindex="-1"></a><span class="do">## separating on the first parenthesis in the title column</span></span>
+<span id="cb170-2"><a href="strings.html#cb170-2" aria-hidden="true" tabindex="-1"></a>horror_movies <span class="sc">%&gt;%</span> </span>
+<span id="cb170-3"><a href="strings.html#cb170-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(<span class="at">col =</span> title, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;title&quot;</span>,<span class="st">&quot;year&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">(&quot;</span>) </span></code></pre></div>
 <pre><code>## Warning: Expected 2 pieces. Additional pieces discarded in 7 rows [691, 928, 1289,
 ## 2086, 2130, 2545, 3262].</code></pre>
 <pre><code>## Warning: Expected 2 pieces. Missing pieces filled with `NA` in 1 rows [932].</code></pre>
@@ -554,54 +559,54 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <p>First and foremost, we will take a second to review what a warning message is.</p>
 <p><strong>Warning message:</strong> These are messages that tell you that your R code was able to execute, but in the process, R decided to do something that you did not tell it to. It is <strong>extremely</strong> important that you Google warning messages, as your data could be manipulated by R in ways you really did not want. Let’s look at our two warning messages in depth:</p>
-<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="strings.html#cb166-1" aria-hidden="true" tabindex="-1"></a>Warning messages<span class="sc">:</span></span>
-<span id="cb166-2"><a href="strings.html#cb166-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span> Expected <span class="dv">2</span> pieces. Additional pieces discarded <span class="cf">in</span> <span class="dv">7</span> rows [<span class="dv">691</span>, <span class="dv">928</span>, <span class="dv">1289</span>, <span class="dv">2086</span>, <span class="dv">2130</span>, <span class="dv">2545</span>, <span class="dv">3262</span>]. </span>
-<span id="cb166-3"><a href="strings.html#cb166-3" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="sc">:</span> Expected <span class="dv">2</span> pieces. Missing pieces filled with <span class="st">`</span><span class="at">NA</span><span class="st">`</span> <span class="cf">in</span> <span class="dv">1</span> rows [<span class="dv">932</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="strings.html#cb174-1" aria-hidden="true" tabindex="-1"></a>Warning messages<span class="sc">:</span></span>
+<span id="cb174-2"><a href="strings.html#cb174-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span> Expected <span class="dv">2</span> pieces. Additional pieces discarded <span class="cf">in</span> <span class="dv">7</span> rows [<span class="dv">691</span>, <span class="dv">928</span>, <span class="dv">1289</span>, <span class="dv">2086</span>, <span class="dv">2130</span>, <span class="dv">2545</span>, <span class="dv">3262</span>]. </span>
+<span id="cb174-3"><a href="strings.html#cb174-3" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="sc">:</span> Expected <span class="dv">2</span> pieces. Missing pieces filled with <span class="st">`</span><span class="at">NA</span><span class="st">`</span> <span class="cf">in</span> <span class="dv">1</span> rows [<span class="dv">932</span>]</span></code></pre></div>
 <p>The first warning message is telling us that R expected 2 pieces, and then discarded additional pieces in 7 rows. While this does not make much sense at first sight, it gives us the rows which it performed this process. The best practice is to investigate these rows to get a better idea of what is happening.</p>
-<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="strings.html#cb167-1" aria-hidden="true" tabindex="-1"></a><span class="do">## investigating a couple of the rows that caused the warning message</span></span>
-<span id="cb167-2"><a href="strings.html#cb167-2" aria-hidden="true" tabindex="-1"></a>horror_movies<span class="sc">$</span>title[<span class="dv">691</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="strings.html#cb175-1" aria-hidden="true" tabindex="-1"></a><span class="do">## investigating a couple of the rows that caused the warning message</span></span>
+<span id="cb175-2"><a href="strings.html#cb175-2" aria-hidden="true" tabindex="-1"></a>horror_movies<span class="sc">$</span>title[<span class="dv">691</span>]</span></code></pre></div>
 <pre><code>## [1] &quot;ErOddity(s) 2 (2015)&quot;</code></pre>
-<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="strings.html#cb169-1" aria-hidden="true" tabindex="-1"></a>horror_movies<span class="sc">$</span>title[<span class="dv">928</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="strings.html#cb177-1" aria-hidden="true" tabindex="-1"></a>horror_movies<span class="sc">$</span>title[<span class="dv">928</span>]</span></code></pre></div>
 <pre><code>## [1] &quot;Truth or Double Dare (TODD) (2017)&quot;</code></pre>
-<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="strings.html#cb171-1" aria-hidden="true" tabindex="-1"></a>horror_movies<span class="sc">$</span>title[<span class="dv">1289</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="strings.html#cb179-1" aria-hidden="true" tabindex="-1"></a>horror_movies<span class="sc">$</span>title[<span class="dv">1289</span>]</span></code></pre></div>
 <pre><code>## [1] &quot;Hi-8 (Horror Independent 8) (2013)&quot;</code></pre>
 <p>By now you should see a problem: each of these warning rows have a parenthesis in the title name! This means that R is separating based on our parenthesis, but since there are multiple parenthesis, it is separating multiple times. Therefore, it is discarding the extra separated piece in each row. Generally, you want to make sure R is not throwing away any important information. You could check this yourself by saving this as a new tibble, and investigating the rows. Hence, we will create a new tibble for demonstration purposes.</p>
-<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="strings.html#cb173-1" aria-hidden="true" tabindex="-1"></a><span class="do">## performing the same task but saving it in a new tibble</span></span>
-<span id="cb173-2"><a href="strings.html#cb173-2" aria-hidden="true" tabindex="-1"></a>investigate_horror_movies <span class="ot">&lt;-</span> horror_movies <span class="sc">%&gt;%</span> </span>
-<span id="cb173-3"><a href="strings.html#cb173-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(<span class="at">col =</span> title, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;title&quot;</span>,<span class="st">&quot;year&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">(&quot;</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="strings.html#cb181-1" aria-hidden="true" tabindex="-1"></a><span class="do">## performing the same task but saving it in a new tibble</span></span>
+<span id="cb181-2"><a href="strings.html#cb181-2" aria-hidden="true" tabindex="-1"></a>investigate_horror_movies <span class="ot">&lt;-</span> horror_movies <span class="sc">%&gt;%</span> </span>
+<span id="cb181-3"><a href="strings.html#cb181-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(<span class="at">col =</span> title, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;title&quot;</span>,<span class="st">&quot;year&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">(&quot;</span>) </span></code></pre></div>
 <pre><code>## Warning: Expected 2 pieces. Additional pieces discarded in 7 rows [691, 928, 1289,
 ## 2086, 2130, 2545, 3262].</code></pre>
 <pre><code>## Warning: Expected 2 pieces. Missing pieces filled with `NA` in 1 rows [932].</code></pre>
-<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="strings.html#cb176-1" aria-hidden="true" tabindex="-1"></a><span class="do">## investigating the 691th row of the saved tibble</span></span>
-<span id="cb176-2"><a href="strings.html#cb176-2" aria-hidden="true" tabindex="-1"></a>investigate_horror_movies[<span class="dv">691</span>,]</span></code></pre></div>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="strings.html#cb184-1" aria-hidden="true" tabindex="-1"></a><span class="do">## investigating the 691th row of the saved tibble</span></span>
+<span id="cb184-2"><a href="strings.html#cb184-2" aria-hidden="true" tabindex="-1"></a>investigate_horror_movies[<span class="dv">691</span>,]</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 3
 ##   title    year    release_date
 ##   &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;       
 ## 1 ErOddity &quot;s) 2 &quot; 24-Nov-15</code></pre>
-<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="strings.html#cb178-1" aria-hidden="true" tabindex="-1"></a><span class="do">## investigating the 928th row of the saved tibble </span></span>
-<span id="cb178-2"><a href="strings.html#cb178-2" aria-hidden="true" tabindex="-1"></a>investigate_horror_movies[<span class="dv">928</span>,]</span></code></pre></div>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="strings.html#cb186-1" aria-hidden="true" tabindex="-1"></a><span class="do">## investigating the 928th row of the saved tibble </span></span>
+<span id="cb186-2"><a href="strings.html#cb186-2" aria-hidden="true" tabindex="-1"></a>investigate_horror_movies[<span class="dv">928</span>,]</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 3
 ##   title                   year     release_date
 ##   &lt;chr&gt;                   &lt;chr&gt;    &lt;chr&gt;       
 ## 1 &quot;Truth or Double Dare &quot; &quot;TODD) &quot; 30-Oct-17</code></pre>
 <p>Clearly, this isn’t giving us our desired result for the 7 rows that were causing this issue. While we will ignore this for the purpose of this exercise, you want to be very aware of what is happening to your data.</p>
 <p>Next, let’s investigate the second warning message: Expected 2 pieces. Missing pieces filled with <code>NA</code> in 1 rows [932]. It seems as though R filled a missing piece of information in our row 932. Let’s take a closer look:</p>
-<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="strings.html#cb180-1" aria-hidden="true" tabindex="-1"></a><span class="do">## investigating what happened in row 932</span></span>
-<span id="cb180-2"><a href="strings.html#cb180-2" aria-hidden="true" tabindex="-1"></a><span class="do">## checking the title column first in our original data</span></span>
-<span id="cb180-3"><a href="strings.html#cb180-3" aria-hidden="true" tabindex="-1"></a>horror_movies<span class="sc">$</span>title[<span class="dv">932</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="strings.html#cb188-1" aria-hidden="true" tabindex="-1"></a><span class="do">## investigating what happened in row 932</span></span>
+<span id="cb188-2"><a href="strings.html#cb188-2" aria-hidden="true" tabindex="-1"></a><span class="do">## checking the title column first in our original data</span></span>
+<span id="cb188-3"><a href="strings.html#cb188-3" aria-hidden="true" tabindex="-1"></a>horror_movies<span class="sc">$</span>title[<span class="dv">932</span>]</span></code></pre></div>
 <pre><code>## [1] &quot;American Exorcist&quot;</code></pre>
-<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="strings.html#cb182-1" aria-hidden="true" tabindex="-1"></a><span class="do">## look what happened to our data in row 932</span></span>
-<span id="cb182-2"><a href="strings.html#cb182-2" aria-hidden="true" tabindex="-1"></a>investigate_horror_movies[<span class="dv">932</span>,]</span></code></pre></div>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="strings.html#cb190-1" aria-hidden="true" tabindex="-1"></a><span class="do">## look what happened to our data in row 932</span></span>
+<span id="cb190-2"><a href="strings.html#cb190-2" aria-hidden="true" tabindex="-1"></a>investigate_horror_movies[<span class="dv">932</span>,]</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 3
 ##   title             year  release_date
 ##   &lt;chr&gt;             &lt;chr&gt; &lt;chr&gt;       
 ## 1 American Exorcist &lt;NA&gt;  2017</code></pre>
 <p>Clearly we missed something: not all the movies have the same format of MOVIE TITLE (YEAR). It appears that the movie “American Exorcist” in row 932 did not have a date attached to it. Therefore, when we tried to separate by parenthesis, R was unable to perform this task and replaced the value with NA. In our case, this wouldn’t have affected our analysis since there was no date attached to it, but we would want to find another way to extract the date from another column. However, as before, we will ignore this warning message since fixing it will take a lot of time in effort. It is important to realize that <strong>you must read and investigate warning messages</strong> since R constantly performs operations on your data that may not be exactly what you intend.</p>
 <p>Moving on, let’s start solving our second task: getting rid of the extra parenthesis in the <code>year</code> column. Recall, we can actually use the <code>extract</code> function here to remove the final parenthesis. We can do this all in one step using a pipe.</p>
-<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="strings.html#cb184-1" aria-hidden="true" tabindex="-1"></a><span class="do">## separating on the first parenthesis in the title column and then extracting the four numbers for date</span></span>
-<span id="cb184-2"><a href="strings.html#cb184-2" aria-hidden="true" tabindex="-1"></a>horror_movies <span class="sc">%&gt;%</span> </span>
-<span id="cb184-3"><a href="strings.html#cb184-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(<span class="at">col =</span> title, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;title&quot;</span>,<span class="st">&quot;year&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">(&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb184-4"><a href="strings.html#cb184-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">extract</span>(<span class="at">col =</span> year, <span class="at">into =</span> <span class="st">&quot;year&quot;</span>, <span class="at">regex =</span> <span class="st">&quot;(</span><span class="sc">\\</span><span class="st">d</span><span class="sc">\\</span><span class="st">d</span><span class="sc">\\</span><span class="st">d</span><span class="sc">\\</span><span class="st">d)&quot;</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="strings.html#cb192-1" aria-hidden="true" tabindex="-1"></a><span class="do">## separating on the first parenthesis in the title column and then extracting the four numbers for date</span></span>
+<span id="cb192-2"><a href="strings.html#cb192-2" aria-hidden="true" tabindex="-1"></a>horror_movies <span class="sc">%&gt;%</span> </span>
+<span id="cb192-3"><a href="strings.html#cb192-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(<span class="at">col =</span> title, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;title&quot;</span>,<span class="st">&quot;year&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">(&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb192-4"><a href="strings.html#cb192-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">extract</span>(<span class="at">col =</span> year, <span class="at">into =</span> <span class="st">&quot;year&quot;</span>, <span class="at">regex =</span> <span class="st">&quot;(</span><span class="sc">\\</span><span class="st">d</span><span class="sc">\\</span><span class="st">d</span><span class="sc">\\</span><span class="st">d</span><span class="sc">\\</span><span class="st">d)&quot;</span>) </span></code></pre></div>
 <pre><code>## Warning: Expected 2 pieces. Additional pieces discarded in 7 rows [691, 928, 1289,
 ## 2086, 2130, 2545, 3262].</code></pre>
 <pre><code>## Warning: Expected 2 pieces. Missing pieces filled with `NA` in 1 rows [932].</code></pre>
@@ -620,12 +625,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 10 &quot;Tutak Tutak Tutiya &quot;           2016  7-Oct-16    
 ## # … with 3,318 more rows</code></pre>
 <p>Finally, let’s satisfy (2) and get rid of the whitespace that is at the end of our <code>title</code> column. Luckily, the <code>stringr</code> package has a pre-programmed function called <code>stringr::str_trim</code> that will trim the whitespace off the end of our column. Now we can perform the entire cleaning of the <code>title</code> column in one piping procedure:</p>
-<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="strings.html#cb188-1" aria-hidden="true" tabindex="-1"></a><span class="do">## separating on the first parenthesis in the title column and then extracting the four numbers for date</span></span>
-<span id="cb188-2"><a href="strings.html#cb188-2" aria-hidden="true" tabindex="-1"></a><span class="do">## and then removing the whitespace that is left over</span></span>
-<span id="cb188-3"><a href="strings.html#cb188-3" aria-hidden="true" tabindex="-1"></a>horror_movies <span class="sc">%&gt;%</span> </span>
-<span id="cb188-4"><a href="strings.html#cb188-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(<span class="at">col =</span> title, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;title&quot;</span>,<span class="st">&quot;year&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">(&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb188-5"><a href="strings.html#cb188-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">extract</span>(<span class="at">col =</span> year, <span class="at">into =</span> <span class="st">&quot;year&quot;</span>, <span class="at">regex =</span> <span class="st">&quot;(</span><span class="sc">\\</span><span class="st">d</span><span class="sc">\\</span><span class="st">d</span><span class="sc">\\</span><span class="st">d</span><span class="sc">\\</span><span class="st">d)&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb188-6"><a href="strings.html#cb188-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">title =</span> <span class="fu">str_trim</span>(title))</span></code></pre></div>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="strings.html#cb196-1" aria-hidden="true" tabindex="-1"></a><span class="do">## separating on the first parenthesis in the title column and then extracting the four numbers for date</span></span>
+<span id="cb196-2"><a href="strings.html#cb196-2" aria-hidden="true" tabindex="-1"></a><span class="do">## and then removing the whitespace that is left over</span></span>
+<span id="cb196-3"><a href="strings.html#cb196-3" aria-hidden="true" tabindex="-1"></a>horror_movies <span class="sc">%&gt;%</span> </span>
+<span id="cb196-4"><a href="strings.html#cb196-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(<span class="at">col =</span> title, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;title&quot;</span>,<span class="st">&quot;year&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">(&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb196-5"><a href="strings.html#cb196-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">extract</span>(<span class="at">col =</span> year, <span class="at">into =</span> <span class="st">&quot;year&quot;</span>, <span class="at">regex =</span> <span class="st">&quot;(</span><span class="sc">\\</span><span class="st">d</span><span class="sc">\\</span><span class="st">d</span><span class="sc">\\</span><span class="st">d</span><span class="sc">\\</span><span class="st">d)&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb196-6"><a href="strings.html#cb196-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">title =</span> <span class="fu">str_trim</span>(title))</span></code></pre></div>
 <pre><code>## Warning: Expected 2 pieces. Additional pieces discarded in 7 rows [691, 928, 1289,
 ## 2086, 2130, 2545, 3262].</code></pre>
 <pre><code>## Warning: Expected 2 pieces. Missing pieces filled with `NA` in 1 rows [932].</code></pre>
@@ -644,33 +649,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 10 Tutak Tutak Tutiya           2016  7-Oct-16    
 ## # … with 3,318 more rows</code></pre>
 </div>
-<div id="the-gsub-function" class="section level2" number="8.5">
-<h2><span class="header-section-number">8.5</span> The <code>gsub</code> function</h2>
+<div id="the-gsub-function" class="section level2" number="9.5">
+<h2><span class="header-section-number">9.5</span> The <code>gsub</code> function</h2>
 <p>Many times, we want to simply replace simple patterns in columns of data sets. The <code>stringr::str_replace</code> function is a simple way to take expressions within variables and substitute them with a different result. Let’s create a vector of values to demonstrate.</p>
-<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="strings.html#cb192-1" aria-hidden="true" tabindex="-1"></a><span class="do">## creating a vector to demonstrate gsub</span></span>
-<span id="cb192-2"><a href="strings.html#cb192-2" aria-hidden="true" tabindex="-1"></a>money <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;$100&quot;</span>, <span class="st">&quot;$150&quot;</span>, <span class="st">&quot;$200&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="strings.html#cb200-1" aria-hidden="true" tabindex="-1"></a><span class="do">## creating a vector to demonstrate gsub</span></span>
+<span id="cb200-2"><a href="strings.html#cb200-2" aria-hidden="true" tabindex="-1"></a>money <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;$100&quot;</span>, <span class="st">&quot;$150&quot;</span>, <span class="st">&quot;$200&quot;</span>)</span></code></pre></div>
 <p>A common use of <code>gsub</code> is to get rid of dollar signs in columns that have monetary values. Omitting the dollar sign is essential if you want to perform any type of summary statistic.</p>
 <p>The three arguments in the <code>stringr::str_replace</code> function that we are concerned with are the <code>pattern</code>, <code>replacement</code>, and <code>string</code> arguments. The <code>pattern</code> argument is the regular expression we want to find in our vector, and the <code>replacement</code> argument is what we would like to replace the regular expression with. The <code>string</code> argument is the vector you want to perform the <code>stringr::str_replace</code> function on.</p>
-<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="strings.html#cb193-1" aria-hidden="true" tabindex="-1"></a><span class="do">## the gsub function attempting (but unsuccessfully) trying to replace the $ with nothing</span></span>
-<span id="cb193-2"><a href="strings.html#cb193-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_replace</span>(money, <span class="st">&quot;</span><span class="sc">\\</span><span class="st">$&quot;</span>, <span class="st">&quot;&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="strings.html#cb201-1" aria-hidden="true" tabindex="-1"></a><span class="do">## the gsub function attempting (but unsuccessfully) trying to replace the $ with nothing</span></span>
+<span id="cb201-2"><a href="strings.html#cb201-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_replace</span>(money, <span class="st">&quot;</span><span class="sc">\\</span><span class="st">$&quot;</span>, <span class="st">&quot;&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;100&quot; &quot;150&quot; &quot;200&quot;</code></pre>
 <p>Notice that we had to once again, use the escape characters since the dollar sign is a special characer.</p>
-<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="strings.html#cb195-1" aria-hidden="true" tabindex="-1"></a><span class="do">## successfully replacing the $ with nothing</span></span>
-<span id="cb195-2"><a href="strings.html#cb195-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_replace</span>(money, <span class="st">&quot;</span><span class="sc">\\</span><span class="st">$&quot;</span>, <span class="st">&quot;&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="strings.html#cb203-1" aria-hidden="true" tabindex="-1"></a><span class="do">## successfully replacing the $ with nothing</span></span>
+<span id="cb203-2"><a href="strings.html#cb203-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_replace</span>(money, <span class="st">&quot;</span><span class="sc">\\</span><span class="st">$&quot;</span>, <span class="st">&quot;&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;100&quot; &quot;150&quot; &quot;200&quot;</code></pre>
-<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="strings.html#cb197-1" aria-hidden="true" tabindex="-1"></a><span class="do">## saving this new result</span></span>
-<span id="cb197-2"><a href="strings.html#cb197-2" aria-hidden="true" tabindex="-1"></a>money <span class="ot">&lt;-</span> <span class="fu">str_replace</span>(money, <span class="st">&quot;</span><span class="sc">\\</span><span class="st">$&quot;</span>, <span class="st">&quot;&quot;</span>)</span></code></pre></div>
-<div id="exercise-3-1" class="section level3" number="8.5.1">
-<h3><span class="header-section-number">8.5.1</span> Exercise 3</h3>
-<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="strings.html#cb198-1" aria-hidden="true" tabindex="-1"></a><span class="do">## use the following vector for the exercise</span></span>
-<span id="cb198-2"><a href="strings.html#cb198-2" aria-hidden="true" tabindex="-1"></a>exercise <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;100%&quot;</span>, <span class="st">&quot;94%&quot;</span>, <span class="st">&quot;87%&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="strings.html#cb205-1" aria-hidden="true" tabindex="-1"></a><span class="do">## saving this new result</span></span>
+<span id="cb205-2"><a href="strings.html#cb205-2" aria-hidden="true" tabindex="-1"></a>money <span class="ot">&lt;-</span> <span class="fu">str_replace</span>(money, <span class="st">&quot;</span><span class="sc">\\</span><span class="st">$&quot;</span>, <span class="st">&quot;&quot;</span>)</span></code></pre></div>
+<div id="exercise-3-1" class="section level3" number="9.5.1">
+<h3><span class="header-section-number">9.5.1</span> Exercise 3</h3>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="strings.html#cb206-1" aria-hidden="true" tabindex="-1"></a><span class="do">## use the following vector for the exercise</span></span>
+<span id="cb206-2"><a href="strings.html#cb206-2" aria-hidden="true" tabindex="-1"></a>exercise <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;100%&quot;</span>, <span class="st">&quot;94%&quot;</span>, <span class="st">&quot;87%&quot;</span>)</span></code></pre></div>
 <ul>
 <li>Using <code>stringr::str_replace</code>, replace the percent signs in the <code>exercise</code> vector with nothing. Then, convert the <code>exercise</code> vector to a double using <code>as.double</code>, and find the variance.</li>
 </ul>
 </div>
 </div>
-<div id="solutions" class="section level2" number="8.6">
-<h2><span class="header-section-number">8.6</span> Solutions</h2>
+<div id="solutions" class="section level2" number="9.6">
+<h2><span class="header-section-number">9.6</span> Solutions</h2>
 <ul>
 <li>Exercise 1: <code>str_view(string = econ_classes, pattern = "\\d{1,3}")</code></li>
 <li>Exercise 2: <code>str_view(string = vector, pattern = "[A\\s]")</code></li>
@@ -684,8 +689,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="graphics-with-ggplot2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="file-organization.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="file-organization.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="an-introduction-to-web-scraping-in-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
