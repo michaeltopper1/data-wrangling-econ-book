@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 9 Strings | An Introduction to Web Scraping in R</title>
+  <title>Chapter 9 Strings | Data Wrangling for Economists</title>
   <meta name="description" content="Enter description." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 9 Strings | An Introduction to Web Scraping in R" />
+  <meta property="og:title" content="Chapter 9 Strings | Data Wrangling for Economists" />
   <meta property="og:type" content="book" />
   
   
@@ -16,14 +16,16 @@
   <meta name="github-repo" content="openscapes/series" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 9 Strings | An Introduction to Web Scraping in R" />
+  <meta name="twitter:title" content="Chapter 9 Strings | Data Wrangling for Economists" />
   
   <meta name="twitter:description" content="Enter description." />
   
 
+<meta name="author" content="Michael Topper" />
 <meta name="author" content="Danny Klinenberg" />
 
 
+<meta name="date" content="2021-09-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -329,7 +331,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">An Introduction to Web Scraping in R</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Wrangling for Economists</a>
           </h1>
         </div>
 
@@ -351,9 +353,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb146-4"><a href="strings.html#cb146-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Load in the data</span></span>
 <span id="cb146-5"><a href="strings.html#cb146-5" aria-hidden="true" tabindex="-1"></a>horror_movies <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-10-22/horror_movies.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Rows: 3328 Columns: 12</code></pre>
-<pre><code>## ── Column specification ──────────────────────────────────────────────────────────
+<pre><code>## ── Column specification ──────────────────────────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
-## chr (11): title, genres, release_date, release_country, movie_rating, movie_ru...
+## chr (11): title, genres, release_date, release_country, movie_rating, movie_run_time, plot, cast, ...
 ## dbl  (1): review_rating</code></pre>
 <pre><code>## 
 ## ℹ Use `spec()` to retrieve the full column specification for this data.
@@ -373,14 +375,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Let’s see if we can match some basic patterns. Suppose I want to find the “o” in each component of the vector. I can do the following:</p>
 <div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="strings.html#cb151-1" aria-hidden="true" tabindex="-1"></a><span class="do">## finding all of the o&#39;s in tthe vector x using str_view</span></span>
 <span id="cb151-2"><a href="strings.html#cb151-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="at">string =</span> x, <span class="at">pattern =</span> <span class="st">&quot;o&quot;</span>)</span></code></pre></div>
-<div id="htmlwidget-dcd6859de223611bed42" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-dcd6859de223611bed42">{"x":{"html":"<ul>\n  <li>Ec<span class='match'>o<\/span>n 145<\/li>\n  <li>Hell<span class='match'>o<\/span>!<\/li>\n  <li>Best CLASS<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-c6c526aa50004e25ffd9" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c6c526aa50004e25ffd9">{"x":{"html":"<ul>\n  <li>Ec<span class='match'>o<\/span>n 145<\/li>\n  <li>Hell<span class='match'>o<\/span>!<\/li>\n  <li>Best CLASS<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p>Notice that we are matching (see the highlighted text) on the pattern “o” in every element of the vector. Note that there was no “o” to match on in the last element, “Best CLASS,” so nothing was highlighted.</p>
 <p>We can take this even further by matching on a selection of numbers. Suppose we want to match the numbers “145.” We can simply type in “145” into our pattern match.</p>
 <div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="strings.html#cb152-1" aria-hidden="true" tabindex="-1"></a><span class="do">## matching on the pattern 145</span></span>
 <span id="cb152-2"><a href="strings.html#cb152-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="at">string =</span> x, <span class="at">pattern =</span> <span class="st">&quot;145&quot;</span>)</span></code></pre></div>
-<div id="htmlwidget-93c8e478e826dc2a040b" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-93c8e478e826dc2a040b">{"x":{"html":"<ul>\n  <li>Econ <span class='match'>145<\/span><\/li>\n  <li>Hello!<\/li>\n  <li>Best CLASS<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-1947fbba2246ca056fe3" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1947fbba2246ca056fe3">{"x":{"html":"<ul>\n  <li>Econ <span class='match'>145<\/span><\/li>\n  <li>Hello!<\/li>\n  <li>Best CLASS<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p>However, these are all trivial examples. Regular expressions allow us to match on <em>patterns</em>, not just simple expressions. For example, suppose we have a vector which has multiple names of courses in the economics department:</p>
 <div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="strings.html#cb153-1" aria-hidden="true" tabindex="-1"></a><span class="do">## creating a new vector with three string elements </span></span>
 <span id="cb153-2"><a href="strings.html#cb153-2" aria-hidden="true" tabindex="-1"></a>econ_classes <span class="ot">&lt;-</span>  <span class="fu">c</span>(<span class="st">&quot;Econ 145&quot;</span>, <span class="st">&quot;Econ 10A&quot;</span>, <span class="st">&quot;Econ 140A&quot;</span>)</span></code></pre></div>
@@ -394,19 +396,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The first thing you should notice when you click enter is that an error message occurs: Error: ’ is an unrecognized escape in character string starting "". We get this error message because <code>\</code> is an escape character in the R programming language. Therefore, we need to escape the escape character by using <code>\\d</code> to match on a number. This can often be annoyingly difficult to remember, but the the error message should guide you to remember this detail.</p>
 <div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="strings.html#cb155-1" aria-hidden="true" tabindex="-1"></a><span class="do">## matching correctly on any digit</span></span>
 <span id="cb155-2"><a href="strings.html#cb155-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="at">string =</span> econ_classes, <span class="at">pattern =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">d&quot;</span>)</span></code></pre></div>
-<div id="htmlwidget-b60e84723a9220c7f4f3" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-b60e84723a9220c7f4f3">{"x":{"html":"<ul>\n  <li>Econ <span class='match'>1<\/span>45<\/li>\n  <li>Econ <span class='match'>1<\/span>0A<\/li>\n  <li>Econ <span class='match'>1<\/span>40A<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-dc46253c2363b254d093" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-dc46253c2363b254d093">{"x":{"html":"<ul>\n  <li>Econ <span class='match'>1<\/span>45<\/li>\n  <li>Econ <span class='match'>1<\/span>0A<\/li>\n  <li>Econ <span class='match'>1<\/span>40A<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p>We managed to match on a number in every single element of the vector without actually specifying we wanted a “1.” This is absolutely incredible.</p>
 <p>It is important to note that <code>\\d</code> will only match on one number, and by default, the first number it comes across in the string going from left to right. If we want to match on more numbers, we need to add in more <code>\\d</code>s. For instance, if we wanted to match on 2 digits, our pattern argument would be equal to <code>\\d\\d</code>.</p>
 <div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="strings.html#cb156-1" aria-hidden="true" tabindex="-1"></a><span class="do">## matching on any two digits in each component</span></span>
 <span id="cb156-2"><a href="strings.html#cb156-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="at">string =</span> econ_classes, <span class="at">pattern =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">d</span><span class="sc">\\</span><span class="st">d&quot;</span>)</span></code></pre></div>
-<div id="htmlwidget-b99fe94ab90485a39d21" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-b99fe94ab90485a39d21">{"x":{"html":"<ul>\n  <li>Econ <span class='match'>14<\/span>5<\/li>\n  <li>Econ <span class='match'>10<\/span>A<\/li>\n  <li>Econ <span class='match'>14<\/span>0A<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-1b256659d8e8d306a992" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1b256659d8e8d306a992">{"x":{"html":"<ul>\n  <li>Econ <span class='match'>14<\/span>5<\/li>\n  <li>Econ <span class='match'>10<\/span>A<\/li>\n  <li>Econ <span class='match'>14<\/span>0A<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p>Let’s try to match on all of the course numbers. Notice that some course numbers have 2 digits, while others have 3. Let’s see what happens when we try to match on 3 digits.</p>
 <div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="strings.html#cb157-1" aria-hidden="true" tabindex="-1"></a><span class="do">## matching on exactly three digits in each component</span></span>
 <span id="cb157-2"><a href="strings.html#cb157-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="at">string =</span> econ_classes, <span class="at">pattern =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">d</span><span class="sc">\\</span><span class="st">d</span><span class="sc">\\</span><span class="st">d&quot;</span>)</span></code></pre></div>
-<div id="htmlwidget-ecda247b5be1d191511e" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-ecda247b5be1d191511e">{"x":{"html":"<ul>\n  <li>Econ <span class='match'>145<\/span><\/li>\n  <li>Econ 10A<\/li>\n  <li>Econ <span class='match'>140<\/span>A<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-7673a937858e0860b4a1" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-7673a937858e0860b4a1">{"x":{"html":"<ul>\n  <li>Econ <span class='match'>145<\/span><\/li>\n  <li>Econ 10A<\/li>\n  <li>Econ <span class='match'>140<\/span>A<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p>We can see that we matched on <em>exactly</em> 3 digits, and failed to match on the element that only contained 2 digits. However, as you may have expected, we have ways to work around this using what we call <em>repetition patterns</em>. You can specify the number of matches you would like to make using the following:</p>
 <ul>
 <li><code>{n}</code>: matches exactly n amount of your pattern</li>
@@ -417,8 +419,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Hence, we can match on all the course digits by specifying how many times we would like to match the <code>\d</code> patter.</p>
 <div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="strings.html#cb158-1" aria-hidden="true" tabindex="-1"></a><span class="do">##matches any digit 2 or more times</span></span>
 <span id="cb158-2"><a href="strings.html#cb158-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="at">string =</span> econ_classes, <span class="at">pattern =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">d{2,}&quot;</span>)</span></code></pre></div>
-<div id="htmlwidget-ba84e1ea0b2e20b47130" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-ba84e1ea0b2e20b47130">{"x":{"html":"<ul>\n  <li>Econ <span class='match'>145<\/span><\/li>\n  <li>Econ <span class='match'>10<\/span>A<\/li>\n  <li>Econ <span class='match'>140<\/span>A<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-b8ebca122a5162b41e14" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b8ebca122a5162b41e14">{"x":{"html":"<ul>\n  <li>Econ <span class='match'>145<\/span><\/li>\n  <li>Econ <span class='match'>10<\/span>A<\/li>\n  <li>Econ <span class='match'>140<\/span>A<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p>Success! We managed to match the <code>\d</code> pattern two or more times and have matched on the course digits. The way we would read this pattern is left to right: “match on any digit, and do this two times or more.”</p>
 <div id="exercise-1-1" class="section level3" number="9.1.1">
 <h3><span class="header-section-number">9.1.1</span> Exercise 1</h3>
@@ -441,8 +443,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>We will match on the beginning letter of each of these elements in our vector.</p>
 <div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="strings.html#cb160-1" aria-hidden="true" tabindex="-1"></a><span class="do">##matching on the letters a d or e</span></span>
 <span id="cb160-2"><a href="strings.html#cb160-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="at">string =</span> vector, <span class="at">pattern =</span> <span class="st">&quot;[ade]&quot;</span>)</span></code></pre></div>
-<div id="htmlwidget-d53cc998c905917dba38" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-d53cc998c905917dba38">{"x":{"html":"<ul>\n  <li><span class='match'>a<\/span>aabbbccc<\/li>\n  <li><span class='match'>d<\/span>ddAAAccc<\/li>\n  <li><span class='match'>e<\/span>ib iii<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-3d00710d207091a8faab" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3d00710d207091a8faab">{"x":{"html":"<ul>\n  <li><span class='match'>a<\/span>aabbbccc<\/li>\n  <li><span class='match'>d<\/span>ddAAAccc<\/li>\n  <li><span class='match'>e<\/span>ib iii<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <div id="exercise-2-1" class="section level3" number="9.2.1">
 <h3><span class="header-section-number">9.2.1</span> Exercise 2</h3>
 <ul>
@@ -534,8 +536,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="strings.html#cb170-1" aria-hidden="true" tabindex="-1"></a><span class="do">## separating on the first parenthesis in the title column</span></span>
 <span id="cb170-2"><a href="strings.html#cb170-2" aria-hidden="true" tabindex="-1"></a>horror_movies <span class="sc">%&gt;%</span> </span>
 <span id="cb170-3"><a href="strings.html#cb170-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(<span class="at">col =</span> title, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;title&quot;</span>,<span class="st">&quot;year&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">(&quot;</span>) </span></code></pre></div>
-<pre><code>## Warning: Expected 2 pieces. Additional pieces discarded in 7 rows [691, 928, 1289,
-## 2086, 2130, 2545, 3262].</code></pre>
+<pre><code>## Warning: Expected 2 pieces. Additional pieces discarded in 7 rows [691, 928, 1289, 2086, 2130, 2545,
+## 3262].</code></pre>
 <pre><code>## Warning: Expected 2 pieces. Missing pieces filled with `NA` in 1 rows [932].</code></pre>
 <pre><code>## # A tibble: 3,328 × 3
 ##    title                           year  release_date
@@ -574,8 +576,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="strings.html#cb181-1" aria-hidden="true" tabindex="-1"></a><span class="do">## performing the same task but saving it in a new tibble</span></span>
 <span id="cb181-2"><a href="strings.html#cb181-2" aria-hidden="true" tabindex="-1"></a>investigate_horror_movies <span class="ot">&lt;-</span> horror_movies <span class="sc">%&gt;%</span> </span>
 <span id="cb181-3"><a href="strings.html#cb181-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(<span class="at">col =</span> title, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;title&quot;</span>,<span class="st">&quot;year&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">(&quot;</span>) </span></code></pre></div>
-<pre><code>## Warning: Expected 2 pieces. Additional pieces discarded in 7 rows [691, 928, 1289,
-## 2086, 2130, 2545, 3262].</code></pre>
+<pre><code>## Warning: Expected 2 pieces. Additional pieces discarded in 7 rows [691, 928, 1289, 2086, 2130, 2545,
+## 3262].</code></pre>
 <pre><code>## Warning: Expected 2 pieces. Missing pieces filled with `NA` in 1 rows [932].</code></pre>
 <div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="strings.html#cb184-1" aria-hidden="true" tabindex="-1"></a><span class="do">## investigating the 691th row of the saved tibble</span></span>
 <span id="cb184-2"><a href="strings.html#cb184-2" aria-hidden="true" tabindex="-1"></a>investigate_horror_movies[<span class="dv">691</span>,]</span></code></pre></div>
@@ -607,8 +609,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb192-2"><a href="strings.html#cb192-2" aria-hidden="true" tabindex="-1"></a>horror_movies <span class="sc">%&gt;%</span> </span>
 <span id="cb192-3"><a href="strings.html#cb192-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(<span class="at">col =</span> title, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;title&quot;</span>,<span class="st">&quot;year&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">(&quot;</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb192-4"><a href="strings.html#cb192-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">extract</span>(<span class="at">col =</span> year, <span class="at">into =</span> <span class="st">&quot;year&quot;</span>, <span class="at">regex =</span> <span class="st">&quot;(</span><span class="sc">\\</span><span class="st">d</span><span class="sc">\\</span><span class="st">d</span><span class="sc">\\</span><span class="st">d</span><span class="sc">\\</span><span class="st">d)&quot;</span>) </span></code></pre></div>
-<pre><code>## Warning: Expected 2 pieces. Additional pieces discarded in 7 rows [691, 928, 1289,
-## 2086, 2130, 2545, 3262].</code></pre>
+<pre><code>## Warning: Expected 2 pieces. Additional pieces discarded in 7 rows [691, 928, 1289, 2086, 2130, 2545,
+## 3262].</code></pre>
 <pre><code>## Warning: Expected 2 pieces. Missing pieces filled with `NA` in 1 rows [932].</code></pre>
 <pre><code>## # A tibble: 3,328 × 3
 ##    title                           year  release_date
@@ -631,8 +633,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb196-4"><a href="strings.html#cb196-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(<span class="at">col =</span> title, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;title&quot;</span>,<span class="st">&quot;year&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">(&quot;</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb196-5"><a href="strings.html#cb196-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">extract</span>(<span class="at">col =</span> year, <span class="at">into =</span> <span class="st">&quot;year&quot;</span>, <span class="at">regex =</span> <span class="st">&quot;(</span><span class="sc">\\</span><span class="st">d</span><span class="sc">\\</span><span class="st">d</span><span class="sc">\\</span><span class="st">d</span><span class="sc">\\</span><span class="st">d)&quot;</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb196-6"><a href="strings.html#cb196-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">title =</span> <span class="fu">str_trim</span>(title))</span></code></pre></div>
-<pre><code>## Warning: Expected 2 pieces. Additional pieces discarded in 7 rows [691, 928, 1289,
-## 2086, 2130, 2545, 3262].</code></pre>
+<pre><code>## Warning: Expected 2 pieces. Additional pieces discarded in 7 rows [691, 928, 1289, 2086, 2130, 2545,
+## 3262].</code></pre>
 <pre><code>## Warning: Expected 2 pieces. Missing pieces filled with `NA` in 1 rows [932].</code></pre>
 <pre><code>## # A tibble: 3,328 × 3
 ##    title                        year  release_date

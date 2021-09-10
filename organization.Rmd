@@ -7,9 +7,9 @@
 
 *Writing a research project is more than economic theory, models, and analysis; it also relies on being organized. Most of us have never thought about how to organize multi-year projects because we've never had to do them. In this chapter, we will be discussing two topics on the organization side of a research project: file organization and reproducible research papers. This will be less about data cleaning and more about staying organized with `R`.*
 
-File organization is something we all need but are rarely taught. This section closely follows Princeton's Empirical Study of Conflict (ESOC) research production guide produced by Jacob N. Shapiro. It is highly recommended you read through the production guide.[^1] The guide goes through file organization as well as best coding practices. Before continuing, it needs to be noted there is no one best way to organize files. At the end of the day, it is what works best FOR YOU! This portion of the book lays out one example of file organization. It is recommended you tweak the ideas discussed in this portion of the Guided Exercise to meet your needs. Remember, file organization is meant to make your life easier.
+File organization is something we all need but are rarely taught. This section closely follows Princeton's Empirical Study of Conflict (ESOC) research production guide produced by Jacob N. Shapiro. It is highly recommended you read through the production guide.[^org1] The guide goes through file organization as well as best coding practices. Before continuing, it needs to be noted there is no one best way to organize files. At the end of the day, it is what works best FOR YOU! This portion of the book lays out one example of file organization. It is recommended you tweak the ideas discussed in this portion of the Guided Exercise to meet your needs. Remember, file organization is meant to make your life easier.
 
-[^1]: [This](https://martinctc.github.io/blog/rstudio-projects-and-working-directories-a-beginner's-guide/) is a ten minute guide that covers the basics of folder structure in `R`.
+[^org1]: [This](https://martinctc.github.io/blog/rstudio-projects-and-working-directories-a-beginner's-guide/) is a ten minute guide that covers the basics of folder structure in `R`.
 
 Before we begin, create a new `R Project` and name it whatever you want, wherever you want. After creating an `R Project`, it is time to fill it with all your work. Your base `Rproject` directory should have every file in a folder except `.RData`, `.Rhistory`, `lab_diary.txt`, the `Rproject`, `project_idea.txt` and `git_ignore` if you're syncing with Github. Below is an example `R Project` titled payments_hate_speech:
 
@@ -44,9 +44,9 @@ knitr::include_graphics(here::here("images", "organization","organization1.png")
 
 `Rmarkdown` is a native report compiler in `R`. It can be used to create many many things from .pdf, .docx, and .html files to interactive dashboards to websites. It's impossible to cover everything in `Rmarkdown` in the span of a quarter, let alone a lecture. So we'll focus on the basics.
 
-`Rmarkdown` is an alternative to Latex compilers like Overleaf[^2]. That means you can do all the same fancy math and formatting as if you were in Overleaf without ever leaving `R`. The benefits of `Rmarkdown` is the idea of code integration: you can directly run code in the document. This means you can pull data in and make a graph within your file automatically. If you update some data, the graph will update whenever you recompile. You can even have code in the middle of a sentence. You can write 2+2=`r 2+2`, but instead of writing 4, you can write `` `r ` `` with 2+2 following the r and it'll solve it within line. If you're discussing descriptive statistics in the body of your work, you no longer have to worry about copying and pasting the numbers wrong. It pulls directly from the data.
+`Rmarkdown` is an alternative to Latex compilers like Overleaf[^org2]. That means you can do all the same fancy math and formatting as if you were in Overleaf without ever leaving `R`. The benefits of `Rmarkdown` is the idea of code integration: you can directly run code in the document. This means you can pull data in and make a graph within your file automatically. If you update some data, the graph will update whenever you recompile. You can even have code in the middle of a sentence. You can write 2+2=`r 2+2`, but instead of writing 4, you can write `` `r ` `` with 2+2 following the r and it'll solve it within line. If you're discussing descriptive statistics in the body of your work, you no longer have to worry about copying and pasting the numbers wrong. It pulls directly from the data.
 
-[^2]: Fancy math works here too: $\mathbb{E}[Y|X]=X\beta$
+[^org2]: Fancy math works here too: $\mathbb{E}[Y|X]=X\beta$
 
 Today we'll focus on the general setup of an `Rmarkdown` file and best practices we've learned for using `Rmarkdown`.
 
@@ -174,9 +174,9 @@ random_data<-tibble(y=rnorm(100,0,1),
                     )
 ```
 
-Below, a simple regression is estimated. Using one line, the estimates are pushed to a publication-ready table as shown in Table \ref{table1}.[^3]
+Below, a simple regression is estimated. Using one line, the estimates are pushed to a publication-ready table as shown in Table \ref{table1}.[^org3]
 
-[^3]: `modelsummary::modelsummary` is a very powerful tool. Please refer back to Homework 4 for a description of the tool and link to their introduction site.
+[^org3]: `modelsummary::modelsummary` is a very powerful tool. Please refer back to Homework 4 for a description of the tool and link to their introduction site.
 
 ```{r, echo=TRUE}
 lm(y~x,data = random_data) %>% 

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 8 File Organization | An Introduction to Web Scraping in R</title>
+  <title>Chapter 8 File Organization | Data Wrangling for Economists</title>
   <meta name="description" content="Enter description." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 8 File Organization | An Introduction to Web Scraping in R" />
+  <meta property="og:title" content="Chapter 8 File Organization | Data Wrangling for Economists" />
   <meta property="og:type" content="book" />
   
   
@@ -16,14 +16,16 @@
   <meta name="github-repo" content="openscapes/series" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 8 File Organization | An Introduction to Web Scraping in R" />
+  <meta name="twitter:title" content="Chapter 8 File Organization | Data Wrangling for Economists" />
   
   <meta name="twitter:description" content="Enter description." />
   
 
+<meta name="author" content="Michael Topper" />
 <meta name="author" content="Danny Klinenberg" />
 
 
+<meta name="date" content="2021-09-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -329,7 +331,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">An Introduction to Web Scraping in R</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Wrangling for Economists</a>
           </h1>
         </div>
 
@@ -342,7 +344,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="organizing" class="section level2" number="8.1">
 <h2><span class="header-section-number">8.1</span> Organizing</h2>
 <p><em>Writing a research project is more than economic theory, models, and analysis; it also relies on being organized. Most of us have never thought about how to organize multi-year projects because we’ve never had to do them. In this chapter, we will be discussing two topics on the organization side of a research project: file organization and reproducible research papers. This will be less about data cleaning and more about staying organized with <code>R</code>.</em></p>
-<p>File organization is something we all need but are rarely taught. This section closely follows Princeton’s Empirical Study of Conflict (ESOC) research production guide produced by Jacob N. Shapiro. It is highly recommended you read through the production guide.<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a> The guide goes through file organization as well as best coding practices. Before continuing, it needs to be noted there is no one best way to organize files. At the end of the day, it is what works best FOR YOU! This portion of the book lays out one example of file organization. It is recommended you tweak the ideas discussed in this portion of the Guided Exercise to meet your needs. Remember, file organization is meant to make your life easier.</p>
+<p>File organization is something we all need but are rarely taught. This section closely follows Princeton’s Empirical Study of Conflict (ESOC) research production guide produced by Jacob N. Shapiro. It is highly recommended you read through the production guide.<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a> The guide goes through file organization as well as best coding practices. Before continuing, it needs to be noted there is no one best way to organize files. At the end of the day, it is what works best FOR YOU! This portion of the book lays out one example of file organization. It is recommended you tweak the ideas discussed in this portion of the Guided Exercise to meet your needs. Remember, file organization is meant to make your life easier.</p>
 <p>Before we begin, create a new <code>R Project</code> and name it whatever you want, wherever you want. After creating an <code>R Project</code>, it is time to fill it with all your work. Your base <code>Rproject</code> directory should have every file in a folder except <code>.RData</code>, <code>.Rhistory</code>, <code>lab_diary.txt</code>, the <code>Rproject</code>, <code>project_idea.txt</code> and <code>git_ignore</code> if you’re syncing with Github. Below is an example <code>R Project</code> titled payments_hate_speech:</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-94"></span>
 <img src="images/organization/pic_2.png" alt="Project Layout" width="60%" />
@@ -376,7 +378,7 @@ Figure 8.4:  Having a Template
 <div id="rmarkdown" class="section level2" number="8.2">
 <h2><span class="header-section-number">8.2</span> <code>Rmarkdown</code></h2>
 <p><code>Rmarkdown</code> is a native report compiler in <code>R</code>. It can be used to create many many things from .pdf, .docx, and .html files to interactive dashboards to websites. It’s impossible to cover everything in <code>Rmarkdown</code> in the span of a quarter, let alone a lecture. So we’ll focus on the basics.</p>
-<p><code>Rmarkdown</code> is an alternative to Latex compilers like Overleaf<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a>. That means you can do all the same fancy math and formatting as if you were in Overleaf without ever leaving <code>R</code>. The benefits of <code>Rmarkdown</code> is the idea of code integration: you can directly run code in the document. This means you can pull data in and make a graph within your file automatically. If you update some data, the graph will update whenever you recompile. You can even have code in the middle of a sentence. You can write 2+2=4, but instead of writing 4, you can write <code>`r `</code> with 2+2 following the r and it’ll solve it within line. If you’re discussing descriptive statistics in the body of your work, you no longer have to worry about copying and pasting the numbers wrong. It pulls directly from the data.</p>
+<p><code>Rmarkdown</code> is an alternative to Latex compilers like Overleaf<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a>. That means you can do all the same fancy math and formatting as if you were in Overleaf without ever leaving <code>R</code>. The benefits of <code>Rmarkdown</code> is the idea of code integration: you can directly run code in the document. This means you can pull data in and make a graph within your file automatically. If you update some data, the graph will update whenever you recompile. You can even have code in the middle of a sentence. You can write 2+2=4, but instead of writing 4, you can write <code>`r `</code> with 2+2 following the r and it’ll solve it within line. If you’re discussing descriptive statistics in the body of your work, you no longer have to worry about copying and pasting the numbers wrong. It pulls directly from the data.</p>
 <p>Today we’ll focus on the general setup of an <code>Rmarkdown</code> file and best practices we’ve learned for using <code>Rmarkdown</code>.</p>
 <div id="the-anatomy-of-an-rmarkdown-file" class="section level3" number="8.2.1">
 <h3><span class="header-section-number">8.2.1</span> The Anatomy of an <code>Rmarkdown</code> File</h3>
@@ -393,7 +395,7 @@ Figure 8.5: Basic Rmarkdown File
 <span id="numCode-3"><a href="file-organization.html#numCode-3"></a>subtitle<span class="sc">:</span> <span class="st">&quot;Evidence from OwenBenjaminComedy&quot;</span></span>
 <span id="numCode-4"><a href="file-organization.html#numCode-4"></a>author<span class="sc">:</span> Danny Klinenberg<span class="sc">^</span>[Ph.D. student at University of California, Santa Barbara;</span>
 <span id="numCode-5"><a href="file-organization.html#numCode-5"></a>  dklinenberg<span class="sc">@</span>ucsb.edu. All errors, omissions, and opinions are my own.]</span>
-<span id="numCode-6"><a href="file-organization.html#numCode-6"></a>date<span class="sc">:</span> <span class="st">&#39;Last Updated: 2021-09-09&#39;</span></span>
+<span id="numCode-6"><a href="file-organization.html#numCode-6"></a>date<span class="sc">:</span> <span class="st">&#39;Last Updated: 2021-09-10&#39;</span></span>
 <span id="numCode-7"><a href="file-organization.html#numCode-7"></a>output<span class="sc">:</span></span>
 <span id="numCode-8"><a href="file-organization.html#numCode-8"></a>  pdf_document<span class="sc">:</span></span>
 <span id="numCode-9"><a href="file-organization.html#numCode-9"></a>    keep_tex<span class="sc">:</span> <span class="cn">TRUE</span></span>
@@ -480,7 +482,7 @@ Figure 8.7: Quickly Moving
 <div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="file-organization.html#cb139-1" aria-hidden="true" tabindex="-1"></a>random_data<span class="ot">&lt;-</span><span class="fu">tibble</span>(<span class="at">y=</span><span class="fu">rnorm</span>(<span class="dv">100</span>,<span class="dv">0</span>,<span class="dv">1</span>),</span>
 <span id="cb139-2"><a href="file-organization.html#cb139-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">x=</span>y<span class="sc">+</span><span class="dv">4</span><span class="sc">+</span><span class="fu">rnorm</span>(<span class="dv">100</span>,<span class="dv">0</span>,<span class="dv">1</span>)</span>
 <span id="cb139-3"><a href="file-organization.html#cb139-3" aria-hidden="true" tabindex="-1"></a>                    )</span></code></pre></div>
-<p>Below, a simple regression is estimated. Using one line, the estimates are pushed to a publication-ready table as shown in Table .<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a></p>
+<p>Below, a simple regression is estimated. Using one line, the estimates are pushed to a publication-ready table as shown in Table .<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a></p>
 <div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="file-organization.html#cb140-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(y<span class="sc">~</span>x,<span class="at">data =</span> random_data) <span class="sc">%&gt;%</span> </span>
 <span id="cb140-2"><a href="file-organization.html#cb140-2" aria-hidden="true" tabindex="-1"></a>  modelsummary<span class="sc">::</span><span class="fu">modelsummary</span>(<span class="at">title =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">label{table1}A Publication-Quality Table&quot;</span>)</span></code></pre></div>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
@@ -502,14 +504,14 @@ Model 1
 (Intercept)
 </td>
 <td style="text-align:center;">
--2.348
+-1.601
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
 </td>
 <td style="text-align:center;">
-(0.206)
+(0.210)
 </td>
 </tr>
 <tr>
@@ -517,14 +519,14 @@ Model 1
 x
 </td>
 <td style="text-align:center;">
-0.568
+0.421
 </td>
 </tr>
 <tr>
 <td style="text-align:left;box-shadow: 0px 1px">
 </td>
 <td style="text-align:center;box-shadow: 0px 1px">
-(0.051)
+(0.047)
 </td>
 </tr>
 <tr>
@@ -540,7 +542,7 @@ Num.Obs.
 R2
 </td>
 <td style="text-align:center;">
-0.558
+0.445
 </td>
 </tr>
 <tr>
@@ -548,7 +550,7 @@ R2
 R2 Adj.
 </td>
 <td style="text-align:center;">
-0.554
+0.440
 </td>
 </tr>
 <tr>
@@ -556,7 +558,7 @@ R2 Adj.
 AIC
 </td>
 <td style="text-align:center;">
-200.4
+201.8
 </td>
 </tr>
 <tr>
@@ -564,7 +566,7 @@ AIC
 BIC
 </td>
 <td style="text-align:center;">
-208.2
+209.6
 </td>
 </tr>
 <tr>
@@ -572,7 +574,7 @@ BIC
 Log.Lik.
 </td>
 <td style="text-align:center;">
--97.200
+-97.902
 </td>
 </tr>
 <tr>
@@ -580,7 +582,7 @@ Log.Lik.
 F
 </td>
 <td style="text-align:center;">
-123.926
+78.712
 </td>
 </tr>
 </tbody>
@@ -650,10 +652,10 @@ Figure 8.10: Enter the Editor
 </div>
 <div class="footnotes">
 <hr />
-<ol start="7">
-<li id="fn7"><p>The whole package is inspired by British etiquette at a tea party. They really get into it on their <a href="https://www.rostrum.blog/2019/03/04/polite-webscrape/">blogpost</a>.<a href="file-organization.html#fnref7" class="footnote-back">↩︎</a></p></li>
-<li id="fn8"><p>I’m not sure how to access the rules and it hasn’t come up as an issue yet so hopefully it’s fine?<a href="file-organization.html#fnref8" class="footnote-back">↩︎</a></p></li>
-<li id="fn9"><p>For those extra excited, we’ll be using <code>Sys.Sleep</code> at the beginning of each loop.<a href="file-organization.html#fnref9" class="footnote-back">↩︎</a></p></li>
+<ol start="9">
+<li id="fn9"><p><a href="https://martinctc.github.io/blog/rstudio-projects-and-working-directories-a-beginner&#39;s-guide/">This</a> is a ten minute guide that covers the basics of folder structure in <code>R</code>.<a href="file-organization.html#fnref9" class="footnote-back">↩︎</a></p></li>
+<li id="fn10"><p>Fancy math works here too: <span class="math inline">\(\mathbb{E}[Y|X]=X\beta\)</span><a href="file-organization.html#fnref10" class="footnote-back">↩︎</a></p></li>
+<li id="fn11"><p><code>modelsummary::modelsummary</code> is a very powerful tool. Please refer back to Homework 4 for a description of the tool and link to their introduction site.<a href="file-organization.html#fnref11" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

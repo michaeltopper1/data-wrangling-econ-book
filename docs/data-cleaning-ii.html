@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 6 Data Cleaning II | An Introduction to Web Scraping in R</title>
+  <title>Chapter 6 Data Cleaning II | Data Wrangling for Economists</title>
   <meta name="description" content="Enter description." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 6 Data Cleaning II | An Introduction to Web Scraping in R" />
+  <meta property="og:title" content="Chapter 6 Data Cleaning II | Data Wrangling for Economists" />
   <meta property="og:type" content="book" />
   
   
@@ -16,14 +16,16 @@
   <meta name="github-repo" content="openscapes/series" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 6 Data Cleaning II | An Introduction to Web Scraping in R" />
+  <meta name="twitter:title" content="Chapter 6 Data Cleaning II | Data Wrangling for Economists" />
   
   <meta name="twitter:description" content="Enter description." />
   
 
+<meta name="author" content="Michael Topper" />
 <meta name="author" content="Danny Klinenberg" />
 
 
+<meta name="date" content="2021-09-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -329,7 +331,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">An Introduction to Web Scraping in R</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Wrangling for Economists</a>
           </h1>
         </div>
 
@@ -360,9 +362,9 @@ and put it into a tibble called <code>horror_movies</code> using the <code>read_
 <span id="cb96-4"><a href="data-cleaning-ii.html#cb96-4" aria-hidden="true" tabindex="-1"></a><span class="do">## loading in the data</span></span>
 <span id="cb96-5"><a href="data-cleaning-ii.html#cb96-5" aria-hidden="true" tabindex="-1"></a>horror_movies <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-10-22/horror_movies.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Rows: 3328 Columns: 12</code></pre>
-<pre><code>## ── Column specification ──────────────────────────────────────────────────────────
+<pre><code>## ── Column specification ──────────────────────────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
-## chr (11): title, genres, release_date, release_country, movie_rating, movie_ru...
+## chr (11): title, genres, release_date, release_country, movie_rating, movie_run_time, plot, cast, ...
 ## dbl  (1): review_rating</code></pre>
 <pre><code>## 
 ## ℹ Use `spec()` to retrieve the full column specification for this data.
@@ -462,40 +464,38 @@ and put it into a tibble called <code>horror_movies</code> using the <code>read_
 <span id="cb108-3"><a href="data-cleaning-ii.html#cb108-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(review_rating) <span class="sc">%&gt;%</span> </span>
 <span id="cb108-4"><a href="data-cleaning-ii.html#cb108-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 10 × 12
-##    title        genres     release_date release_country movie_rating review_rating
-##    &lt;chr&gt;        &lt;chr&gt;      &lt;chr&gt;        &lt;chr&gt;           &lt;chr&gt;                &lt;dbl&gt;
-##  1 Countrycide… Horror     8-Sep-17     USA             &lt;NA&gt;                   1  
-##  2 Una Comedia… Comedy| H… 21-Sep-17    Peru            &lt;NA&gt;                   1  
-##  3 A Rain Woma… Horror     4-Jun-16     Japan           &lt;NA&gt;                   1.2
-##  4 Potato Sala… Comedy| H… 23-Jul-15    Germany         &lt;NA&gt;                   1.3
-##  5 Dead Walker… Horror     31-Jul-13    USA             TV-MA                  1.4
-##  6 Amityville … Horror     3-Jan-17     USA             &lt;NA&gt;                   1.5
-##  7 Shark Exorc… Horror     14-Aug-15    USA             &lt;NA&gt;                   1.5
-##  8 Attack of t… Action| H… 20-Apr-12    India           &lt;NA&gt;                   1.5
-##  9 Interstelar… Action| C… 9-May-16     USA             &lt;NA&gt;                   1.6
-## 10 Raiders of … Action| H… 19-May-15    USA             NOT RATED              1.6
-## # … with 6 more variables: movie_run_time &lt;chr&gt;, plot &lt;chr&gt;, cast &lt;chr&gt;,
-## #   language &lt;chr&gt;, filming_locations &lt;chr&gt;, budget &lt;chr&gt;</code></pre>
+##    title  genres  release_date release_country movie_rating review_rating movie_run_time plot   cast  
+##    &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;        &lt;chr&gt;           &lt;chr&gt;                &lt;dbl&gt; &lt;chr&gt;          &lt;chr&gt;  &lt;chr&gt; 
+##  1 Count… Horror  8-Sep-17     USA             &lt;NA&gt;                   1   &lt;NA&gt;           Direc… Robin…
+##  2 Una C… Comedy… 21-Sep-17    Peru            &lt;NA&gt;                   1   91 min         Direc… Emili…
+##  3 A Rai… Horror  4-Jun-16     Japan           &lt;NA&gt;                   1.2 &lt;NA&gt;           Direc… Hono …
+##  4 Potat… Comedy… 23-Jul-15    Germany         &lt;NA&gt;                   1.3 81 min         Direc… Joyce…
+##  5 Dead … Horror  31-Jul-13    USA             TV-MA                  1.4 75 min         Direc… Phili…
+##  6 Amity… Horror  3-Jan-17     USA             &lt;NA&gt;                   1.5 77 min         Direc… Marie…
+##  7 Shark… Horror  14-Aug-15    USA             &lt;NA&gt;                   1.5 71 min         Direc… Angel…
+##  8 Attac… Action… 20-Apr-12    India           &lt;NA&gt;                   1.5 75 min         Direc… Emanu…
+##  9 Inter… Action… 9-May-16     USA             &lt;NA&gt;                   1.6 49 min         Direc… Danil…
+## 10 Raide… Action… 19-May-15    USA             NOT RATED              1.6 71 min         Direc… Dan D…
+## # … with 3 more variables: language &lt;chr&gt;, filming_locations &lt;chr&gt;, budget &lt;chr&gt;</code></pre>
 <p>By default, the <code>arrange</code> function sorts in ascending rather than descending order. If we want to change this, we can use the <code>arrange</code> function in conjunction with the <code>desc</code> function.</p>
 <div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="data-cleaning-ii.html#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="do">## using the arrange and desc functions to sort the review rating from highest to lowest</span></span>
 <span id="cb110-2"><a href="data-cleaning-ii.html#cb110-2" aria-hidden="true" tabindex="-1"></a>horror_movies <span class="sc">%&gt;%</span> </span>
 <span id="cb110-3"><a href="data-cleaning-ii.html#cb110-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(review_rating)) <span class="sc">%&gt;%</span> </span>
 <span id="cb110-4"><a href="data-cleaning-ii.html#cb110-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 10 × 12
-##    title       genres      release_date release_country movie_rating review_rating
-##    &lt;chr&gt;       &lt;chr&gt;       &lt;chr&gt;        &lt;chr&gt;           &lt;chr&gt;                &lt;dbl&gt;
-##  1 Bonehill R… Horror      27-Oct-17    USA             &lt;NA&gt;                   9.8
-##  2 The Theta … Action| Ho… 13-Oct-17    USA             &lt;NA&gt;                   9.6
-##  3 The Carmil… Comedy| Ho… 26-Oct-17    Canada          &lt;NA&gt;                   9.6
-##  4 The Small … Horror      1-Oct-17     UK              &lt;NA&gt;                   9.5
-##  5 Hotel Infe… Action| Ho… 29-Sep-17    UK              &lt;NA&gt;                   9.5
-##  6 Flesh of t… Horror      21-Oct-17    USA             &lt;NA&gt;                   9.5
-##  7 Bong of th… Horror      20-Oct-17    USA             &lt;NA&gt;                   9.4
-##  8 The Thirte… Horror      15-May-17    UK              &lt;NA&gt;                   9.4
-##  9 Take 2: Th… Horror      1-Feb-15     USA             &lt;NA&gt;                   9.3
-## 10 Johann Kar… Action| Ad… 1-Sep-16     USA             &lt;NA&gt;                   9.3
-## # … with 6 more variables: movie_run_time &lt;chr&gt;, plot &lt;chr&gt;, cast &lt;chr&gt;,
-## #   language &lt;chr&gt;, filming_locations &lt;chr&gt;, budget &lt;chr&gt;</code></pre>
+##    title  genres  release_date release_country movie_rating review_rating movie_run_time plot   cast  
+##    &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;        &lt;chr&gt;           &lt;chr&gt;                &lt;dbl&gt; &lt;chr&gt;          &lt;chr&gt;  &lt;chr&gt; 
+##  1 Boneh… Horror  27-Oct-17    USA             &lt;NA&gt;                   9.8 &lt;NA&gt;           &quot;Dire… Andre…
+##  2 The T… Action… 13-Oct-17    USA             &lt;NA&gt;                   9.6 98 min         &quot;Dire… Victo…
+##  3 The C… Comedy… 26-Oct-17    Canada          &lt;NA&gt;                   9.6 97 min         &quot;Dire… Elise…
+##  4 The S… Horror  1-Oct-17     UK              &lt;NA&gt;                   9.5 90 min         &quot;Dire… Brink…
+##  5 Hotel… Action… 29-Sep-17    UK              &lt;NA&gt;                   9.5 70 min         &quot;Dire… Rayne…
+##  6 Flesh… Horror  21-Oct-17    USA             &lt;NA&gt;                   9.5 77 min         &quot;Dire… Man W…
+##  7 Bong … Horror  20-Oct-17    USA             &lt;NA&gt;                   9.4 &lt;NA&gt;           &quot;Dire… Tiffa…
+##  8 The T… Horror  15-May-17    UK              &lt;NA&gt;                   9.4 72 min         &quot;Dire… Rebec…
+##  9 Take … Horror  1-Feb-15     USA             &lt;NA&gt;                   9.3 &lt;NA&gt;           &quot;Dire… Tyler…
+## 10 Johan… Action… 1-Sep-16     USA             &lt;NA&gt;                   9.3 52 min         &quot;Dire… Curti…
+## # … with 3 more variables: language &lt;chr&gt;, filming_locations &lt;chr&gt;, budget &lt;chr&gt;</code></pre>
 </div>
 <div id="the-filter-function-with-logicals" class="section level2" number="6.4">
 <h2><span class="header-section-number">6.4</span> The <code>filter</code> function with logicals</h2>
@@ -511,12 +511,11 @@ and put it into a tibble called <code>horror_movies</code> using the <code>read_
 <span id="cb112-3"><a href="data-cleaning-ii.html#cb112-3" aria-hidden="true" tabindex="-1"></a>horror_movies <span class="sc">%&gt;%</span> </span>
 <span id="cb112-4"><a href="data-cleaning-ii.html#cb112-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(review_rating <span class="sc">&gt;=</span> <span class="fl">9.0</span> <span class="sc">&amp;</span> release_country <span class="sc">==</span> <span class="st">&quot;Canada&quot;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 2 × 12
-##   title         genres     release_date release_country movie_rating review_rating
-##   &lt;chr&gt;         &lt;chr&gt;      &lt;chr&gt;        &lt;chr&gt;           &lt;chr&gt;                &lt;dbl&gt;
-## 1 Tales from t… Horror     18-Oct-17    Canada          &lt;NA&gt;                   9  
-## 2 The Carmilla… Comedy| H… 26-Oct-17    Canada          &lt;NA&gt;                   9.6
-## # … with 6 more variables: movie_run_time &lt;chr&gt;, plot &lt;chr&gt;, cast &lt;chr&gt;,
-## #   language &lt;chr&gt;, filming_locations &lt;chr&gt;, budget &lt;chr&gt;</code></pre>
+##   title  genres release_date release_country movie_rating review_rating movie_run_time plot    cast   
+##   &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;           &lt;chr&gt;                &lt;dbl&gt; &lt;chr&gt;          &lt;chr&gt;   &lt;chr&gt;  
+## 1 Tales… Horror 18-Oct-17    Canada          &lt;NA&gt;                   9   80 min         &quot;Direc… Dave M…
+## 2 The C… Comed… 26-Oct-17    Canada          &lt;NA&gt;                   9.6 97 min         &quot;Direc… Elise …
+## # … with 3 more variables: language &lt;chr&gt;, filming_locations &lt;chr&gt;, budget &lt;chr&gt;</code></pre>
 <p>Notice that now we are looking at movies that have a 9.0 or higher movie rating, and were released in Canada. We can see that there are only 2 movies that match these criteria.</p>
 <p>On the other hand, suppose we used the <code>|</code> logical operator instead. The <code>|</code> operator will evaluate whether “review rating is great than 9.0” is TRUE, or “release country is Canada” is TRUE. If <strong>either</strong> of these statements are TRUE or <strong>both</strong> of these are TRUE, then the data is displayed. If <strong>both</strong> of these are false, then they are filtered out. Observe:</p>
 <div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="data-cleaning-ii.html#cb114-1" aria-hidden="true" tabindex="-1"></a>horror_movies <span class="sc">%&gt;%</span> </span>
