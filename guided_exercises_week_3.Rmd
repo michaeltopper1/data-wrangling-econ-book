@@ -233,7 +233,7 @@ Notice that we we have review ratings that are less than 9.0, and also countries
 * Count the number of PG-13 movies that are only in Japan and USA. 
 
 
-# Selected Solutions
+## Selected Solutions
 
 ```{r, echo = F}
 ## exercise 1.1.1
