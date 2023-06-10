@@ -17,17 +17,8 @@ description: Enter description.
 
 # Welcome {#welcome}
 
-This book is designed to go with the UCSB course Econ 245: Data Wrangling for Economists. The book is still a work in progress and will be updated regularly.
+This book is designed to go with the UCSB graduate economics course Econ 245: Data Wrangling for Economists.
 
-In the following chapters, you will practice data wrangling with some hand-holding as well as some simple exercises to check your understanding. The purpose of these chapters is the following:
-
-1. Make your homework easier.
-2. Make you a better coder by observing good code.
-3. Get hands-on practice with functions you will need to complete your assignments.
-4. Provide a reference for each topic in the course.
-
-
-It is *strongly* suggested that you code along with the examples that we go through, although there will be times when copying and pasting can be useful (e.g., loading in a data set). 
 
 ## Organization
 

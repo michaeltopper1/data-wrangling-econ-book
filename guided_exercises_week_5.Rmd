@@ -1,0 +1,355 @@
+---
+output: pdf_document
+header-includes:
+  - \usepackage{fancyhdr}
+  - \pagestyle{fancy}
+  - \fancypagestyle{plain}{\pagestyle{fancy}}
+  - \newcommand{\magenta}[1]{\textcolor{magenta}{#1}}
+  - \usepackage{xcolor}
+urlcolor: blue
+editor_options: 
+  chunk_output_type: console
+---
+
+# Strings
+
+For this week, we will once again be importing the horror movies data set from the TidyTuesday Github. This data set contains information from IMDB on various horror movies. Some important columns we will be focusing on this week:
+
+* `title`- the title of the movie
+* `release_date`- movie release date in day-month-year format
+
+Let's load in the data:
+
+```{r}
+## install the package if you do not have it
+library(tidyverse)
+
+## Load in the data
+horror_movies <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-10-22/horror_movies.csv")
+```
+
+If you are having trouble viewing the link, you can get the data by visiting the [TidyTuesday Github Repository](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-10-22) and following the instructions on loading in the data. 
+
+Our goal this week to get comfortable with three things:
+
+1. Simple pattern matching with regular expressions
+2. Using the `extract` function
+3. Using the `separate` function
+
+Using all of these three things together will allow you to do powerful data wrangling techniques that are valued greatly in the workforce. 
+
+## Regular Expressions
+
+Regular expressions are a fantastic tool that will allow you to match patterns in strings. To demonstrate their value, we will start off by making a vector of strings, and use `str_view` to show how we can match patterns using regular expressions.
+
+
+```{r}
+## creating a vector of strings I would like to analyze
+x = c("Econ 145", "Hello!", "Best CLASS")
+```
+
+Let's see if we can match some basic patterns. Suppose I want to find the "o" in each component of the vector. I can do the following:
+
+```{r}
+## finding all of the o's in tthe vector x using str_view
+str_view(string = x, pattern = "o")
+```
+
+Notice that we are matching (see the highlighted text) on the pattern "o" in every element of the vector. Note that there was no "o" to match on in the last element, "Best CLASS", so nothing was highlighted. 
+
+We can take this even further by matching on a selection of numbers. Suppose we want to match the numbers "145". We can simply type in "145" into our pattern match.
+
+```{r}
+## matching on the pattern 145
+str_view(string = x, pattern = "145")
+```
+
+However, these are all trivial examples. Regular expressions allow us to match on *patterns*, not just simple expressions. For example, suppose we have a vector which has multiple names of courses in the economics department:
+
+```{r}
+## creating a new vector with three string elements 
+econ_classes = c("Econ 145", "Econ 10A", "Econ 140A")
+```
+
+Now suppose I want to pattern match only the course numbers. I can do this by using a regular expression. 
+
+* `\d`: the regular expression pattern that matches any digit
+
+Let's see this in action.
+
+```{r, eval = F}
+## matching incorrectly on any digit
+str_view(string = econ_classes, pattern = "\d")
+```
+
+The first thing you should notice when you click enter is that an error message occurs: Error: '\d' is an unrecognized escape in character string starting ""\d". We get this error message because `\` is an escape character in the R programming language. Therefore, we need to escape the escape character by using `\\d` to match on a number. This can often be annoyingly difficult to remember, but the the error message should guide you to remember this detail. 
+```{r}
+## matching correctly on any digit
+str_view(string = econ_classes, pattern = "\\d")
+```
+
+We managed to match on a number in every single element of the vector without actually specifying we wanted a "1". This is absolutely incredible. 
+
+It is important to note that `\\d` will only match on one number, and by default, the first number it comes across in the string going from left to right. If we want to match on more numbers, we need to add in more `\\d`s. For instance, if we wanted to match on 2 digits, our pattern argument would be equal to `\\d\\d`.
+
+```{r}
+## matching on any two digits in each component
+str_view(string = econ_classes, pattern = "\\d\\d")
+```
+
+Let's try to match on all of the course numbers. Notice that some course numbers have 2 digits, while others have 3. Let's see what happens when we try to match on 3 digits.
+
+```{r}
+## matching on exactly three digits in each component
+str_view(string = econ_classes, pattern = "\\d\\d\\d")
+```
+
+We can see that we matched on *exactly* 3 digits, and failed to match on the element that only contained 2 digits. However, as you may have expected, we have ways to work around this using what we call *repetition patterns*. You can specify the number of matches you would like to make using the following:
+
+* `{n}`: matches exactly n amount of your pattern
+* `{n,}`: matches n or more
+* `{,m}`: matches at most m
+* `{n,m}`: matches between n and m
+
+Hence, we can match on all the course digits by specifying how many times we would like to match the `\d` patter.
+
+```{r}
+##matches any digit 2 or more times
+str_view(string = econ_classes, pattern = "\\d{2,}")
+```
+
+Success! We managed to match the `\d` pattern two or more times and have matched on the course digits. The way we would read this pattern is left to right: "match on any digit, and do this two times or more".  
+
+### Exercise 1
+
+* Find another way to match on the digits of the `econ_classes` vector.
+
+## Regular Expressions Continued
+
+Let's try matching on other types of expressions. 
+```{r}
+## creating a new vector for us to match patterns on
+vector <- c("aaabbbccc", "dddAAAccc", "eib iii")
+```
+
+Here are a couple more useful patterns:
+
+* `[abc]`: matches exactly one time on a, b, or c. If multiple appear, it matches on the one that comes first.
+* `[^abc]`: matches exactly one time on anything except a, b, or c. 
+* `\s`: matches any whitespace (e.g. space, tab, newline).
+
+We will match on the beginning letter of each of these elements in our vector.
+
+```{r}
+##matching on the letters a d or e
+str_view(string = vector, pattern = "[ade]")
+```
+
+### Exercise 2 
+
+* Using the `vector` and `str_view`, match on the capital A and the whitespace. 
+
+## Using `extract`
+
+We will now focus on matching regular expressions within the context of tidying data. Let's specifically focus on the `title` and `release_date` columns. 
+
+```{r}
+## selecting only the title and release date columns in the horror movies data set
+horror_movies <- horror_movies %>% 
+  select(title, release_date)
+## showing the head of the data set
+horror_movies %>% head()
+```
+
+Notice that it looks like each movie title is followed by a whitespace, and then a parenthesis with the movie release year inside of it. For the purposes of explaining `extract`, we will focus on extracting the dates from the `title` column. 
+
+The `extract` function extracts information you want from a column and puts it into a column of your choice. The specific arguments it has are col, into, and regex. These correspond to the column you want to extract an expression from, the column name you are going to send your extracted expression into, and the regular expression pattern you want to extract respectively. 
+
+```{r}
+## extracting the year from the 
+horror_movies %>% 
+  extract(col = title, into = "year", regex = "(\\d\\d\\d\\d)")
+```
+
+It is important to note that we **need to put parenthesis** around the pattern that we want to match in our `regex` argument for the match to work. Observe what happens when we do not:
+
+```{r, eval = F}
+## code does not work because no parenthesis around the regex expression
+horror_movies %>% 
+  extract(col = title, into = "year", regex = "\\d\\d\\d\\d")
+```
+
+This is because the parenthesis define a group of patterns that you want to match. Everything inside your parenthesis is a group. For the purposes of this class, we will only be extracting 1 group, as extracting more than one group gets very complicated. 
+
+```{r}
+## the correct code: works because we put parenthesis around the regex expression
+horror_movies %>% 
+  extract(col = title, into = "year", regex = "(\\d\\d\\d\\d)")
+```
+
+Notice when we ran the previous correct code, our `title` column disappeared. This is because by default, the extract function deletes the original column. To avoid this, we can set the `remove` argument to `FALSE`. 
+
+```{r}
+## the correct code: works because we put parenthesis around the regex expression
+horror_movies %>% 
+  extract(col = title, into = "year", regex = "(\\d\\d\\d\\d)", remove = F)
+```
+
+## Using `separate`
+
+The `separate` function will split a column into multiple columns based on a regular expression. You can think of separate as a way to split with a more complicated delimiter (a delimiter is a character that separates values). For starters, we will separate once again look at the `title` column in the horror movies data. Recall that the `title` column is organized as the movie title, followed by a blank space and then the year of release in parenthesis. We will take advantage of this unique organization and separate our `title` column into two columns: `title` which will have the title of the movie, and `year` which will have the release year. While this will take multiple steps to get into a perfectly cleaned data set, we can utilize our piping procedures to make it relatively straightforward. 
+
+First, let's separate the column based on the first parenthesis that we see.
+
+```{r}
+## separating on the first parenthesis in the title column
+horror_movies %>% 
+  separate(col = title, into = c("title","year"), sep = "\\(") 
+```
+
+Notice how we managed to separate the two columns, but there are now more problems we need to deal with:
+
+1. What do the warning messages mean?
+2. We need to get rid of the extra parenthesis in the `year` column.
+3. We need (well, we don't NEED) to get rid of the blank space at the end of the `title` column. 
+
+First and foremost, we will take a second to review what a warning message is. 
+
+**Warning message:** These are messages that tell you that your R code was able to execute, but in the process, R decided to do something that you did not tell it to. It is **extremely** important that you Google warning messages, as your data could be manipulated by R in ways you really did not want. Let's look at our two warning messages in depth:
+```{r, eval = F}
+Warning messages:
+1: Expected 2 pieces. Additional pieces discarded in 7 rows [691, 928, 1289, 2086, 2130, 2545, 3262]. 
+2: Expected 2 pieces. Missing pieces filled with `NA` in 1 rows [932]
+```
+
+The first warning message is telling us that R expected 2 pieces, and then discarded additional pieces in 7 rows. While this does not make much sense at first sight, it gives us the rows which it performed this process. The best practice is to investigate these rows to get a better idea of what is happening.
+```{r}
+## investigating a couple of the rows that caused the warning message
+horror_movies$title[691]
+horror_movies$title[928]
+horror_movies$title[1289]
+```
+By now you should see a problem: each of these warning rows have a parenthesis in the title name! This means that R is separating based on our parenthesis, but since there are multiple parenthesis, it is separating multiple times. Therefore, it is discarding the extra separated piece in each row. Generally, you want to make sure R is not throwing away any important information. You could check this yourself by saving this as a new tibble, and investigating the rows. Hence, we will create a new tibble for demonstration purposes.
+
+```{r}
+## performing the same task but saving it in a new tibble
+investigate_horror_movies <- horror_movies %>% 
+  separate(col = title, into = c("title","year"), sep = "\\(") 
+
+## investigating the 691th row of the saved tibble
+investigate_horror_movies[691,]
+
+## investigating the 928th row of the saved tibble 
+investigate_horror_movies[928,]
+```
+Clearly, this isn't giving us our desired result for the 7 rows that were causing this issue. While we will ignore this for the purpose of this exercise, you want to be very aware of what is happening to your data.
+
+Next, let's investigate the second warning message: Expected 2 pieces. Missing pieces filled with `NA` in 1 rows [932]. It seems as though R filled a missing piece of information in our row 932. Let's take a closer look:
+```{r}
+## investigating what happened in row 932
+## checking the title column first in our original data
+horror_movies$title[932]
+
+## look what happened to our data in row 932
+investigate_horror_movies[932,]
+
+```
+
+Clearly we missed something: not all the movies have the same format of MOVIE TITLE (YEAR). It appears that the movie "American Exorcist" in row 932 did not have a date attached to it. Therefore, when we tried to separate by parenthesis, R was unable to perform this task and replaced the value with NA. In our case, this wouldn't have affected our analysis since there was no date attached to it, but we would want to find another way to extract the date from another column. However, as before, we will ignore this warning message since fixing it will take a lot of time in effort. It is important to realize that **you must read and investigate warning messages** since R constantly performs operations on your data that may not be exactly what you intend. 
+
+
+Moving on, let's start solving our second task: getting rid of the extra parenthesis in the `year` column. Recall, we can actually use the `extract` function here to remove the final parenthesis. We can do this all in one step using a pipe.
+
+```{r}
+## separating on the first parenthesis in the title column and then extracting the four numbers for date
+horror_movies %>% 
+  separate(col = title, into = c("title","year"), sep = "\\(") %>% 
+  extract(col = year, into = "year", regex = "(\\d\\d\\d\\d)") 
+```
+
+Finally, let's satisfy (2) and get rid of the whitespace that is at the end of our `title` column. Luckily, the `stringr` package has a pre-programmed function called `stringr::str_trim` that will trim the whitespace off the end of our column. Now we can perform the entire cleaning of the `title` column in one piping procedure:
+
+```{r}
+## separating on the first parenthesis in the title column and then extracting the four numbers for date
+## and then removing the whitespace that is left over
+horror_movies %>% 
+  separate(col = title, into = c("title","year"), sep = "\\(") %>% 
+  extract(col = year, into = "year", regex = "(\\d\\d\\d\\d)") %>% 
+  mutate(title = str_trim(title))
+
+```
+
+
+## The `str_replace` function
+
+Many times, we want to simply replace simple patterns in columns of data sets. The `stringr::str_replace` function is a simple way to take expressions within variables and substitute them with a different result. Let's create a vector of values to demonstrate.
+
+```{r}
+## creating a vector to demonstrate gsub
+money <- c("$100", "$150", "$200")
+```
+
+A common use of `gsub` is to get rid of dollar signs in columns that have monetary values. Omitting the dollar sign is essential if you want to perform any type of summary statistic. 
+
+The three arguments in the `stringr::str_replace` function that we are concerned with are the `pattern`, `replacement`, and `string` arguments. The `pattern` argument is the regular expression we want to find in our vector, and the `replacement` argument is what we would like to replace the regular expression with. The `string` argument is the vector you want to perform the `stringr::str_replace` function on. 
+
+```{r}
+## the gsub function attempting (but unsuccessfully) trying to replace the $ with nothing
+str_replace(money, "\\$", "")
+```
+
+Notice that we had to once again, use the escape characters since the dollar sign is a special character.
+
+```{r}
+## successfully replacing the $ with nothing
+str_replace(money, "\\$", "")
+
+## saving this new result
+money <- str_replace(money, "\\$", "")
+```
+
+## The `str_replace_all` function
+
+**ALERT:** the function `str_replace` only replaces *one* instance per-element of the pattern you are looking for, and unless specified, it is always the first one. To demonstrate this, let's consider the following example:
+
+```{r}
+## observe that elements 2 and 3 have multiple $ signs
+money_2 <- c("$100", "$200 $200", "$300 $300 $300")
+```
+
+If we were to perform a simple `str_replace` on the `money_2` vector, only the dollar sign would be replaced. Observe in the following code, and note the piping into the `str_replace` function is equivalent to `str_replace(money_2, "\\$", "")`:
+
+```{r}
+## running str_replace on money_2 - piping 
+money_2 %>% 
+  str_replace("\\$", "")
+```
+
+Only one of the dollar signs has been replaced!
+
+Now suppose you would like to get rid of *all* dollar signs. This can be accomplished with the `str_replace_all` function:
+
+```{r}
+money_2 %>% 
+  str_replace_all("\\$", "")
+```
+
+### Exercise 3
+
+```{r}
+## use the following vector for the exercise
+exercise <- c("100%", "94%", "87%")
+
+```
+ * Using `stringr::str_replace`, replace the percent signs in the `exercise` vector with nothing. Then, convert the `exercise` vector to a double using `as.double`, and find the variance.
+ 
+
+ 
+## Solutions
+ 
+ * Exercise 1: `str_view(string = econ_classes, pattern = "\\d{1,3}")`
+ * Exercise 2:  `str_view(string = vector, pattern = "[A\\s]")`
+ * Exercise 3: `var_exercise <- var(as.double(gsub("\\%", "", exercise)))`. 
+ 
+
+ 

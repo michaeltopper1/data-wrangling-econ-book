@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 11 Webscraping | Data Wrangling for Economists</title>
+  <meta name="description" content="Enter description." />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 11 Webscraping | Data Wrangling for Economists" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Enter description." />
+  <meta name="github-repo" content="openscapes/series" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 11 Webscraping | Data Wrangling for Economists" />
+  
+  <meta name="twitter:description" content="Enter description." />
+  
+
+<meta name="author" content="Michael Topper" />
+<meta name="author" content="Danny Klinenberg" />
+
+
+<meta name="date" content="2023-06-10" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="strings.html"/>
+<link rel="next" href="programming.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="lib/css/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" href="lib/css/style.css" type="text/css" />
+<link rel="stylesheet" href="lib/css/lesson.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Data Wrangling for Economists</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#organization"><i class="fa fa-check"></i><b>1.1</b> Organization</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="intro-to-r.html"><a href="intro-to-r.html"><i class="fa fa-check"></i><b>2</b> Intro to R</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="intro-to-r.html"><a href="intro-to-r.html#basic-summary-statistics"><i class="fa fa-check"></i><b>2.1</b> Basic summary statistics</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="intro-to-r.html"><a href="intro-to-r.html#exercise"><i class="fa fa-check"></i><b>2.1.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="intro-to-r.html"><a href="intro-to-r.html#basic-histogram"><i class="fa fa-check"></i><b>2.2</b> Basic histogram</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="intro-to-r.html"><a href="intro-to-r.html#exercise-1"><i class="fa fa-check"></i><b>2.2.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="intro-to-r.html"><a href="intro-to-r.html#creating-vectors"><i class="fa fa-check"></i><b>2.3</b> Creating Vectors</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="intro-to-r.html"><a href="intro-to-r.html#exercise-2"><i class="fa fa-check"></i><b>2.3.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="intro-to-r.html"><a href="intro-to-r.html#comparing-vectors"><i class="fa fa-check"></i><b>2.4</b> Comparing Vectors</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="intro-to-r.html"><a href="intro-to-r.html#exercise-3"><i class="fa fa-check"></i><b>2.4.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="intro-to-r.html"><a href="intro-to-r.html#creating-a-tibble"><i class="fa fa-check"></i><b>2.5</b> Creating a tibble</a></li>
+<li class="chapter" data-level="2.6" data-path="intro-to-r.html"><a href="intro-to-r.html#exercise-4"><i class="fa fa-check"></i><b>2.6</b> Exercise</a></li>
+<li class="chapter" data-level="2.7" data-path="intro-to-r.html"><a href="intro-to-r.html#selected-solutions"><i class="fa fa-check"></i><b>2.7</b> Selected Solutions</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="the-rproject.html"><a href="the-rproject.html"><i class="fa fa-check"></i><b>3</b> The <code>Rproject</code></a></li>
+<li class="chapter" data-level="4" data-path="git-and-github.html"><a href="git-and-github.html"><i class="fa fa-check"></i><b>4</b> Git and Github</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="git-and-github.html"><a href="git-and-github.html#installing-git"><i class="fa fa-check"></i><b>4.1</b> Installing Git</a></li>
+<li class="chapter" data-level="4.2" data-path="git-and-github.html"><a href="git-and-github.html#create-a-github-account"><i class="fa fa-check"></i><b>4.2</b> Create a Github account</a></li>
+<li class="chapter" data-level="4.3" data-path="git-and-github.html"><a href="git-and-github.html#introduce-yourself-to-git"><i class="fa fa-check"></i><b>4.3</b> Introduce yourself to Git</a></li>
+<li class="chapter" data-level="4.4" data-path="git-and-github.html"><a href="git-and-github.html#create-a-pat"><i class="fa fa-check"></i><b>4.4</b> Create a PAT</a></li>
+<li class="chapter" data-level="4.5" data-path="git-and-github.html"><a href="git-and-github.html#the-workflow"><i class="fa fa-check"></i><b>4.5</b> The Workflow</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="git-and-github.html"><a href="git-and-github.html#definitions"><i class="fa fa-check"></i><b>4.5.1</b> Definitions</a></li>
+<li class="chapter" data-level="4.5.2" data-path="git-and-github.html"><a href="git-and-github.html#the-workflow-1"><i class="fa fa-check"></i><b>4.5.2</b> The Workflow</a></li>
+<li class="chapter" data-level="4.5.3" data-path="git-and-github.html"><a href="git-and-github.html#the-git-panel-of-rstudio"><i class="fa fa-check"></i><b>4.5.3</b> The Git panel of RStudio</a></li>
+<li class="chapter" data-level="4.5.4" data-path="git-and-github.html"><a href="git-and-github.html#pulling"><i class="fa fa-check"></i><b>4.5.4</b> Pulling</a></li>
+<li class="chapter" data-level="4.5.5" data-path="git-and-github.html"><a href="git-and-github.html#commiting"><i class="fa fa-check"></i><b>4.5.5</b> Commiting</a></li>
+<li class="chapter" data-level="4.5.6" data-path="git-and-github.html"><a href="git-and-github.html#pushing"><i class="fa fa-check"></i><b>4.5.6</b> Pushing</a></li>
+<li class="chapter" data-level="4.5.7" data-path="git-and-github.html"><a href="git-and-github.html#pulling-again"><i class="fa fa-check"></i><b>4.5.7</b> Pulling (again)</a></li>
+<li class="chapter" data-level="4.5.8" data-path="git-and-github.html"><a href="git-and-github.html#the-main-commands-command-lineterminal"><i class="fa fa-check"></i><b>4.5.8</b> The Main Commands (Command Line/Terminal)</a></li>
+<li class="chapter" data-level="4.5.9" data-path="git-and-github.html"><a href="git-and-github.html#exercise-5"><i class="fa fa-check"></i><b>4.5.9</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="git-and-github.html"><a href="git-and-github.html#branches"><i class="fa fa-check"></i><b>4.6</b> Branches</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="git-and-github.html"><a href="git-and-github.html#creating-a-branch"><i class="fa fa-check"></i><b>4.6.1</b> Creating a branch</a></li>
+<li class="chapter" data-level="4.6.2" data-path="git-and-github.html"><a href="git-and-github.html#branches-when-working-independently"><i class="fa fa-check"></i><b>4.6.2</b> Branches when working independently</a></li>
+<li class="chapter" data-level="4.6.3" data-path="git-and-github.html"><a href="git-and-github.html#branches-when-working-collaboratively"><i class="fa fa-check"></i><b>4.6.3</b> Branches when working collaboratively</a></li>
+<li class="chapter" data-level="4.6.4" data-path="git-and-github.html"><a href="git-and-github.html#branches-with-the-terminal"><i class="fa fa-check"></i><b>4.6.4</b> Branches with the Terminal</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="git-and-github.html"><a href="git-and-github.html#gitignore"><i class="fa fa-check"></i><b>4.7</b> .gitignore</a></li>
+<li class="chapter" data-level="4.8" data-path="git-and-github.html"><a href="git-and-github.html#reverting"><i class="fa fa-check"></i><b>4.8</b> Reverting</a>
+<ul>
+<li class="chapter" data-level="4.8.1" data-path="git-and-github.html"><a href="git-and-github.html#reverting-safelty"><i class="fa fa-check"></i><b>4.8.1</b> Reverting Safelty</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="common-wrangling-i.html"><a href="common-wrangling-i.html"><i class="fa fa-check"></i><b>5</b> Common Wrangling I</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="common-wrangling-i.html"><a href="common-wrangling-i.html#the-pipe"><i class="fa fa-check"></i><b>5.1</b> The Pipe</a></li>
+<li class="chapter" data-level="5.2" data-path="common-wrangling-i.html"><a href="common-wrangling-i.html#the-clean_names-function"><i class="fa fa-check"></i><b>5.2</b> The <code>clean_names</code> function</a></li>
+<li class="chapter" data-level="5.3" data-path="common-wrangling-i.html"><a href="common-wrangling-i.html#the-select-function"><i class="fa fa-check"></i><b>5.3</b> The <code>select</code> function</a></li>
+<li class="chapter" data-level="5.4" data-path="common-wrangling-i.html"><a href="common-wrangling-i.html#the-filter-function"><i class="fa fa-check"></i><b>5.4</b> The <code>filter</code> function</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="common-wrangling-i.html"><a href="common-wrangling-i.html#exercise-6"><i class="fa fa-check"></i><b>5.4.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="common-wrangling-i.html"><a href="common-wrangling-i.html#the-drop_na-function"><i class="fa fa-check"></i><b>5.5</b> The <code>drop_na</code> function</a></li>
+<li class="chapter" data-level="5.6" data-path="common-wrangling-i.html"><a href="common-wrangling-i.html#the-distinct-function"><i class="fa fa-check"></i><b>5.6</b> The <code>distinct</code> function</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="common-wrangling-i.html"><a href="common-wrangling-i.html#exercise-7"><i class="fa fa-check"></i><b>5.6.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="common-wrangling-i.html"><a href="common-wrangling-i.html#the-mutate-function."><i class="fa fa-check"></i><b>5.7</b> The <code>mutate</code> function.</a></li>
+<li class="chapter" data-level="5.8" data-path="common-wrangling-i.html"><a href="common-wrangling-i.html#the-summarize-function"><i class="fa fa-check"></i><b>5.8</b> The <code>summarize</code> function</a>
+<ul>
+<li class="chapter" data-level="5.8.1" data-path="common-wrangling-i.html"><a href="common-wrangling-i.html#exercise-8"><i class="fa fa-check"></i><b>5.8.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="5.9" data-path="common-wrangling-i.html"><a href="common-wrangling-i.html#the-group_by-and-summarize-functions"><i class="fa fa-check"></i><b>5.9</b> The <code>group_by</code> and <code>summarize</code> functions</a>
+<ul>
+<li class="chapter" data-level="5.9.1" data-path="common-wrangling-i.html"><a href="common-wrangling-i.html#exercise-9"><i class="fa fa-check"></i><b>5.9.1</b> Exercise</a></li>
+<li class="chapter" data-level="5.9.2" data-path="common-wrangling-i.html"><a href="common-wrangling-i.html#exercise-10"><i class="fa fa-check"></i><b>5.9.2</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="5.10" data-path="common-wrangling-i.html"><a href="common-wrangling-i.html#selected-solutions-1"><i class="fa fa-check"></i><b>5.10</b> Selected Solutions</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="common-wrangling-ii.html"><a href="common-wrangling-ii.html"><i class="fa fa-check"></i><b>6</b> Common Wrangling II</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="common-wrangling-ii.html"><a href="common-wrangling-ii.html#the-count-function"><i class="fa fa-check"></i><b>6.1</b> The <code>count</code> function</a></li>
+<li class="chapter" data-level="6.2" data-path="common-wrangling-ii.html"><a href="common-wrangling-ii.html#the-slice-and-pull-functions"><i class="fa fa-check"></i><b>6.2</b> The <code>slice</code> and <code>pull</code> functions</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="common-wrangling-ii.html"><a href="common-wrangling-ii.html#exercise-11"><i class="fa fa-check"></i><b>6.2.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="common-wrangling-ii.html"><a href="common-wrangling-ii.html#using-the-is.na-function"><i class="fa fa-check"></i><b>6.3</b> Using the <code>is.na</code> function</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="common-wrangling-ii.html"><a href="common-wrangling-ii.html#exercise-12"><i class="fa fa-check"></i><b>6.3.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="common-wrangling-ii.html"><a href="common-wrangling-ii.html#the-arrange-function"><i class="fa fa-check"></i><b>6.4</b> The <code>arrange</code> function</a></li>
+<li class="chapter" data-level="6.5" data-path="common-wrangling-ii.html"><a href="common-wrangling-ii.html#the-filter-function-with-logicals"><i class="fa fa-check"></i><b>6.5</b> The <code>filter</code> function with logicals</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="common-wrangling-ii.html"><a href="common-wrangling-ii.html#exercise-13"><i class="fa fa-check"></i><b>6.5.1</b> Exercise</a></li>
+<li class="chapter" data-level="6.5.2" data-path="common-wrangling-ii.html"><a href="common-wrangling-ii.html#exercise-14"><i class="fa fa-check"></i><b>6.5.2</b> Exercise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="selected-solutions-2.html"><a href="selected-solutions-2.html"><i class="fa fa-check"></i><b>7</b> Selected Solutions</a></li>
+<li class="chapter" data-level="8" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html"><i class="fa fa-check"></i><b>8</b> Graphics with ggplot2</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html#the-grammar-of-graphics"><i class="fa fa-check"></i><b>8.1</b> The grammar of graphics</a></li>
+<li class="chapter" data-level="8.2" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html#adding-options"><i class="fa fa-check"></i><b>8.2</b> Adding options</a></li>
+<li class="chapter" data-level="8.3" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html#adding-multiple-plots-together"><i class="fa fa-check"></i><b>8.3</b> Adding multiple plots together</a></li>
+<li class="chapter" data-level="8.4" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html#creating-legends"><i class="fa fa-check"></i><b>8.4</b> Creating legends</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html#exercise-15"><i class="fa fa-check"></i><b>8.4.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html#what-to-put-in-the-aes-function-how-do-i-know"><i class="fa fa-check"></i><b>8.5</b> What to put in the <code>aes</code> function? How do I know?</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html#what-other-arguments-can-i-pass-into-the-aes-function"><i class="fa fa-check"></i><b>8.5.1</b> What other arguments can I pass into the <code>aes</code> function?</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html#using-the-pipe"><i class="fa fa-check"></i><b>8.6</b> Using the pipe</a></li>
+<li class="chapter" data-level="8.7" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html#faceting"><i class="fa fa-check"></i><b>8.7</b> Faceting</a>
+<ul>
+<li class="chapter" data-level="8.7.1" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html#cleaning-up-the-graph"><i class="fa fa-check"></i><b>8.7.1</b> Cleaning up the graph</a></li>
+</ul></li>
+<li class="chapter" data-level="8.8" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html#saving-ggplot-objects-and-adding-layers-later"><i class="fa fa-check"></i><b>8.8</b> Saving ggplot objects and adding layers later</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="file-organization.html"><a href="file-organization.html"><i class="fa fa-check"></i><b>9</b> File Organization</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="file-organization.html"><a href="file-organization.html#organizing"><i class="fa fa-check"></i><b>9.1</b> Organizing</a></li>
+<li class="chapter" data-level="9.2" data-path="file-organization.html"><a href="file-organization.html#rmarkdown"><i class="fa fa-check"></i><b>9.2</b> <code>Rmarkdown</code></a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="file-organization.html"><a href="file-organization.html#the-anatomy-of-an-rmarkdown-file"><i class="fa fa-check"></i><b>9.2.1</b> The Anatomy of an <code>Rmarkdown</code> File</a></li>
+<li class="chapter" data-level="9.2.2" data-path="file-organization.html"><a href="file-organization.html#the-body-of-the-rmarkdown"><i class="fa fa-check"></i><b>9.2.2</b> The Body of the <code>Rmarkdown</code></a></li>
+<li class="chapter" data-level="9.2.3" data-path="file-organization.html"><a href="file-organization.html#childing"><i class="fa fa-check"></i><b>9.2.3</b> Childing</a></li>
+<li class="chapter" data-level="9.2.4" data-path="file-organization.html"><a href="file-organization.html#bibliographies"><i class="fa fa-check"></i><b>9.2.4</b> Bibliographies</a></li>
+<li class="chapter" data-level="9.2.5" data-path="file-organization.html"><a href="file-organization.html#a-final-note-on-rmarkdown-visual-markdown-editor"><i class="fa fa-check"></i><b>9.2.5</b> A Final Note on <code>Rmarkdown</code>: Visual Markdown Editor</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="strings.html"><a href="strings.html"><i class="fa fa-check"></i><b>10</b> Strings</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="strings.html"><a href="strings.html#regular-expressions"><i class="fa fa-check"></i><b>10.1</b> Regular Expressions</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="strings.html"><a href="strings.html#exercise-1-1"><i class="fa fa-check"></i><b>10.1.1</b> Exercise 1</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="strings.html"><a href="strings.html#regular-expressions-continued"><i class="fa fa-check"></i><b>10.2</b> Regular Expressions Continued</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="strings.html"><a href="strings.html#exercise-2-1"><i class="fa fa-check"></i><b>10.2.1</b> Exercise 2</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="strings.html"><a href="strings.html#using-extract"><i class="fa fa-check"></i><b>10.3</b> Using <code>extract</code></a></li>
+<li class="chapter" data-level="10.4" data-path="strings.html"><a href="strings.html#using-separate"><i class="fa fa-check"></i><b>10.4</b> Using <code>separate</code></a></li>
+<li class="chapter" data-level="10.5" data-path="strings.html"><a href="strings.html#the-str_replace-function"><i class="fa fa-check"></i><b>10.5</b> The <code>str_replace</code> function</a></li>
+<li class="chapter" data-level="10.6" data-path="strings.html"><a href="strings.html#the-str_replace_all-function"><i class="fa fa-check"></i><b>10.6</b> The <code>str_replace_all</code> function</a>
+<ul>
+<li class="chapter" data-level="10.6.1" data-path="strings.html"><a href="strings.html#exercise-3-1"><i class="fa fa-check"></i><b>10.6.1</b> Exercise 3</a></li>
+</ul></li>
+<li class="chapter" data-level="10.7" data-path="strings.html"><a href="strings.html#solutions"><i class="fa fa-check"></i><b>10.7</b> Solutions</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="webscraping.html"><a href="webscraping.html"><i class="fa fa-check"></i><b>11</b> Webscraping</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="webscraping.html"><a href="webscraping.html#background-knowledge---brief-html-lesson"><i class="fa fa-check"></i><b>11.1</b> Background Knowledge - Brief HTML Lesson</a></li>
+<li class="chapter" data-level="11.2" data-path="webscraping.html"><a href="webscraping.html#webscraping-with-rvest"><i class="fa fa-check"></i><b>11.2</b> Webscraping with <code>rvest</code></a></li>
+<li class="chapter" data-level="11.3" data-path="webscraping.html"><a href="webscraping.html#common-workflow."><i class="fa fa-check"></i><b>11.3</b> Common Workflow.</a></li>
+<li class="chapter" data-level="11.4" data-path="webscraping.html"><a href="webscraping.html#example-craigslist"><i class="fa fa-check"></i><b>11.4</b> Example: Craigslist</a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="webscraping.html"><a href="webscraping.html#extracting-the-descriptions"><i class="fa fa-check"></i><b>11.4.1</b> Extracting the Descriptions</a></li>
+<li class="chapter" data-level="11.4.2" data-path="webscraping.html"><a href="webscraping.html#brief-hiatus-css-selectors"><i class="fa fa-check"></i><b>11.4.2</b> Brief Hiatus: CSS Selectors</a></li>
+<li class="chapter" data-level="11.4.3" data-path="webscraping.html"><a href="webscraping.html#extracting-the-hyperlinks"><i class="fa fa-check"></i><b>11.4.3</b> Extracting the Hyperlinks</a></li>
+<li class="chapter" data-level="11.4.4" data-path="webscraping.html"><a href="webscraping.html#binding-the-information-together"><i class="fa fa-check"></i><b>11.4.4</b> Binding the Information Together</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="webscraping.html"><a href="webscraping.html#example-wikipedia"><i class="fa fa-check"></i><b>11.5</b> Example: Wikipedia</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="programming.html"><a href="programming.html"><i class="fa fa-check"></i><b>12</b> Programming</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="programming.html"><a href="programming.html#functions"><i class="fa fa-check"></i><b>12.1</b> Functions</a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="programming.html"><a href="programming.html#exercise-16"><i class="fa fa-check"></i><b>12.1.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="programming.html"><a href="programming.html#for-loops"><i class="fa fa-check"></i><b>12.2</b> For-loops</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="programming.html"><a href="programming.html#exercise-17"><i class="fa fa-check"></i><b>12.2.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="programming.html"><a href="programming.html#if-else"><i class="fa fa-check"></i><b>12.3</b> If-else</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="programming.html"><a href="programming.html#exercise-18"><i class="fa fa-check"></i><b>12.3.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="programming.html"><a href="programming.html#selected-solutions-3"><i class="fa fa-check"></i><b>12.4</b> Selected Solutions</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="relational-data.html"><a href="relational-data.html"><i class="fa fa-check"></i><b>13</b> Relational Data</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="relational-data.html"><a href="relational-data.html#finding-primary-keys"><i class="fa fa-check"></i><b>13.1</b> Finding Primary Keys</a></li>
+<li class="chapter" data-level="13.2" data-path="relational-data.html"><a href="relational-data.html#finding-primary-keys-harder"><i class="fa fa-check"></i><b>13.2</b> Finding Primary Keys (harder)</a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="relational-data.html"><a href="relational-data.html#exercise-19"><i class="fa fa-check"></i><b>13.2.1</b> Exercise</a></li>
+<li class="chapter" data-level="13.2.2" data-path="relational-data.html"><a href="relational-data.html#exercise-20"><i class="fa fa-check"></i><b>13.2.2</b> Exercise</a></li>
+<li class="chapter" data-level="13.2.3" data-path="relational-data.html"><a href="relational-data.html#exercise-21"><i class="fa fa-check"></i><b>13.2.3</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="relational-data.html"><a href="relational-data.html#selected-solutions-4"><i class="fa fa-check"></i><b>13.3</b> Selected Solutions</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://bookdown.org" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Wrangling for Economists</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="webscraping" class="section level1 hasAnchor" number="11">
+<h1><span class="header-section-number">Chapter 11</span> Webscraping<a href="webscraping.html#webscraping" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>This chaper will focus primarily on <em>one</em> type of webscraping which is obtaining data through extraction on a website. The other method is using an API, which we will not go into here. Henceforth, when I refer to “web scraping” in this document, I will be referring to the extraction methods.</p>
+<div id="background-knowledge---brief-html-lesson" class="section level2 hasAnchor" number="11.1">
+<h2><span class="header-section-number">11.1</span> Background Knowledge - Brief HTML Lesson<a href="webscraping.html#background-knowledge---brief-html-lesson" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>First, webscraping requires knowledge of HTML which is a language for creating webpages. Luckily, you do not need to be an expert in HTML to be an effective scraper, but you <em>do</em> need to understand the coding structure of HTML which works in a nested structure. Before continuing on with this document, please watch <a href="https://www.youtube.com/watch?v=bWPMSSsVdPk">this 12 minute video</a> on HTML. It will explain HTML far better than I can in a short amount of time. There are three main takeaways you should get from this video: the structure of an HTML document, what an <a href="https://www.w3schools.com/html/html_elements.asp">HTML element</a> is, and what an <a href="https://www.w3schools.com/html/html_attributes.asp">HTML attribute</a> is.</p>
+<p>To summarize the most important point of the video, HTML works with a nested environment structure—very similar to Latex. In particular, each environment is denoted by a <em>tag</em> (<code>&lt;&gt;</code>). Tags must be started with <code>&lt;&gt;</code> and ended with <code>&lt;/&gt;</code>. As a quick example, consider the following html code:</p>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="webscraping.html#cb233-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&lt;</span>html<span class="sc">&gt;</span></span>
+<span id="cb233-2"><a href="webscraping.html#cb233-2" aria-hidden="true" tabindex="-1"></a>  <span class="er">&lt;</span>head<span class="sc">&gt;</span></span>
+<span id="cb233-3"><a href="webscraping.html#cb233-3" aria-hidden="true" tabindex="-1"></a>    <span class="er">&lt;</span>title<span class="sc">&gt;</span> Page Title <span class="sc">&lt;</span><span class="er">/</span>title<span class="sc">&gt;</span></span>
+<span id="cb233-4"><a href="webscraping.html#cb233-4" aria-hidden="true" tabindex="-1"></a>  <span class="er">&lt;/</span>head<span class="sc">&gt;</span></span>
+<span id="cb233-5"><a href="webscraping.html#cb233-5" aria-hidden="true" tabindex="-1"></a>  <span class="er">&lt;</span>body<span class="sc">&gt;</span></span>
+<span id="cb233-6"><a href="webscraping.html#cb233-6" aria-hidden="true" tabindex="-1"></a>    <span class="er">&lt;</span>h1<span class="sc">&gt;</span> First Header <span class="sc">&lt;</span><span class="er">/</span>h1<span class="sc">&gt;</span></span>
+<span id="cb233-7"><a href="webscraping.html#cb233-7" aria-hidden="true" tabindex="-1"></a>    <span class="er">&lt;</span>p<span class="sc">&gt;</span> You can add a paragraph here <span class="sc">&lt;</span><span class="er">/</span>p<span class="sc">&gt;</span></span>
+<span id="cb233-8"><a href="webscraping.html#cb233-8" aria-hidden="true" tabindex="-1"></a>  <span class="er">&lt;/</span>body<span class="sc">&gt;</span></span>
+<span id="cb233-9"><a href="webscraping.html#cb233-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb233-10"><a href="webscraping.html#cb233-10" aria-hidden="true" tabindex="-1"></a><span class="er">&lt;/</span>html<span class="sc">&gt;</span></span></code></pre></div>
+<p>The first tag denotes the start of an HTML document. All other tags are placed inside of this document. The ending <code>&lt;/html&gt;</code> tag denotes the end of the document. Putting tags outside of this ending tag will result in your material not being presented on the HTML page.</p>
+<p>Now observe the <code>&lt;head&gt;</code> tag which creates the <code>&lt;head&gt;</code> environment. Note that everything from the start of the <code>&lt;head&gt;</code> tag to the end of the head tag (<code>&lt;/head&gt;</code>) is also referred to as an <em>HTML element</em>. This will be helpful when remembering names of R functions that will be useful in webscraping. Within this environment, there is another tag named <code>&lt;title&gt;</code>. Inside of the <code>&lt;title&gt;</code>, there is text “Page Title” which is the page title. Notice that the title is concluded with the <code>&lt;/title&gt;</code> ending tag and that this entire environment is hosted within the <code>&lt;head&gt;</code> environment. Any time a tag is hosted within another tag, we call this a <em>child</em>. Again, this will be helpful for when we begin using R’s functions.</p>
+<p>Next, if you observe the <code>&lt;body&gt;</code> tag, you will see it has two <em>children</em>: <code>&lt;h1&gt;</code> and <code>&lt;p&gt;</code>. The video will explain these two tags, but it’s mostly important to note that each of these tags have text in-between them and their tags also end with the <code>&lt;/&gt;</code>. Be sure to watch the video to understand what an attribute is.</p>
+<p>By this point, you should at least be familiar with the nested structure of HTML documents, what an HTML element is, and what an HTML attribute is. Understanding this structure is crucial to effectively webscraping.</p>
+</div>
+<div id="webscraping-with-rvest" class="section level2 hasAnchor" number="11.2">
+<h2><span class="header-section-number">11.2</span> Webscraping with <code>rvest</code><a href="webscraping.html#webscraping-with-rvest" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The most frequented package for scraping websites in R is the <code>rvest</code> package. The <code>rvest</code> package is actually quite user friendly as there are only a few functions that are needed to successfully scrape most pages. What follows are the three most necessary (and sometimes sufficient) functions in <code>rvest</code>:</p>
+<ul>
+<li><code>rvest::read_html</code> - reads an html. Uses link as argument.</li>
+<li><code>rvest::html_elements</code> - takes in a CSS selector (more on this later) as argument and returns all elements with that selector. To be used after <code>read_html</code></li>
+<li><code>rvest::html_text2</code> - gives all text inside the element above. To be used after <code>html_elements</code>.</li>
+</ul>
+<p>There are also a few other useful functions, although these will be used far less frequently:</p>
+<ul>
+<li><code>rvest::html_children</code> - gives all “children” of the element selected. To be used after <code>html_elements</code>.</li>
+<li><code>rvest::html_table</code> - specific function for gathering tables.</li>
+<li><code>rvest::html_attr</code> - gets a particular attribute from an element. Common attributes are “href”, “img”.</li>
+</ul>
+</div>
+<div id="common-workflow." class="section level2 hasAnchor" number="11.3">
+<h2><span class="header-section-number">11.3</span> Common Workflow.<a href="webscraping.html#common-workflow." class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A common workflow for the web scraping a page with <code>rvest</code> is to do the following steps:</p>
+<ol style="list-style-type: decimal">
+<li>Copy the URL. Read the page in with <code>rvest::read_html</code>.</li>
+<li>While in Google Chrome (or another web browser) find the piece of data you want to scrape, right-click, then hit “inspect”. This will bring up the raw HTML code that maps to the piece of data you want.</li>
+<li>Find the HTML element associated with this piece of data. Using <code>rvest::</code>html_elements`, input the CSS selector associated with this HTML element.</li>
+<li>Use <code>rvest::html_text2</code> to extract the text from the desired HTML element.</li>
+<li>Convert into a data frame or tibble, and perform some <code>dplyr</code> functions to clean up.</li>
+</ol>
+<p>Next, we will go through an example using Craigslist housing.</p>
+</div>
+<div id="example-craigslist" class="section level2 hasAnchor" number="11.4">
+<h2><span class="header-section-number">11.4</span> Example: Craigslist<a href="webscraping.html#example-craigslist" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="extracting-the-descriptions" class="section level3 hasAnchor" number="11.4.1">
+<h3><span class="header-section-number">11.4.1</span> Extracting the Descriptions<a href="webscraping.html#extracting-the-descriptions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Our goal of this example will be to extract the page of housing listings from Craigslist. Some of the pieces of data wanted are: housing price, bedroom number, description, and corresponding link. I will go through each step of the common workflow outlined in the section above and will extract all of the listings descriptions in detail. In the next section, I will show how to extract the corresponding hyperlink as this process is slightly different. The other pieces will be left as an exercise to the reader as they are very similar in strategy. Note that housing listings are frequently updated, so the contents may appear different. However, this should not affect the general strategy.</p>
+<p><strong>Step 1:</strong> Copying the link and reading in the HTML.</p>
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="webscraping.html#cb234-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb234-2"><a href="webscraping.html#cb234-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rvest)</span></code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;rvest&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:readr&#39;:
+## 
+##     guess_encoding</code></pre>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="webscraping.html#cb237-1" aria-hidden="true" tabindex="-1"></a><span class="do">## copying the link and assigning a name</span></span>
+<span id="cb237-2"><a href="webscraping.html#cb237-2" aria-hidden="true" tabindex="-1"></a>link <span class="ot">&lt;-</span> <span class="st">&quot;https://santabarbara.craigslist.org/search/apa&quot;</span></span>
+<span id="cb237-3"><a href="webscraping.html#cb237-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb237-4"><a href="webscraping.html#cb237-4" aria-hidden="true" tabindex="-1"></a><span class="do">## reading in the Craigslist housing listing</span></span>
+<span id="cb237-5"><a href="webscraping.html#cb237-5" aria-hidden="true" tabindex="-1"></a>housing_page <span class="ot">&lt;-</span> <span class="fu">read_html</span>(link)</span></code></pre></div>
+<p><strong>Step 2:</strong> Within the browser, finding the desired information, right-clicking, and then clicking “Inspect”. For this example, I will click the description of the first listing as shown in Figure <span class="math inline">\(\ref{pic}\)</span>. Notice that part of the HTML code is highlighted—this shows where the information is in the HTML.</p>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="webscraping.html#cb238-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;images/webscraping/craigslist.png&quot;</span>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-156"></span>
+<img src="images/webscraping/craigslist.png" alt="\label{pic}The raw HTML code after clicking the Inspect button on the description of a Craigslist listing." width="1423" />
+<p class="caption">
+Figure 11.1: The raw HTML code after clicking the Inspect button on the description of a Craigslist listing.
+</p>
+</div>
+<p><strong>Step 3:</strong> Now it is important to find the HTML elements associated with the information wanted. Recall that the listing description is wanted. It appears that the HTML element <code>&lt;h3 class="result-heading"&gt;</code> contains the desired listing description in the text field. Notice that this also appears to be nested under the HTML element <code>&lt;li class="result-row" data-pid=...&gt;</code>. To extract these elements, the <code>rvest::html_elements</code> function will be necessary. But first, it is important to understand a small amount about CSS selectors so that the function arguments of <code>rvest::html_elements</code> are quick and simple.</p>
+</div>
+<div id="brief-hiatus-css-selectors" class="section level3 hasAnchor" number="11.4.2">
+<h3><span class="header-section-number">11.4.2</span> Brief Hiatus: CSS Selectors<a href="webscraping.html#brief-hiatus-css-selectors" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In addition to HTML, CSS is another language you should have some familiarity with when web scraping. CSS stands for “Cascading Style Sheets”. CSS describes how HTML elements are displayed on the screen, paper, or other media. CSS saves HTML coders a lot of time, as CSS can be applied to multiple webpages at once. CSS is integrated into HTML, so they appear in conjunction with each other. However, the most beneficial aspect of CSS to a web-scraper is that CSS can be applied to all HTML elements on a page. However, we can actually extract all HTML elements that have certain CSS properties attached to them with the use of <em>CSS selectors</em>. You can think of CSS selectors as relatively similar to regular expressions for CSS—they identify certain elements based on key identifiers. For the purposes of this lecture (and generally, in most cases), I will only focus on two selectors which are shown in the Table <span class="math inline">\(\ref{cssselectors}\)</span> below:</p>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:unnamed-chunk-157">Table 11.1: </span>Simple CSS Selectors
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Selector
+</th>
+<th style="text-align:left;">
+Example
+</th>
+<th style="text-align:left;">
+Example description
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+#id
+</td>
+<td style="text-align:left;">
+#firstname
+</td>
+<td style="text-align:left;">
+Selects the element with id=“firstname”
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+.class
+</td>
+<td style="text-align:left;">
+.intro
+</td>
+<td style="text-align:left;">
+Selects all elements with class=“intro”
+</td>
+</tr>
+</tbody>
+</table>
+<p>(End Hiatus)</p>
+<p><strong>Step 3 Continued:</strong> Now, I will tell R to place me into the nested structure of the HTML using the CSS selectors in conjunction with <code>rvest::html_elements</code>. As noted in the documentation, <code>rvest::html_elements</code> takes in CSS selectors as its argument. Hence, you will need to have some small level of comfort with writing CSS selectors (although I find it easiest to just use <a href="https://www.w3schools.com/css/css_selectors.asp">this link</a> as a cheat sheet). Recall that the listing description is nested under the we want is nested under the HTML element <code>&lt;h3 class="result-heading"&gt;</code>. To select this element, we can use the CSS selector: <code>#.result-heading</code>. Observe:</p>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="webscraping.html#cb239-1" aria-hidden="true" tabindex="-1"></a>housing_page <span class="sc">%&gt;%</span> </span>
+<span id="cb239-2"><a href="webscraping.html#cb239-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_elements</span>(<span class="st">&quot;.result-heading&quot;</span>)</span></code></pre></div>
+<pre><code>## {xml_nodeset (0)}</code></pre>
+<p>Realize that the <code>rvest::html_elements</code> function extracted every single HTML element that had the <code>class="result-heading"</code>. At this particular point in time (since the Craigslist page is likely to change), I have 120 nodes that reflect this.</p>
+<p><strong>Step 4/5:</strong> I will now extract the text from these elements with the <code>rvest::html_text2</code> function and transfer this information to a tibble with some simple wrangling functions:</p>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="webscraping.html#cb241-1" aria-hidden="true" tabindex="-1"></a>housing_page <span class="sc">%&gt;%</span> </span>
+<span id="cb241-2"><a href="webscraping.html#cb241-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_elements</span>(<span class="st">&quot;.result-heading&quot;</span>) <span class="sc">%&gt;%</span> <span class="do">## extracting each element with this particular class</span></span>
+<span id="cb241-3"><a href="webscraping.html#cb241-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_text2</span>() <span class="sc">%&gt;%</span> <span class="do">## extracting the text from the elements</span></span>
+<span id="cb241-4"><a href="webscraping.html#cb241-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span> <span class="do">## transforming to a tibble</span></span>
+<span id="cb241-5"><a href="webscraping.html#cb241-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">description =</span> value) <span class="do">## renaming the column</span></span></code></pre></div>
+<pre><code>## # A tibble: 0 × 1
+## # ℹ 1 variable: description &lt;chr&gt;</code></pre>
+<p>We can now save this as a first column of a data frame to be bound together with the other desired information later:</p>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="webscraping.html#cb243-1" aria-hidden="true" tabindex="-1"></a>description_info <span class="ot">&lt;-</span> housing_page <span class="sc">%&gt;%</span> </span>
+<span id="cb243-2"><a href="webscraping.html#cb243-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_elements</span>(<span class="st">&quot;.result-heading&quot;</span>) <span class="sc">%&gt;%</span> <span class="do">## extracting each element with this particular class</span></span>
+<span id="cb243-3"><a href="webscraping.html#cb243-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_text2</span>() <span class="sc">%&gt;%</span> <span class="do">## extracting the text from the elements</span></span>
+<span id="cb243-4"><a href="webscraping.html#cb243-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span> <span class="do">## transforming to a tibble</span></span>
+<span id="cb243-5"><a href="webscraping.html#cb243-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">description =</span> value) <span class="do">## renaming the column</span></span></code></pre></div>
+</div>
+<div id="extracting-the-hyperlinks" class="section level3 hasAnchor" number="11.4.3">
+<h3><span class="header-section-number">11.4.3</span> Extracting the Hyperlinks<a href="webscraping.html#extracting-the-hyperlinks" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+To extract the hyperlinks, I will use a similar strategy, although I will provide less details on the information already covered. Notice that the HTML element
+<li class = "result-heading">
+<p>contains a child <code>&lt;a&gt;</code> that has the HTML attribute “href” (look back at the video and corresponding links if you need to remember what these are). I will now go through the workflow:</p>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="webscraping.html#cb244-1" aria-hidden="true" tabindex="-1"></a>housing_page <span class="sc">%&gt;%</span> </span>
+<span id="cb244-2"><a href="webscraping.html#cb244-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_elements</span>(<span class="st">&quot;.result-heading&quot;</span>) <span class="sc">%&gt;%</span> <span class="do">## extracting each element with this particular class</span></span>
+<span id="cb244-3"><a href="webscraping.html#cb244-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_elements</span>(<span class="st">&quot;a&quot;</span>) <span class="sc">%&gt;%</span> <span class="do">## taking all elements a that are nested under class=&quot;result-heading&quot;</span></span>
+<span id="cb244-4"><a href="webscraping.html#cb244-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_attr</span>(<span class="st">&quot;href&quot;</span>) <span class="sc">%&gt;%</span> <span class="do">## </span></span>
+<span id="cb244-5"><a href="webscraping.html#cb244-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span> <span class="do">## transforming to a tibble</span></span>
+<span id="cb244-6"><a href="webscraping.html#cb244-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">hyperlink =</span> value)  <span class="do">## renaming</span></span></code></pre></div>
+<pre><code>## # A tibble: 0 × 1
+## # ℹ 1 variable: hyperlink &lt;chr&gt;</code></pre>
+<p>Notice that there are subtle differences in the strategy used here. First, using <code>html_elements(".result-heading")</code>, I extracted each HTML element that had with the <code>class = "result-heading" using the CSS selector. Next, I observed that</code>href<code>was an HTML attribute of the HTML element</code>a<code>. Hence, I used</code>html_elements(“a”)<code>to extract all of the</code><a><code>elements. Finally, I used</code>html_attr(“href”)<code>to extract all of the hyperlinks that were contained in the</code><a>` element and then put all of this information into a tibble with an informative column name.</p>
+<p><strong>IMPORTANT:</strong> Because <code>html_elements("a")</code> comes after <code>html_elements(".result-heading")</code>, <code>rvest</code> only grabbed the <code>&lt;a&gt;</code> elements <strong>that are nested underneath the elements that have the <code>class="result-heading"</code></strong>. This is a very important point and why you must understand the nested structure of HTMLs. If these functions were out of order, a substantially different result would be obtained (try it yourself).</p>
+<p>I will now save this tibble with the assigned name “hyperlink”:</p>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="webscraping.html#cb246-1" aria-hidden="true" tabindex="-1"></a>hyperlink <span class="ot">&lt;-</span> housing_page <span class="sc">%&gt;%</span> </span>
+<span id="cb246-2"><a href="webscraping.html#cb246-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_elements</span>(<span class="st">&quot;.result-heading&quot;</span>) <span class="sc">%&gt;%</span> <span class="do">## extracting each element with this particular class</span></span>
+<span id="cb246-3"><a href="webscraping.html#cb246-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_elements</span>(<span class="st">&quot;a&quot;</span>) <span class="sc">%&gt;%</span> <span class="do">## taking all elements a that are nested under class=&quot;result-heading&quot;</span></span>
+<span id="cb246-4"><a href="webscraping.html#cb246-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_attr</span>(<span class="st">&quot;href&quot;</span>) <span class="sc">%&gt;%</span> <span class="do">## </span></span>
+<span id="cb246-5"><a href="webscraping.html#cb246-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span> <span class="do">## transforming to a tibble</span></span>
+<span id="cb246-6"><a href="webscraping.html#cb246-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">hyperlink =</span> value)  <span class="do">## renaming</span></span></code></pre></div>
+</div>
+<div id="binding-the-information-together" class="section level3 hasAnchor" number="11.4.4">
+<h3><span class="header-section-number">11.4.4</span> Binding the Information Together<a href="webscraping.html#binding-the-information-together" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To bind together all of the columns, simply use <code>dplyr::bind_cols</code> to create the final tibble. Look out for when there are missing values that could cause dimension issues. If you would like to solve this issue, visit <a href="https://community.rstudio.com/t/web-scraping-with-missing-values/95926/2">here</a>.</p>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="webscraping.html#cb247-1" aria-hidden="true" tabindex="-1"></a><span class="do">## binding together to form one tibble.</span></span>
+<span id="cb247-2"><a href="webscraping.html#cb247-2" aria-hidden="true" tabindex="-1"></a>craigslist_listings <span class="ot">&lt;-</span> <span class="fu">bind_cols</span>(description_info, hyperlink)</span></code></pre></div>
+</div>
+</div>
+<div id="example-wikipedia" class="section level2 hasAnchor" number="11.5">
+<h2><span class="header-section-number">11.5</span> Example: Wikipedia<a href="webscraping.html#example-wikipedia" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>For this example, I will be using the less frequented (but <em>very</em> time-saving) function <code>rvest::html_table</code>. This function simply extracts all tables that are found in an HTML file and automatically converts it to a tibble. If there is more than one table on the HTML page, then the function creates a list of tibbles.</p>
+<p>To demonstrate, I will use a Wikipedia page that contains lists of the best selling music albums of all time.</p>
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="webscraping.html#cb248-1" aria-hidden="true" tabindex="-1"></a><span class="do">## album link</span></span>
+<span id="cb248-2"><a href="webscraping.html#cb248-2" aria-hidden="true" tabindex="-1"></a>album_link <span class="ot">&lt;-</span> <span class="st">&quot;https://en.wikipedia.org/wiki/List_of_best-selling_albums&quot;</span></span>
+<span id="cb248-3"><a href="webscraping.html#cb248-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb248-4"><a href="webscraping.html#cb248-4" aria-hidden="true" tabindex="-1"></a><span class="do">## reading in </span></span>
+<span id="cb248-5"><a href="webscraping.html#cb248-5" aria-hidden="true" tabindex="-1"></a>wiki_page <span class="ot">&lt;-</span> <span class="fu">read_html</span>(album_link)</span></code></pre></div>
+<p>Now, I will simply use the <code>rvest::html_table</code> function. As mentioned, since there are many lists on this page, the function will return a list of tibbles in the order of occurrence on the page (top to bottom). For clarity on this document, I will use the <code>purrr::pluck</code> function to extract only the 2nd entry of this list which will map to any album that sold over 40 million or more:</p>
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="webscraping.html#cb249-1" aria-hidden="true" tabindex="-1"></a>wiki_page <span class="sc">%&gt;%</span> </span>
+<span id="cb249-2"><a href="webscraping.html#cb249-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_table</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb249-3"><a href="webscraping.html#cb249-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pluck</span>(<span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 10 × 7
+##    Artist         Album Released Genre Total certified copi…¹ `Claimed sales*` `Ref(s)`
+##    &lt;chr&gt;          &lt;chr&gt;    &lt;int&gt; &lt;chr&gt; &lt;chr&gt;                             &lt;int&gt; &lt;chr&gt;   
+##  1 Michael Jacks… Thri…     1982 Pop,… &quot;.mw-parser-output .h…               70 [4][5]  
+##  2 AC/DC          Back…     1980 Hard… &quot;30.1\nUS: 25 million…               50 [36]    
+##  3 Whitney Houst… The …     1992 R&amp;B,… &quot;28.7\nUS: 18 million…               45 [43]    
+##  4 Pink Floyd     The …     1973 Prog… &quot;24.8\nUS: 15 million…               45 [45]    
+##  5 Eagles         Thei…     1976 Coun… &quot;41.2\nUS: 38 million…               44 [46]    
+##  6 Meat Loaf      Bat …     1977 Hard… &quot;22\nUS: 14 million[8…               43 [48]    
+##  7 Eagles         Hote…     1976 Soft… &quot;31.8\nUS: 26 million…               42 [50]    
+##  8 Shania Twain   Come…     1997 Coun… &quot;30.4\nUS: 20 million…               40 [53]    
+##  9 Fleetwood Mac  Rumo…     1977 Soft… &quot;29.3\nUS: 20 million…               40 [57][58]
+## 10 Bee Gees / Va… Satu…     1977 Disco &quot;22.1\nUS: 16 million…               40 [60][61]
+## # ℹ abbreviated name: ¹​`Total certified copies(from available markets)*`</code></pre>
+<p>Notice how simple this was: there was no need to find the HTML structure or elements!</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="strings.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="programming.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/jules32/bookdown-tutorial/edit/master/web_scrape_lecture.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["series.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

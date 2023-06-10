@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 13 Example: Wikipedia | Webscraping</title>
+  <meta name="description" content="Enter description." />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 13 Example: Wikipedia | Webscraping" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Enter description." />
+  <meta name="github-repo" content="openscapes/series" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 13 Example: Wikipedia | Webscraping" />
+  
+  <meta name="twitter:description" content="Enter description." />
+  
+
+<meta name="author" content="Michael Topper" />
+<meta name="author" content="Danny Klinenberg" />
+
+
+<meta name="date" content="2023-06-10" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="example-craigslist.html"/>
+<link rel="next" href="programming.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="lib/css/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" href="lib/css/style.css" type="text/css" />
+<link rel="stylesheet" href="lib/css/lesson.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Data Wrangling for Economists</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#organization"><i class="fa fa-check"></i><b>1.1</b> Organization</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="intro-to-r.html"><a href="intro-to-r.html"><i class="fa fa-check"></i><b>2</b> Intro to R</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="intro-to-r.html"><a href="intro-to-r.html#basic-summary-statistics"><i class="fa fa-check"></i><b>2.1</b> Basic summary statistics</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="intro-to-r.html"><a href="intro-to-r.html#exercise"><i class="fa fa-check"></i><b>2.1.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="intro-to-r.html"><a href="intro-to-r.html#basic-histogram"><i class="fa fa-check"></i><b>2.2</b> Basic histogram</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="intro-to-r.html"><a href="intro-to-r.html#exercise-1"><i class="fa fa-check"></i><b>2.2.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="intro-to-r.html"><a href="intro-to-r.html#creating-vectors"><i class="fa fa-check"></i><b>2.3</b> Creating Vectors</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="intro-to-r.html"><a href="intro-to-r.html#exercise-2"><i class="fa fa-check"></i><b>2.3.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="intro-to-r.html"><a href="intro-to-r.html#comparing-vectors"><i class="fa fa-check"></i><b>2.4</b> Comparing Vectors</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="intro-to-r.html"><a href="intro-to-r.html#exercise-3"><i class="fa fa-check"></i><b>2.4.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="intro-to-r.html"><a href="intro-to-r.html#creating-a-tibble"><i class="fa fa-check"></i><b>2.5</b> Creating a tibble</a></li>
+<li class="chapter" data-level="2.6" data-path="intro-to-r.html"><a href="intro-to-r.html#exercise-4"><i class="fa fa-check"></i><b>2.6</b> Exercise</a></li>
+<li class="chapter" data-level="2.7" data-path="intro-to-r.html"><a href="intro-to-r.html#selected-solutions"><i class="fa fa-check"></i><b>2.7</b> Selected Solutions</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="the-rproject.html"><a href="the-rproject.html"><i class="fa fa-check"></i><b>3</b> The <code>Rproject</code></a></li>
+<li class="chapter" data-level="4" data-path="git-and-github.html"><a href="git-and-github.html"><i class="fa fa-check"></i><b>4</b> Git and Github</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="git-and-github.html"><a href="git-and-github.html#installing-git"><i class="fa fa-check"></i><b>4.1</b> Installing Git</a></li>
+<li class="chapter" data-level="4.2" data-path="git-and-github.html"><a href="git-and-github.html#create-a-github-account"><i class="fa fa-check"></i><b>4.2</b> Create a Github account</a></li>
+<li class="chapter" data-level="4.3" data-path="git-and-github.html"><a href="git-and-github.html#introduce-yourself-to-git"><i class="fa fa-check"></i><b>4.3</b> Introduce yourself to Git</a></li>
+<li class="chapter" data-level="4.4" data-path="git-and-github.html"><a href="git-and-github.html#create-a-pat"><i class="fa fa-check"></i><b>4.4</b> Create a PAT</a></li>
+<li class="chapter" data-level="4.5" data-path="git-and-github.html"><a href="git-and-github.html#the-workflow"><i class="fa fa-check"></i><b>4.5</b> The Workflow</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="git-and-github.html"><a href="git-and-github.html#definitions"><i class="fa fa-check"></i><b>4.5.1</b> Definitions</a></li>
+<li class="chapter" data-level="4.5.2" data-path="git-and-github.html"><a href="git-and-github.html#the-workflow-1"><i class="fa fa-check"></i><b>4.5.2</b> The Workflow</a></li>
+<li class="chapter" data-level="4.5.3" data-path="git-and-github.html"><a href="git-and-github.html#the-git-panel-of-rstudio"><i class="fa fa-check"></i><b>4.5.3</b> The Git panel of RStudio</a></li>
+<li class="chapter" data-level="4.5.4" data-path="git-and-github.html"><a href="git-and-github.html#pulling"><i class="fa fa-check"></i><b>4.5.4</b> Pulling</a></li>
+<li class="chapter" data-level="4.5.5" data-path="git-and-github.html"><a href="git-and-github.html#commiting"><i class="fa fa-check"></i><b>4.5.5</b> Commiting</a></li>
+<li class="chapter" data-level="4.5.6" data-path="git-and-github.html"><a href="git-and-github.html#pushing"><i class="fa fa-check"></i><b>4.5.6</b> Pushing</a></li>
+<li class="chapter" data-level="4.5.7" data-path="git-and-github.html"><a href="git-and-github.html#pulling-again"><i class="fa fa-check"></i><b>4.5.7</b> Pulling (again)</a></li>
+<li class="chapter" data-level="4.5.8" data-path="git-and-github.html"><a href="git-and-github.html#the-main-commands-command-lineterminal"><i class="fa fa-check"></i><b>4.5.8</b> The Main Commands (Command Line/Terminal)</a></li>
+<li class="chapter" data-level="4.5.9" data-path="git-and-github.html"><a href="git-and-github.html#exercise-5"><i class="fa fa-check"></i><b>4.5.9</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="git-and-github.html"><a href="git-and-github.html#branches"><i class="fa fa-check"></i><b>4.6</b> Branches</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="git-and-github.html"><a href="git-and-github.html#creating-a-branch"><i class="fa fa-check"></i><b>4.6.1</b> Creating a branch</a></li>
+<li class="chapter" data-level="4.6.2" data-path="git-and-github.html"><a href="git-and-github.html#branches-when-working-independently"><i class="fa fa-check"></i><b>4.6.2</b> Branches when working independently</a></li>
+<li class="chapter" data-level="4.6.3" data-path="git-and-github.html"><a href="git-and-github.html#branches-when-working-collaboratively"><i class="fa fa-check"></i><b>4.6.3</b> Branches when working collaboratively</a></li>
+<li class="chapter" data-level="4.6.4" data-path="git-and-github.html"><a href="git-and-github.html#branches-with-the-terminal"><i class="fa fa-check"></i><b>4.6.4</b> Branches with the Terminal</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="git-and-github.html"><a href="git-and-github.html#gitignore"><i class="fa fa-check"></i><b>4.7</b> .gitignore</a></li>
+<li class="chapter" data-level="4.8" data-path="git-and-github.html"><a href="git-and-github.html#reverting"><i class="fa fa-check"></i><b>4.8</b> Reverting</a>
+<ul>
+<li class="chapter" data-level="4.8.1" data-path="git-and-github.html"><a href="git-and-github.html#reverting-safelty"><i class="fa fa-check"></i><b>4.8.1</b> Reverting Safelty</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html"><i class="fa fa-check"></i><b>5</b> Cleaning Data I</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#the-pipe"><i class="fa fa-check"></i><b>5.1</b> The Pipe</a></li>
+<li class="chapter" data-level="5.2" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#the-clean_names-function"><i class="fa fa-check"></i><b>5.2</b> The <code>clean_names</code> function</a></li>
+<li class="chapter" data-level="5.3" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#the-select-function"><i class="fa fa-check"></i><b>5.3</b> The <code>select</code> function</a></li>
+<li class="chapter" data-level="5.4" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#the-filter-function"><i class="fa fa-check"></i><b>5.4</b> The <code>filter</code> function</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#exercise-6"><i class="fa fa-check"></i><b>5.4.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#the-distinct-function"><i class="fa fa-check"></i><b>5.5</b> The <code>distinct</code> function</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#exercise-7"><i class="fa fa-check"></i><b>5.5.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#the-mutate-function."><i class="fa fa-check"></i><b>5.6</b> The <code>mutate</code> function.</a></li>
+<li class="chapter" data-level="5.7" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#the-summarize-function"><i class="fa fa-check"></i><b>5.7</b> The <code>summarize</code> function</a>
+<ul>
+<li class="chapter" data-level="5.7.1" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#exercise-8"><i class="fa fa-check"></i><b>5.7.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#the-group_by-and-summarize-functions"><i class="fa fa-check"></i><b>5.8</b> The <code>group_by</code> and <code>summarize</code> functions</a></li>
+<li class="chapter" data-level="5.9" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#exercise-9"><i class="fa fa-check"></i><b>5.9</b> Exercise</a>
+<ul>
+<li class="chapter" data-level="5.9.1" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#exercise-10"><i class="fa fa-check"></i><b>5.9.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="5.10" data-path="cleaning-data-i.html"><a href="cleaning-data-i.html#selected-solutions-1"><i class="fa fa-check"></i><b>5.10</b> Selected Solutions</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="data-cleaning-ii.html"><a href="data-cleaning-ii.html"><i class="fa fa-check"></i><b>6</b> Data Cleaning II</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="data-cleaning-ii.html"><a href="data-cleaning-ii.html#the-count-function"><i class="fa fa-check"></i><b>6.1</b> The <code>count</code> function</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="data-cleaning-ii.html"><a href="data-cleaning-ii.html#exercise-11"><i class="fa fa-check"></i><b>6.1.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="data-cleaning-ii.html"><a href="data-cleaning-ii.html#using-the-is.na-function"><i class="fa fa-check"></i><b>6.2</b> Using the <code>is.na</code> function</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="data-cleaning-ii.html"><a href="data-cleaning-ii.html#exercise-12"><i class="fa fa-check"></i><b>6.2.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="data-cleaning-ii.html"><a href="data-cleaning-ii.html#the-arrange-function"><i class="fa fa-check"></i><b>6.3</b> The <code>arrange</code> function</a></li>
+<li class="chapter" data-level="6.4" data-path="data-cleaning-ii.html"><a href="data-cleaning-ii.html#the-filter-function-with-logicals"><i class="fa fa-check"></i><b>6.4</b> The <code>filter</code> function with logicals</a></li>
+<li class="chapter" data-level="6.5" data-path="data-cleaning-ii.html"><a href="data-cleaning-ii.html#exercise-13"><i class="fa fa-check"></i><b>6.5</b> Exercise</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="data-cleaning-ii.html"><a href="data-cleaning-ii.html#exercise-14"><i class="fa fa-check"></i><b>6.5.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="data-cleaning-ii.html"><a href="data-cleaning-ii.html#selected-solutions-2"><i class="fa fa-check"></i><b>6.6</b> Selected Solutions</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html"><i class="fa fa-check"></i><b>7</b> Graphics with ggplot2</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html#the-grammar-of-graphics"><i class="fa fa-check"></i><b>7.1</b> The grammar of graphics</a></li>
+<li class="chapter" data-level="7.2" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html#adding-options"><i class="fa fa-check"></i><b>7.2</b> Adding options</a></li>
+<li class="chapter" data-level="7.3" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html#adding-multiple-plots-together"><i class="fa fa-check"></i><b>7.3</b> Adding multiple plots together</a></li>
+<li class="chapter" data-level="7.4" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html#creating-legends"><i class="fa fa-check"></i><b>7.4</b> Creating legends</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html#exercise-15"><i class="fa fa-check"></i><b>7.4.1</b> Exercise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="file-organization.html"><a href="file-organization.html"><i class="fa fa-check"></i><b>8</b> File Organization</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="file-organization.html"><a href="file-organization.html#organizing"><i class="fa fa-check"></i><b>8.1</b> Organizing</a></li>
+<li class="chapter" data-level="8.2" data-path="file-organization.html"><a href="file-organization.html#rmarkdown"><i class="fa fa-check"></i><b>8.2</b> <code>Rmarkdown</code></a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="file-organization.html"><a href="file-organization.html#the-anatomy-of-an-rmarkdown-file"><i class="fa fa-check"></i><b>8.2.1</b> The Anatomy of an <code>Rmarkdown</code> File</a></li>
+<li class="chapter" data-level="8.2.2" data-path="file-organization.html"><a href="file-organization.html#the-body-of-the-rmarkdown"><i class="fa fa-check"></i><b>8.2.2</b> The Body of the <code>Rmarkdown</code></a></li>
+<li class="chapter" data-level="8.2.3" data-path="file-organization.html"><a href="file-organization.html#childing"><i class="fa fa-check"></i><b>8.2.3</b> Childing</a></li>
+<li class="chapter" data-level="8.2.4" data-path="file-organization.html"><a href="file-organization.html#bibliographies"><i class="fa fa-check"></i><b>8.2.4</b> Bibliographies</a></li>
+<li class="chapter" data-level="8.2.5" data-path="file-organization.html"><a href="file-organization.html#a-final-note-on-rmarkdown-visual-markdown-editor"><i class="fa fa-check"></i><b>8.2.5</b> A Final Note on <code>Rmarkdown</code>: Visual Markdown Editor</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="strings.html"><a href="strings.html"><i class="fa fa-check"></i><b>9</b> Strings</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="strings.html"><a href="strings.html#regular-expressions"><i class="fa fa-check"></i><b>9.1</b> Regular Expressions</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="strings.html"><a href="strings.html#exercise-1-1"><i class="fa fa-check"></i><b>9.1.1</b> Exercise 1</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="strings.html"><a href="strings.html#regular-expressions-continued"><i class="fa fa-check"></i><b>9.2</b> Regular Expressions Continued</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="strings.html"><a href="strings.html#exercise-2-1"><i class="fa fa-check"></i><b>9.2.1</b> Exercise 2</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="strings.html"><a href="strings.html#using-extract"><i class="fa fa-check"></i><b>9.3</b> Using <code>extract</code></a></li>
+<li class="chapter" data-level="9.4" data-path="strings.html"><a href="strings.html#using-separate"><i class="fa fa-check"></i><b>9.4</b> Using <code>separate</code></a></li>
+<li class="chapter" data-level="9.5" data-path="strings.html"><a href="strings.html#the-gsub-function"><i class="fa fa-check"></i><b>9.5</b> The <code>gsub</code> function</a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="strings.html"><a href="strings.html#exercise-3-1"><i class="fa fa-check"></i><b>9.5.1</b> Exercise 3</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="strings.html"><a href="strings.html#solutions"><i class="fa fa-check"></i><b>9.6</b> Solutions</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>10</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="introduction.html"><a href="introduction.html#background-knowledge---brief-html-lesson"><i class="fa fa-check"></i><b>10.1</b> Background Knowledge - Brief HTML Lesson</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="webscraping-with-rvest.html"><a href="webscraping-with-rvest.html"><i class="fa fa-check"></i><b>11</b> Webscraping with <code>rvest</code></a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="webscraping-with-rvest.html"><a href="webscraping-with-rvest.html#common-workflow."><i class="fa fa-check"></i><b>11.1</b> Common Workflow.</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="example-craigslist.html"><a href="example-craigslist.html"><i class="fa fa-check"></i><b>12</b> Example: Craigslist</a>
+<ul>
+<li class="chapter" data-level="12.0.1" data-path="example-craigslist.html"><a href="example-craigslist.html#extracting-the-descriptions"><i class="fa fa-check"></i><b>12.0.1</b> Extracting the Descriptions</a></li>
+<li class="chapter" data-level="12.0.2" data-path="example-craigslist.html"><a href="example-craigslist.html#brief-hiatus-css-selectors"><i class="fa fa-check"></i><b>12.0.2</b> Brief Hiatus: CSS Selectors</a></li>
+<li class="chapter" data-level="12.0.3" data-path="example-craigslist.html"><a href="example-craigslist.html#extracting-the-hyperlinks"><i class="fa fa-check"></i><b>12.0.3</b> Extracting the Hyperlinks</a></li>
+<li class="chapter" data-level="12.0.4" data-path="example-craigslist.html"><a href="example-craigslist.html#binding-the-information-together"><i class="fa fa-check"></i><b>12.0.4</b> Binding the Information Together</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="example-wikipedia.html"><a href="example-wikipedia.html"><i class="fa fa-check"></i><b>13</b> Example: Wikipedia</a></li>
+<li class="chapter" data-level="14" data-path="programming.html"><a href="programming.html"><i class="fa fa-check"></i><b>14</b> Programming</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="programming.html"><a href="programming.html#functions"><i class="fa fa-check"></i><b>14.1</b> Functions</a>
+<ul>
+<li class="chapter" data-level="14.1.1" data-path="programming.html"><a href="programming.html#exercise-16"><i class="fa fa-check"></i><b>14.1.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="programming.html"><a href="programming.html#for-loops"><i class="fa fa-check"></i><b>14.2</b> For-loops</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="programming.html"><a href="programming.html#exercise-17"><i class="fa fa-check"></i><b>14.2.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="programming.html"><a href="programming.html#if-else"><i class="fa fa-check"></i><b>14.3</b> If-else</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="programming.html"><a href="programming.html#exercise-18"><i class="fa fa-check"></i><b>14.3.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="programming.html"><a href="programming.html#selected-solutions-3"><i class="fa fa-check"></i><b>14.4</b> Selected Solutions</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="relational-data.html"><a href="relational-data.html"><i class="fa fa-check"></i><b>15</b> Relational Data</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="relational-data.html"><a href="relational-data.html#finding-primary-keys"><i class="fa fa-check"></i><b>15.1</b> Finding Primary Keys</a></li>
+<li class="chapter" data-level="15.2" data-path="relational-data.html"><a href="relational-data.html#finding-primary-keys-harder"><i class="fa fa-check"></i><b>15.2</b> Finding Primary Keys (harder)</a>
+<ul>
+<li class="chapter" data-level="15.2.1" data-path="relational-data.html"><a href="relational-data.html#exercise-19"><i class="fa fa-check"></i><b>15.2.1</b> Exercise</a></li>
+<li class="chapter" data-level="15.2.2" data-path="relational-data.html"><a href="relational-data.html#exercise-20"><i class="fa fa-check"></i><b>15.2.2</b> Exercise</a></li>
+<li class="chapter" data-level="15.2.3" data-path="relational-data.html"><a href="relational-data.html#exercise-21"><i class="fa fa-check"></i><b>15.2.3</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="15.3" data-path="relational-data.html"><a href="relational-data.html#selected-solutions-4"><i class="fa fa-check"></i><b>15.3</b> Selected Solutions</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://bookdown.org" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Webscraping</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="example-wikipedia" class="section level1 hasAnchor" number="13">
+<h1><span class="header-section-number">Chapter 13</span> Example: Wikipedia<a href="example-wikipedia.html#example-wikipedia" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>For this example, I will be using the less frequented (but <em>very</em> time-saving) function <code>rvest::html_table</code>. This function simply extracts all tables that are found in an HTML file and automatically converts it to a tibble. If there is more than one table on the HTML page, then the function creates a list of tibbles.</p>
+<p>To demonstrate, I will use a Wikipedia page that contains lists of the best selling music albums of all time.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="example-wikipedia.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="do">## album link</span></span>
+<span id="cb13-2"><a href="example-wikipedia.html#cb13-2" aria-hidden="true" tabindex="-1"></a>album_link <span class="ot">&lt;-</span> <span class="st">&quot;https://en.wikipedia.org/wiki/List_of_best-selling_albums&quot;</span></span>
+<span id="cb13-3"><a href="example-wikipedia.html#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="example-wikipedia.html#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="do">## reading in </span></span>
+<span id="cb13-5"><a href="example-wikipedia.html#cb13-5" aria-hidden="true" tabindex="-1"></a>wiki_page <span class="ot">&lt;-</span> <span class="fu">read_html</span>(album_link)</span></code></pre></div>
+<p>Now, I will simply use the <code>rvest::html_table</code> function. As mentioned, since there are many lists on this page, the function will return a list of tibbles in the order of occurrence on the page (top to bottom). For clarity on this document, I will use the <code>purrr::pluck</code> function to extract only the 2nd entry of this list which will map to any album that sold over 40 million or more:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="example-wikipedia.html#cb14-1" aria-hidden="true" tabindex="-1"></a>wiki_page <span class="sc">%&gt;%</span> </span>
+<span id="cb14-2"><a href="example-wikipedia.html#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_table</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb14-3"><a href="example-wikipedia.html#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pluck</span>(<span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 10 × 7
+##    Artist  Album Released Genre Total certified copi…¹ `Claimed sales*` `Ref(s)`
+##    &lt;chr&gt;   &lt;chr&gt;    &lt;int&gt; &lt;chr&gt; &lt;chr&gt;                             &lt;int&gt; &lt;chr&gt;   
+##  1 Michae… Thri…     1982 Pop,… &quot;.mw-parser-output .h…               70 [4][5]  
+##  2 AC/DC   Back…     1980 Hard… &quot;30.1\nUS: 25 million…               50 [36]    
+##  3 Whitne… The …     1992 R&amp;B,… &quot;28.7\nUS: 18 million…               45 [43]    
+##  4 Pink F… The …     1973 Prog… &quot;24.8\nUS: 15 million…               45 [45]    
+##  5 Eagles  Thei…     1976 Coun… &quot;41.2\nUS: 38 million…               44 [46]    
+##  6 Meat L… Bat …     1977 Hard… &quot;22\nUS: 14 million[8…               43 [48]    
+##  7 Eagles  Hote…     1976 Soft… &quot;31.8\nUS: 26 million…               42 [50]    
+##  8 Shania… Come…     1997 Coun… &quot;30.4\nUS: 20 million…               40 [53]    
+##  9 Fleetw… Rumo…     1977 Soft… &quot;29.3\nUS: 20 million…               40 [57][58]
+## 10 Bee Ge… Satu…     1977 Disco &quot;22.1\nUS: 16 million…               40 [60][61]
+## # ℹ abbreviated name: ¹​`Total certified copies(from available markets)*`</code></pre>
+<p>Notice how simple this was: there was no need to find the HTML structure or elements!</p>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="example-craigslist.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="programming.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/jules32/bookdown-tutorial/edit/master/web_scrape_lecture.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["series.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

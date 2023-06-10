@@ -7,12 +7,12 @@ rmd_files: [
   "intro_r.Rmd",
   "guided_exercise_rprojects.Rmd",
   "git.Rmd",
-  "intro_piping.Rmd",
-  "piping_2.Rmd",
-  "ggplot2.Rmd",
+  "guided_exercises_week_2.Rmd",
+  "guided_exercises_week_3.Rmd",
+  "ggplot.Rmd",
   "organization.Rmd",
-  "strings.Rmd",
-  "web_scraping_tutorial/web_scrape_lecture.Rmd",
+  "guided_exercises_week_5.Rmd",
+  "web_scrape_lecture.Rmd",
   "programming.Rmd",
   "relational_data.Rmd"]
 delete_merged_file: true 

@@ -4,37 +4,37 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 Getting Started | Guided Exercises: Graphics with ggplot2</title>
-  <meta name="description" content="A mini bookdown tutorial book on how to make bookdown books." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <title>Chapter 5 Getting Started | Guided Exercises: Week 2</title>
+  <meta name="description" content="Enter description." />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 Getting Started | Guided Exercises: Graphics with ggplot2" />
+  <meta property="og:title" content="Chapter 5 Getting Started | Guided Exercises: Week 2" />
   <meta property="og:type" content="book" />
   
-  
-  <meta property="og:description" content="A mini bookdown tutorial book on how to make bookdown books." />
+  <meta property="og:description" content="Enter description." />
   <meta name="github-repo" content="openscapes/series" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 Getting Started | Guided Exercises: Graphics with ggplot2" />
+  <meta name="twitter:title" content="Chapter 5 Getting Started | Guided Exercises: Week 2" />
   
-  <meta name="twitter:description" content="A mini bookdown tutorial book on how to make bookdown books." />
+  <meta name="twitter:description" content="Enter description." />
   
 
-<meta name="author" content="Julie Lowndes" />
+<meta name="author" content="Michael Topper" />
+<meta name="author" content="Danny Klinenberg" />
 
 
-<meta name="date" content="2021-09-02" />
+<meta name="date" content="2023-06-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="selected-solutions.html"/>
-<script src="libs/header-attrs-2.9/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link rel="prev" href="git-and-github.html"/>
+<link rel="next" href="selected-solutions-1.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,15 +50,16 @@
 
 
 
-
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -92,7 +93,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -105,7 +106,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -119,6 +120,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="lib/css/bootstrap.min.css" type="text/css" />
 <link rel="stylesheet" href="lib/css/style.css" type="text/css" />
@@ -135,46 +140,200 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Mini Bookdown Tutorial</a></li>
+<li><a href="./">Data Wrangling for Economists</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#learn-all-about-bookdown"><i class="fa fa-check"></i><b>1.1</b> Learn all about Bookdown</a></li>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#organization"><i class="fa fa-check"></i><b>1.1</b> Organization</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i><b>2</b> Getting Started</a>
+<li class="chapter" data-level="2" data-path="intro-to-r.html"><a href="intro-to-r.html"><i class="fa fa-check"></i><b>2</b> Intro to R</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="getting-started.html"><a href="getting-started.html#basic-summary-statistics"><i class="fa fa-check"></i><b>2.1</b> Basic summary statistics</a>
+<li class="chapter" data-level="2.1" data-path="intro-to-r.html"><a href="intro-to-r.html#basic-summary-statistics"><i class="fa fa-check"></i><b>2.1</b> Basic summary statistics</a>
 <ul>
-<li class="chapter" data-level="2.1.1" data-path="getting-started.html"><a href="getting-started.html#exercise"><i class="fa fa-check"></i><b>2.1.1</b> Exercise</a></li>
+<li class="chapter" data-level="2.1.1" data-path="intro-to-r.html"><a href="intro-to-r.html#exercise"><i class="fa fa-check"></i><b>2.1.1</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="getting-started.html"><a href="getting-started.html#basic-histogram"><i class="fa fa-check"></i><b>2.2</b> Basic histogram</a>
+<li class="chapter" data-level="2.2" data-path="intro-to-r.html"><a href="intro-to-r.html#basic-histogram"><i class="fa fa-check"></i><b>2.2</b> Basic histogram</a>
 <ul>
-<li class="chapter" data-level="2.2.1" data-path="getting-started.html"><a href="getting-started.html#exercise-1"><i class="fa fa-check"></i><b>2.2.1</b> Exercise</a></li>
+<li class="chapter" data-level="2.2.1" data-path="intro-to-r.html"><a href="intro-to-r.html#exercise-1"><i class="fa fa-check"></i><b>2.2.1</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="getting-started.html"><a href="getting-started.html#creating-vectors"><i class="fa fa-check"></i><b>2.3</b> Creating Vectors</a>
+<li class="chapter" data-level="2.3" data-path="intro-to-r.html"><a href="intro-to-r.html#creating-vectors"><i class="fa fa-check"></i><b>2.3</b> Creating Vectors</a>
 <ul>
-<li class="chapter" data-level="2.3.1" data-path="getting-started.html"><a href="getting-started.html#exercise-2"><i class="fa fa-check"></i><b>2.3.1</b> Exercise</a></li>
+<li class="chapter" data-level="2.3.1" data-path="intro-to-r.html"><a href="intro-to-r.html#exercise-2"><i class="fa fa-check"></i><b>2.3.1</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="getting-started.html"><a href="getting-started.html#comparing-vectors"><i class="fa fa-check"></i><b>2.4</b> Comparing Vectors</a>
+<li class="chapter" data-level="2.4" data-path="intro-to-r.html"><a href="intro-to-r.html#comparing-vectors"><i class="fa fa-check"></i><b>2.4</b> Comparing Vectors</a>
 <ul>
-<li class="chapter" data-level="2.4.1" data-path="getting-started.html"><a href="getting-started.html#exercise-3"><i class="fa fa-check"></i><b>2.4.1</b> Exercise</a></li>
+<li class="chapter" data-level="2.4.1" data-path="intro-to-r.html"><a href="intro-to-r.html#exercise-3"><i class="fa fa-check"></i><b>2.4.1</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="getting-started.html"><a href="getting-started.html#creating-a-tibble"><i class="fa fa-check"></i><b>2.5</b> Creating a tibble</a>
+<li class="chapter" data-level="2.5" data-path="intro-to-r.html"><a href="intro-to-r.html#creating-a-tibble"><i class="fa fa-check"></i><b>2.5</b> Creating a tibble</a></li>
+<li class="chapter" data-level="2.6" data-path="intro-to-r.html"><a href="intro-to-r.html#exercise-4"><i class="fa fa-check"></i><b>2.6</b> Exercise</a></li>
+<li class="chapter" data-level="2.7" data-path="intro-to-r.html"><a href="intro-to-r.html#selected-solutions"><i class="fa fa-check"></i><b>2.7</b> Selected Solutions</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="the-rproject.html"><a href="the-rproject.html"><i class="fa fa-check"></i><b>3</b> The <code>Rproject</code></a></li>
+<li class="chapter" data-level="4" data-path="git-and-github.html"><a href="git-and-github.html"><i class="fa fa-check"></i><b>4</b> Git and Github</a>
 <ul>
-<li class="chapter" data-level="2.5.1" data-path="getting-started.html"><a href="getting-started.html#exercise-4"><i class="fa fa-check"></i><b>2.5.1</b> Exercise</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="3" data-path="selected-solutions.html"><a href="selected-solutions.html"><i class="fa fa-check"></i><b>3</b> Selected Solutions</a></li>
-<li class="chapter" data-level="4" data-path="getting-started-1.html"><a href="getting-started-1.html"><i class="fa fa-check"></i><b>4</b> Getting Started</a>
+<li class="chapter" data-level="4.1" data-path="git-and-github.html"><a href="git-and-github.html#installing-git"><i class="fa fa-check"></i><b>4.1</b> Installing Git</a></li>
+<li class="chapter" data-level="4.2" data-path="git-and-github.html"><a href="git-and-github.html#create-a-github-account"><i class="fa fa-check"></i><b>4.2</b> Create a Github account</a></li>
+<li class="chapter" data-level="4.3" data-path="git-and-github.html"><a href="git-and-github.html#introduce-yourself-to-git"><i class="fa fa-check"></i><b>4.3</b> Introduce yourself to Git</a></li>
+<li class="chapter" data-level="4.4" data-path="git-and-github.html"><a href="git-and-github.html#create-a-pat"><i class="fa fa-check"></i><b>4.4</b> Create a PAT</a></li>
+<li class="chapter" data-level="4.5" data-path="git-and-github.html"><a href="git-and-github.html#the-workflow"><i class="fa fa-check"></i><b>4.5</b> The Workflow</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="getting-started-1.html"><a href="getting-started-1.html#the-grammar-of-graphics"><i class="fa fa-check"></i><b>4.1</b> The grammar of graphics</a></li>
-<li class="chapter" data-level="4.2" data-path="getting-started-1.html"><a href="getting-started-1.html#adding-options"><i class="fa fa-check"></i><b>4.2</b> Adding options</a></li>
-<li class="chapter" data-level="4.3" data-path="getting-started-1.html"><a href="getting-started-1.html#adding-multiple-plots-together"><i class="fa fa-check"></i><b>4.3</b> Adding multiple plots together</a></li>
-<li class="chapter" data-level="4.4" data-path="getting-started-1.html"><a href="getting-started-1.html#creating-legends"><i class="fa fa-check"></i><b>4.4</b> Creating legends</a>
-<ul>
-<li class="chapter" data-level="4.4.1" data-path="getting-started-1.html"><a href="getting-started-1.html#exercise-5"><i class="fa fa-check"></i><b>4.4.1</b> Exercise</a></li>
+<li class="chapter" data-level="4.5.1" data-path="git-and-github.html"><a href="git-and-github.html#definitions"><i class="fa fa-check"></i><b>4.5.1</b> Definitions</a></li>
+<li class="chapter" data-level="4.5.2" data-path="git-and-github.html"><a href="git-and-github.html#the-workflow-1"><i class="fa fa-check"></i><b>4.5.2</b> The Workflow</a></li>
+<li class="chapter" data-level="4.5.3" data-path="git-and-github.html"><a href="git-and-github.html#the-git-panel-of-rstudio"><i class="fa fa-check"></i><b>4.5.3</b> The Git panel of RStudio</a></li>
+<li class="chapter" data-level="4.5.4" data-path="git-and-github.html"><a href="git-and-github.html#pulling"><i class="fa fa-check"></i><b>4.5.4</b> Pulling</a></li>
+<li class="chapter" data-level="4.5.5" data-path="git-and-github.html"><a href="git-and-github.html#commiting"><i class="fa fa-check"></i><b>4.5.5</b> Commiting</a></li>
+<li class="chapter" data-level="4.5.6" data-path="git-and-github.html"><a href="git-and-github.html#pushing"><i class="fa fa-check"></i><b>4.5.6</b> Pushing</a></li>
+<li class="chapter" data-level="4.5.7" data-path="git-and-github.html"><a href="git-and-github.html#pulling-again"><i class="fa fa-check"></i><b>4.5.7</b> Pulling (again)</a></li>
+<li class="chapter" data-level="4.5.8" data-path="git-and-github.html"><a href="git-and-github.html#the-main-commands-command-lineterminal"><i class="fa fa-check"></i><b>4.5.8</b> The Main Commands (Command Line/Terminal)</a></li>
+<li class="chapter" data-level="4.5.9" data-path="git-and-github.html"><a href="git-and-github.html#exercise-5"><i class="fa fa-check"></i><b>4.5.9</b> Exercise</a></li>
 </ul></li>
+<li class="chapter" data-level="4.6" data-path="git-and-github.html"><a href="git-and-github.html#branches"><i class="fa fa-check"></i><b>4.6</b> Branches</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="git-and-github.html"><a href="git-and-github.html#creating-a-branch"><i class="fa fa-check"></i><b>4.6.1</b> Creating a branch</a></li>
+<li class="chapter" data-level="4.6.2" data-path="git-and-github.html"><a href="git-and-github.html#branches-when-working-independently"><i class="fa fa-check"></i><b>4.6.2</b> Branches when working independently</a></li>
+<li class="chapter" data-level="4.6.3" data-path="git-and-github.html"><a href="git-and-github.html#branches-when-working-collaboratively"><i class="fa fa-check"></i><b>4.6.3</b> Branches when working collaboratively</a></li>
+<li class="chapter" data-level="4.6.4" data-path="git-and-github.html"><a href="git-and-github.html#branches-with-the-terminal"><i class="fa fa-check"></i><b>4.6.4</b> Branches with the Terminal</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="git-and-github.html"><a href="git-and-github.html#gitignore"><i class="fa fa-check"></i><b>4.7</b> .gitignore</a></li>
+<li class="chapter" data-level="4.8" data-path="git-and-github.html"><a href="git-and-github.html#reverting"><i class="fa fa-check"></i><b>4.8</b> Reverting</a>
+<ul>
+<li class="chapter" data-level="4.8.1" data-path="git-and-github.html"><a href="git-and-github.html#reverting-safelty"><i class="fa fa-check"></i><b>4.8.1</b> Reverting Safelty</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i><b>5</b> Getting Started</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="getting-started.html"><a href="getting-started.html#the-pipe"><i class="fa fa-check"></i><b>5.1</b> The Pipe</a></li>
+<li class="chapter" data-level="5.2" data-path="getting-started.html"><a href="getting-started.html#the-clean_names-function"><i class="fa fa-check"></i><b>5.2</b> The <code>clean_names</code> function</a></li>
+<li class="chapter" data-level="5.3" data-path="getting-started.html"><a href="getting-started.html#the-select-function"><i class="fa fa-check"></i><b>5.3</b> The <code>select</code> function</a></li>
+<li class="chapter" data-level="5.4" data-path="getting-started.html"><a href="getting-started.html#the-filter-function"><i class="fa fa-check"></i><b>5.4</b> The <code>filter</code> function</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="getting-started.html"><a href="getting-started.html#exercise-6"><i class="fa fa-check"></i><b>5.4.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="getting-started.html"><a href="getting-started.html#the-drop_na-function"><i class="fa fa-check"></i><b>5.5</b> The <code>drop_na</code> function</a></li>
+<li class="chapter" data-level="5.6" data-path="getting-started.html"><a href="getting-started.html#the-distinct-function"><i class="fa fa-check"></i><b>5.6</b> The <code>distinct</code> function</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="getting-started.html"><a href="getting-started.html#exercise-7"><i class="fa fa-check"></i><b>5.6.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="getting-started.html"><a href="getting-started.html#the-mutate-function."><i class="fa fa-check"></i><b>5.7</b> The <code>mutate</code> function.</a></li>
+<li class="chapter" data-level="5.8" data-path="getting-started.html"><a href="getting-started.html#the-summarize-function"><i class="fa fa-check"></i><b>5.8</b> The <code>summarize</code> function</a>
+<ul>
+<li class="chapter" data-level="5.8.1" data-path="getting-started.html"><a href="getting-started.html#exercise-8"><i class="fa fa-check"></i><b>5.8.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="5.9" data-path="getting-started.html"><a href="getting-started.html#the-group_by-and-summarize-functions"><i class="fa fa-check"></i><b>5.9</b> The <code>group_by</code> and <code>summarize</code> functions</a>
+<ul>
+<li class="chapter" data-level="5.9.1" data-path="getting-started.html"><a href="getting-started.html#exercise-9"><i class="fa fa-check"></i><b>5.9.1</b> Exercise</a></li>
+<li class="chapter" data-level="5.9.2" data-path="getting-started.html"><a href="getting-started.html#exercise-10"><i class="fa fa-check"></i><b>5.9.2</b> Exercise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="selected-solutions-1.html"><a href="selected-solutions-1.html"><i class="fa fa-check"></i><b>6</b> Selected Solutions</a></li>
+<li class="chapter" data-level="7" data-path="getting-started-1.html"><a href="getting-started-1.html"><i class="fa fa-check"></i><b>7</b> Getting Started</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="getting-started-1.html"><a href="getting-started-1.html#the-count-function"><i class="fa fa-check"></i><b>7.1</b> The <code>count</code> function</a></li>
+<li class="chapter" data-level="7.2" data-path="getting-started-1.html"><a href="getting-started-1.html#the-slice-and-pull-functions"><i class="fa fa-check"></i><b>7.2</b> The <code>slice</code> and <code>pull</code> functions</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="getting-started-1.html"><a href="getting-started-1.html#exercise-11"><i class="fa fa-check"></i><b>7.2.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="getting-started-1.html"><a href="getting-started-1.html#using-the-is.na-function"><i class="fa fa-check"></i><b>7.3</b> Using the <code>is.na</code> function</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="getting-started-1.html"><a href="getting-started-1.html#exercise-12"><i class="fa fa-check"></i><b>7.3.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="getting-started-1.html"><a href="getting-started-1.html#the-arrange-function"><i class="fa fa-check"></i><b>7.4</b> The <code>arrange</code> function</a></li>
+<li class="chapter" data-level="7.5" data-path="getting-started-1.html"><a href="getting-started-1.html#the-filter-function-with-logicals"><i class="fa fa-check"></i><b>7.5</b> The <code>filter</code> function with logicals</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="getting-started-1.html"><a href="getting-started-1.html#exercise-13"><i class="fa fa-check"></i><b>7.5.1</b> Exercise</a></li>
+<li class="chapter" data-level="7.5.2" data-path="getting-started-1.html"><a href="getting-started-1.html#exercise-14"><i class="fa fa-check"></i><b>7.5.2</b> Exercise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html"><i class="fa fa-check"></i><b>8</b> Graphics with ggplot2</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html#the-grammar-of-graphics"><i class="fa fa-check"></i><b>8.1</b> The grammar of graphics</a></li>
+<li class="chapter" data-level="8.2" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html#adding-options"><i class="fa fa-check"></i><b>8.2</b> Adding options</a></li>
+<li class="chapter" data-level="8.3" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html#adding-multiple-plots-together"><i class="fa fa-check"></i><b>8.3</b> Adding multiple plots together</a></li>
+<li class="chapter" data-level="8.4" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html#creating-legends"><i class="fa fa-check"></i><b>8.4</b> Creating legends</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html#exercise-15"><i class="fa fa-check"></i><b>8.4.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html#what-to-put-in-the-aes-function-how-do-i-know"><i class="fa fa-check"></i><b>8.5</b> What to put in the <code>aes</code> function? How do I know?</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html#what-other-arguments-can-i-pass-into-the-aes-function"><i class="fa fa-check"></i><b>8.5.1</b> What other arguments can I pass into the <code>aes</code> function?</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html#using-the-pipe"><i class="fa fa-check"></i><b>8.6</b> Using the pipe</a></li>
+<li class="chapter" data-level="8.7" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html#faceting"><i class="fa fa-check"></i><b>8.7</b> Faceting</a>
+<ul>
+<li class="chapter" data-level="8.7.1" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html#cleaning-up-the-graph"><i class="fa fa-check"></i><b>8.7.1</b> Cleaning up the graph</a></li>
+</ul></li>
+<li class="chapter" data-level="8.8" data-path="graphics-with-ggplot2.html"><a href="graphics-with-ggplot2.html#saving-ggplot-objects-and-adding-layers-later"><i class="fa fa-check"></i><b>8.8</b> Saving ggplot objects and adding layers later</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="file-organization.html"><a href="file-organization.html"><i class="fa fa-check"></i><b>9</b> File Organization</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="file-organization.html"><a href="file-organization.html#organizing"><i class="fa fa-check"></i><b>9.1</b> Organizing</a></li>
+<li class="chapter" data-level="9.2" data-path="file-organization.html"><a href="file-organization.html#rmarkdown"><i class="fa fa-check"></i><b>9.2</b> <code>Rmarkdown</code></a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="file-organization.html"><a href="file-organization.html#the-anatomy-of-an-rmarkdown-file"><i class="fa fa-check"></i><b>9.2.1</b> The Anatomy of an <code>Rmarkdown</code> File</a></li>
+<li class="chapter" data-level="9.2.2" data-path="file-organization.html"><a href="file-organization.html#the-body-of-the-rmarkdown"><i class="fa fa-check"></i><b>9.2.2</b> The Body of the <code>Rmarkdown</code></a></li>
+<li class="chapter" data-level="9.2.3" data-path="file-organization.html"><a href="file-organization.html#childing"><i class="fa fa-check"></i><b>9.2.3</b> Childing</a></li>
+<li class="chapter" data-level="9.2.4" data-path="file-organization.html"><a href="file-organization.html#bibliographies"><i class="fa fa-check"></i><b>9.2.4</b> Bibliographies</a></li>
+<li class="chapter" data-level="9.2.5" data-path="file-organization.html"><a href="file-organization.html#a-final-note-on-rmarkdown-visual-markdown-editor"><i class="fa fa-check"></i><b>9.2.5</b> A Final Note on <code>Rmarkdown</code>: Visual Markdown Editor</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="file-organization.html"><a href="file-organization.html#getting-started-2"><i class="fa fa-check"></i><b>9.3</b> Getting Started</a></li>
+<li class="chapter" data-level="9.4" data-path="file-organization.html"><a href="file-organization.html#regular-expressions"><i class="fa fa-check"></i><b>9.4</b> Regular Expressions</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="file-organization.html"><a href="file-organization.html#exercise-1-1"><i class="fa fa-check"></i><b>9.4.1</b> Exercise 1</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="file-organization.html"><a href="file-organization.html#regular-expressions-continued"><i class="fa fa-check"></i><b>9.5</b> Regular Expressions Continued</a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="file-organization.html"><a href="file-organization.html#exercise-2-1"><i class="fa fa-check"></i><b>9.5.1</b> Exercise 2</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="file-organization.html"><a href="file-organization.html#using-extract"><i class="fa fa-check"></i><b>9.6</b> Using <code>extract</code></a></li>
+<li class="chapter" data-level="9.7" data-path="file-organization.html"><a href="file-organization.html#using-separate"><i class="fa fa-check"></i><b>9.7</b> Using <code>separate</code></a></li>
+<li class="chapter" data-level="9.8" data-path="file-organization.html"><a href="file-organization.html#the-str_replace-function"><i class="fa fa-check"></i><b>9.8</b> The <code>str_replace</code> function</a></li>
+<li class="chapter" data-level="9.9" data-path="file-organization.html"><a href="file-organization.html#the-str_replace_all-function"><i class="fa fa-check"></i><b>9.9</b> The <code>str_replace_all</code> function</a>
+<ul>
+<li class="chapter" data-level="9.9.1" data-path="file-organization.html"><a href="file-organization.html#exercise-3-1"><i class="fa fa-check"></i><b>9.9.1</b> Exercise 3</a></li>
+</ul></li>
+<li class="chapter" data-level="9.10" data-path="file-organization.html"><a href="file-organization.html#solutions"><i class="fa fa-check"></i><b>9.10</b> Solutions</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="webscraping.html"><a href="webscraping.html"><i class="fa fa-check"></i><b>10</b> Webscraping</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="webscraping.html"><a href="webscraping.html#background-knowledge---brief-html-lesson"><i class="fa fa-check"></i><b>10.1</b> Background Knowledge - Brief HTML Lesson</a></li>
+<li class="chapter" data-level="10.2" data-path="webscraping.html"><a href="webscraping.html#webscraping-with-rvest"><i class="fa fa-check"></i><b>10.2</b> Webscraping with <code>rvest</code></a></li>
+<li class="chapter" data-level="10.3" data-path="webscraping.html"><a href="webscraping.html#common-workflow."><i class="fa fa-check"></i><b>10.3</b> Common Workflow.</a></li>
+<li class="chapter" data-level="10.4" data-path="webscraping.html"><a href="webscraping.html#example-craigslist"><i class="fa fa-check"></i><b>10.4</b> Example: Craigslist</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="webscraping.html"><a href="webscraping.html#extracting-the-descriptions"><i class="fa fa-check"></i><b>10.4.1</b> Extracting the Descriptions</a></li>
+<li class="chapter" data-level="10.4.2" data-path="webscraping.html"><a href="webscraping.html#brief-hiatus-css-selectors"><i class="fa fa-check"></i><b>10.4.2</b> Brief Hiatus: CSS Selectors</a></li>
+<li class="chapter" data-level="10.4.3" data-path="webscraping.html"><a href="webscraping.html#extracting-the-hyperlinks"><i class="fa fa-check"></i><b>10.4.3</b> Extracting the Hyperlinks</a></li>
+<li class="chapter" data-level="10.4.4" data-path="webscraping.html"><a href="webscraping.html#binding-the-information-together"><i class="fa fa-check"></i><b>10.4.4</b> Binding the Information Together</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="webscraping.html"><a href="webscraping.html#example-wikipedia"><i class="fa fa-check"></i><b>10.5</b> Example: Wikipedia</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="programming.html"><a href="programming.html"><i class="fa fa-check"></i><b>11</b> Programming</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="programming.html"><a href="programming.html#functions"><i class="fa fa-check"></i><b>11.1</b> Functions</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="programming.html"><a href="programming.html#exercise-16"><i class="fa fa-check"></i><b>11.1.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="programming.html"><a href="programming.html#for-loops"><i class="fa fa-check"></i><b>11.2</b> For-loops</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="programming.html"><a href="programming.html#exercise-17"><i class="fa fa-check"></i><b>11.2.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="programming.html"><a href="programming.html#if-else"><i class="fa fa-check"></i><b>11.3</b> If-else</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="programming.html"><a href="programming.html#exercise-18"><i class="fa fa-check"></i><b>11.3.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="programming.html"><a href="programming.html#selected-solutions-2"><i class="fa fa-check"></i><b>11.4</b> Selected Solutions</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="relational-data.html"><a href="relational-data.html"><i class="fa fa-check"></i><b>12</b> Relational Data</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="relational-data.html"><a href="relational-data.html#finding-primary-keys"><i class="fa fa-check"></i><b>12.1</b> Finding Primary Keys</a></li>
+<li class="chapter" data-level="12.2" data-path="relational-data.html"><a href="relational-data.html#finding-primary-keys-harder"><i class="fa fa-check"></i><b>12.2</b> Finding Primary Keys (harder)</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="relational-data.html"><a href="relational-data.html#exercise-19"><i class="fa fa-check"></i><b>12.2.1</b> Exercise</a></li>
+<li class="chapter" data-level="12.2.2" data-path="relational-data.html"><a href="relational-data.html#exercise-20"><i class="fa fa-check"></i><b>12.2.2</b> Exercise</a></li>
+<li class="chapter" data-level="12.2.3" data-path="relational-data.html"><a href="relational-data.html#exercise-21"><i class="fa fa-check"></i><b>12.2.3</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="relational-data.html"><a href="relational-data.html#selected-solutions-3"><i class="fa fa-check"></i><b>12.3</b> Selected Solutions</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://bookdown.org" target="blank">Published with bookdown</a></li>
@@ -188,7 +347,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Guided Exercises: Graphics with ggplot2</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Guided Exercises: Week 2</a>
           </h1>
         </div>
 
@@ -196,236 +355,365 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="getting-started" class="section level1" number="2">
-<h1><span class="header-section-number">Chapter 2</span> Getting Started</h1>
-<p>Welcome to Econ 245 Guided Exercises! In these weekly documents, you will practice data wrangling with some hand-holding as well as some simple exercises to check your understanding. The purpose of these documents is the following:</p>
-<ol style="list-style-type: decimal">
-<li>Make your homework easier.</li>
-<li>Make you a better coder by observing good code.</li>
-<li>Get hands-on practice with functions you will need to complete your assignments.</li>
-<li>Provide a reference document for each topic in the course.</li>
-</ol>
-<p>We <em>strongly</em> suggest that you code along with the examples that we go through, although there will be times when copying and pasting can be useful (e.g., loading in a data set).</p>
-<p>This week we will be focusing on a couple topics. The first will be doing common statistics in R, while the other will be an introduction to vectors, tibbles, and logical operators.</p>
-<p>To begin, we will first load in the data sets that we want to use. We will be using the <code>titanic_train</code> data set from the <code>titanic</code> package. The <code>titanic_train</code> data set provides information on the fate of passengers on the fatal maiden voyage of the ocean liner “Titanic,” summarized according to economic status (class), sex, age and survival. Some import columns:</p>
+<div id="getting-started" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Getting Started<a href="getting-started.html#getting-started" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>For this week, we will once again be working with the <code>titanic_train</code> data set from the <code>titanic</code> package. This data set provides information on the fate of passengers on the fatal maiden voyage of the ocean liner “Titanic” summarized according to economic status (class), sex, age, and survival. As a reminder, here are some of the important columns:</p>
 <ul>
 <li><code>Survived</code>: binary variable equal to 1 if the passenger survived</li>
 <li><code>Pclass</code>: the passenger’s class</li>
-<li><code>name</code>: the passenger’s name</li>
+<li><code>Name</code>: the passenger’s name</li>
 <li><code>Sex</code>: the sex of the passenger</li>
 <li><code>Age</code>: the age of the passenger</li>
 </ul>
-<p>Let’s load in the data set along with the packages we will be using. Quick aside: A package is a set of functions that are not defined in R by default. Many people create their own packages which have their own unique functions and data sets within. Packages are easy to install, and you only have to install a package one time and then it will be in your local machine for future use. We can install packages using the <code>install.packages</code> function. Important: installing a package <strong>does not</strong> mean it has been loaded. To be able to use the functions and data sets within the package, you must load the package by using the <code>library</code> function. Also important: a package needs to be loaded within each R session Hence, if you restart R or quit and reopen RStudio (which will restart R), you will need to re-load your packages. Observe:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="getting-started.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## installing the necessary packages. The titanic package has the data set we want</span></span>
-<span id="cb1-2"><a href="getting-started.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="do">## the tidyverse package has the functions we want</span></span>
-<span id="cb1-3"><a href="getting-started.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;titanic&quot;</span>)</span>
-<span id="cb1-4"><a href="getting-started.html#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="getting-started.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="do">## loading in the tidyverse and titanic packages</span></span>
-<span id="cb2-2"><a href="getting-started.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="do">## remember: functions and data in the packages cannot be used unless loaded in!</span></span>
-<span id="cb2-3"><a href="getting-started.html#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="do">## this must be done in each R session!</span></span>
-<span id="cb2-4"><a href="getting-started.html#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
-<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──</code></pre>
-<pre><code>## ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
-## ✓ tibble  3.1.3     ✓ dplyr   1.0.7
-## ✓ tidyr   1.1.3     ✓ stringr 1.4.0
-## ✓ readr   2.0.0     ✓ forcats 0.5.1</code></pre>
-<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-## x dplyr::filter() masks stats::filter()
-## x dplyr::lag()    masks stats::lag()</code></pre>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="getting-started.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(titanic)</span>
-<span id="cb6-2"><a href="getting-started.html#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="getting-started.html#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="do">## loading in the titanic data set</span></span>
-<span id="cb6-4"><a href="getting-started.html#cb6-4" aria-hidden="true" tabindex="-1"></a>titanic <span class="ot">&lt;-</span> titanic_train</span></code></pre></div>
-<div id="basic-summary-statistics" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> Basic summary statistics</h2>
-<p>To start off, we will go through some basic summary statistics. For this section, we will focus on the <code>Age</code> column of the data set.</p>
-<p>Let’s say we wanted to view only the <code>Age</code> column of the data. We could accomplish this using the <code>$</code> attachment. Observe:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="getting-started.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="do">## viewing only the age column</span></span>
-<span id="cb7-2"><a href="getting-started.html#cb7-2" aria-hidden="true" tabindex="-1"></a>titanic<span class="sc">$</span>Age</span></code></pre></div>
-<p>From this, we can see that there are many values in the <code>Age</code> column, some numbers, and others NA. NA is a value that R recognizes as “missing.” We will touch more on this in lectures and other assignments. For now, just think of it as a missing element.</p>
-<p>Alternatively, we can get a “snapshot” of our data using the <code>head</code> function.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="getting-started.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="do">## using the head function to get a snapshot of the data</span></span>
-<span id="cb8-2"><a href="getting-started.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(titanic)</span></code></pre></div>
-<pre><code>##   PassengerId Survived Pclass
-## 1           1        0      3
-## 2           2        1      1
-## 3           3        1      3
-## 4           4        1      1
-## 5           5        0      3
-## 6           6        0      3
-##                                                  Name    Sex Age SibSp Parch
-## 1                             Braund, Mr. Owen Harris   male  22     1     0
-## 2 Cumings, Mrs. John Bradley (Florence Briggs Thayer) female  38     1     0
-## 3                              Heikkinen, Miss. Laina female  26     0     0
-## 4        Futrelle, Mrs. Jacques Heath (Lily May Peel) female  35     1     0
-## 5                            Allen, Mr. William Henry   male  35     0     0
-## 6                                    Moran, Mr. James   male  NA     0     0
-##             Ticket    Fare Cabin Embarked
-## 1        A/5 21171  7.2500              S
-## 2         PC 17599 71.2833   C85        C
-## 3 STON/O2. 3101282  7.9250              S
-## 4           113803 53.1000  C123        S
-## 5           373450  8.0500              S
-## 6           330877  8.4583              Q</code></pre>
-<p>Taking a look at your data before you start doing analysis is imperative, and the <code>head</code> function gives you a concise preview of most of your columns.</p>
-<p>Now, let’s attempt some basic summary statistics. For starters, we will use the <code>mean</code>, <code>sd</code>, and <code>var</code> functions to get the mean, standard deviation, and variance of the <code>Age</code> column respectively.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="getting-started.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="do">## finding the mean of the age column</span></span>
-<span id="cb10-2"><a href="getting-started.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(titanic<span class="sc">$</span>Age)</span></code></pre></div>
-<pre><code>## [1] NA</code></pre>
-<p>We get a value of NA as our mean of the <code>Age</code> column, despite our knowledge that the <code>Age</code> column contains many different age values. Let’s use the <code>?</code> to get more information on the <code>mean</code> function to see what may be causing this.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="getting-started.html#cb12-1" aria-hidden="true" tabindex="-1"></a>?mean</span></code></pre></div>
-<p>If we look at some of the arguments that the <code>mean</code> function takes, we can see that one of them is called <code>na.rm</code>. The <code>na.rm</code> function is initially defaulted to <code>FALSE</code>. But what does <code>na.rm</code> do? If we set the <code>na.rm</code> argument to <code>TRUE</code>, then <code>na.rm</code> will remove the NA values before the computation proceeds. This is exactly what we need to get a numerical answer for our mean. Before, R was trying to compute missing values into our <code>mean</code> function which does not make any sense (hence the nonsensical answer).</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="getting-started.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="do">## trying this again using the na.rm = T argument</span></span>
-<span id="cb13-2"><a href="getting-started.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(titanic<span class="sc">$</span>Age, <span class="at">na.rm =</span> T)</span></code></pre></div>
-<pre><code>## [1] 29.69912</code></pre>
-<p>Now we finally get our desired result. It is important to check your column values using the <code>head</code> function if you ever get NA as a statistic to make sure your whole column is not solely missing values. Now it’s time to try it yourself.</p>
-<div id="exercise" class="section level3" number="2.1.1">
-<h3><span class="header-section-number">2.1.1</span> Exercise</h3>
+<p>Now let’s load in the data and necessary packages.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="getting-started.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## install the package if you do not have it</span></span>
+<span id="cb1-2"><a href="getting-started.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;titanic&quot;)</span></span>
+<span id="cb1-3"><a href="getting-started.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(titanic)</span>
+<span id="cb1-4"><a href="getting-started.html#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-5"><a href="getting-started.html#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb1-6"><a href="getting-started.html#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="getting-started.html#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="do">## saving our data to the name titanic as a tibble</span></span>
+<span id="cb1-8"><a href="getting-started.html#cb1-8" aria-hidden="true" tabindex="-1"></a>titanic <span class="ot">&lt;-</span> <span class="fu">tibble</span>(titanic_train)</span></code></pre></div>
+<p>We will be focusing on getting comfortable with the following functions in the <code>tidyverse</code> package:</p>
 <ul>
-<li>Using the <code>sd</code> and <code>var</code> functions, find the standard deviation and variance of the <code>Age</code> column. Check your solutions at the end of the document.</li>
+<li><code>select</code></li>
+<li><code>distinct</code></li>
+<li><code>mutate</code></li>
+<li><code>group_by</code></li>
+<li><code>summarize</code></li>
+</ul>
+<p>We will also learn how to use the following functions in the <code>janitor</code> package:</p>
+<ul>
+<li><code>clean_names</code></li>
+</ul>
+<p>We will be using these functions in conjunction with the pipe (typed as <code>%&gt;%</code>) operator. By going through these exercises, you will see proper ways to utilize functions and learn to write code in a readable and reproducible way.</p>
+<div id="the-pipe" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> The Pipe<a href="getting-started.html#the-pipe" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A pipe (typed as <code>%&gt;%</code>) is a specific operator that comes from the <code>magrittr</code> package, but is automatically loaded in with the <code>tidyverse</code>. Essentially, it makes reading code easier, typing code faster, and finding complicated results very easy. A pipe essentially is saying “and now, do this” to a tibble. Piping is best used to chain together multiple functions to subset your data set into smaller pieces that you find more interesting. We will see this pipe in action in the following sections. Mastering the pipe is essential to quick and efficient cleaning, and you can find some incredible results with using pipes and a few simple functions. To demonstrate how a pipe works, I’ll use a rather bland motivating example: suppose we want to glance at our <code>titanic</code> data using the <code>head</code> function. Before the pipe existed, we would need to type the following:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="getting-started.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="do">## without a pipe</span></span>
+<span id="cb2-2"><a href="getting-started.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(titanic)</span></code></pre></div>
+<p>However, with a pipe, we can type the following:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="getting-started.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="do">## using a pipe</span></span>
+<span id="cb3-2"><a href="getting-started.html#cb3-2" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span> </span>
+<span id="cb3-3"><a href="getting-started.html#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+<p>Each of these give us the same result. The way the pipe works, is that it automatically fills the “data” argument of a function with the tibble you are piping from (in this case, the <code>titanic</code> tibble). While this seems extraneous in this example, the benefit of the pipe is that you can combine multiple functions together in a readable way. We will see a demonstration of this as we get further into this Guided Exercise.</p>
+</div>
+<div id="the-clean_names-function" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> The <code>clean_names</code> function<a href="getting-started.html#the-clean_names-function" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The <code>clean_names</code> function allows us to put all of our column names in our tibble in a standardized format. In particular, the function makes certain that the column names are all lowercase and blank spaces are replaced with an underscore. Keeping your variable names standardized is an important practice that will make data wrangling much easier as your data sets get bigger and you begin collaborating with others.</p>
+<p>Let’s take a look at our data set without cleaning the names.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="getting-started.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="do">## viewing a snapshot of our data set</span></span>
+<span id="cb4-2"><a href="getting-started.html#cb4-2" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span> </span>
+<span id="cb4-3"><a href="getting-started.html#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 12
+##   PassengerId Survived Pclass Name    Sex     Age SibSp Parch Ticket  Fare Cabin
+##         &lt;int&gt;    &lt;int&gt;  &lt;int&gt; &lt;chr&gt;   &lt;chr&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;
+## 1           1        0      3 Braund… male     22     1     0 A/5 2…  7.25 &quot;&quot;   
+## 2           2        1      1 Cuming… fema…    38     1     0 PC 17… 71.3  &quot;C85&quot;
+## 3           3        1      3 Heikki… fema…    26     0     0 STON/…  7.92 &quot;&quot;   
+## 4           4        1      1 Futrel… fema…    35     1     0 113803 53.1  &quot;C12…
+## 5           5        0      3 Allen,… male     35     0     0 373450  8.05 &quot;&quot;   
+## 6           6        0      3 Moran,… male     NA     0     0 330877  8.46 &quot;&quot;   
+## # ℹ 1 more variable: Embarked &lt;chr&gt;</code></pre>
+<p>Notice here we used the pipe. The pipe told us to take the <code>titanic</code> data set, and perform the <code>head</code> function to it. In terms of piping language we could specify what happened:</p>
+<ul>
+<li>Use titanic data set</li>
+<li>And now take the <code>head</code> of the titanic data set</li>
+</ul>
+<p>Another important aspect of this output to notice is that our columns begin with capital letters (e.g. <code>Class</code>). As stated, we can use the <code>clean_names</code> function from the janitor package to standardize the column name format to all lower case and underscores. Observe:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="getting-started.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Using the clean_names function on the titanic data</span></span>
+<span id="cb6-2"><a href="getting-started.html#cb6-2" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span> </span>
+<span id="cb6-3"><a href="getting-started.html#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>()</span></code></pre></div>
+<p>The column names now all have our desired standardized format. Now let’s try to use our previous <code>head</code> function:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="getting-started.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Using the head function again</span></span>
+<span id="cb7-2"><a href="getting-started.html#cb7-2" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span> </span>
+<span id="cb7-3"><a href="getting-started.html#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 12
+##   PassengerId Survived Pclass Name    Sex     Age SibSp Parch Ticket  Fare Cabin
+##         &lt;int&gt;    &lt;int&gt;  &lt;int&gt; &lt;chr&gt;   &lt;chr&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;
+## 1           1        0      3 Braund… male     22     1     0 A/5 2…  7.25 &quot;&quot;   
+## 2           2        1      1 Cuming… fema…    38     1     0 PC 17… 71.3  &quot;C85&quot;
+## 3           3        1      3 Heikki… fema…    26     0     0 STON/…  7.92 &quot;&quot;   
+## 4           4        1      1 Futrel… fema…    35     1     0 113803 53.1  &quot;C12…
+## 5           5        0      3 Allen,… male     35     0     0 373450  8.05 &quot;&quot;   
+## 6           6        0      3 Moran,… male     NA     0     0 330877  8.46 &quot;&quot;   
+## # ℹ 1 more variable: Embarked &lt;chr&gt;</code></pre>
+<p>The columns have gone back to their normal messy ways! This is because <strong>we failed to save the changes we made</strong> to our titanic data set. The pipe operator will perform functions on your tibble, but it will <strong>not</strong> save the changes unless you explicitly tell R to do so.</p>
+<p>Let’s use the <code>clean_names</code> function, and save the tibble with the cleaned column names.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="getting-started.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="do">## saving the titanic tibble with cleaned names</span></span>
+<span id="cb9-2"><a href="getting-started.html#cb9-2" aria-hidden="true" tabindex="-1"></a>titanic <span class="ot">&lt;-</span> titanic <span class="sc">%&gt;%</span> </span>
+<span id="cb9-3"><a href="getting-started.html#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>()</span>
+<span id="cb9-4"><a href="getting-started.html#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="do">## viewing the cleaned names data set as it has now been saved</span></span>
+<span id="cb9-5"><a href="getting-started.html#cb9-5" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span> </span>
+<span id="cb9-6"><a href="getting-started.html#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 12
+##   passenger_id survived pclass name  sex     age sib_sp parch ticket  fare cabin
+##          &lt;int&gt;    &lt;int&gt;  &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt;  &lt;int&gt; &lt;int&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;
+## 1            1        0      3 Brau… male     22      1     0 A/5 2…  7.25 &quot;&quot;   
+## 2            2        1      1 Cumi… fema…    38      1     0 PC 17… 71.3  &quot;C85&quot;
+## 3            3        1      3 Heik… fema…    26      0     0 STON/…  7.92 &quot;&quot;   
+## 4            4        1      1 Futr… fema…    35      1     0 113803 53.1  &quot;C12…
+## 5            5        0      3 Alle… male     35      0     0 373450  8.05 &quot;&quot;   
+## 6            6        0      3 Mora… male     NA      0     0 330877  8.46 &quot;&quot;   
+## # ℹ 1 more variable: embarked &lt;chr&gt;</code></pre>
+<p>For the rest of this guided exercise, we will be working with this tibble.</p>
+</div>
+<div id="the-select-function" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> The <code>select</code> function<a href="getting-started.html#the-select-function" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The <code>select</code> function is a way to subset your data. It selects whichever variables you are particularly concerned with. For instance, suppose we were only interested in the <code>age</code> and <code>survived</code> columns of the <code>titanic</code> tibble. We could use the <code>select</code> function to observe only these columns.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="getting-started.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="do">## selecting only the age and survived columns and then previewing with head</span></span>
+<span id="cb11-2"><a href="getting-started.html#cb11-2" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span> </span>
+<span id="cb11-3"><a href="getting-started.html#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(age, survived) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-4"><a href="getting-started.html#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 2
+##     age survived
+##   &lt;dbl&gt;    &lt;int&gt;
+## 1    22        0
+## 2    38        1
+## 3    26        1
+## 4    35        1
+## 5    35        0
+## 6    NA        0</code></pre>
+<p>There are a few things that should be noted here. First, we did not save this sub-selection of variables as a new tibble, so this is just a temporary sub-selection. Second, we performed two pipes with one pipe on each line until the ending function. This code could be read as:</p>
+<ul>
+<li>Use the <code>titanic</code> tibble</li>
+<li>And then <code>select</code> the <code>age</code> and <code>survived</code> columns</li>
+<li>And then use the <code>head</code> function to view</li>
+</ul>
+<p>Of course, if we wanted to save our sub-selection, we could easily do this by assigning it to a new tibble.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="getting-started.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="do">## assigning the subselection to a new tibble</span></span>
+<span id="cb13-2"><a href="getting-started.html#cb13-2" aria-hidden="true" tabindex="-1"></a>titanic_age_survived <span class="ot">&lt;-</span> titanic <span class="sc">%&gt;%</span> </span>
+<span id="cb13-3"><a href="getting-started.html#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(age, survived)</span>
+<span id="cb13-4"><a href="getting-started.html#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="getting-started.html#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="do">## did not use head here because do not want only the first 5 rows to be saved</span></span></code></pre></div>
+<p>Generally, the <code>select</code> function is a great way to subset your data to focus on only the columns you are particularly concerned with.</p>
+</div>
+<div id="the-filter-function" class="section level2 hasAnchor" number="5.4">
+<h2><span class="header-section-number">5.4</span> The <code>filter</code> function<a href="getting-started.html#the-filter-function" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The <code>filter</code> function is one of the most powerful and frequently used functions when combined with a pipe. The filter function filters your data set based on some criteria you choose. For example, suppose we want to only look at children in this data set. We can filter out all of the passengers in the data set that have an age less than 18. Observe:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="getting-started.html#cb14-1" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span> </span>
+<span id="cb14-2"><a href="getting-started.html#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(age <span class="sc">&lt;</span> <span class="dv">18</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-3"><a href="getting-started.html#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 12
+##   passenger_id survived pclass name  sex     age sib_sp parch ticket  fare cabin
+##          &lt;int&gt;    &lt;int&gt;  &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt;  &lt;int&gt; &lt;int&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;
+## 1            8        0      3 &quot;Pal… male      2      3     1 349909 21.1  &quot;&quot;   
+## 2           10        1      2 &quot;Nas… fema…    14      1     0 237736 30.1  &quot;&quot;   
+## 3           11        1      3 &quot;San… fema…     4      1     1 PP 95… 16.7  &quot;G6&quot; 
+## 4           15        0      3 &quot;Ves… fema…    14      0     0 350406  7.85 &quot;&quot;   
+## 5           17        0      3 &quot;Ric… male      2      4     1 382652 29.1  &quot;&quot;   
+## 6           23        1      3 &quot;McG… fema…    15      0     0 330923  8.03 &quot;&quot;   
+## # ℹ 1 more variable: embarked &lt;chr&gt;</code></pre>
+<p>Just to further our understanding, let’s once again write out what this code is doing:</p>
+<ul>
+<li>Use the titanic tibble</li>
+<li>And then filter out only rows that have <code>age</code> equal to “Child”</li>
+<li>And then give the heading of the tibble</li>
+</ul>
+<div id="exercise-6" class="section level3 hasAnchor" number="5.4.1">
+<h3><span class="header-section-number">5.4.1</span> Exercise<a href="getting-started.html#exercise-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Filter the rows of the <code>titanic</code> tibble such that the column <code>fare</code> column is greater than 100.</li>
 </ul>
 </div>
 </div>
-<div id="basic-histogram" class="section level2" number="2.2">
-<h2><span class="header-section-number">2.2</span> Basic histogram</h2>
-<p>Another tool to give you an idea of the distribution of your data is the <code>hist</code> function. The <code>hist</code> function creates a histogram of your data. Suppose we are interested in the distribution of ages on the titanic. We could quickly get an accurate depiction by graphing a histogram of the column.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="getting-started.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="do">## graphing a histogram of the Age column</span></span>
-<span id="cb15-2"><a href="getting-started.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(titanic<span class="sc">$</span>Age)</span></code></pre></div>
-<p><img src="series_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
-<div id="exercise-1" class="section level3" number="2.2.1">
-<h3><span class="header-section-number">2.2.1</span> Exercise</h3>
+<div id="the-drop_na-function" class="section level2 hasAnchor" number="5.5">
+<h2><span class="header-section-number">5.5</span> The <code>drop_na</code> function<a href="getting-started.html#the-drop_na-function" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The <code>drop_na</code> function allows you to drop any missing values from specified columns. Notice that in the <code>titanic</code> tibble there are <code>NA</code> values (i.e. missing values) in the <code>age</code> column. Suppose we wish to drop these from the tibble so that they do not interfere with our analysis. We can easily do this with the following code:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="getting-started.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="do">## dropping all missing values from age column</span></span>
+<span id="cb16-2"><a href="getting-started.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="do">## notice the tibble now only has 714 rows</span></span>
+<span id="cb16-3"><a href="getting-started.html#cb16-3" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span> </span>
+<span id="cb16-4"><a href="getting-started.html#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(age) <span class="sc">%&gt;%</span> </span>
+<span id="cb16-5"><a href="getting-started.html#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 12
+##   passenger_id survived pclass name  sex     age sib_sp parch ticket  fare cabin
+##          &lt;int&gt;    &lt;int&gt;  &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt;  &lt;int&gt; &lt;int&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;
+## 1            1        0      3 Brau… male     22      1     0 A/5 2…  7.25 &quot;&quot;   
+## 2            2        1      1 Cumi… fema…    38      1     0 PC 17… 71.3  &quot;C85&quot;
+## 3            3        1      3 Heik… fema…    26      0     0 STON/…  7.92 &quot;&quot;   
+## 4            4        1      1 Futr… fema…    35      1     0 113803 53.1  &quot;C12…
+## 5            5        0      3 Alle… male     35      0     0 373450  8.05 &quot;&quot;   
+## 6            7        0      1 McCa… male     54      0     0 17463  51.9  &quot;E46&quot;
+## # ℹ 1 more variable: embarked &lt;chr&gt;</code></pre>
+<p>Note that the documentation states that if no columns are specified in the <code>drop_na</code> function, then <em>all</em> <code>NA</code> values from <em>every</em> column will be dropped.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="getting-started.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="do">## drops all NA values from every column</span></span>
+<span id="cb18-2"><a href="getting-started.html#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="do">## notice that here, the number of rows is the same as above</span></span>
+<span id="cb18-3"><a href="getting-started.html#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="do">## this means age contains all of the rows with missing data</span></span>
+<span id="cb18-4"><a href="getting-started.html#cb18-4" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span> </span>
+<span id="cb18-5"><a href="getting-started.html#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>()</span></code></pre></div>
+</div>
+<div id="the-distinct-function" class="section level2 hasAnchor" number="5.6">
+<h2><span class="header-section-number">5.6</span> The <code>distinct</code> function<a href="getting-started.html#the-distinct-function" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The <code>distinct</code> function allows you to see the unique values within a specified column. For instance, suppose we wanted to know all of the unique values that are within the <code>pclass</code> column of the <code>titanic</code> tibble. We could use the <code>distinct</code> function to do this.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="getting-started.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="do">## using distinct to find unique values in a column</span></span>
+<span id="cb19-2"><a href="getting-started.html#cb19-2" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span> </span>
+<span id="cb19-3"><a href="getting-started.html#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(pclass)</span></code></pre></div>
+<pre><code>## # A tibble: 3 × 1
+##   pclass
+##    &lt;int&gt;
+## 1      3
+## 2      1
+## 3      2</code></pre>
+<p>We can see from the <code>distinct</code> function that the <code>pclass</code> column has three unique values: 1, 2, and 3 which correspond to the passengers’ class. The <code>distinct</code> function can be a great way to take a look at your data and figure out what kind of values reside within specific columns.</p>
+<div id="exercise-7" class="section level3 hasAnchor" number="5.6.1">
+<h3><span class="header-section-number">5.6.1</span> Exercise<a href="getting-started.html#exercise-7" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
-<li>Make a histogram of the <code>Fare</code> column. Change the title of the histogram to “Distribution of Fare.” Do you notice anything interesting?</li>
+<li>Using the <code>distinct</code> function, find the unique values of the <code>age</code> column.</li>
 </ul>
 </div>
 </div>
-<div id="creating-vectors" class="section level2" number="2.3">
-<h2><span class="header-section-number">2.3</span> Creating Vectors</h2>
-<p>R is a <em>vectorized</em> computer language. This means that when you perform a function, it performs it on an entire vector of values, rather than value-by-value. The vectorization of R allows us to perform functions on an entire column of the spreadsheet, rather than going cell-by-cell. In the previous example with the <code>titanic</code> data set, we took the mean of an entire column of values by simply using the <code>mean</code> function rather than iterating through each element of our column, adding up the values, and dividing by the total.</p>
-<p>To get a better understanding of vectors, it is useful to create them yourself. Let’s create a vector using the <code>c</code> function. To create a vector, we need a few things:</p>
-<ol style="list-style-type: decimal">
-<li>If we want to refer to our vector later, we need to name it.</li>
-<li>We need to give the vector elements.</li>
-</ol>
-<p>To begin, we will investigate (1).</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="getting-started.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="do">## creating a vector but not saving it</span></span>
-<span id="cb16-2"><a href="getting-started.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="do">## the vector has 4 elements</span></span>
-<span id="cb16-3"><a href="getting-started.html#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">10</span>)</span></code></pre></div>
-<pre><code>## [1]  1  3  4 10</code></pre>
-<p>Here, we created a vector of four values: 1, 3, 4, and 10. Notice at the top right of RStudio that our Global Environment did not change. This is because we did not save the vector. To save the vector, we need to give it a name. For our purposes, the vector will be named <code>first_vector</code>.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="getting-started.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="do">## creating a vector and naming it to save</span></span>
-<span id="cb18-2"><a href="getting-started.html#cb18-2" aria-hidden="true" tabindex="-1"></a>first_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">10</span>)</span></code></pre></div>
-<p>Once you run this line, you should see that your Global Environment has changed. It should now have the <code>first_vector</code> along with a small description of what it contains (e.g. 1, 3, 4, 10). The purpose of saving vectors (or saving anything) is so that we can refer to it later. Instead of creating a new vector of 1, 3, 4, and 10 each time we want to use it, we can <em>call</em> it by typing its name.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="getting-started.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="do">## calling our vector to observe its elements</span></span>
-<span id="cb19-2"><a href="getting-started.html#cb19-2" aria-hidden="true" tabindex="-1"></a>first_vector</span></code></pre></div>
-<pre><code>## [1]  1  3  4 10</code></pre>
-<div id="exercise-2" class="section level3" number="2.3.1">
-<h3><span class="header-section-number">2.3.1</span> Exercise</h3>
-<ul>
-<li>Create two vectors called <code>my_own_vector1</code> and <code>my_own_vector2</code>. Each vector should have four numbers in them. Use whichever numbers you like.</li>
-</ul>
-</div>
-</div>
-<div id="comparing-vectors" class="section level2" number="2.4">
-<h2><span class="header-section-number">2.4</span> Comparing Vectors</h2>
-<p>Vectors can be compared to values and other vectors. To perform this task we use <em>logical operators</em>. The <em>logical operators</em> are similar to what you learned in elementary math: greater than, equal to, or not equal to. In R, we use the following for logical operators for comparisons:</p>
-<ul>
-<li><code>&lt;</code> greater (less) than</li>
-<li><code>&lt;=</code> greater (less) than or equal to</li>
-<li><code>==</code> equal to</li>
-<li><code>!=</code> not equal to</li>
-</ul>
-<p>The best way to understand how logical operators work is to see them in action. As an example, we will compare our <code>first_vector</code> to the value 7.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="getting-started.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="do">## which elements are greater than 7?</span></span>
-<span id="cb21-2"><a href="getting-started.html#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="dv">7</span> <span class="sc">&gt;</span> first_vector</span></code></pre></div>
-<pre><code>## [1]  TRUE  TRUE  TRUE FALSE</code></pre>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="getting-started.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ordering does not matter</span></span>
-<span id="cb23-2"><a href="getting-started.html#cb23-2" aria-hidden="true" tabindex="-1"></a>first_vector <span class="sc">&lt;</span> <span class="dv">7</span></span></code></pre></div>
-<pre><code>## [1]  TRUE  TRUE  TRUE FALSE</code></pre>
-<p>Notice that R returned logical values TRUE and FALSE. R went through each element of our vector and checked whether the element was less than the number 7. According to our output, the first three elements in our vector were less than the number 7 (hence TRUE) and the last element was not (hence FALSE). We can evaluate the other logical operators as well:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="getting-started.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="do">## checking if each element is not equal to 7</span></span>
-<span id="cb25-2"><a href="getting-started.html#cb25-2" aria-hidden="true" tabindex="-1"></a>first_vector <span class="sc">!=</span> <span class="dv">7</span></span></code></pre></div>
-<pre><code>## [1] TRUE TRUE TRUE TRUE</code></pre>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="getting-started.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="do">## checking if each element is equal to 7</span></span>
-<span id="cb27-2"><a href="getting-started.html#cb27-2" aria-hidden="true" tabindex="-1"></a>first_vector <span class="sc">==</span> <span class="dv">7</span></span></code></pre></div>
-<pre><code>## [1] FALSE FALSE FALSE FALSE</code></pre>
-<p>As a brief aside, observe the last line of code we wrote to check whether <code>first_vector</code> was equal to 7. Notice that the “equal to” operator is <code>==</code> rather than <code>=</code>. This is because <code>==</code> checks the equivalence of components, while <code>=</code> is an <em>assignment</em> character similar to <code>&lt;-</code>. In fact, <code>&lt;-</code> and <code>=</code> serve the exact same purpose for assignment.</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="getting-started.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="do">## assigning our first_vector to the value 7</span></span>
-<span id="cb29-2"><a href="getting-started.html#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="do">## we are not checking whether it is equal to 7</span></span>
-<span id="cb29-3"><a href="getting-started.html#cb29-3" aria-hidden="true" tabindex="-1"></a>first_vector <span class="ot">=</span> <span class="dv">7</span></span>
+<div id="the-mutate-function." class="section level2 hasAnchor" number="5.7">
+<h2><span class="header-section-number">5.7</span> The <code>mutate</code> function.<a href="getting-started.html#the-mutate-function." class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The <code>mutate</code> function creates a new column in your tibble based on some computation statement. To motivate this, suppose we wanted to create a column in the <code>titanic</code> tibble that is named <code>adjusted_fare</code> which takes the <code>fare</code> column and multiplies it by the rate of inflation to get the ticket fare in today’s prices. Using the <code>mutate</code> function, we could accomplish this:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="getting-started.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="do">## assigning a variable the inflation rate</span></span>
+<span id="cb21-2"><a href="getting-started.html#cb21-2" aria-hidden="true" tabindex="-1"></a>inflation_rate <span class="ot">&lt;-</span> <span class="fl">27.14</span></span>
+<span id="cb21-3"><a href="getting-started.html#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="getting-started.html#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="do">## creating a new variable called adjusted_fare which will be the fare in today&#39;s dollars</span></span>
+<span id="cb21-5"><a href="getting-started.html#cb21-5" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span> </span>
+<span id="cb21-6"><a href="getting-started.html#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">adjusted_fare =</span> fare <span class="sc">*</span> inflation_rate) <span class="sc">%&gt;%</span> </span>
+<span id="cb21-7"><a href="getting-started.html#cb21-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 13
+##   passenger_id survived pclass name  sex     age sib_sp parch ticket  fare cabin
+##          &lt;int&gt;    &lt;int&gt;  &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt;  &lt;int&gt; &lt;int&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;
+## 1            1        0      3 Brau… male     22      1     0 A/5 2…  7.25 &quot;&quot;   
+## 2            2        1      1 Cumi… fema…    38      1     0 PC 17… 71.3  &quot;C85&quot;
+## 3            3        1      3 Heik… fema…    26      0     0 STON/…  7.92 &quot;&quot;   
+## 4            4        1      1 Futr… fema…    35      1     0 113803 53.1  &quot;C12…
+## 5            5        0      3 Alle… male     35      0     0 373450  8.05 &quot;&quot;   
+## 6            6        0      3 Mora… male     NA      0     0 330877  8.46 &quot;&quot;   
+## # ℹ 2 more variables: embarked &lt;chr&gt;, adjusted_fare &lt;dbl&gt;</code></pre>
+<p>There is actually quite a bit going on here, so it’s worth noting the syntax of the <code>mutate</code> function.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="getting-started.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="do">## mutate function syntax</span></span>
+<span id="cb23-2"><a href="getting-started.html#cb23-2" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span> </span>
+<span id="cb23-3"><a href="getting-started.html#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">your_variable_name =</span> some expression)</span></code></pre></div>
+<p>Recall that the tibble <strong>will not</strong> save with this new variable that you created unless you tell it to do so.</p>
+<p>Where <code>mutate</code> becomes very powerful is using in conjunction with the <code>ifelse</code> function. The <code>ifelse</code> function is a function that takes a conditional statement, and if it is TRUE, assigns a value, and if it is FALSE, assigns a different value. For instance, suppose we want to create a binary variable equal to 1 if a person is under the age of 18 and 0 if are not. Hence, we can use the <code>ifelse</code> function to create our desired binary variable. The syntax for the <code>ifelse</code> function is as follows:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="getting-started.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ifelse syntax</span></span>
+<span id="cb24-2"><a href="getting-started.html#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ifelse</span>(a condition, value <span class="cf">if</span> condition is <span class="cn">TRUE</span>, value <span class="cf">if</span> condition is <span class="cn">FALSE</span>)</span></code></pre></div>
+<p>This will be more clear once you see it in action. Let’s actually create the desired binary variable:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="getting-started.html#cb25-1" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span> </span>
+<span id="cb25-2"><a href="getting-started.html#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">child =</span> <span class="fu">ifelse</span>(age <span class="sc">&lt;</span> <span class="dv">18</span>, <span class="dv">1</span>, <span class="dv">0</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb25-3"><a href="getting-started.html#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 13
+##   passenger_id survived pclass name  sex     age sib_sp parch ticket  fare cabin
+##          &lt;int&gt;    &lt;int&gt;  &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt;  &lt;int&gt; &lt;int&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;
+## 1            1        0      3 Brau… male     22      1     0 A/5 2…  7.25 &quot;&quot;   
+## 2            2        1      1 Cumi… fema…    38      1     0 PC 17… 71.3  &quot;C85&quot;
+## 3            3        1      3 Heik… fema…    26      0     0 STON/…  7.92 &quot;&quot;   
+## 4            4        1      1 Futr… fema…    35      1     0 113803 53.1  &quot;C12…
+## 5            5        0      3 Alle… male     35      0     0 373450  8.05 &quot;&quot;   
+## 6            6        0      3 Mora… male     NA      0     0 330877  8.46 &quot;&quot;   
+## # ℹ 2 more variables: embarked &lt;chr&gt;, child &lt;dbl&gt;</code></pre>
+<p>Since we cannot see from the preview that we actually created a binary variable, let’s use the <code>distinct</code> function as a check.</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="getting-started.html#cb27-1" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span> </span>
+<span id="cb27-2"><a href="getting-started.html#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">child =</span> <span class="fu">ifelse</span>(age <span class="sc">&lt;</span> <span class="dv">18</span>, <span class="dv">1</span>, <span class="dv">0</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb27-3"><a href="getting-started.html#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(child)</span></code></pre></div>
+<pre><code>## # A tibble: 3 × 1
+##   child
+##   &lt;dbl&gt;
+## 1     0
+## 2    NA
+## 3     1</code></pre>
+<p><strong>REMEMBER</strong> the <code>child</code> variable <strong>DID NOT</strong> save unless you specifically tell R to do so. We will save this variable as we will use it later.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="getting-started.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="do">## saving the new variable</span></span>
+<span id="cb29-2"><a href="getting-started.html#cb29-2" aria-hidden="true" tabindex="-1"></a>titanic <span class="ot">&lt;-</span> titanic <span class="sc">%&gt;%</span> </span>
+<span id="cb29-3"><a href="getting-started.html#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">child =</span> <span class="fu">ifelse</span>(age <span class="sc">&lt;</span> <span class="dv">18</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span>
 <span id="cb29-4"><a href="getting-started.html#cb29-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-5"><a href="getting-started.html#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="do">## showing what our first_vector contains after assignment</span></span>
-<span id="cb29-6"><a href="getting-started.html#cb29-6" aria-hidden="true" tabindex="-1"></a>first_vector</span></code></pre></div>
-<pre><code>## [1] 7</code></pre>
-<p>The R community typically uses <code>&lt;-</code> as assignment rather than <code>=</code>. It does not matter which one you use when assigning a variable name, but this class will use the <code>&lt;-</code> assignment as it is the the most frequent one you see online.</p>
-<div id="exercise-3" class="section level3" number="2.4.1">
-<h3><span class="header-section-number">2.4.1</span> Exercise</h3>
+<span id="cb29-5"><a href="getting-started.html#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="do">## observing the first 5 rows</span></span>
+<span id="cb29-6"><a href="getting-started.html#cb29-6" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span></span>
+<span id="cb29-7"><a href="getting-started.html#cb29-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 13
+##   passenger_id survived pclass name  sex     age sib_sp parch ticket  fare cabin
+##          &lt;int&gt;    &lt;int&gt;  &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt;  &lt;int&gt; &lt;int&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;
+## 1            1        0      3 Brau… male     22      1     0 A/5 2…  7.25 &quot;&quot;   
+## 2            2        1      1 Cumi… fema…    38      1     0 PC 17… 71.3  &quot;C85&quot;
+## 3            3        1      3 Heik… fema…    26      0     0 STON/…  7.92 &quot;&quot;   
+## 4            4        1      1 Futr… fema…    35      1     0 113803 53.1  &quot;C12…
+## 5            5        0      3 Alle… male     35      0     0 373450  8.05 &quot;&quot;   
+## 6            6        0      3 Mora… male     NA      0     0 330877  8.46 &quot;&quot;   
+## # ℹ 2 more variables: embarked &lt;chr&gt;, child &lt;dbl&gt;</code></pre>
+</div>
+<div id="the-summarize-function" class="section level2 hasAnchor" number="5.8">
+<h2><span class="header-section-number">5.8</span> The <code>summarize</code> function<a href="getting-started.html#the-summarize-function" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The <code>summarize</code> function allows us to create statistics over columns quickly and efficiently. As a demonstration, we will be focusing on our <code>survived</code> column. Let’s suppose that we wanted to know the average of <code>survived</code>. Since this is a binary variable, this would be equivalent to the proportion of people who survived the titanic.</p>
+<p>Now let’s make a new column called <code>proportion_survived</code> which is equal to the mean of <code>survived</code>.</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="getting-started.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="do">## finding the average of the survived column</span></span>
+<span id="cb31-2"><a href="getting-started.html#cb31-2" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span> </span>
+<span id="cb31-3"><a href="getting-started.html#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">proportion_survived =</span> <span class="fu">mean</span>(survived, <span class="at">na.rm =</span> T))</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 1
+##   proportion_survived
+##                 &lt;dbl&gt;
+## 1               0.384</code></pre>
+<p>Take a closer look at the <code>summarize</code> function. You can think of the <code>summarize</code> function as similar to the <code>mutate</code> function as it creates a new variable equal to some summary statistic that you tell it to do. The basic syntax for the <code>summarize</code> function is as follows:</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="getting-started.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarize</span>(<span class="at">your_variable_name =</span> somefunction)</span></code></pre></div>
+<p>As another example, we could find the standard deviation of the <code>survived</code> column using the summarize function.</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="getting-started.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="do">##finding the standard deviation of the survived column</span></span>
+<span id="cb34-2"><a href="getting-started.html#cb34-2" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span> </span>
+<span id="cb34-3"><a href="getting-started.html#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">sd_survived =</span> <span class="fu">sd</span>(survived, <span class="at">na.rm =</span> T))</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 1
+##   sd_survived
+##         &lt;dbl&gt;
+## 1       0.487</code></pre>
+<div id="exercise-8" class="section level3 hasAnchor" number="5.8.1">
+<h3><span class="header-section-number">5.8.1</span> Exercise<a href="getting-started.html#exercise-8" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
-<li>Using your <code>my_own_vector1</code> and <code>my_own_vector2</code>, compare each of these vectors using the 4 logical operators.</li>
+<li>Find the variance of the <code>survived</code> column using the <code>summarize</code> function. See solutions at the end of the document.</li>
 </ul>
 </div>
 </div>
-<div id="creating-a-tibble" class="section level2" number="2.5">
-<h2><span class="header-section-number">2.5</span> Creating a tibble</h2>
-<p>A tibble is essentially a collection of columns with names, similar to an excel spreadsheet. If you are familiar with other computer languages, it is a special type of data frame that has particularly user-friendly characteristics such as making previewing data easier. To demonstrate this, we will observe the <code>titanic</code> data set we were working with earlier. Enter and run the following code:</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="getting-started.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="do">## this is currently a data frame - it does not have nice features to view the data or see the data types</span></span>
-<span id="cb31-2"><a href="getting-started.html#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="do">## the code output is suppressed here to make this document shorter</span></span>
-<span id="cb31-3"><a href="getting-started.html#cb31-3" aria-hidden="true" tabindex="-1"></a>titanic</span></code></pre></div>
-<p>The <code>titanic</code> data set is currently a data frame, and hence, it is difficult to view. Let’s change it to a tibble:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="getting-started.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="do">## changing the titanic data frame to a tibble</span></span>
-<span id="cb32-2"><a href="getting-started.html#cb32-2" aria-hidden="true" tabindex="-1"></a>titanic <span class="ot">&lt;-</span> <span class="fu">tibble</span>(titanic)</span></code></pre></div>
-<p>Now that we’ve changed titanic to a tibble, it has nicer previewing features. Observe what happens when we preview the data:</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="getting-started.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="do">## previewing the data</span></span>
-<span id="cb33-2"><a href="getting-started.html#cb33-2" aria-hidden="true" tabindex="-1"></a>titanic</span></code></pre></div>
-<pre><code>## # A tibble: 891 × 12
-##    PassengerId Survived Pclass Name   Sex     Age SibSp Parch Ticket  Fare Cabin
-##          &lt;int&gt;    &lt;int&gt;  &lt;int&gt; &lt;chr&gt;  &lt;chr&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;
-##  1           1        0      3 Braun… male     22     1     0 A/5 2…  7.25 &quot;&quot;   
-##  2           2        1      1 Cumin… fema…    38     1     0 PC 17… 71.3  &quot;C85&quot;
-##  3           3        1      3 Heikk… fema…    26     0     0 STON/…  7.92 &quot;&quot;   
-##  4           4        1      1 Futre… fema…    35     1     0 113803 53.1  &quot;C12…
-##  5           5        0      3 Allen… male     35     0     0 373450  8.05 &quot;&quot;   
-##  6           6        0      3 Moran… male     NA     0     0 330877  8.46 &quot;&quot;   
-##  7           7        0      1 McCar… male     54     0     0 17463  51.9  &quot;E46&quot;
-##  8           8        0      3 Palss… male      2     3     1 349909 21.1  &quot;&quot;   
-##  9           9        1      3 Johns… fema…    27     0     2 347742 11.1  &quot;&quot;   
-## 10          10        1      2 Nasse… fema…    14     1     0 237736 30.1  &quot;&quot;   
-## # … with 881 more rows, and 1 more variable: Embarked &lt;chr&gt;</code></pre>
-<p>As you can see, we now have a helpful snapshot of our data that displays far nicer than when the <code>titanic</code> data set was a data frame: we can see multiple columns, we see only the first 10 rows, and we can see the data types of each column nested under the column names (for instance, <code>PassengerID</code> is an <code>&lt;int&gt;</code> which stands for integer).</p>
-<p>Tibbles are what we will be working with most frequently in this course. While it is generally uncommon to manually create a tibble, it is a great exercise to get a better understanding of how they work. First, we will create another two vectors and recreate our <code>first_vector</code> with its original values:</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="getting-started.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="do">## reassigning original values to the first_vector</span></span>
-<span id="cb35-2"><a href="getting-started.html#cb35-2" aria-hidden="true" tabindex="-1"></a>first_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">10</span>)</span>
-<span id="cb35-3"><a href="getting-started.html#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="do">## new vector</span></span>
-<span id="cb35-4"><a href="getting-started.html#cb35-4" aria-hidden="true" tabindex="-1"></a>second_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>)</span></code></pre></div>
-<p>Now let’s create a tibble that has two columns. Our first column will be the values of <code>first_vector</code> and our second column will be the values of <code>second_vector</code>. We will use the <code>tibble</code> function which takes vectors as arguments. Similarly to vectors, we need to make sure that we <strong>save our tibble</strong> by assigning it to a name.</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="getting-started.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="do">## creating a tibble named first_tibble with two columns</span></span>
-<span id="cb36-2"><a href="getting-started.html#cb36-2" aria-hidden="true" tabindex="-1"></a>first_tibble <span class="ot">&lt;-</span> <span class="fu">tibble</span>(first_vector, second_vector)</span></code></pre></div>
-<p>Since we assigned this tibble a name, we can now see in our Global Environment that it has saved with our desired name. If we click <code>first_tibble</code> in the Global Environment, it will give us a spreadsheet view of our tibble. We can also accomplish this by using the <code>View</code> function.</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="getting-started.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Viewing our tibble in spreadsheet form</span></span>
-<span id="cb37-2"><a href="getting-started.html#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(first_tibble)</span></code></pre></div>
-<p>Notice that the tibble has two columns which are named identically to our vectors. As shown earlier using the <code>titanic</code> data, we can also perform actions on this tibble.</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="getting-started.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="do">## finding the mean of the first_vector column</span></span>
-<span id="cb38-2"><a href="getting-started.html#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="do">## I did not need to set the na.rm = T since no NA values, but did it anyways</span></span>
-<span id="cb38-3"><a href="getting-started.html#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(first_tibble<span class="sc">$</span>first_vector, <span class="at">na.rm =</span> T)</span></code></pre></div>
-<pre><code>## [1] 4.5</code></pre>
-<p>Alternatively, we could create a tibble with column names that differ from our vector names. In the previous example, our <code>first_tibble</code> has two columns with the names defaulted to <code>first_vector</code> and <code>second_vector</code>. However, we can initialize different names to the column by adding a little more syntax to our <code>tibble</code> function. Suppose I want to make a new tibble named <code>second_tibble</code> with the <code>first_vector</code> and <code>second_vector</code> as columns. However, I want the <code>first_vector</code> column to be named <code>age</code> and the <code>second_vector</code> column to be named <code>gender</code>.</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="getting-started.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Creating a new tibble with two columns with the names &quot;age&quot; and &quot;gender&quot;</span></span>
-<span id="cb40-2"><a href="getting-started.html#cb40-2" aria-hidden="true" tabindex="-1"></a>second_tibble <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="st">&quot;age&quot;</span> <span class="ot">=</span> first_vector, <span class="st">&quot;gender&quot;</span> <span class="ot">=</span> second_vector)</span>
-<span id="cb40-3"><a href="getting-started.html#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="do">## showing the result</span></span>
-<span id="cb40-4"><a href="getting-started.html#cb40-4" aria-hidden="true" tabindex="-1"></a>second_tibble</span></code></pre></div>
-<pre><code>## # A tibble: 4 × 2
-##     age gender
-##   &lt;dbl&gt;  &lt;dbl&gt;
-## 1     1      1
-## 2     3      1
-## 3     4      2
-## 4    10      2</code></pre>
-<p><strong>One other important point</strong>: Notice how in the <code>tibble</code> function we used <code>=</code> rather than <code>&lt;-</code> for assigning names. It is important that you use <code>=</code> for assigning arguments rather than <code>&lt;-</code>. Try using <code>&lt;-</code> in the tibble argument, and see how it fails to properly do what we want.</p>
-<div id="exercise-4" class="section level3" number="2.5.1">
-<h3><span class="header-section-number">2.5.1</span> Exercise</h3>
+<div id="the-group_by-and-summarize-functions" class="section level2 hasAnchor" number="5.9">
+<h2><span class="header-section-number">5.9</span> The <code>group_by</code> and <code>summarize</code> functions<a href="getting-started.html#the-group_by-and-summarize-functions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The <code>group_by</code> and <code>summarize</code> functions work together to make computing statistics within-groups easy. Suppose you wanted to know the average rate of survival by class type on the titanic. In other words, you suspect that the survival rate differs by people of different class To do this, you want to take the average of each group. The <code>group_by</code> function will group classes together and then the <code>summarize</code> function will be able to do summary statistics on each group individually.</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="getting-started.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="do">## finding the survival rate among classes</span></span>
+<span id="cb36-2"><a href="getting-started.html#cb36-2" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span> </span>
+<span id="cb36-3"><a href="getting-started.html#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(pclass) <span class="sc">%&gt;%</span> </span>
+<span id="cb36-4"><a href="getting-started.html#cb36-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">survival_rate =</span> <span class="fu">mean</span>(survived, <span class="at">na.rm =</span> T))</span></code></pre></div>
+<pre><code>## # A tibble: 3 × 2
+##   pclass survival_rate
+##    &lt;int&gt;         &lt;dbl&gt;
+## 1      1         0.630
+## 2      2         0.473
+## 3      3         0.242</code></pre>
+<p>From here you can see that the survival rate greatly varied across different classes. It appears that survival was much more prevalent for higher class people. An interesting result! Let’s also review what is happening here in the language of pipes:</p>
 <ul>
-<li>Using your vectors <code>my_own_vector1</code> and <code>my_own_vector2</code> that you created in the earlier exercise, create a tibble using the <code>tibble</code> function.</li>
+<li>Take the <code>titanic</code> data</li>
+<li>And now group by class</li>
+<li>And now summarize the survival rate by creating a column equal to the mean of the <code>survived</code> column within each class.</li>
 </ul>
+<p>You may be curious what happens when you do a <code>group_by</code> without a <code>summarize</code>. The truth is, nothing happens! R will create a grouping, but it means nothing unless you actually perform some sort of meaningful statistic on each group.</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="getting-started.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="do">## using a group_by without a summarize or following function does nothing</span></span>
+<span id="cb38-2"><a href="getting-started.html#cb38-2" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span> </span>
+<span id="cb38-3"><a href="getting-started.html#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sex)</span></code></pre></div>
+<pre><code>## # A tibble: 891 × 13
+## # Groups:   sex [2]
+##    passenger_id survived pclass name       sex     age sib_sp parch ticket  fare
+##           &lt;int&gt;    &lt;int&gt;  &lt;int&gt; &lt;chr&gt;      &lt;chr&gt; &lt;dbl&gt;  &lt;int&gt; &lt;int&gt; &lt;chr&gt;  &lt;dbl&gt;
+##  1            1        0      3 Braund, M… male     22      1     0 A/5 2…  7.25
+##  2            2        1      1 Cumings, … fema…    38      1     0 PC 17… 71.3 
+##  3            3        1      3 Heikkinen… fema…    26      0     0 STON/…  7.92
+##  4            4        1      1 Futrelle,… fema…    35      1     0 113803 53.1 
+##  5            5        0      3 Allen, Mr… male     35      0     0 373450  8.05
+##  6            6        0      3 Moran, Mr… male     NA      0     0 330877  8.46
+##  7            7        0      1 McCarthy,… male     54      0     0 17463  51.9 
+##  8            8        0      3 Palsson, … male      2      3     1 349909 21.1 
+##  9            9        1      3 Johnson, … fema…    27      0     2 347742 11.1 
+## 10           10        1      2 Nasser, M… fema…    14      1     0 237736 30.1 
+## # ℹ 881 more rows
+## # ℹ 3 more variables: cabin &lt;chr&gt;, embarked &lt;chr&gt;, child &lt;dbl&gt;</code></pre>
+<p>Since it is imperative to understand the <code>group_by</code> followed by the <code>summarize</code> function, try out a couple of exercises.</p>
+<div id="exercise-9" class="section level3 hasAnchor" number="5.9.1">
+<h3><span class="header-section-number">5.9.1</span> Exercise<a href="getting-started.html#exercise-9" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Did women have a higher rate of survival than males? Find the answer to this question using the <code>group_by</code> and <code>summarize</code> functions.</li>
+</ul>
+</div>
+<div id="exercise-10" class="section level3 hasAnchor" number="5.9.2">
+<h3><span class="header-section-number">5.9.2</span> Exercise<a href="getting-started.html#exercise-10" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Is there a difference in survival rates between women and men who were in a higher class? Using the <code>group_by</code> and <code>summarize</code> functions, find the answer to this question. Hint: put two arguments in the <code>group_by</code> function.</li>
+</ul>
+<pre><code>## `summarise()` has grouped output by &#39;sex&#39;. You can override using the `.groups`
+## argument.</code></pre>
 </div>
 </div>
 </div>
@@ -434,12 +722,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="selected-solutions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="git-and-github.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="selected-solutions-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -467,7 +754,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/jules32/bookdown-tutorial/edit/master/intro_r.Rmd",
+"link": "https://github.com/jules32/bookdown-tutorial/edit/master/guided_exercises_week_2.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -479,6 +766,10 @@ gitbook.start({
 "text": null
 },
 "download": ["series.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }
